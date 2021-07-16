@@ -7626,13 +7626,31 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
     <url>/posts/b58cbef5.html</url>
     <content><![CDATA[<p>在听了榛子的分享会之后决定把我日常梳理论文的东西从公开发布的Annotated Bibliography改成Obsidian，但是这个网站上有的时候还会发一些我写的类似于综述的东西吧。</p>
 <a id="more"></a>
-<h1 id="git同步"><a class="markdownIt-Anchor" href="#git同步"></a> Git同步</h1>
+<h1 id="git同步">Git同步</h1>
 <p>需要安装<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Rlbm9sZWhvdi9vYnNpZGlhbi1naXQ=">obsidian-git<i class="fa fa-external-link-alt"></i></span>这个插件，然后就和其他的创建repo同步的方法差不多了，我参照的是<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1INmlwanphTjJXWQ==">这个<i class="fa fa-external-link-alt"></i></span>视频。</p>
 <p>在Obsidian-git插件里可以设置同步时间之类的</p>
-<h1 id="day-planner-and-calendar"><a class="markdownIt-Anchor" href="#day-planner-and-calendar"></a> Day planner and Calendar</h1>
+<h1 id="day-planner-and-calendar">Day planner and Calendar</h1>
 <p>基本弄完之后就很好看</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030619235856373.png" alt="image-00030619235856373"></p>
-<h1 id="work-with-zotero"><a class="markdownIt-Anchor" href="#work-with-zotero"></a> Work with zotero</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030619235856373.png" alt="image-00030619235856373"><figcaption aria-hidden="true">image-00030619235856373</figcaption>
+</figure>
+<h1 id="work-with-zotero">Work with zotero</h1>
+<h1 id="榛子-写作工作流分享会">榛子 写作工作流分享会</h1>
+<p>讲的很细，自己还是得先把双向链接用起来再听这个</p>
+<p>前期可以依靠很多输入，但是不能依靠脑图这种方式，脑图是别人的想法。</p>
+<p>除非写下自己为什么在乎这个，自己对这个的想法是什么，一边输入一边输出</p>
+<h2 id="双向链接">双向链接</h2>
+<p>Backlinks: 在写的时候就想链接在一起的</p>
+<h2 id="其他东西">其他东西</h2>
+<p>工作的时候专注产出，自己写的产出，而不是时间之类的</p>
+<p>虚假繁荣</p>
+<ol type="1">
+<li>Mind-map</li>
+<li>复盘方式</li>
+<li>copy past</li>
+<li>note taking：除非paraphrase成自己的话</li>
+<li>好看的排版</li>
+</ol>
 ]]></content>
       <categories>
         <category>实用工具</category>
