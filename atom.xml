@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2021-07-15T08:49:39.874Z</updated>
+  <updated>2021-07-30T23:28:07.159Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,17 +17,63 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>秋招进程记录</title>
+    <link href="https://lifeodyssey.github.io/posts/2cb8508a.html"/>
+    <id>https://lifeodyssey.github.io/posts/2cb8508a.html</id>
+    <published>2021-07-30T23:13:10.000Z</published>
+    <updated>2021-07-30T23:28:07.159Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;8.2号就答辩了。&lt;/p&gt;
+&lt;p&gt;这几天都是睡在实验室里，也许答辩完或者写完最后的论文会再整理一点东西写出来吧。&lt;/p&gt;
+&lt;p&gt;忽然想起来，自己这个博客一开始也只想纯写技术型的东西，后来就慢慢地不得不加入了很多个人生活的东西。因为自己很难有别的地方去抒发这么长篇大论的感受。&lt;/p&gt;
+&lt;h1 id=&quot;开始之前的个人牢骚&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#开始之前的个人牢骚&quot;&gt;&lt;/a&gt; 开始之前的个人牢骚&lt;/h1&gt;
+&lt;p&gt;今天早晨起来看到了一个化学转CS的[经历贴](- &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuMXBvaW50M2FjcmVzLmNvbS9iYnMvdGhyZWFkLTc2NTkyNi0xLTEuaHRtbA==&quot;&gt;https://www.1point3acres.com/bbs/thread-765926-1-1.html&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;)，关于他为什么要转CS，文里是这么写的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;计算化学&lt;/strong&gt;，我认为它是一条河流，这个河流连接的一端是严谨的物理的理论，另一端是可以定量的预测和解释化学反应和性质的能力。&lt;/p&gt;
+&lt;p&gt;这条河流分为三个部分，可以理解为一条河流的&lt;strong&gt;上游、中游和下游&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;上游是用物理的方法去根据已有的物理定律去建立一个有效的模型，这个模型里面可能做了某些近似，那么我们需要根据化学的直觉以及扎实的物理基础来建立这些模型。&lt;/p&gt;
+&lt;p&gt;中游叫做算法，就是说建立一个模型之后，我们如何用一定的方法去求解这个模型，才能从这个模型中得出我们预测的结果。&lt;/p&gt;
+&lt;p&gt;下游是做应用，也就是说如何把模型用到一个有化学价值的体系里面。&lt;/p&gt;
+&lt;p&gt;那么这三个部分就也就决定了计算化学它要用到一些物理、应用数学以及计算机科学的知识。&lt;/p&gt;
+&lt;p&gt;因为我做了很多研究的项目，我在做这个项目的时候发现一个共同点：我在做这个研究的时候，好像关注的不是它背后有多么深刻的物理的原理，也没有去观察它能利用哪些化学直觉，然后做哪些化学的体系，而是更多的把精力放在了第二步，也就是说算法那一步。&lt;/p&gt;
+&lt;p&gt;如何去有效的求解这些模型是我最关心的，也是任何一个项目最使我感到有意思的一部分。&lt;/p&gt;
+&lt;p&gt;在这种情况下，我就逐渐的意识到，其实我计算化学之所以能做出一定的研究成果，并不是因为我对化学甚至物理有多大的兴趣，而是说我比较喜欢研究这些计算方面的方法，而这个东西本质上和我用到哪个学科里是没有关系的。&lt;/p&gt;
+&lt;p&gt;另一方面，我个人其实在写代码的时候是有一种比较独特的情感，我会觉得这种解决工程问题的过程中它有一种非常有意思的动手实践的感觉，它有一种及时的反馈；而我在思考一些更偏科学的问题的时候，我觉得我没有这种愉悦感。&lt;/p&gt;
+&lt;p&gt;所以说，这种表面的认同和实际经验中的快乐的区别是我在成长的过程中意识到的重要的一个心法，一种思考问题的方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其实我的情况和这个差不多。&lt;/p&gt;
+&lt;p&gt;本科的时候能让我开心的从来不是生物的化学的知识，而是数学上清楚地推导。&lt;/p&gt;
+&lt;p&gt;现在能让我沉浸的也不是什么奇特的有趣的现象，而是物理光学之类的原理，和数学统计上的推导。&lt;/p&gt;
+&lt;p&gt;不同的是，可能我对算法并没有最关注，可能这三步我关注的点大概是442这样。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="成为社畜的路上" scheme="https://lifeodyssey.github.io/categories/%E6%88%90%E4%B8%BA%E7%A4%BE%E7%95%9C%E7%9A%84%E8%B7%AF%E4%B8%8A/"/>
+    
+    
+    <category term="日常记录" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Carbon flux by Bai</title>
     <link href="https://lifeodyssey.github.io/posts/149c7e00.html"/>
     <id>https://lifeodyssey.github.io/posts/149c7e00.html</id>
     <published>2021-07-15T06:00:04.000Z</published>
-    <updated>2021-07-15T08:49:39.874Z</updated>
+    <updated>2021-07-30T23:14:06.872Z</updated>
     
     
     <summary type="html">&lt;p&gt;白老师在第二届水色遥感理论班的碳循环课程，草草记了一点&lt;/p&gt;</summary>
     
     
     
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
+    
+    <category term="Research Basis" scheme="https://lifeodyssey.github.io/tags/Research-Basis/"/>
     
   </entry>
   
@@ -36,13 +82,19 @@
     <link href="https://lifeodyssey.github.io/posts/23b76a18.html"/>
     <id>https://lifeodyssey.github.io/posts/23b76a18.html</id>
     <published>2021-07-14T06:15:26.000Z</published>
-    <updated>2021-07-14T09:05:12.947Z</updated>
+    <updated>2021-07-30T23:13:56.305Z</updated>
     
     
     <summary type="html">&lt;p&gt;何老师在第二届水色遥感理论班的大气校正课程&lt;/p&gt;</summary>
     
     
     
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Ocean Optics" scheme="https://lifeodyssey.github.io/tags/Ocean-Optics/"/>
+    
+    <category term="Research Basis" scheme="https://lifeodyssey.github.io/tags/Research-Basis/"/>
     
   </entry>
   
@@ -397,25 +449,6 @@
     <category term="particle backscattering" scheme="https://lifeodyssey.github.io/tags/particle-backscattering/"/>
     
     <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我为什么喜欢做科研</title>
-    <link href="https://lifeodyssey.github.io/posts/490b1360.html"/>
-    <id>https://lifeodyssey.github.io/posts/490b1360.html</id>
-    <published>2021-04-12T03:08:05.000Z</published>
-    <updated>2021-04-14T05:27:15.447Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;大概是最近拷问自己内心的结果。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="梦里真真语真幻" scheme="https://lifeodyssey.github.io/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/"/>
-    
-    
-    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
   </entry>
   
