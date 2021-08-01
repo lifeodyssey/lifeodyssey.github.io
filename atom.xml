@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2021-07-30T23:46:11.406Z</updated>
+  <updated>2021-08-01T01:13:46.983Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SGLI 官方工具</title>
+    <link href="https://lifeodyssey.github.io/posts/46164445.html"/>
+    <id>https://lifeodyssey.github.io/posts/46164445.html</id>
+    <published>2021-08-01T01:11:35.000Z</published>
+    <updated>2021-08-01T01:13:46.983Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;日本第二代水色卫星SGLI提供的官方工具，在这个&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9ncG9ydGFsLmpheGEuanAvZ3ByL2luZm9ybWF0aW9uL3Rvb2w/bGFuZz1lbiNHQ09NLUM=&quot;&gt;网站&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;可以看到。&lt;/p&gt;
+&lt;p&gt;大概试试怎么使用&lt;/p&gt;
+&lt;h1 id=&quot;sgli-map-projection-geotiff-conversion-toolver.1.0&quot;&gt;SGLI Map projection &amp;amp; GeoTIFF conversion Tool(Ver.1.0)&lt;/h1&gt;
+&lt;h1 id=&quot;sgli-user-tool-ver.1.05&quot;&gt;SGLI User Tool (Ver.1.05)&lt;/h1&gt;
+&lt;h1 id=&quot;sgli-product-io-toolkit&quot;&gt;SGLI Product I/O Toolkit&lt;/h1&gt;
+</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
+    
+    <category term="Research" scheme="https://lifeodyssey.github.io/tags/Research/"/>
+    
+    <category term="Oceanography" scheme="https://lifeodyssey.github.io/tags/Oceanography/"/>
+    
+  </entry>
   
   <entry>
     <title>秋招进程记录</title>
@@ -423,32 +451,6 @@
     
     
     <category term="python" scheme="https://lifeodyssey.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The optics of backscattering</title>
-    <link href="https://lifeodyssey.github.io/posts/99c2b0bb.html"/>
-    <id>https://lifeodyssey.github.io/posts/99c2b0bb.html</id>
-    <published>2021-05-05T07:13:17.000Z</published>
-    <updated>2021-05-11T01:06:54.014Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;I need to understand the optics of backscattering to understand the strange &#39;bbp&#39; calculted from Rrs and and.&lt;/p&gt;
-&lt;p&gt;Material mainly from IOCCG summer lecture 2018 and ocean optics web book.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Ocean Optics" scheme="https://lifeodyssey.github.io/tags/Ocean-Optics/"/>
-    
-    <category term="particle backscattering" scheme="https://lifeodyssey.github.io/tags/particle-backscattering/"/>
-    
-    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
     
   </entry>
   

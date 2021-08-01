@@ -9085,4 +9085,22 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
         <tag>日常记录</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SGLI 官方工具</title>
+    <url>/posts/46164445.html</url>
+    <content><![CDATA[<p>日本第二代水色卫星SGLI提供的官方工具，在这个<span class="exturl" data-url="aHR0cHM6Ly9ncG9ydGFsLmpheGEuanAvZ3ByL2luZm9ybWF0aW9uL3Rvb2w/bGFuZz1lbiNHQ09NLUM=">网站<i class="fa fa-external-link-alt"></i></span>可以看到。</p>
+<p>大概试试怎么使用</p>
+<h1 id="sgli-map-projection-geotiff-conversion-toolver.1.0">SGLI Map projection &amp; GeoTIFF conversion Tool(Ver.1.0)</h1>
+<h1 id="sgli-user-tool-ver.1.05">SGLI User Tool (Ver.1.05)</h1>
+<h1 id="sgli-product-io-toolkit">SGLI Product I/O Toolkit</h1>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Ocean Color</tag>
+        <tag>Research</tag>
+        <tag>Oceanography</tag>
+      </tags>
+  </entry>
 </search>
