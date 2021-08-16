@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2021-08-12T06:29:54.006Z</updated>
+  <updated>2021-08-16T12:09:44.514Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>游戏策划面试总结</title>
+    <link href="https://lifeodyssey.github.io/posts/b1322f4c.html"/>
+    <id>https://lifeodyssey.github.io/posts/b1322f4c.html</id>
+    <published>2021-08-16T11:54:40.000Z</published>
+    <updated>2021-08-16T12:09:44.514Z</updated>
+    
+    
+    <summary type="html">&lt;div class=&quot;hbe hbe-container&quot; id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;Oh, this is an invalid password. Check and try again, please.&quot; data-whm=&quot;OOPS, these decrypted content may changed, but you can still have a look.&quot;&gt;
+  &lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;5dd9f26d2f4205029657b17347a4f4c036f6b84c2a44bd16e73f5800408d024d&quot;&gt;fbe12f49142b31517d68523697ea658052995e2490407b077ee2c4501b16241a9a326127b8969bdb5374f1cd29cdf4d39663d5c30f6be89523c79386ec855ca0e8aa0bff7a1eb4832b73704f53b247bb94aa27182b43556da5f904e31fb942df7cdf9d534162485676b951dcf764cdd459eab47b9d81a4c31cdc721d5736552528585cf45b443a8b006ef50de4c6566e101b00c5e0a7e6d940c5ba5a2b168a2f0511db8481e7d75e08e3d8a7d77e70227e1a09b1139fedfe7774bcca3c32421e69125040e18adc63acd239344e254569da8ebacca1bfb3747f7514d56e0e3bff001cbf9007db69451a9ed291c73b2d32b8d69b2893780987c01a8cb1f0f89fb8d470973d8c12a7ea3f5cc13651a3336ca52f549dafb177a41918ed3231f16c0d15118b6bca5f381a569da34b6fd20eb0b4f89f537038e3564a45c3a84b7d4461a6de6e6d6c223ee95ecdc767301f3b7b4bcc0dae9344ef23a89a4a54ce09163863fde0786e7232900429fe7a7c860ce28e7730a0704a4f620c7136d15c95bd9474f4f82170d431d4eeadbadae1db630c7e5e6e8205334b499dc1a0492a945e379c04c6053b8fc9bff1f32db51d5b5d1311ecf860e47a296cf331af061d3f206363fec57939f574f5b80eb8b43c8bd0e0b1214d752b95dfa3980b374136bcabc781dff34052f32ae8c9d1fc1ab6f1102e31110454f588affc78b169a9785393d690dada4848a38681a410105a6e471a6a7b4d3647b4a73cd2b3ba5581959cd789c7a2ecf4b9ce859ffad14ce6fe780f8ecb1070d364fc8438781834a355a815036f986214f87df35a8c3a1bc8ff7e964836fe7ba621be01e9f5caf21b05cfc7650396e919bc6893efe89d89bb74b38c12500798955d2766acc299dda012ae0e7cff8645ad4f3847e3e62547d19767067859879359b7041f27b6f4e293a4daf6c37c28ad90c4675a19a183783c36c92c499dd2ab547c94e916aa4c025336f7acb683a16e87f87e614a7cb4c8959ad7668b0e75eb141bd1429a7aae6bcabe2c9685a491dd4dda4778839d1f87fc85dbdb2e&lt;/script&gt;
+  &lt;div class=&quot;hbe hbe-content&quot;&gt;
+    &lt;div class=&quot;hbe hbe-input hbe-input-default&quot;&gt;
+      &lt;input class=&quot;hbe hbe-input-field hbe-input-field-default&quot; type=&quot;password&quot; id=&quot;hbePass&quot;&gt;
+      &lt;label class=&quot;hbe hbe-input-label hbe-input-label-default&quot; for=&quot;hbePass&quot;&gt;
+        &lt;span class=&quot;hbe hbe-input-label-content hbe-input-label-content-default&quot;&gt;Hey, password is required here.&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&quot;/lib/hbe.js&quot;&gt;&lt;/script&gt;&lt;link href=&quot;/css/hbe.style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</summary>
+    
+    
+    
+    <category term="成为社畜的路上" scheme="https://lifeodyssey.github.io/categories/%E6%88%90%E4%B8%BA%E7%A4%BE%E7%95%9C%E7%9A%84%E8%B7%AF%E4%B8%8A/"/>
+    
+    
+    <category term="游戏策划" scheme="https://lifeodyssey.github.io/tags/%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92/"/>
+    
+    <category term="面试" scheme="https://lifeodyssey.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>某公司从零自学过笔试</title>
@@ -428,30 +460,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Detection and tracking of Chattonella spp. and Skeletonema spp. blooms using Geostationary Ocean Color Imager (GOCI) in Ariake Sea, Japan</title>
-    <link href="https://lifeodyssey.github.io/posts/5ea02cae.html"/>
-    <id>https://lifeodyssey.github.io/posts/5ea02cae.html</id>
-    <published>2021-06-11T13:23:40.000Z</published>
-    <updated>2021-06-11T14:05:08.670Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;I participated in the statistics and plot part of this paper.&lt;/p&gt;
-&lt;p&gt;https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020JC016924&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Papers And Thesis" scheme="https://lifeodyssey.github.io/categories/Papers-And-Thesis/"/>
-    
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Harmful Algae" scheme="https://lifeodyssey.github.io/tags/Harmful-Algae/"/>
-    
-    <category term="Research Article" scheme="https://lifeodyssey.github.io/tags/Research-Article/"/>
     
   </entry>
   
