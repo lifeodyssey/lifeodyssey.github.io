@@ -32,8 +32,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/D75BADEA-86A3-4AA9-81C8-159829A7F2F7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/ternary_3.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/512.png">
-<meta property="article:published_time" content="2021-03-11T08:19:10.000Z">
-<meta property="article:modified_time" content="2021-04-06T13:18:48.107Z">
+<meta property="article:published_time" content="2021-03-11T09:19:10.000Z">
+<meta property="article:modified_time" content="2021-04-06T13:18:48.000Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Research">
 <meta property="article:tag" content="python">
@@ -238,7 +238,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -251,7 +251,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -337,14 +337,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-03-11 17:19:10" itemprop="dateCreated datePublished" datetime="2021-03-11T17:19:10+09:00">2021-03-11</time>
+              <time title="Created: 2021-03-11 17:19:10" itemprop="dateCreated datePublished" datetime="2021-03-11T17:19:10+08:00">2021-03-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-06 22:18:48" itemprop="dateModified" datetime="2021-04-06T22:18:48+09:00">2021-04-06</time>
+                <time title="Modified: 2021-04-06 21:18:48" itemprop="dateModified" datetime="2021-04-06T21:18:48+08:00">2021-04-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,7 +384,7 @@
 <h1 id="python-package">Python package</h1>
 <p>This is the package I used https://github.com/marcharper/python-ternary</p>
 <p>The following is the most usefull sample for me.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ternary</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">cm = plt.cm.get_cmap(<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dat=pd.DataFrame(columns=list(<span class="string">&#x27;XYZV&#x27;</span>))</span><br><span class="line"></span><br><span class="line">dat[<span class="string">&#x27;X&#x27;</span>]=random.sample(range(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Y&#x27;</span>]=random.sample(range(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Z&#x27;</span>]=<span class="number">100</span>-(dat[<span class="string">&#x27;X&#x27;</span>]+dat[<span class="string">&#x27;Y&#x27;</span>])</span><br><span class="line">dat[<span class="string">&#x27;V&#x27;</span>]=<span class="number">10</span>**np.random.randint(<span class="number">0</span>,high=<span class="number">10</span>,size=<span class="number">10</span>)/<span class="number">1e5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sc = plt.scatter(dat.X, dat.Y, c=dat.V, vmin=0, vmax=7, s=35, cmap=cm)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scale=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig, tax = ternary.figure(scale=scale)</span><br><span class="line">fig.set_size_inches(<span class="number">10</span>, <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">points=dat[[<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;Z&#x27;</span>]].values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">minv=np.log10(dat.V.min())</span><br><span class="line">maxv=np.log10(dat.V.max())</span><br><span class="line"></span><br><span class="line">tax.scatter(points,s=<span class="number">60</span>,vmin=minv,vmax=maxv,colormap=plt.cm.viridis,colorbar=<span class="literal">True</span>,c=np.log10(dat[<span class="string">&#x27;V&#x27;</span>].values),cmap=plt.cm.viridis)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Decoration.</span></span><br><span class="line">tax.boundary(linewidth=<span class="number">1</span>)</span><br><span class="line">tax.gridlines(multiple=<span class="number">10</span>, color=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">tax.ticks(axis=<span class="string">&#x27;lbr&#x27;</span>, linewidth=<span class="number">1</span>, multiple=<span class="number">20</span>)</span><br><span class="line">tax.get_axes().axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">figure.set_size_inches(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">tax.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ternary</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">cm = plt.cm.get_cmap(<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dat=pd.DataFrame(columns=<span class="built_in">list</span>(<span class="string">&#x27;XYZV&#x27;</span>))</span><br><span class="line"></span><br><span class="line">dat[<span class="string">&#x27;X&#x27;</span>]=random.sample(<span class="built_in">range</span>(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Y&#x27;</span>]=random.sample(<span class="built_in">range</span>(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Z&#x27;</span>]=<span class="number">100</span>-(dat[<span class="string">&#x27;X&#x27;</span>]+dat[<span class="string">&#x27;Y&#x27;</span>])</span><br><span class="line">dat[<span class="string">&#x27;V&#x27;</span>]=<span class="number">10</span>**np.random.randint(<span class="number">0</span>,high=<span class="number">10</span>,size=<span class="number">10</span>)/<span class="number">1e5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sc = plt.scatter(dat.X, dat.Y, c=dat.V, vmin=0, vmax=7, s=35, cmap=cm)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scale=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig, tax = ternary.figure(scale=scale)</span><br><span class="line">fig.set_size_inches(<span class="number">10</span>, <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">points=dat[[<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;Z&#x27;</span>]].values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">minv=np.log10(dat.V.<span class="built_in">min</span>())</span><br><span class="line">maxv=np.log10(dat.V.<span class="built_in">max</span>())</span><br><span class="line"></span><br><span class="line">tax.scatter(points,s=<span class="number">60</span>,vmin=minv,vmax=maxv,colormap=plt.cm.viridis,colorbar=<span class="literal">True</span>,c=np.log10(dat[<span class="string">&#x27;V&#x27;</span>].values),cmap=plt.cm.viridis)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Decoration.</span></span><br><span class="line">tax.boundary(linewidth=<span class="number">1</span>)</span><br><span class="line">tax.gridlines(multiple=<span class="number">10</span>, color=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">tax.ticks(axis=<span class="string">&#x27;lbr&#x27;</span>, linewidth=<span class="number">1</span>, multiple=<span class="number">20</span>)</span><br><span class="line">tax.get_axes().axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">figure.set_size_inches(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">tax.show()</span><br></pre></td></tr></table></figure>
 <figure>
 <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/D75BADEA-86A3-4AA9-81C8-159829A7F2F7.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
 </figure>
@@ -490,7 +490,7 @@
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -499,12 +499,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">832k</span>
+    <span title="Symbols count total">895k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:37</span>
+    <span title="Reading time total">13:34</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

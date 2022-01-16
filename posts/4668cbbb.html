@@ -22,14 +22,14 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="毕业论文基于auto-sklearn做了一些自动机器学习模型的应用，模型的原理可以点击这里，我这儿讲一下我的代码怎么用，相当于是一个详细版的注释。 代码地址见https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey&#x2F;AMF。">
+  <meta name="description" content="毕业论文基于auto-sklearn做了一些自动机器学习模型的应用，模型的原理可以点击这里，我这儿讲一下我的代码怎么用，相当于是一个详细版的注释。 代码地址见https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey&#x2F;AMF。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动机器学习代码详解">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/4668cbbb.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
-<meta property="og:description" content="毕业论文基于auto-sklearn做了一些自动机器学习模型的应用，模型的原理可以点击这里，我这儿讲一下我的代码怎么用，相当于是一个详细版的注释。 代码地址见https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey&#x2F;AMF。">
+<meta property="og:description" content="毕业论文基于auto-sklearn做了一些自动机器学习模型的应用，模型的原理可以点击这里，我这儿讲一下我的代码怎么用，相当于是一个详细版的注释。 代码地址见https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey&#x2F;AMF。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-05-16T01:22:38.000Z">
+<meta property="article:published_time" content="2019-05-16T02:22:38.000Z">
 <meta property="article:modified_time" content="2019-06-05T07:04:04.000Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Automatic Machine Learning">
@@ -234,7 +234,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">99</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -247,7 +247,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -333,14 +333,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2019-05-16 10:22:38" itemprop="dateCreated datePublished" datetime="2019-05-16T10:22:38+09:00">2019-05-16</time>
+              <time title="Created: 2019-05-16 10:22:38" itemprop="dateCreated datePublished" datetime="2019-05-16T10:22:38+08:00">2019-05-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-06-05 16:04:04" itemprop="dateModified" datetime="2019-06-05T16:04:04+09:00">2019-06-05</time>
+                <time title="Modified: 2019-06-05 15:04:04" itemprop="dateModified" datetime="2019-06-05T15:04:04+08:00">2019-06-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -385,7 +385,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python code.py</span><br></pre></td></tr></table></figure>
 <p>即可开始运行程序。</p>
 <p>以下是程序的详细说明，如果要修改代码，可以在服务器中直接使用vim进行修改，也可以在本地修改好之后用PSFTP推送到服务器上。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> autosklearn.regression</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment">#前面这四行是引入相应的环境包</span></span><br><span class="line">rawdata=pd.read_excel(<span class="string">&#x27;rawdata.xlsx&#x27;</span>)<span class="comment">#单引号输入要读入文件的路径，文件的格式参考服务器中的rawdata.xlsx</span></span><br><span class="line">Y=rawdata[[<span class="string">&#x27;cpue&#x27;</span>]]<span class="comment">#单引号内写要预测的变量名</span></span><br><span class="line"></span><br><span class="line">Y=np.log10(Y+<span class="number">1</span>)<span class="comment">#这里采用了对数变换，可以去掉</span></span><br><span class="line">X=rawdata[[<span class="string">&#x27;lon&#x27;</span>,<span class="string">&#x27;lat&#x27;</span>,<span class="string">&#x27;sst&#x27;</span>,<span class="string">&#x27;chla&#x27;</span>,<span class="string">&#x27;doy&#x27;</span>]]<span class="comment">#单引号内输入要使用的变量名</span></span><br><span class="line">x_train,x_test,y_train,y_test=train_test_split(X,Y,test_size=<span class="number">0.3</span>,random_state=<span class="number">7</span>)<span class="comment">#test size代表了测试集在整个数据集中的占比，这里选取的是0.3即30%</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">automl = autosklearn.regression.AutoSklearnRegressor(</span><br><span class="line">    include_estimators=[<span class="string">&quot;random_forest&quot;</span>,<span class="string">&quot;decision_tree&quot;</span>,<span class="string">&quot;gradient_boosting&quot;</span>,<span class="string">&quot;xgradient_boosting&quot;</span>],</span><br><span class="line">    <span class="comment">#这里只放了几个我认为效果比较好的模型，模型种类参见https://github.com/automl/auto-sklearn/tree/master/autosklearn/pipeline/components/regression，如果想换用模型，把双引号内的名称更改即可；如果想删除或者添加，直接去掉相应的名称即可</span></span><br><span class="line">    exclude_estimators=<span class="literal">None</span>,</span><br><span class="line">    include_preprocessors=[<span class="string">&quot;no_preprocessing&quot;</span>, ],</span><br><span class="line">    exclude_preprocessors=<span class="literal">None</span>,</span><br><span class="line">    resampling_strategy=<span class="string">&#x27;cv&#x27;</span>,</span><br><span class="line">    resampling_strategy_arguments=&#123;<span class="string">&#x27;folds&#x27;</span>: <span class="number">10</span>&#125;,<span class="comment">#这里选了十折交叉验证来确定最优参数</span></span><br><span class="line">    )</span><br><span class="line">automl.fit(x_train, y_train.values.ravel())</span><br><span class="line"></span><br><span class="line">automl.sprint_statistics()</span><br><span class="line">automl.show_models()</span><br><span class="line">automl.refit(x_train, y_train.values.ravel())</span><br><span class="line"><span class="comment">#如果想输入新的自变量来做预测的话,将下面几句前面的#去除即可</span></span><br><span class="line"><span class="comment">#predata=pd.read_excel(&#x27;rawdata.xlsx&#x27;)#单引号内输入文件路径</span></span><br><span class="line"><span class="comment">#X=predata[[&#x27;lon&#x27;,&#x27;lat&#x27;,&#x27;sst&#x27;,&#x27;chla&#x27;,&#x27;doy&#x27;]]#单引号内输入选取的变量名</span></span><br><span class="line">y_pre = automl.predict(X)</span><br><span class="line">ypre=np.power(<span class="number">10</span>,ypre)<span class="number">-1</span><span class="comment">#变换回来</span></span><br><span class="line">ypre=pd.DataFrame(ypre)</span><br><span class="line">result=pd.concat([rawdata,ypre])<span class="comment">#如果输入新的自变量来做预测，将rawdata改为predata</span></span><br><span class="line">result.to_excel(<span class="string">&#x27;result.xlsx&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> autosklearn.regression</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment">#前面这四行是引入相应的环境包</span></span><br><span class="line">rawdata=pd.read_excel(<span class="string">&#x27;rawdata.xlsx&#x27;</span>)<span class="comment">#单引号输入要读入文件的路径，文件的格式参考服务器中的rawdata.xlsx</span></span><br><span class="line">Y=rawdata[[<span class="string">&#x27;cpue&#x27;</span>]]<span class="comment">#单引号内写要预测的变量名</span></span><br><span class="line"></span><br><span class="line">Y=np.log10(Y+<span class="number">1</span>)<span class="comment">#这里采用了对数变换，可以去掉</span></span><br><span class="line">X=rawdata[[<span class="string">&#x27;lon&#x27;</span>,<span class="string">&#x27;lat&#x27;</span>,<span class="string">&#x27;sst&#x27;</span>,<span class="string">&#x27;chla&#x27;</span>,<span class="string">&#x27;doy&#x27;</span>]]<span class="comment">#单引号内输入要使用的变量名</span></span><br><span class="line">x_train,x_test,y_train,y_test=train_test_split(X,Y,test_size=<span class="number">0.3</span>,random_state=<span class="number">7</span>)<span class="comment">#test size代表了测试集在整个数据集中的占比，这里选取的是0.3即30%</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">automl = autosklearn.regression.AutoSklearnRegressor(</span><br><span class="line">    include_estimators=[<span class="string">&quot;random_forest&quot;</span>,<span class="string">&quot;decision_tree&quot;</span>,<span class="string">&quot;gradient_boosting&quot;</span>,<span class="string">&quot;xgradient_boosting&quot;</span>],</span><br><span class="line">    <span class="comment">#这里只放了几个我认为效果比较好的模型，模型种类参见https://github.com/automl/auto-sklearn/tree/master/autosklearn/pipeline/components/regression，如果想换用模型，把双引号内的名称更改即可；如果想删除或者添加，直接去掉相应的名称即可</span></span><br><span class="line">    exclude_estimators=<span class="literal">None</span>,</span><br><span class="line">    include_preprocessors=[<span class="string">&quot;no_preprocessing&quot;</span>, ],</span><br><span class="line">    exclude_preprocessors=<span class="literal">None</span>,</span><br><span class="line">    resampling_strategy=<span class="string">&#x27;cv&#x27;</span>,</span><br><span class="line">    resampling_strategy_arguments=&#123;<span class="string">&#x27;folds&#x27;</span>: <span class="number">10</span>&#125;,<span class="comment">#这里选了十折交叉验证来确定最优参数</span></span><br><span class="line">    )</span><br><span class="line">automl.fit(x_train, y_train.values.ravel())</span><br><span class="line"></span><br><span class="line">automl.sprint_statistics()</span><br><span class="line">automl.show_models()</span><br><span class="line">automl.refit(x_train, y_train.values.ravel())</span><br><span class="line"><span class="comment">#如果想输入新的自变量来做预测的话,将下面几句前面的#去除即可</span></span><br><span class="line"><span class="comment">#predata=pd.read_excel(&#x27;rawdata.xlsx&#x27;)#单引号内输入文件路径</span></span><br><span class="line"><span class="comment">#X=predata[[&#x27;lon&#x27;,&#x27;lat&#x27;,&#x27;sst&#x27;,&#x27;chla&#x27;,&#x27;doy&#x27;]]#单引号内输入选取的变量名</span></span><br><span class="line">y_pre = automl.predict(X)</span><br><span class="line">ypre=np.power(<span class="number">10</span>,ypre)-<span class="number">1</span><span class="comment">#变换回来</span></span><br><span class="line">ypre=pd.DataFrame(ypre)</span><br><span class="line">result=pd.concat([rawdata,ypre])<span class="comment">#如果输入新的自变量来做预测，将rawdata改为predata</span></span><br><span class="line">result.to_excel(<span class="string">&#x27;result.xlsx&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -477,7 +477,7 @@
 <div class="copyright">
   
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -486,12 +486,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">832k</span>
+    <span title="Symbols count total">895k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:37</span>
+    <span title="Reading time total">13:34</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
