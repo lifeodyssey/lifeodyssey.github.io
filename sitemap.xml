@@ -879,6 +879,13 @@
 
   
   <url>
+    <loc>https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/</loc>
+    <lastmod>2022-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
@@ -887,13 +894,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/Linux/</loc>
-    <lastmod>2022-01-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -935,27 +935,6 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Data-Fusion/</loc>
-    <lastmod>2022-01-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/International-Conference/</loc>
-    <lastmod>2022-01-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/Presensentation/</loc>
-    <lastmod>2022-01-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lifeodyssey.github.io/tags/Automatic-Machine-Learning/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
@@ -971,6 +950,27 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/Undergraduate-Thesis/</loc>
+    <lastmod>2022-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Data-Fusion/</loc>
+    <lastmod>2022-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/International-Conference/</loc>
+    <lastmod>2022-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Presensentation/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1138,6 +1138,13 @@
   </url>
   
   <url>
+    <loc>https://lifeodyssey.github.io/tags/R/</loc>
+    <lastmod>2022-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%86%99%E4%BD%9C/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
@@ -1146,13 +1153,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%8F%91%E8%A1%A8/</loc>
-    <lastmod>2022-01-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/R/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1334,14 +1334,14 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/%E8%BF%9B%E9%98%B6/</loc>
+    <loc>https://lifeodyssey.github.io/tags/To-Be-Sorted/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/To-Be-Sorted/</loc>
+    <loc>https://lifeodyssey.github.io/tags/%E8%BF%9B%E9%98%B6/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1413,14 +1413,14 @@
 
   
   <url>
-    <loc>https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://lifeodyssey.github.io/categories/%E4%BA%BA%E7%94%9F%E5%BE%97%E6%84%8F%E9%A1%BB%E5%B0%BD%E6%AC%A2/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/categories/%E4%BA%BA%E7%94%9F%E5%BE%97%E6%84%8F%E9%A1%BB%E5%B0%BD%E6%AC%A2/</loc>
+    <loc>https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
