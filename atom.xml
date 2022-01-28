@@ -139,7 +139,7 @@
     <link href="https://lifeodyssey.github.io/posts/fbd0b1b0.html"/>
     <id>https://lifeodyssey.github.io/posts/fbd0b1b0.html</id>
     <published>2021-12-28T05:23:00.000Z</published>
-    <updated>2022-01-26T07:34:19.188Z</updated>
+    <updated>2022-01-28T06:12:03.603Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。&lt;/p&gt;</summary>

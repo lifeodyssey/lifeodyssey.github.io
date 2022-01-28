@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="article:published_time" content="2021-12-28T05:23:00.000Z">
-<meta property="article:modified_time" content="2022-01-26T07:34:19.188Z">
+<meta property="article:modified_time" content="2022-01-28T06:12:03.603Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -350,7 +350,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-26 15:34:19" itemprop="dateModified" datetime="2022-01-26T15:34:19+08:00">2022-01-26</time>
+                <time title="Modified: 2022-01-28 14:12:03" itemprop="dateModified" datetime="2022-01-28T14:12:03+08:00">2022-01-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -368,14 +368,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>54k</span>
+              <span>33k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>49 mins.</span>
+              <span>30 mins.</span>
             </span>
 
         </div>
@@ -603,271 +603,7 @@
 <p>mix这个类来自于tfp.distributions.MixtureSameFamily(prob, dist), prob和dist来自output</p>
 <p>tfp这个东西来自于tensorflow_probability</p>
 <h2 id="tensorflow_probability">tensorflow_probability</h2>
-<p>又跑去扒了源码，看的我头疼</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MixtureSameFamily</span>(<span class="params">distribution.Distribution</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;Mixture (same-family) distribution.</span></span><br><span class="line"><span class="string">  The `MixtureSameFamily` distribution implements a (batch of) mixture</span></span><br><span class="line"><span class="string">  distribution where all components are from different parameterizations of the</span></span><br><span class="line"><span class="string">  same distribution type. It is parameterized by a `Categorical` &#x27;selecting</span></span><br><span class="line"><span class="string">  distribution&#x27; (over `k` components) and a components distribution, i.e., a</span></span><br><span class="line"><span class="string">  `Distribution` with a rightmost batch shape (equal to `[k]`) which indexes</span></span><br><span class="line"><span class="string">  each (batch of) component.</span></span><br><span class="line"><span class="string">  #### Examples</span></span><br><span class="line"><span class="string">  ```python</span></span><br><span class="line"><span class="string">  tfd = tfp.distributions</span></span><br><span class="line"><span class="string">  ### Create a mixture of two scalar Gaussians:</span></span><br><span class="line"><span class="string">  gm = tfd.MixtureSameFamily(</span></span><br><span class="line"><span class="string">      mixture_distribution=tfd.Categorical(</span></span><br><span class="line"><span class="string">          probs=[0.3, 0.7]),</span></span><br><span class="line"><span class="string">      components_distribution=tfd.Normal(</span></span><br><span class="line"><span class="string">        loc=[-1., 1],       # One for each component.</span></span><br><span class="line"><span class="string">        scale=[0.1, 0.5]))  # And same here.</span></span><br><span class="line"><span class="string">  gm.mean()</span></span><br><span class="line"><span class="string">  # ==&gt; 0.4</span></span><br><span class="line"><span class="string">  gm.variance()</span></span><br><span class="line"><span class="string">  # ==&gt; 1.018</span></span><br><span class="line"><span class="string">  # Plot PDF.</span></span><br><span class="line"><span class="string">  x = np.linspace(-2., 3., int(1e4), dtype=np.float32)</span></span><br><span class="line"><span class="string">  import matplotlib.pyplot as plt</span></span><br><span class="line"><span class="string">  plt.plot(x, gm.prob(x));</span></span><br><span class="line"><span class="string">  ### Create a mixture of two Bivariate Gaussians:</span></span><br><span class="line"><span class="string">  gm = tfd.MixtureSameFamily(</span></span><br><span class="line"><span class="string">      mixture_distribution=tfd.Categorical(</span></span><br><span class="line"><span class="string">          probs=[0.3, 0.7]),</span></span><br><span class="line"><span class="string">      components_distribution=tfd.MultivariateNormalDiag(</span></span><br><span class="line"><span class="string">          loc=[[-1., 1],  # component 1</span></span><br><span class="line"><span class="string">               [1, -1]],  # component 2</span></span><br><span class="line"><span class="string">          scale_identity_multiplier=[.3, .6]))</span></span><br><span class="line"><span class="string">  gm.mean()</span></span><br><span class="line"><span class="string">  # ==&gt; array([ 0.4, -0.4], dtype=float32)</span></span><br><span class="line"><span class="string">  gm.covariance()</span></span><br><span class="line"><span class="string">  # ==&gt; array([[ 1.119, -0.84],</span></span><br><span class="line"><span class="string">  #            [-0.84,  1.119]], dtype=float32)</span></span><br><span class="line"><span class="string">  # Plot PDF contours.</span></span><br><span class="line"><span class="string">  def meshgrid(x, y=x):</span></span><br><span class="line"><span class="string">    [gx, gy] = np.meshgrid(x, y, indexing=&#x27;ij&#x27;)</span></span><br><span class="line"><span class="string">    gx, gy = np.float32(gx), np.float32(gy)</span></span><br><span class="line"><span class="string">    grid = np.concatenate([gx.ravel()[None, :], gy.ravel()[None, :]], axis=0)</span></span><br><span class="line"><span class="string">    return grid.T.reshape(x.size, y.size, 2)</span></span><br><span class="line"><span class="string">  grid = meshgrid(np.linspace(-2, 2, 100, dtype=np.float32))</span></span><br><span class="line"><span class="string">  plt.contour(grid[..., 0], grid[..., 1], gm.prob(grid));</span></span><br></pre></td></tr></table></figure>
-<p>"""</p>
-<p>def <strong>init</strong>(self, mixture_distribution, components_distribution, reparameterize=False, validate_args=False, allow_nan_stats=True, name='MixtureSameFamily'): """Construct a <code>MixtureSameFamily</code> distribution. Args: mixture_distribution: <code>tfd.Categorical</code>-like instance. Manages the probability of selecting components. The number of categories must match the rightmost batch dimension of the <code>components_distribution</code>. Must have <code>batch_shape</code> broadcastable with <code>components_distribution.batch_shape[:-1]</code>. components_distribution: <code>tfd.Distribution</code>-like instance. The right-most batch dimension indexes the mixture components. reparameterize: Python <code>bool</code>, default <code>False</code>. Whether to reparameterize samples of the distribution using implicit reparameterization gradients [(Figurnov et al., 2018)][1]. The gradients for the mixture logits are equivalent to the ones described by [(Graves, 2016)][2]. The gradients for the components parameters are also computed using implicit reparameterization (as opposed to ancestral sampling), meaning that all components are updated every step. Only works when: (1) components_distribution is fully reparameterized; (2) components_distribution is either a scalar distribution or fully factorized (tfd.Independent applied to a scalar distribution); (3) batch shape has a known rank. Experimental, may be slow and produce infs/NaNs. validate_args: Python <code>bool</code>, default <code>False</code>. When <code>True</code> distribution parameters are checked for validity despite possibly degrading runtime performance. When <code>False</code> invalid inputs may silently render incorrect outputs. allow_nan_stats: Python <code>bool</code>, default <code>True</code>. When <code>True</code>, statistics (e.g., mean, mode, variance) use the value '<code>NaN</code>' to indicate the result is undefined. When <code>False</code>, an exception is raised if one or more of the statistic's batch members are undefined. name: Python <code>str</code> name prefixed to Ops created by this class. Raises: ValueError: <code>if not dtype_util.is_integer(mixture_distribution.dtype)</code>. ValueError: if mixture_distribution does not have scalar <code>event_shape</code>. ValueError: if <code>mixture_distribution.batch_shape</code> and <code>components_distribution.batch_shape[:-1]</code> are both fully defined and the former is neither scalar nor equal to the latter. ValueError: if <code>mixture_distribution</code> categories does not equal <code>components_distribution</code> rightmost batch shape. #### References [1]: Michael Figurnov, Shakir Mohamed and Andriy Mnih. Implicit reparameterization gradients. In <em>Neural Information Processing Systems</em>, 2018. https://arxiv.org/abs/1805.08498 [2]: Alex Graves. Stochastic Backpropagation through Mixture Density Distributions. <em>arXiv</em>, 2016. https://arxiv.org/abs/1607.05690 """ parameters = dict(locals()) with tf.name_scope(name) as name: self._mixture_distribution = mixture_distribution self._components_distribution = components_distribution</p>
-<pre><code>  self._reparameterize = reparameterize
-  if reparameterize:
-    # Note: tfd.Independent passes through the reparameterization type hence
-    # we do not need separate logic for Independent.
-    if (self._components_distribution.reparameterization_type !=
-        reparameterization.FULLY_REPARAMETERIZED):
-      raise ValueError(&#39;Cannot reparameterize a mixture of &#39;
-                       &#39;non-reparameterized components.&#39;)
-    reparameterization_type = reparameterization.FULLY_REPARAMETERIZED
-  else:
-    reparameterization_type = reparameterization.NOT_REPARAMETERIZED
-
-  super(MixtureSameFamily, self).__init__(
-      dtype=self._components_distribution.dtype,
-      reparameterization_type=reparameterization_type,
-      validate_args=validate_args,
-      allow_nan_stats=allow_nan_stats,
-      parameters=parameters,
-      name=name)</code></pre>
-<p>def _event_ndims(self): return ps.rank_from_shape( self.components_distribution.event_shape_tensor, self.components_distribution.event_shape)</p>
-<p><span class="citation" data-cites="property">@property</span> def mixture_distribution(self): return self._mixture_distribution</p>
-<p><span class="citation" data-cites="property">@property</span> def components_distribution(self): return self._components_distribution</p>
-<p><span class="citation" data-cites="property">@property</span> def experimental_is_sharded(self): sharded = self.components_distribution.experimental_is_sharded if self.mixture_distribution.experimental_is_sharded != sharded: raise ValueError( '<code>MixtureSameFamily.mixture_distribution</code> sharding must match ' '<code>MixtureSameFamily.components_distribution</code>.') return sharded</p>
-<p><span class="citation" data-cites="classmethod">@classmethod</span> def _parameter_properties(cls, dtype, num_classes=None): return dict( mixture_distribution=( parameter_properties.BatchedComponentProperties()), components_distribution=( parameter_properties.BatchedComponentProperties( event_ndims=1)))</p>
-<p>def _get_distributions_with_broadcast_batch_shape(self): """Broadcasts the mixture and component dists to have full batch shape.""" overall_batch_shape = self.batch_shape if (tensorshape_util.is_fully_defined(overall_batch_shape) and self.components_distribution.batch_shape[:-1] == overall_batch_shape and self.mixture_distribution.batch_shape == overall_batch_shape): # No need to broadcast. return self.mixture_distribution, self.components_distribution</p>
-<pre><code>if not tensorshape_util.is_fully_defined(overall_batch_shape):
-  overall_batch_shape = self.batch_shape_tensor()
-# The mixture distribution is primarily accessed through its parameters
-# (e.g., logits), so broadcast those directly.
-mixture_distribution = (
-    self.mixture_distribution._broadcast_parameters_with_batch_shape(
-        overall_batch_shape))
-components_distribution = batch_broadcast.BatchBroadcast(
-    self.components_distribution,
-    with_shape=ps.concat([overall_batch_shape, [1]], axis=0))
-return mixture_distribution, components_distribution</code></pre>
-<p>def _event_shape_tensor(self): return self.components_distribution.event_shape_tensor()</p>
-<p>def _event_shape(self): return self.components_distribution.event_shape</p>
-<p>def _sample_n(self, n, seed): components_seed, mix_seed = samplers.split_seed(seed, salt='MixtureSameFamily') mixture_distribution, components_distribution = ( self._get_distributions_with_broadcast_batch_shape()) x = components_distribution.sample( # [n, B, k, E] n, seed=components_seed)</p>
-<pre><code>event_ndims = ps.rank_from_shape(self.event_shape_tensor, self.event_shape)
-# We could also check if num_components can be computed statically from
-# self.mixture_distribution&#39;s logits or probs.
-num_components = ps.dimension_size(x, idx=-1 - event_ndims)
-
-# TODO(jvdillon): Consider using tf.gather (by way of index unrolling).
-npdt = dtype_util.as_numpy_dtype(x.dtype)
-mix_sample = mixture_distribution.sample(
-    n, seed=mix_seed)  # [n, B]
-mask = tf.one_hot(
-    indices=mix_sample,  # [n, B]
-    depth=num_components,
-    on_value=npdt(1),
-    off_value=npdt(0))    # [n, B, k]
-
-# Pad `mask` to [n, B, k, [1]*e].
-batch_ndims = ps.rank(x) - event_ndims - 1
-mask_batch_ndims = ps.rank(mask) - 1
-pad_ndims = batch_ndims - mask_batch_ndims
-mask_shape = ps.shape(mask)
-target_shape = ps.concat([
-    mask_shape[:-1],
-    ps.ones([pad_ndims], dtype=tf.int32),
-    mask_shape[-1:],
-    ps.ones([event_ndims], dtype=tf.int32),
-], axis=0)
-mask = tf.reshape(mask, shape=target_shape)
-
-if dtype_util.is_floating(x.dtype) or dtype_util.is_complex(x.dtype):
-  masked = tf.math.multiply_no_nan(x, mask)
-else:
-  masked = x * mask
-ret = tf.reduce_sum(masked, axis=-1 - event_ndims)  # [n, B, E]
-
-if self._reparameterize:
-  ret = self._reparameterize_sample(
-      ret, event_shape=components_distribution.event_shape_tensor())
-
-return ret</code></pre>
-<p>def _per_mixture_component_log_prob(self, x): """Per mixture component log probability. Args: x: A tensor representing observations from the mixture. Must be broadcastable with the mixture's batch shape. Returns: A Tensor representing, for each observation and for each mixture component, the log joint probability of that mixture component and the observation. The shape will be equal to the concatenation of (1) the broadcast shape of the observations and the batch shape, and (2) the number of mixture components. """ x = self._pad_sample_dims(x) log_prob_x = self.components_distribution.log_prob(x) # [S, B, k] log_mix_prob = tf.math.log_softmax( self.mixture_distribution.logits_parameter(), axis=-1) # [B, k] return log_prob_x + log_mix_prob # [S, B, k]</p>
-<p>def _log_prob(self, x): return tf.reduce_logsumexp( self._per_mixture_component_log_prob(x), axis=-1) # [S, B]</p>
-<p>def _mean(self): mixture_distribution, components_distribution = ( self._get_distributions_with_broadcast_batch_shape()) probs = mixture_distribution.probs_parameter() # [B, k] component_means = components_distribution.mean() # [B, k, E] event_ndims = self._event_ndims()</p>
-<pre><code># reshape probs to [B, k, [1]*e]
-probs = tf.reshape(probs, ps.concat([
-    ps.shape(probs),
-    ps.ones([event_ndims], dtype=tf.int32)
-], axis=0))
-
-return tf.reduce_sum(probs * component_means,
-                     axis=-1 - event_ndims)  # [B, E]</code></pre>
-<p>def _log_cdf(self, x): x = self._pad_sample_dims(x) log_cdf_x = self.components_distribution.log_cdf(x) # [S, B, k] log_mix_prob = tf.math.log_softmax( self.mixture_distribution.logits_parameter(), axis=-1) # [B, k] return tf.reduce_logsumexp(log_cdf_x + log_mix_prob, axis=-1) # [S, B]</p>
-<p>def _variance(self): mixture_distribution, components_distribution = ( self._get_distributions_with_broadcast_batch_shape()) probs = mixture_distribution.probs_parameter() # [B, k] component_means = components_distribution.mean() # [B, k, E] component_vars = components_distribution.variance() # [B, k, E] event_ndims = self._event_ndims()</p>
-<pre><code># reshape probs to [B, k, [1]*e]
-probs = tf.reshape(probs, ps.concat([
-    ps.shape(probs),
-    ps.ones([event_ndims], dtype=tf.int32)
-], axis=0))
-
-# Law of total variance: Var(Y) = E[Var(Y|X)] + Var(E[Y|X])
-mean_cond_var = tf.reduce_sum(probs * component_vars,
-                              axis=-1 - event_ndims)  # [B, E]
-mean = tf.reduce_sum(probs * component_means,
-                     axis=-1 - event_ndims, keepdims=True)  # [B, 1, E]
-var_cond_mean = tf.reduce_sum(
-    probs * tf.math.squared_difference(component_means, mean),
-    axis=-1 - event_ndims)  # [B, E]
-return mean_cond_var + var_cond_mean</code></pre>
-<p>def _covariance(self): static_event_ndims = tensorshape_util.rank(self.event_shape) if static_event_ndims is not None and static_event_ndims != 1: # Covariance is defined only for vector distributions. raise NotImplementedError('covariance is not implemented') mixture_distribution, components_distribution = ( self._get_distributions_with_broadcast_batch_shape()) probs = mixture_distribution.probs_parameter() # [B, k] component_means = components_distribution.mean() # [B, k, E] component_covars = components_distribution.covariance() # [B, k, E, E]</p>
-<pre><code># Law of total variance: Var(Y) = E[Var(Y|X)] + Var(E[Y|X])
-probs = probs[..., tf.newaxis, tf.newaxis]  # [B, k, 1, 1]
-mean_cond_var = tf.reduce_sum(
-    probs * component_covars, axis=-3)  # [B, E, E]
-mean = tf.reduce_sum(
-    probs[..., 0] * component_means, axis=-2, keepdims=True)  # [B, 1, E]
-var_cond_mean = tf.reduce_sum(
-    probs * _outer_squared_difference(component_means, mean),
-    axis=-3)  # [B, E, E]
-return mean_cond_var + var_cond_mean  # [B, E, E]</code></pre>
-<p>def posterior_marginal(self, observations, name='posterior_marginals'): """Compute the marginal posterior distribution for a batch of observations. Note: The behavior of this function is undefined if the <code>observations</code> argument represents impossible observations from the model. Args: observations: A tensor representing observations from the mixture. Must be broadcastable with the mixture's batch shape. name: A string naming a scope. Returns: posterior_marginals: A <code>Categorical</code> distribution object representing the marginal probability of the components of the mixture. The batch shape of the <code>Categorical</code> will be the broadcast shape of <code>observations</code> and the mixture batch shape; the number of classes will equal the number of mixture components. """ with self._name_and_control_scope(name): return categorical.Categorical( logits=self._per_mixture_component_log_prob(observations))</p>
-<p>def posterior_mode(self, observations, name='posterior_mode'): """Compute the posterior mode for a batch of distributions. Note: The behavior of this function is undefined if the <code>observations</code> argument represents impossible observations from the mixture. Args: observations: A tensor representing observations from the mixture. Must be broadcastable with the mixture's batch shape. name: A string naming a scope. Returns: A Tensor representing the mode (most likely component) for each observation. The shape will be equal to the broadcast shape of the observations and the batch shape. """ with self._name_and_control_scope(name): return tf.math.argmax( self._per_mixture_component_log_prob(observations), axis=-1)</p>
-<p>def _pad_sample_dims(self, x, event_ndims=None): with tf.name_scope('pad_sample_dims'): if event_ndims is None: event_ndims = self._event_ndims() ndims = ps.rank(x) # Must do the c_t_t in case ndims or event_ndims are Tensors and shape is # ndarray. Otherwise we get <code>TypeError: slice indices must be integers       # or None or have an __index__ method</code>. shape = ps.convert_to_shape_tensor(ps.shape(x)) d = ndims - event_ndims x = tf.reshape( x, shape=ps.concat([shape[:d], [1], shape[d:]], axis=0)) return x</p>
-<p>def _reparameterize_sample(self, x, event_shape): """Adds reparameterization (pathwise) gradients to samples of the mixture. Implicit reparameterization gradients are dx/dphi = -(d transform(x, phi) / dx)^-1 * d transform(x, phi) / dphi, where transform(x, phi) is distributional transform that removes all parameters from samples x. We implement them by replacing x with -stop_gradient(d transform(x, phi) / dx)^-1 * transform(x, phi)] for the backward pass (gradient computation). The derivative of this quantity w.r.t. phi is then the implicit reparameterization gradient. Note that this replaces the gradients w.r.t. both the mixture distribution parameters and components distributions parameters. Limitations: 1. Fundamental: components must be fully reparameterized. 2. Distributional transform is currently only implemented for factorized components. 3. Distributional transform currently only works for known rank of the batch tensor. Args: x: Sample of mixture distribution event_shape: The event shape of this distribution Returns: Tensor with same value as x, but with reparameterization gradients """ # Remove the existing gradients of x wrt parameters of the components. x = tf.stop_gradient(x)</p>
-<pre><code>event_size = ps.cast(
-    ps.reduce_prod(event_shape), dtype=tf.int32)
-x_2d_shape = [-1, event_size]  # [S*prod(B), prod(E)]
-
-# Perform distributional transform of x in [S, B, E] shape,
-# but have Jacobian of size [S*prod(B), prod(E), prod(E)].
-def reshaped_distributional_transform(x_2d):
-  return tf.reshape(
-      self._distributional_transform(
-          tf.reshape(x_2d, ps.shape(x)), event_shape),
-      x_2d_shape)
-
-# transform_2d: [S*prod(B), prod(E)]
-# jacobian: [S*prod(B), prod(E), prod(E)]
-x_2d = tf.reshape(x, x_2d_shape)
-transform_2d, jacobian = value_and_batch_jacobian(
-    reshaped_distributional_transform, x_2d)
-
-# We only provide the first derivative; the second derivative computed by
-# autodiff would be incorrect, so we raise an error if it is requested.
-transform_2d = _prevent_2nd_derivative(transform_2d)
-
-# Avoid short-circuiting from `tf.stop_gradient`, which might otherwise hide
-# the 2nd derivative prevention.
-soft_stop_gradient = tf.custom_gradient(lambda v: (v, lambda dv: None))
-# Compute [- stop_gradient(jacobian)^-1 * transform] by solving a linear
-# system. The Jacobian is lower triangular because the distributional
-# transform for i-th event dimension does not depend on the next
-# dimensions.
-surrogate_x_2d = -tf.linalg.triangular_solve(
-    soft_stop_gradient(jacobian), transform_2d[..., tf.newaxis],
-    lower=True)  # [S*prod(B), prod(E), 1]
-surrogate_x = tf.reshape(surrogate_x_2d, ps.shape(x))
-
-# Replace gradients of x with gradients of surrogate_x, but keep the value.
-return x + (surrogate_x - tf.stop_gradient(surrogate_x))</code></pre>
-<p>def <em>distributional_transform(self, x, event_shape): """Performs distributional transform of the mixture samples. Distributional transform removes the parameters from samples of a multivariate distribution by applying conditional CDFs: (F(x_1), F(x_2 | x1</em>), ..., F(x_d | x_1, ..., x_d-1)) (the indexing is over the 'flattened' event dimensions). The result is a sample of product of Uniform[0, 1] distributions. We assume that the components are factorized, so the conditional CDFs become F(x_i | x_1, ..., x_i-1) = sum_k w_i^k F_k (x_i), where w_i^k is the posterior mixture weight: for i &gt; 0 w_i^k = w_k prob_k(x_1, ..., x_i-1) / sum_k' w_k' prob_k'(x_1, ..., x_i-1) and w_0^k = w_k is the mixture probability of the k-th component. Args: x: Sample of mixture distribution event_shape: The event shape of this distribution Returns: Result of the distributional transform """</p>
-<pre><code>if tensorshape_util.rank(x.shape) is None:
-  # tf.math.softmax raises an error when applied to inputs of undefined
-  # rank.
-  raise ValueError(&#39;Distributional transform does not support inputs of &#39;
-                   &#39;undefined rank.&#39;)
-
-# Obtain factorized components distribution and assert that it&#39;s
-# a scalar distribution.
-if isinstance(self._components_distribution, independent.Independent):
-  univariate_components = self._components_distribution.distribution
-else:
-  univariate_components = self._components_distribution
-
-with tf.control_dependencies([
-    assert_util.assert_equal(
-        univariate_components.is_scalar_event(),
-        True,
-        message=&#39;`univariate_components` must have scalar event&#39;)
-]):
-  event_ndims = ps.rank_from_shape(event_shape)
-  x_padded = self._pad_sample_dims(
-      x, event_ndims=event_ndims)  # [S, B, 1, E]
-  log_prob_x = univariate_components.log_prob(x_padded)  # [S, B, k, E]
-  cdf_x = univariate_components.cdf(x_padded)  # [S, B, k, E]
-
-  # log prob_k (x_1, ..., x_i-1)
-  event_size = ps.cast(
-      ps.reduce_prod(event_shape), dtype=tf.int32)
-  cumsum_log_prob_x = tf.reshape(
-      tf.math.cumsum(
-          # [S*prod(B)*k, prod(E)]
-          tf.reshape(log_prob_x, [-1, event_size]),
-          exclusive=True,
-          axis=-1),
-      ps.shape(log_prob_x))  # [S, B, k, E]
-
-  event_ndims = ps.rank_from_shape(event_shape)
-  logits_mix_prob = self.mixture_distribution.logits_parameter()
-  logits_mix_prob = tf.reshape(
-      logits_mix_prob,  # [k] or [B, k]
-      ps.concat([
-          ps.shape(logits_mix_prob),
-          ps.ones([event_ndims], dtype=tf.int32),
-      ], axis=0))  # [k, [1]*e] or [B, k, [1]*e]
-
-  # Logits of the posterior weights: log w_k + log prob_k (x_1, ..., x_i-1)
-  log_posterior_weights_x = logits_mix_prob + cumsum_log_prob_x
-
-  component_axis = tensorshape_util.rank(x.shape) - event_ndims
-  posterior_weights_x = tf.math.softmax(
-      log_posterior_weights_x, axis=component_axis)
-  return tf.reduce_sum(posterior_weights_x * cdf_x, axis=component_axis)</code></pre>
-<p>def _default_event_space_bijector(self): # TODO(b/146456627): Implement <code>default_event_space_bijector</code> for mixture # distributions. return</p>
-<p>def _parameter_control_dependencies(self, is_init): assertions = []</p>
-<pre><code>if is_init and not dtype_util.is_integer(self.mixture_distribution.dtype):
-  raise ValueError(
-      &#39;`mixture_distribution.dtype` (&#123;&#125;) is not over integers&#39;.format(
-          dtype_util.name(self.mixture_distribution.dtype)))
-
-if tensorshape_util.rank(self.mixture_distribution.event_shape) is not None:
-  if tensorshape_util.rank(self.mixture_distribution.event_shape) != 0:
-    raise ValueError(&#39;`mixture_distribution` must have scalar `event_dim`s&#39;)
-elif self.validate_args:
-  assertions += [
-      assert_util.assert_equal(
-          tf.size(self.mixture_distribution.event_shape_tensor()),
-          0,
-          message=&#39;`mixture_distribution` must have scalar `event_dim`s&#39;),
-  ]
-
-# pylint: disable=protected-access
-mixture_dist_param = (self.mixture_distribution._probs
-                      if self.mixture_distribution._logits is None
-                      else self.mixture_distribution._logits)
-km = tf.compat.dimension_value(
-    tensorshape_util.with_rank_at_least(mixture_dist_param.shape, 1)[-1])
-kc = tf.compat.dimension_value(
-    tensorshape_util.with_rank_at_least(
-        self.components_distribution.batch_shape, 1)[-1])
-component_bst = None
-if km is not None and kc is not None:
-  if km != kc:
-    raise ValueError(&#39;`mixture_distribution` components (&#123;&#125;) does not &#39;
-                     &#39;equal `components_distribution.batch_shape[-1]` &#39;
-                     &#39;(&#123;&#125;)&#39;.format(km, kc))
-elif self.validate_args:
-  if km is None:
-    mixture_dist_param = tf.convert_to_tensor(mixture_dist_param)
-    km = tf.shape(mixture_dist_param)[-1]
-  if kc is None:
-    component_bst = self.components_distribution.batch_shape_tensor()
-    kc = component_bst[-1]
-  assertions += [
-      assert_util.assert_equal(
-          km,
-          kc,
-          message=(&#39;`mixture_distribution` components does not equal &#39;
-                   &#39;`components_distribution.batch_shape[-1]`&#39;)),
-  ]
-
-return assertions</code></pre>
-<p>def _outer_squared_difference(x, y): """Convenience function analogous to tf.squared_difference.""" z = x - y return z[..., tf.newaxis, :] * z[..., tf.newaxis]</p>
-<p><span class="citation" data-cites="tfp_custom_gradient.custom_gradient">@tfp_custom_gradient.custom_gradient</span>( vjp_fwd=lambda x: (tf.identity(x), ()), vjp_bwd=lambda _, dx: tfp_custom_gradient.prevent_gradient( # pylint: disable=g-long-lambda dx, message='Second derivative is not implemented.'), jvp_fn=lambda primals, tangents: ( # pylint: disable=g-long-lambda tfp_custom_gradient.prevent_gradient( primals[0], message='Second derivative is not implemented.'), tfp_custom_gradient.prevent_gradient( tangents[0], message='Second derivative is not implemented.'))) def _prevent_2nd_derivative(x): """Disables computation of the second derivatives for a tensor. NB: you need to apply a non-identity function to the output tensor for the exception to be raised. Args: x: A tensor. Returns: A tensor with the same value and the same derivative as x, but that raises LookupError when trying to compute the second derivatives. """ return tf.identity(x) ```</p>
+<p>又跑去扒了源码，看的我头疼，这里用到了里面的两个类，一个MixtureSameFamily，一个categorical,太长了新开一篇</p>
 <h2 id="再来补个课">再来补个课</h2>
 <p>这么多函数前面都带_，这玩意到底是干嘛的</p>
 
@@ -970,12 +706,12 @@ return assertions</code></pre>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">1m</span>
+    <span title="Symbols count total">994k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:23</span>
+    <span title="Reading time total">15:04</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
