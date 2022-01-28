@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lifeodyssey.github.io/about/index.html</loc>
+    
+    <lastmod>2022-01-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/posts/3da0aceb.html</loc>
     
     <lastmod>2022-01-28</lastmod>
@@ -362,13 +369,6 @@
     <loc>https://lifeodyssey.github.io/posts/3fc48bd7.html</loc>
     
     <lastmod>2021-09-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/about/index.html</loc>
-    
-    <lastmod>2021-09-01</lastmod>
     
   </url>
   
