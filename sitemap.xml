@@ -963,6 +963,20 @@
   </url>
   
   <url>
+    <loc>https://lifeodyssey.github.io/tags/Remote-Sensing/</loc>
+    <lastmod>2022-01-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Book-Reading/</loc>
+    <lastmod>2022-01-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/tags/Data-Fusion/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
@@ -978,20 +992,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/Presensentation/</loc>
-    <lastmod>2022-01-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/Remote-Sensing/</loc>
-    <lastmod>2022-01-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/Book-Reading/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1131,6 +1131,20 @@
   </url>
   
   <url>
+    <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%86%99%E4%BD%9C/</loc>
+    <lastmod>2022-01-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%8F%91%E8%A1%A8/</loc>
+    <lastmod>2022-01-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/tags/Inversion/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
@@ -1146,20 +1160,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/R/</loc>
-    <lastmod>2022-01-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%86%99%E4%BD%9C/</loc>
-    <lastmod>2022-01-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/%E5%AD%A6%E6%9C%AF%E5%8F%91%E8%A1%A8/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1341,14 +1341,14 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/To-Be-Sorted/</loc>
+    <loc>https://lifeodyssey.github.io/tags/%E8%BF%9B%E9%98%B6/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/%E8%BF%9B%E9%98%B6/</loc>
+    <loc>https://lifeodyssey.github.io/tags/To-Be-Sorted/</loc>
     <lastmod>2022-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
