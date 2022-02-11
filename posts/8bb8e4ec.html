@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="太长了，分P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mixture Density Network(2)">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/8bb8e4ec.html">
+<meta property="og:site_name" content="乔克叔叔的床边故事">
+<meta property="og:description" content="太长了，分P">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=X_%7B1%7D%2C%20X_%7B2%7D%2C%20%5Ccdots">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%20X_%7Bk%7D%5Cstackrel%7BP%7D%7B%5Clongrightarrow%7D%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%20E%5Cleft(X_%7Bk%7D%5Cright)">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=n_%7BA%7D%20%5Csim%20B(n%2C%20p)">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=%5Cfrac%7Bn_%7BA%7D%7D%7Bn%7D%5Cstackrel%7BP%7D%7B%5Clongrightarrow%7Dp">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=X_%7B1%7D%2C%20X_%7B2%7D%2C%20%5Ccdots">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=%5Cmu">
+<meta property="og:image" content="https://math.fivecakes.com/?latex=\frac%7B1%7D%7Bn%7D%20\sum_%7Bk%3D1%7D%5E%7Bn%7D%20X_%7Bk%7D\stackrel%7BP%7D%7B\longrightarrow%7D\mu">
+<meta property="og:image" content="https://db.yihui.org/hexun/b_4FE2288307FFF259.jpg">
+<meta property="og:image" content="https://db.yihui.org/hexun/b_94BC3E85BB876C97.jpg">
+<meta property="article:published_time" content="2022-02-10T05:23:00.000Z">
+<meta property="article:modified_time" content="2022-02-11T12:33:49.000Z">
+<meta property="article:author" content="周大侠">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Inversion">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://math.fivecakes.com/?latex=X_%7B1%7D%2C%20X_%7B2%7D%2C%20%5Ccdots">
+
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/8bb8e4ec.html">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Mixture Density Network(2) | 乔克叔叔的床边故事</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-135697820-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="乔克叔叔的床边故事" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">乔克叔叔的床边故事</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%A1%A5%E8%AF%BE"><span class="nav-number">1.</span> <span class="nav-text">数学补课</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-maximum-likelihood"><span class="nav-number">1.1.</span> <span class="nav-text">What is maximum likelihood</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-get-likelihood"><span class="nav-number">1.2.</span> <span class="nav-text">How to get likelihood</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E4%BA%86%E9%82%A3%E4%B9%88%E5%A4%9A-%E5%88%B0%E5%BA%95%E6%80%8E%E4%B9%88%E7%AE%97%E5%91%A2"><span class="nav-number">1.3.</span> <span class="nav-text">说了那么多 到底怎么算呢</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A5%E7%9C%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">来看代码</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周大侠</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnpoZW5qaWF6aG91MDEyN0BnbWFpbC5jb20=" title="E-Mail → mailto:zhenjiazhou0127@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cucmVzZWFyY2hnYXRlLm5ldC9wcm9maWxlL1poZW5qaWFfWmhvdQ==" title="Researchgate → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Zhenjia_Zhou"><i class="fa fa-researchgate fa-fw"></i>Researchgate</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luLyVFNiU4QyVBRiVFNCVCRCVCMy0lRTUlOTElQTgtODMyNmI0MTU1Lw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;%E6%8C%AF%E4%BD%B3-%E5%91%A8-8326b4155&#x2F;"><i class="fa fa-Linkedin fa-fw"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/8bb8e4ec.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mixture Density Network(2)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-02-10 13:23:00" itemprop="dateCreated datePublished" datetime="2022-02-10T13:23:00+08:00">2022-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-11 20:33:49" itemprop="dateModified" datetime="2022-02-11T20:33:49+08:00">2022-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>21k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>19 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>太长了，分P <a id="more"></a></p>
+<h1 id="数学补课">数学补课</h1>
+<h2 id="what-is-maximum-likelihood">What is maximum likelihood</h2>
+<p>the likelihood is the possibility that fit a distribution</p>
+<p>例えば 抛一枚匀质硬币，抛10次，6次正面向上的可能性多大？ 这里的可能性是probability 是某个时间发生的可能性</p>
+<p>而似然值是给定某一结果，求是这个分布的可能性。</p>
+<p>例如 抛一枚硬币，抛10次，结果是6次正面向上，其是匀质的可能性多大？</p>
+<p>再举个例子，比如经过统计，这次期末考试泛函分析的成绩服从<span class="math inline">\(N(80,4^2)\)</span>，问小黄这次考了90分的概率是多少。这个计算的就是probability</p>
+<p>再比如，小黄这次考了90，问这次期末考试泛函服从<span class="math inline">\(N(80,4^2 )\)</span>的概率是多少，这个就是likelihood。</p>
+<p>我们要用的就是这个，来选取一个让likelihood最大的参数。</p>
+<p>那么，怎么计算likelihood呢？</p>
+<h2 id="how-to-get-likelihood">How to get likelihood</h2>
+<p>其实这个问题就是极大似然估计。</p>
+<p>我到这里才发现这个概念我大二就学过，然而现在完全忘记了。</p>
+<p>就当复习了。</p>
+<p>我们来换个更简单一点的问题来理解这个概念，最简单的分布是二项分布。这里我们就拿抛硬币为例。</p>
+<p>在我拿硬币举例子的时候其实就暗含了一个要求，就是每个事件是独立的。只要能够用到likelihood这个概念，就得要求每个事件都是独立的。</p>
+<p>一个质量均匀的硬币，抛出来是正面的概率 是0.5这里这个概率是probability。</p>
+<p>一个硬币，抛了一次是正面，求下一次抛出来是正面的概率（即确定这个二项分布的参数），这个是likelihood。</p>
+<p>但是我们举得这个例子显然无法计算出来likelihood，因为样本太少了。从直觉来想，我们需要做足够多的采样，用频率来替代概率。更学术一点，这个东西其实就是大数定律和中心极限定理。</p>
+<p>###　大数定律和中心极限定理</p>
+<p>这是整个数理统计最基础的东西了，既然复习我们就复习到底</p>
+<p><strong>例子：</strong> 抛一个均匀的硬币，正面朝上和反面朝上的概率是相等的。我们把正面朝上的频率记为 <span class="math inline">\(v_n=S_n/n\)</span>，其中<span class="math inline">\(S_n\)</span>为正面朝上出现的次数，n为抛硬币的总次数，那么当把硬币一直抛下去，我们会发现频率序列 <span class="math inline">\({v_n}\)</span> 会出现两个现象：</p>
+<ol type="1">
+<li>频率 <span class="math inline">\({v_n}\)</span> 对频率p的绝对偏差 <span class="math inline">\(|v_n-p|\)</span> 将随着n的增大而呈现逐渐减小的趋势，但无法说它就收敛域0</li>
+<li>由于频率的随机性，绝对偏差 <span class="math inline">\(|v_n-p|\)</span> 时大时小，虽然我们无法排除大偏差发生的可能性，但随着n的不断增大，大偏差发生的可能性会越来越小。 <strong>这是一种新的极限概念</strong></li>
+</ol>
+<p>定义</p>
+<p>如果对于任何<span class="math inline">\(\varepsilon\)</span>，都有 <span class="math display">\[
+\lim_{n\to\infty}P(|\xi_n-\xi|\ge\varepsilon)=0
+\]</span> 那么我们就称随机变量序列{<span class="math inline">\(\xi_n,n\in N\)</span>}依概率收敛到随机变量<span class="math inline">\(\xi\)</span>，记为<span class="math inline">\(\xi_n\to^{P}\xi\)</span></p>
+<p>依概率收敛的含义是：$ _n $ 对$ $ 的绝对偏差不小于任意给定量的可能性将随着n的增大而越来越小。反过来说，绝对偏差<span class="math inline">\(|\xi_n-\xi|\)</span>小于任一给定量的可能性将随着 n的增大而越来越接近与1。</p>
+<p>我们来换个写法 <span class="math display">\[
+\lim_{n\to\infty}P(|\xi_n-\xi|\leq\varepsilon)=1
+\]</span> 举个例子就是<span class="math inline">\(v_n\)</span>这个序列将越来越倾向于某一个数。</p>
+<p>其实这个东西，就是叫大数定理</p>
+<p>定理</p>
+<p>在n次独立重复实验中，事件A发生了<span class="math inline">\(k_n\)</span>次，且<span class="math inline">\(P(A)=p\)</span>，则对任意<span class="math inline">\(\varepsilon&gt;0\)</span>，有 <span class="math display">\[
+\lim_{n\to\infty}P(|\frac{k_n}{n}-p|&lt;\varepsilon)=0
+\]</span> 这个东西就是伯努利大数定律，可以利用切比雪夫不等式来证明。</p>
+<p>很容易可以看到，伯努利大数定律是针对二项分布的一个特殊情况。</p>
+<p>除了这个还有。</p>
+<table>
+<thead>
+<tr class="header">
+<th>切比雪夫大数定律</th>
+<th><img src="https://math.fivecakes.com/?latex=X_%7B1%7D%2C%20X_%7B2%7D%2C%20%5Ccdots" alt="X_{1}, X_{2}, "> 独立，存在期望及方差，且方差有界</th>
+<th><img src="https://math.fivecakes.com/?latex=%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%20X_%7Bk%7D%5Cstackrel%7BP%7D%7B%5Clongrightarrow%7D%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bk%3D1%7D%5E%7Bn%7D%20E%5Cleft(X_%7Bk%7D%5Cright)" alt=" {k=1}^{n} X{k} {k=1}^{n} E(X{k})"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>伯努利大数定律</td>
+<td><img src="https://math.fivecakes.com/?latex=n_%7BA%7D%20%5Csim%20B(n%2C%20p)" alt="n_{A} B(n, p)"></td>
+<td><img src="https://math.fivecakes.com/?latex=%5Cfrac%7Bn_%7BA%7D%7D%7Bn%7D%5Cstackrel%7BP%7D%7B%5Clongrightarrow%7Dp" alt="p"></td>
+</tr>
+<tr class="even">
+<td>辛钦大数定律</td>
+<td><img src="https://math.fivecakes.com/?latex=X_%7B1%7D%2C%20X_%7B2%7D%2C%20%5Ccdots" alt="X_{1}, X_{2}, "> 独立同分布，期望为<img src="https://math.fivecakes.com/?latex=%5Cmu" alt></td>
+<td><img src="https://math.fivecakes.com/?latex=\frac%7B1%7D%7Bn%7D%20\sum_%7Bk%3D1%7D%5E%7Bn%7D%20X_%7Bk%7D\stackrel%7BP%7D%7B\longrightarrow%7D\mu" alt=" {k=1}^{n} X{k}"></td>
+</tr>
+</tbody>
+</table>
+<p>切比雪夫大数定律是最宽泛的大数定律，不需要每个序列具有相同的分布；辛钦大数定律则是在他们分布相同的情况下的特殊情况，没有规定是什么分布；伯努利大数定律则是这个分布是二项分布的特殊情况。大数定律的左边的本质是求整个随机变量分布列的平均数，右边则是总体的平均值（期望），即样本的平均值等于总体的平均值。</p>
+<p>在概率论中, <strong>中心极限定理</strong>是对一列独立同分布的随机变量之平均值的描述.</p>
+<p>具体而言, 大数定律表明, 对一列独立同分布的随机变量而言, 当随机变量的个数 <em>n</em>→∞ 时, 其均值几乎必然收敛于其期望. 中心极限定理则表明, 其均值与期望的差大约满足 1/<em>n</em> 倍的正态分布 N(0,<em>σ</em>2), 其中 <em>σ</em>2 是原来随机变量的方差.</p>
+<p><strong>同分布的中心极限定理</strong> 设 X1, X2, …, Xn 相互独立，服从同一分布，具有数学期望和方差：</p>
+<p><a target="_blank" rel="noopener" href="https://db.yihui.org/hexun/b_4FE2288307FFF259.jpg"><img src="https://db.yihui.org/hexun/b_4FE2288307FFF259.jpg" alt="img"></a></p>
+<p>则对任意的 x，恒有</p>
+<p><a target="_blank" rel="noopener" href="https://db.yihui.org/hexun/b_94BC3E85BB876C97.jpg"><img src="https://db.yihui.org/hexun/b_94BC3E85BB876C97.jpg" alt="img"></a></p>
+<h2 id="说了那么多-到底怎么算呢">说了那么多 到底怎么算呢</h2>
+<p>我们这里来抛十次硬币试试，</p>
+<p>lulaoshi.info/machine-learning/linear-model/maximum-likelihood-estimation</p>
+<p>https://www.cnblogs.com/BlairGrowing/p/14877125.html</p>
+<h1 id="来看代码">来看代码</h1>
+<p>然后再来看看论文的源代码.</p>
+<p>写的好长...而且是用tensorflow写的..自己这不是得重写了...</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MDN</span>:</span></span><br><span class="line">  <span class="string">&#x27;&#x27;&#x27; Mixture Density Network which handles multi-output, full (symmetric) covariance.</span></span><br><span class="line"><span class="string">  Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    n_mix : int, optional (default=5)</span></span><br><span class="line"><span class="string">     Number of mixtures used in the gaussian mixture model.</span></span><br><span class="line"><span class="string">    hidden : list, optional (default=[100, 100, 100, 100, 100])</span></span><br><span class="line"><span class="string">       Number of layers and hidden units per layer in the neural network.</span></span><br><span class="line"><span class="string">    lr : float, optional (default=1e-3)</span></span><br><span class="line"><span class="string">       Learning rate for the model.</span></span><br><span class="line"><span class="string">  l2 : float, optional (default=1e-3)</span></span><br><span class="line"><span class="string">       L2 regularization scale for the model weights.</span></span><br><span class="line"><span class="string">    n_iter : int, optional (default=1e4)</span></span><br><span class="line"><span class="string">      Number of iterations to train the model for </span></span><br><span class="line"><span class="string">  batch : int, optional (default=128)</span></span><br><span class="line"><span class="string">       Size of the minibatches for stochastic optimization.</span></span><br><span class="line"><span class="string">  imputations : int, optional (default=5)</span></span><br><span class="line"><span class="string">       Number of samples used in multiple imputation when handling NaN</span></span><br><span class="line"><span class="string">       target values during training. More samples results in a higher</span></span><br><span class="line"><span class="string">       accuracy for the likelihood estimate, but takes longer and may</span></span><br><span class="line"><span class="string">        result in overfitting. Assumption is that any missing data is </span></span><br><span class="line"><span class="string">        MAR / MCAR, in order to allow a multiple imputation approach.</span></span><br><span class="line"><span class="string"> epsilon : float, optional (default=1e-3)</span></span><br><span class="line"><span class="string">      Normalization constant added to diagonal of the covariance matrix.</span></span><br><span class="line"><span class="string">    activation : str, optional (default=relu)</span></span><br><span class="line"><span class="string">     Activation function applied to hidden layers.</span></span><br><span class="line"><span class="string"> scalerx : transformer, optional (default=IdentityTransformer)</span></span><br><span class="line"><span class="string">     Transformer which has fit, transform, and inverse_transform methods</span></span><br><span class="line"><span class="string">       (i.e. follows the format of sklearn transformers). Scales the x </span></span><br><span class="line"><span class="string">      values prior to training / prediction. Stored along with the saved</span></span><br><span class="line"><span class="string">        model in order to have consistent inputs to the model.</span></span><br><span class="line"><span class="string">    scalery : transformer, optional (default=IdentityTransformer)</span></span><br><span class="line"><span class="string">     Transformer which has fit, transform, and inverse_transform methods</span></span><br><span class="line"><span class="string">       (i.e. follows the format of sklearn transformers). Scales the y </span></span><br><span class="line"><span class="string">      values prior to training, and the output values after prediction. </span></span><br><span class="line"><span class="string">        Stored along with the saved model in order to have consistent </span></span><br><span class="line"><span class="string">        outputs from the model.</span></span><br><span class="line"><span class="string">   model_path : pathlib.Path, optional (default=./Weights)</span></span><br><span class="line"><span class="string">       Folder location to store saved models.</span></span><br><span class="line"><span class="string">    model_name : str, optional (default=MDN)</span></span><br><span class="line"><span class="string">      Name to assign to the model. </span></span><br><span class="line"><span class="string"> no_load : bool, optional (default=False)</span></span><br><span class="line"><span class="string">      If true, train a new model rather than loading a previously </span></span><br><span class="line"><span class="string">      trained one.</span></span><br><span class="line"><span class="string">  no_save : bool, optional (default=False)</span></span><br><span class="line"><span class="string">      If true, do not save the model when training is completed.</span></span><br><span class="line"><span class="string">    seed : int, optional (default=None)</span></span><br><span class="line"><span class="string">       Random seed. If set, ensure consistent output.</span></span><br><span class="line"><span class="string">    verbose : bool, optional (default=False)</span></span><br><span class="line"><span class="string">      If true, print various information while loading / training.</span></span><br><span class="line"><span class="string">  debug : bool, optional (default=False)</span></span><br><span class="line"><span class="string">        If true, use control flow dependencies to determine where NaN</span></span><br><span class="line"><span class="string">     values are entering the model. Model runs slower with this </span></span><br><span class="line"><span class="string">       parameter set to true.</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line"> distribution = <span class="string">&#x27;MultivariateNormalTriL&#x27;</span></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, n_mix=<span class="number">5</span>, hidden=[<span class="number">100</span>]*<span class="number">5</span>, lr=<span class="number">1e-3</span>, l2=<span class="number">1e-3</span>, n_iter=<span class="number">1e4</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                batch=<span class="number">128</span>, imputations=<span class="number">5</span>, epsilon=<span class="number">1e-3</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 activation=<span class="string">&#x27;relu&#x27;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                scalerx=<span class="literal">None</span>, scalery=<span class="literal">None</span>, </span></span></span><br><span class="line"><span class="function"><span class="params">              model_path=<span class="string">&#x27;Weights&#x27;</span>, model_name=<span class="string">&#x27;MDN&#x27;</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 no_load=<span class="literal">False</span>, no_save=<span class="literal">False</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 seed=<span class="literal">None</span>, verbose=<span class="literal">False</span>, debug=<span class="literal">False</span>, **kwargs</span>):</span></span><br><span class="line"></span><br><span class="line">     config = initialize_random_states(seed)</span><br><span class="line">       config.update(&#123;</span><br><span class="line">          <span class="string">&#x27;n_mix&#x27;</span>        : n_mix,</span><br><span class="line">         <span class="string">&#x27;hidden&#x27;</span>       : <span class="built_in">list</span>(np.atleast_1d(hidden)),</span><br><span class="line">         <span class="string">&#x27;lr&#x27;</span>           : lr,</span><br><span class="line">            <span class="string">&#x27;l2&#x27;</span>           : l2,</span><br><span class="line">            <span class="string">&#x27;n_iter&#x27;</span>       : n_iter,</span><br><span class="line">            <span class="string">&#x27;batch&#x27;</span>        : batch,</span><br><span class="line">         <span class="string">&#x27;imputations&#x27;</span>  : imputations,</span><br><span class="line">           <span class="string">&#x27;epsilon&#x27;</span>      : epsilon,</span><br><span class="line">           <span class="string">&#x27;activation&#x27;</span>   : activation,</span><br><span class="line">            <span class="string">&#x27;scalerx&#x27;</span>      : scalerx <span class="keyword">if</span> scalerx <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">else</span> IdentityTransformer(),</span><br><span class="line">            <span class="string">&#x27;scalery&#x27;</span>      : scalery <span class="keyword">if</span> scalery <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">else</span> IdentityTransformer(),</span><br><span class="line">            <span class="string">&#x27;model_path&#x27;</span>   : Path(model_path),</span><br><span class="line">          <span class="string">&#x27;model_name&#x27;</span>   : model_name,</span><br><span class="line">            <span class="string">&#x27;no_load&#x27;</span>      : no_load,</span><br><span class="line">           <span class="string">&#x27;no_save&#x27;</span>      : no_save,</span><br><span class="line">           <span class="string">&#x27;seed&#x27;</span>         : seed,</span><br><span class="line">          <span class="string">&#x27;verbose&#x27;</span>      : verbose,</span><br><span class="line">           <span class="string">&#x27;debug&#x27;</span>        : debug,</span><br><span class="line">     &#125;)</span><br><span class="line">       self.set_config(config)</span><br><span class="line"><span class="comment">#前面 构造函数 定义变量</span></span><br><span class="line">       <span class="keyword">for</span> k <span class="keyword">in</span> kwargs: </span><br><span class="line">           warnings.warn(<span class="string">f&#x27;Unused keyword given to MDN: &quot;<span class="subst">&#123;k&#125;</span>&quot;&#x27;</span>, UserWarning)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_predict_chunk</span>(<span class="params">self, X, return_coefs=<span class="literal">False</span>, use_gpu=<span class="literal">False</span>, **kwargs</span>):</span></span><br><span class="line">     <span class="string">&#x27;&#x27;&#x27; Generates estimates for the given set. X may be only a subset of the full</span></span><br><span class="line"><span class="string">         data, which speeds up the prediction process and limits memory consumption.</span></span><br><span class="line"><span class="string">       </span></span><br><span class="line"><span class="string">          use_gpu : bool, optional (default=False)</span></span><br><span class="line"><span class="string">              Use the GPU to generate estimates if True, otherwise use the CPU.</span></span><br><span class="line"><span class="string">          &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">with</span> tf.device(<span class="string">&#x27;/gpu:0&#x27;</span> <span class="keyword">if</span> use_gpu <span class="keyword">else</span> <span class="string">&#x27;/cpu:0&#x27;</span>):</span><br><span class="line"><span class="comment">#确定位置</span></span><br><span class="line">         model_out = self.model( self.scalerx.transform(ensure_format(X)) )</span><br><span class="line">    <span class="comment">#先处理成一样的类型</span></span><br><span class="line">           coefs_out = self.get_coefs(model_out)<span class="comment">#解析模型输出</span></span><br><span class="line">         outputs   = self.extract_predictions(coefs_out, **kwargs)</span><br><span class="line"> <span class="comment"># 这个是得到最后的输出，</span></span><br><span class="line">            <span class="keyword">if</span> return_coefs: </span><br><span class="line">                <span class="keyword">return</span> outputs, [c.numpy() <span class="keyword">for</span> c <span class="keyword">in</span> coefs_out]</span><br><span class="line">         <span class="keyword">return</span> outputs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">    @ignore_warnings</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">predict</span>(<span class="params">self, X, chunk_size=<span class="number">1e5</span>, return_coefs=<span class="literal">False</span>, **kwargs</span>):</span></span><br><span class="line">        <span class="comment">#这个是预测的主函数</span></span><br><span class="line">       <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">       Top level interface to get predictions for a given dataset, which wraps _predict_chunk </span></span><br><span class="line"><span class="string">       to generate estimates in smaller chunks. See the docstring of extract_predictions() for </span></span><br><span class="line"><span class="string">      a description of other keyword parameters that can be given. </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">      chunk_size : int, optional (default=1e5)</span></span><br><span class="line"><span class="string">          Controls the size of chunks which are estimated by the model. If None is passed,</span></span><br><span class="line"><span class="string">          chunking is not used and the model is given all of the X dataset at once. </span></span><br><span class="line"><span class="string">        return_coefs : bool, optional (default=False)</span></span><br><span class="line"><span class="string">         If True, return the estimated coefficients (prior, mu, sigma) along with the </span></span><br><span class="line"><span class="string">         other requested outputs. Note that rescaling the coefficients using scalerx/y</span></span><br><span class="line"><span class="string">         is left up to the user, as calculations involving sigma must be performed in </span></span><br><span class="line"><span class="string">         the basis learned by the model.</span></span><br><span class="line"><span class="string">       &#x27;&#x27;&#x27;</span></span><br><span class="line">     chunk_size    = <span class="built_in">int</span>(chunk_size <span class="keyword">or</span> <span class="built_in">len</span>(X))</span><br><span class="line">        partial_coefs = []</span><br><span class="line">        partial_estim = []</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> trange(<span class="number">0</span>, <span class="built_in">len</span>(X), chunk_size, disable=<span class="keyword">not</span> self.verbose):</span><br><span class="line">            chunk_est, chunk_coef = self._predict_chunk(X[i:i+chunk_size], return_coefs=<span class="literal">True</span>, **kwargs)</span><br><span class="line">            <span class="comment"># 把总的数据分成好几块来进行预测</span></span><br><span class="line">            <span class="comment">#每个小块都是在predict_chunk里预测的</span></span><br><span class="line">          partial_coefs.append(chunk_coef)</span><br><span class="line">          partial_estim.append( np.array(chunk_est, ndmin=<span class="number">3</span>) )</span><br><span class="line"></span><br><span class="line">        coefs = [np.vstack(c) <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">zip</span>(*partial_coefs)]</span><br><span class="line">       preds = np.hstack(partial_estim)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> return_coefs:</span><br><span class="line">         <span class="keyword">return</span> preds, coefs </span><br><span class="line">     <span class="keyword">return</span> preds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">extract_predictions</span>(<span class="params">self, coefs, confidence_interval=<span class="literal">None</span>, threshold=<span class="literal">None</span>, avg_est=<span class="literal">False</span></span>):</span></span><br><span class="line">       <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">       Function used to extract model predictions from the given set of </span></span><br><span class="line"><span class="string">     coefficients. Users should call the predict() method instead, if</span></span><br><span class="line"><span class="string">      predictions from input data are needed. </span></span><br><span class="line"><span class="string">      confidence_interval : float, optional (default=None)</span></span><br><span class="line"><span class="string">          If a confidence interval value is given, then this function</span></span><br><span class="line"><span class="string">           returns (along with the predictions) the upper and lower </span></span><br><span class="line"><span class="string">         &#123;confidence_interval*100&#125;% confidence bounds around the prediction.</span></span><br><span class="line"><span class="string">     </span></span><br><span class="line"><span class="string">      threshold : float, optional (default=None)</span></span><br><span class="line"><span class="string">            If set, the model outputs the maximum prior estimate when the prior</span></span><br><span class="line"><span class="string">           probability is above this threshold; and outputs the average estimate</span></span><br><span class="line"><span class="string">         when below the threshold. Any passed value should be in the range (0, 1],</span></span><br><span class="line"><span class="string">         though the sign of the threshold can be negative in order to switch the</span></span><br><span class="line"><span class="string">           estimates (i.e. negative threshold would output average estimate when prior</span></span><br><span class="line"><span class="string">           is greater than the (absolute) value).  </span></span><br><span class="line"><span class="string">      avg_est : bool, optional (default=False)</span></span><br><span class="line"><span class="string">          If true, model outputs the prior probability weighted mean as the</span></span><br><span class="line"><span class="string">         estimate. Otherwise, model outputs the maximum prior estimate.</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">     <span class="keyword">assert</span>(confidence_interval <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> (<span class="number">0</span> &lt; confidence_interval &lt; <span class="number">1</span>)), <span class="string">&#x27;confidence_interval must be in the range (0,1)&#x27;</span></span><br><span class="line">        <span class="keyword">assert</span>(threshold <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> (<span class="number">0</span> &lt; threshold &lt;= <span class="number">1</span>)), <span class="string">&#x27;threshold must be in the range (0,1]&#x27;</span></span><br><span class="line"><span class="comment">#检查是不是在0-1</span></span><br><span class="line">        target = (<span class="string">&#x27;avg&#x27;</span> <span class="keyword">if</span> avg_est <span class="keyword">else</span> <span class="string">&#x27;top&#x27;</span>) <span class="keyword">if</span> threshold <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> <span class="string">&#x27;threshold&#x27;</span><span class="comment"># 选一个方式来处理模型的输出，比如avg</span></span><br><span class="line">        output = <span class="built_in">getattr</span>(self, <span class="string">f&#x27;_get_<span class="subst">&#123;target&#125;</span>_estimate&#x27;</span>)(coefs)</span><br><span class="line">        <span class="comment">#然后处理输出</span></span><br><span class="line">       scale  = <span class="keyword">lambda</span> x: self.scalery.inverse_transform(x.numpy())</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">if</span> confidence_interval <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">           <span class="keyword">assert</span>(threshold <span class="keyword">is</span> <span class="literal">None</span>), <span class="string">f&#x27;Cannot calculate confidence on thresholded estimates&#x27;</span></span><br><span class="line">           confidence = <span class="built_in">getattr</span>(self, <span class="string">f&#x27;_get_<span class="subst">&#123;target&#125;</span>_confidence&#x27;</span>)(coefs, confidence_interval)</span><br><span class="line">          upper_bar  = output + confidence</span><br><span class="line">          lower_bar  = output - confidence</span><br><span class="line">          <span class="keyword">return</span> scale(output), scale(upper_bar), scale(lower_bar)</span><br><span class="line">        <span class="comment">#k</span></span><br><span class="line">        <span class="keyword">return</span> scale(output)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">  @ignore_warnings</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">fit</span>(<span class="params">self, X, Y, output_slices=<span class="literal">None</span>, **kwargs</span>):</span></span><br><span class="line">     <span class="keyword">with</span> get_device(self.config):<span class="comment">#数据放在CPU还是GPU </span></span><br><span class="line">         checkpoint = self.model_path.joinpath(<span class="string">&#x27;checkpoint&#x27;</span>)</span><br><span class="line"><span class="comment">#加载模型文件</span></span><br><span class="line">           <span class="keyword">if</span> checkpoint.exists() <span class="keyword">and</span> <span class="keyword">not</span> self.no_load:</span><br><span class="line">               <span class="keyword">if</span> self.verbose: <span class="built_in">print</span>(<span class="string">f&#x27;Restoring model weights from <span class="subst">&#123;checkpoint&#125;</span>&#x27;</span>)</span><br><span class="line">                self.load()</span><br><span class="line"><span class="comment">#如果模型存在的话，就加载，不存在的话就不加载</span></span><br><span class="line">         <span class="keyword">elif</span> self.no_load <span class="keyword">and</span> X <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">              <span class="keyword">raise</span> Exception(<span class="string">&#x27;Model exists, but no_load is set and no training data was given.&#x27;</span>)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">elif</span> X <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> Y <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:   </span><br><span class="line">              self.scalerx.fit( ensure_format(X), ensure_format(Y) )</span><br><span class="line">                self.scalery.fit( ensure_format(Y) )</span><br><span class="line"><span class="comment"># 对数据做一下预处理，看是不是符合要求，转换函数在前面有定义，在product_estimation里面自定义的</span></span><br><span class="line">              <span class="comment"># Gather all data (train, validation, test, ...) into singular object</span></span><br><span class="line">                datasets = kwargs[<span class="string">&#x27;datasets&#x27;</span>] = kwargs.get(<span class="string">&#x27;datasets&#x27;</span>, &#123;&#125;)</span><br><span class="line">              datasets.update(&#123;<span class="string">&#x27;train&#x27;</span>: &#123;<span class="string">&#x27;x&#x27;</span> : X, <span class="string">&#x27;y&#x27;</span>: Y&#125;&#125;)</span><br><span class="line"><span class="comment"># 分训练集和测试机</span></span><br><span class="line">              <span class="keyword">for</span> key, data <span class="keyword">in</span> datasets.items(): </span><br><span class="line">                 <span class="keyword">if</span> data[<span class="string">&#x27;x&#x27;</span>] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                       datasets[key].update(&#123;</span><br><span class="line">                           <span class="string">&#x27;x_t&#x27;</span> : self.scalerx.transform( ensure_format(data[<span class="string">&#x27;x&#x27;</span>]) ),</span><br><span class="line">                           <span class="string">&#x27;y_t&#x27;</span> : self.scalery.transform( ensure_format(data[<span class="string">&#x27;y&#x27;</span>]) ),</span><br><span class="line">                       &#125;)</span><br><span class="line"><span class="comment">#再次转换</span></span><br><span class="line"><span class="keyword">assert</span>(np.isfinite(datasets[<span class="string">&#x27;train&#x27;</span>][<span class="string">&#x27;x_t&#x27;</span>]).<span class="built_in">all</span>()), <span class="string">&#x27;NaN values found in X training data&#x27;</span></span><br><span class="line"><span class="comment">#数据检查</span></span><br><span class="line">              self.update_config(&#123;</span><br><span class="line">                 <span class="string">&#x27;output_slices&#x27;</span> : output_slices <span class="keyword">or</span> &#123;<span class="string">&#x27;&#x27;</span>: <span class="built_in">slice</span>(<span class="literal">None</span>)&#125;,</span><br><span class="line">                   <span class="string">&#x27;n_inputs&#x27;</span>      : datasets[<span class="string">&#x27;train&#x27;</span>][<span class="string">&#x27;x_t&#x27;</span>].shape[<span class="number">1</span>],</span><br><span class="line">                    <span class="string">&#x27;n_targets&#x27;</span>     : datasets[<span class="string">&#x27;train&#x27;</span>][<span class="string">&#x27;y_t&#x27;</span>].shape[<span class="number">1</span>],</span><br><span class="line">                &#125;)</span><br><span class="line">               self.build()</span><br><span class="line"></span><br><span class="line">                callbacks = []</span><br><span class="line">                model_kws = &#123;</span><br><span class="line">                    <span class="string">&#x27;batch_size&#x27;</span> : self.batch, </span><br><span class="line">                 <span class="string">&#x27;epochs&#x27;</span>     : <span class="built_in">max</span>(<span class="number">1</span>, <span class="built_in">int</span>(self.n_iter / <span class="built_in">max</span>(<span class="number">1</span>, <span class="built_in">len</span>(X) / self.batch))),</span><br><span class="line">                  <span class="string">&#x27;verbose&#x27;</span>    : <span class="number">0</span>, </span><br><span class="line">                  <span class="string">&#x27;callbacks&#x27;</span>  : callbacks,</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> self.verbose:</span><br><span class="line">                 callbacks.append( TqdmCallback(model_kws[<span class="string">&#x27;epochs&#x27;</span>], data_size=<span class="built_in">len</span>(X), batch_size=self.batch) )</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> self.debug:</span><br><span class="line">                   callbacks.append( tf.keras.callbacks.TensorBoard(histogram_freq=<span class="number">1</span>, profile_batch=(<span class="number">2</span>,<span class="number">60</span>)) )</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> <span class="string">&#x27;args&#x27;</span> <span class="keyword">in</span> kwargs:</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">getattr</span>(kwargs[<span class="string">&#x27;args&#x27;</span>], <span class="string">&#x27;plot_loss&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">                       callbacks.append( PlottingCallback(kwargs[<span class="string">&#x27;args&#x27;</span>], datasets, self) )</span><br><span class="line"></span><br><span class="line">                  <span class="keyword">if</span> <span class="built_in">getattr</span>(kwargs[<span class="string">&#x27;args&#x27;</span>], <span class="string">&#x27;save_stats&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">                      callbacks.append( StatsCallback(kwargs[<span class="string">&#x27;args&#x27;</span>], datasets, self) )</span><br><span class="line"></span><br><span class="line">                 <span class="keyword">if</span> <span class="built_in">getattr</span>(kwargs[<span class="string">&#x27;args&#x27;</span>], <span class="string">&#x27;best_epoch&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">                      <span class="keyword">if</span> <span class="string">&#x27;valid&#x27;</span> <span class="keyword">in</span> datasets <span class="keyword">and</span> <span class="string">&#x27;x_t&#x27;</span> <span class="keyword">in</span> datasets[<span class="string">&#x27;valid&#x27;</span>]:</span><br><span class="line">                          model_kws[<span class="string">&#x27;validation_data&#x27;</span>] = (datasets[<span class="string">&#x27;valid&#x27;</span>][<span class="string">&#x27;x_t&#x27;</span>], datasets[<span class="string">&#x27;valid&#x27;</span>][<span class="string">&#x27;y_t&#x27;</span>])</span><br><span class="line">                         callbacks.append( ModelCheckpoint(self.model_path) )</span><br><span class="line"></span><br><span class="line">                self.model.fit(datasets[<span class="string">&#x27;train&#x27;</span>][<span class="string">&#x27;x_t&#x27;</span>], datasets[<span class="string">&#x27;train&#x27;</span>][<span class="string">&#x27;y_t&#x27;</span>], **model_kws)</span><br><span class="line"></span><br><span class="line">             <span class="keyword">if</span> <span class="keyword">not</span> self.no_save:</span><br><span class="line">                    self.save()</span><br><span class="line"></span><br><span class="line">         <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">f&quot;No trained model exists at: \n<span class="subst">&#123;self.model_path&#125;</span>&quot;</span>)</span><br><span class="line">           <span class="keyword">return</span> self </span><br><span class="line"></span><br><span class="line"><span class="comment"># 网络构建的部分在这里</span></span><br><span class="line"><span class="comment">#全连接 输入层 隐藏层 激活函数 输出层</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">build</span>(<span class="params">self</span>):</span></span><br><span class="line">        layer_kwargs = &#123;</span><br><span class="line">         <span class="string">&#x27;activation&#x27;</span>         : self.activation,<span class="comment">#激活函数</span></span><br><span class="line">           <span class="string">&#x27;kernel_regularizer&#x27;</span> : tf.keras.regularizers.l2(self.l2),<span class="comment">#一个正则项</span></span><br><span class="line">            <span class="string">&#x27;bias_regularizer&#x27;</span>   : tf.keras.regularizers.l2(self.l2),<span class="comment">#另一个正则项</span></span><br><span class="line">           <span class="comment"># &#x27;kernel_initializer&#x27; : tf.keras.initializers.LecunNormal(),</span></span><br><span class="line">          <span class="comment"># &#x27;bias_initializer&#x27;   : tf.keras.initializers.LecunNormal(),</span></span><br><span class="line">      &#125;</span><br><span class="line">        mixture_kwargs = &#123;</span><br><span class="line">           <span class="string">&#x27;n_mix&#x27;</span>     : self.n_mix,<span class="comment">#整个模型输出几个高斯参数</span></span><br><span class="line">         <span class="string">&#x27;n_targets&#x27;</span> : self.n_targets,<span class="comment">#在前面都定义过</span></span><br><span class="line">          <span class="string">&#x27;epsilon&#x27;</span>   : self.epsilon,</span><br><span class="line">     &#125;</span><br><span class="line">        mixture_kwargs.update(layer_kwargs)</span><br><span class="line">       <span class="comment">#字典添加到上面</span></span><br><span class="line">     create_layer = <span class="keyword">lambda</span> inp, out: tf.keras.layers.Dense(out, input_shape=(inp,), **layer_kwargs)<span class="comment"># 第一层的全连接的方式，</span></span><br><span class="line">     model_layers = [create_layer(inp, out) <span class="keyword">for</span> inp, out <span class="keyword">in</span> <span class="built_in">zip</span>([self.n_inputs] + self.hidden[:-<span class="number">1</span>], self.hidden)]<span class="comment">#把第一层全连接组合起来，</span></span><br><span class="line">        output_layer = MixtureLayer(**mixture_kwargs)<span class="comment">#搭建混合密度网络</span></span><br><span class="line">       <span class="comment">#做初始化</span></span><br><span class="line">        <span class="comment"># Define yscaler.inverse_transform as a tensorflow function, and estimate extraction from outputs</span></span><br><span class="line">        <span class="comment"># yscaler_a   = self.scalery.scalers[-1].min_</span></span><br><span class="line">        <span class="comment"># yscaler_b   = self.scalery.scalers[-1].scale_</span></span><br><span class="line">      <span class="comment"># inv_scaler  = lambda y: tf.math.exp((tf.reshape(y, shape=[-1]) - yscaler_a) / yscaler_b) </span></span><br><span class="line">      <span class="comment"># extract_est = lambda z: self._get_top_estimate( self._parse_outputs(z) )</span></span><br><span class="line">       </span><br><span class="line">      optimizer  = tf.keras.optimizers.Adam(self.lr)<span class="comment">#优化器</span></span><br><span class="line">       self.model = tf.keras.Sequential(model_layers + [output_layer], name=self.model_name)<span class="comment">#网络组合起来</span></span><br><span class="line">     self.model.<span class="built_in">compile</span>(loss=self.loss, optimizer=optimizer, metrics=[])<span class="comment">#[MSA(extract_est, inv_scaler)])#和前面的模型叠加进行训练</span></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line"><span class="meta"> @tf.function</span></span><br><span class="line">    </span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">loss</span>(<span class="params">self, y, output</span>):</span></span><br><span class="line">      prior, mu, scale = self._parse_outputs(output) </span><br><span class="line">        <span class="comment">#对输出做解析</span></span><br><span class="line">     dist  = <span class="built_in">getattr</span>(tfp.distributions, self.distribution)(mu, scale)</span><br><span class="line">        <span class="comment">#选出来正态分布</span></span><br><span class="line">     prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">        <span class="comment">#类别分布</span></span><br><span class="line">        mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line">       <span class="comment">#把五个分布结合起来变成一个新的分布</span></span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">impute</span>(<span class="params">mix, y, N</span>):</span></span><br><span class="line">          <span class="comment"># summation  = tf.zeros(tf.shape(y)[0])</span></span><br><span class="line">          <span class="comment"># imputation = lambda i, s: [i+1, tf.add(s, mix.log_prob(tf.where(tf.math.is_nan(y), mix.sample(), y)))]</span></span><br><span class="line">         <span class="comment"># return tf.while_loop(lambda i, x: i &lt; N, imputation, (0, summation), maximum_iterations=N, parallel_iterations=N)[1] / N</span></span><br><span class="line">            <span class="keyword">return</span> tf.reduce_mean([</span><br><span class="line">              mix.log_prob( tf.where(tf.math.is_nan(y), mix.sample(), y) )</span><br><span class="line">                <span class="comment">#把y从一个数转换为一个分布</span></span><br><span class="line">         <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment"># Much slower due to cond executing both branches regardless of the conditional</span></span><br><span class="line">      <span class="comment"># likelihood = tf.cond(tf.reduce_any(tf.math.is_nan(y)), lambda: impute(mix, y, self.imputations), lambda: mix.log_prob(y))</span></span><br><span class="line">      likelihood = mix.log_prob(y)</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + self.model.losses)<span class="comment">#计算这两个分布的相似性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">__call__</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">     <span class="keyword">return</span> self.model(inputs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_config</span>(<span class="params">self</span>):</span></span><br><span class="line">       <span class="keyword">return</span> self.config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">set_config</span>(<span class="params">self, config, *args, **kwargs</span>):</span></span><br><span class="line">      self.config = &#123;&#125; </span><br><span class="line">       self.update_config(config, *args, **kwargs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">update_config</span>(<span class="params">self, config, keys=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="keyword">if</span> keys <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">          config = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> config.items() <span class="keyword">if</span> k <span class="keyword">in</span> keys <span class="keyword">or</span> k <span class="keyword">not</span> <span class="keyword">in</span> self.config&#125;</span><br><span class="line">        </span><br><span class="line">      self.config.update(config)</span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> config.items():</span><br><span class="line">         <span class="built_in">setattr</span>(self, k, v)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">save</span>(<span class="params">self</span>):</span></span><br><span class="line">     self.model_path.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line">      store_pkl(self.model_path.joinpath(<span class="string">&#x27;config.pkl&#x27;</span>), self.get_config())</span><br><span class="line">        self.model.save_weights(self.model_path.joinpath(<span class="string">&#x27;checkpoint&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">load</span>(<span class="params">self</span>):</span></span><br><span class="line">     self.update_config(read_pkl(self.model_path.joinpath(<span class="string">&#x27;config.pkl&#x27;</span>)), [<span class="string">&#x27;scalerx&#x27;</span>, <span class="string">&#x27;scalery&#x27;</span>, <span class="string">&#x27;tf_random&#x27;</span>, <span class="string">&#x27;np_random&#x27;</span>])</span><br><span class="line">      tf.random.set_global_generator(self.tf_random)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">hasattr</span>(self, <span class="string">&#x27;model&#x27;</span>): self.build()</span><br><span class="line">     self.model.load_weights(self.model_path.joinpath(<span class="string">&#x27;checkpoint&#x27;</span>)).expect_partial()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_coefs</span>(<span class="params">self, output</span>):</span></span><br><span class="line">        prior, mu, scale = self._parse_outputs(output)</span><br><span class="line">        <span class="keyword">return</span> prior, mu, self._covariance(scale)</span><br><span class="line">        <span class="comment">#scale做了协方差</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_parse_outputs</span>(<span class="params">self, output</span>):</span></span><br><span class="line">       prior, mu, scale = tf.split(output, [self.n_mix, self.n_mix * self.n_targets, -<span class="number">1</span>], axis=<span class="number">1</span>)</span><br><span class="line">        prior = tf.reshape(prior, shape=[-<span class="number">1</span>, self.n_mix])</span><br><span class="line">     mu    = tf.reshape(mu,    shape=[-<span class="number">1</span>, self.n_mix, self.n_targets])</span><br><span class="line">     scale = tf.reshape(scale, shape=[-<span class="number">1</span>, self.n_mix, self.n_targets, self.n_targets])</span><br><span class="line">     <span class="keyword">return</span> prior, mu, scale</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_covariance</span>(<span class="params">self, scale</span>):</span></span><br><span class="line">       <span class="keyword">return</span> tf.einsum(<span class="string">&#x27;abij,abjk-&gt;abik&#x27;</span>, tf.transpose(scale, perm=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]), scale)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">   Estimate Generation</span></span><br><span class="line"><span class="string">   &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">#不同的估计方式</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_calculate_top</span>(<span class="params">self, prior, values</span>):</span></span><br><span class="line">        vals, idxs  = tf.nn.top_k(prior, k=<span class="number">1</span>)</span><br><span class="line">     idxs = tf.stack([tf.<span class="built_in">range</span>(tf.shape(idxs)[<span class="number">0</span>]), tf.reshape(idxs, [-<span class="number">1</span>])], axis=-<span class="number">1</span>)</span><br><span class="line">     <span class="keyword">return</span> tf.gather_nd(values, idxs)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_get_top_estimate</span>(<span class="params">self, coefs, **kwargs</span>):</span></span><br><span class="line">       prior, mu, _ = coefs</span><br><span class="line">      <span class="keyword">return</span> self._calculate_top(prior, mu)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">_get_avg_estimate</span>(<span class="params">self, coefs, **kwargs</span>):</span></span><br><span class="line">       prior, mu, _ = coefs</span><br><span class="line">      <span class="keyword">return</span> tf.reduce_sum(mu * tf.expand_dims(prior, -<span class="number">1</span>), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_threshold_estimate</span>(<span class="params">self, coefs, threshold=<span class="number">0.5</span></span>):</span></span><br><span class="line">        top_estimate = self.get_top_estimate(coefs)</span><br><span class="line">       avg_estimate = self.get_avg_estimate(coefs)</span><br><span class="line">       prior, _, _  = coefs</span><br><span class="line">      <span class="keyword">return</span> tf.compat.v2.where(tf.expand_dims(tf.math.greater(tf.reduce_max(prior, <span class="number">1</span>) / threshold, tf.math.sign(threshold)), -<span class="number">1</span>), top_estimate, avg_estimate)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">   Confidence Estimation</span></span><br><span class="line"><span class="string"> &#x27;&#x27;&#x27;</span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">_calculate_confidence</span>(<span class="params">self, sigma, level=<span class="number">0.9</span></span>):</span></span><br><span class="line">      <span class="comment"># For a given confidence level probability p (0&lt;p&lt;1), and number of dimensions d, rho is the error bar coefficient: rho=sqrt(2)*erfinv(p ** (1/d))</span></span><br><span class="line">     <span class="comment"># https://faculty.ucmerced.edu/mcarreira-perpinan/papers/cs-99-03.pdf</span></span><br><span class="line">        s, u, v = tf.linalg.svd(sigma)</span><br><span class="line">        rho = <span class="number">2</span>**<span class="number">0.5</span> * tf.math.erfinv(level ** (<span class="number">1.</span>/self.n_targets)) </span><br><span class="line">      <span class="keyword">return</span> tf.cast(rho, tf.float32) * <span class="number">2</span> * s ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">_get_top_confidence</span>(<span class="params">self, coefs, level=<span class="number">0.9</span></span>):</span></span><br><span class="line">        prior, mu, sigma = coefs</span><br><span class="line">      top_sigma = self._calculate_top(prior, sigma)</span><br><span class="line">     <span class="keyword">return</span> self._calculate_confidence(top_sigma, level)        </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_avg_confidence</span>(<span class="params">self, coefs, level=<span class="number">0.9</span></span>):</span></span><br><span class="line">        prior, mu, sigma = coefs</span><br><span class="line">      avg_estim = self.get_avg_estimate(coefs)</span><br><span class="line">      avg_sigma = tf.reduce_sum(tf.expand_dims(tf.expand_dims(prior, -<span class="number">1</span>), -<span class="number">1</span>) * </span><br><span class="line">                        (sigma + tf.matmul(tf.transpose(mu - tf.expand_dims(avg_estim, <span class="number">1</span>), (<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>)), </span><br><span class="line">                                                     mu - tf.expand_dims(avg_estim, <span class="number">1</span>))), axis=<span class="number">1</span>)</span><br><span class="line">      <span class="keyword">return</span> self._calculate_confidence(avg_sigma, level)        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MixtureLayer</span>(<span class="params">tf.keras.layers.Layer</span>):</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, n_mix, n_targets, epsilon, **layer_kwargs</span>):</span></span><br><span class="line">      <span class="built_in">super</span>(MixtureLayer, self).__init__()</span><br><span class="line">        layer_kwargs.pop(<span class="string">&#x27;activation&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">     self.n_mix     = n_mix </span><br><span class="line">       self.n_targets = n_targets </span><br><span class="line">       self.epsilon   = tf.constant(epsilon)</span><br><span class="line">     self._layer    = tf.keras.layers.Dense(self.n_outputs, **layer_kwargs)</span><br><span class="line">        <span class="comment">#前面的参数直接传过来</span></span><br><span class="line"><span class="meta">   @property </span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">layer_sizes</span>(<span class="params">self</span>):</span></span><br><span class="line">      <span class="string">&#x27;&#x27;&#x27; Sizes of the prior, mu, and (lower triangle) scale matrix outputs &#x27;&#x27;&#x27;</span></span><br><span class="line">       sizes = [<span class="number">1</span>, self.n_targets, (self.n_targets * (self.n_targets + <span class="number">1</span>)) // <span class="number">2</span>]</span><br><span class="line">     <span class="keyword">return</span> self.n_mix * np.array(sizes)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">   @property </span></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">n_outputs</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27; Total output size of the layer object &#x27;&#x27;&#x27;</span></span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">sum</span>(self.layer_sizes)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment"># @tf.function(experimental_compile=True)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">call</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">        <span class="comment">#这里是前向传播</span></span><br><span class="line">        <span class="comment">#整个输入分为三个部分</span></span><br><span class="line">        prior, mu, scale = tf.split(self._layer(inputs), self.layer_sizes, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">      prior = tf.nn.softmax(prior, axis=-<span class="number">1</span>) + tf.constant(<span class="number">1e-9</span>)</span><br><span class="line">        <span class="comment">#softmax激活，为了不为0加了个常数</span></span><br><span class="line">     mu    = tf.stack(tf.split(mu, self.n_mix, <span class="number">1</span>), <span class="number">1</span>) </span><br><span class="line">     scale = tf.stack(tf.split(scale, self.n_mix, <span class="number">1</span>), <span class="number">1</span>) </span><br><span class="line">      scale = tfp.math.fill_triangular(scale, upper=<span class="literal">False</span>)</span><br><span class="line">        <span class="comment"># 变成一个上三角矩阵</span></span><br><span class="line">       norm  = tf.linalg.diag(tf.ones((<span class="number">1</span>, <span class="number">1</span>, self.n_targets)))</span><br><span class="line">        <span class="comment"># 取出来对角线的值</span></span><br><span class="line">      sigma = tf.einsum(<span class="string">&#x27;abij,abjk-&gt;abik&#x27;</span>, tf.transpose(scale, perm=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>]), scale)</span><br><span class="line">        <span class="comment">#矩阵乘法</span></span><br><span class="line">     sigma+= self.epsilon * norm</span><br><span class="line">       scale = tf.linalg.cholesky(sigma)</span><br><span class="line"> <span class="comment">#乘出来一个分布</span></span><br><span class="line">     <span class="keyword">return</span> tf.keras.layers.concatenate([</span><br><span class="line">         tf.reshape(prior, shape=[-<span class="number">1</span>, self.n_mix]),</span><br><span class="line">            tf.reshape(mu,    shape=[-<span class="number">1</span>, self.n_mix * self.n_targets]),</span><br><span class="line">           tf.reshape(scale, shape=[-<span class="number">1</span>, self.n_mix * self.n_targets ** <span class="number">2</span>]),</span><br><span class="line">      ])</span><br><span class="line">    <span class="comment">#三个矩阵压缩到同一个矩阵里进行输出</span></span><br></pre></td></tr></table></figure>
+<p>看完这个代码发现了这个论文的另一个特殊的地方，就是他的loss。</p>
+<p>虽然最后输出的是只输出一个数，但是他在训练这个网络的时候，用了pdf和pdf的极大似然值来做loss</p>
+<p>就是这里</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loss</span>(<span class="params">self, y, output</span>):</span></span><br><span class="line">    prior, mu, scale = self._parse_outputs(output) </span><br><span class="line">    dist  = <span class="built_in">getattr</span>(tfp.distributions, self.distribution)(mu, scale)</span><br><span class="line">    prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">    mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">impute</span>(<span class="params">mix, y, N</span>):</span></span><br><span class="line">        <span class="comment"># summation  = tf.zeros(tf.shape(y)[0])</span></span><br><span class="line">        <span class="comment"># imputation = lambda i, s: [i+1, tf.add(s, mix.log_prob(tf.where(tf.math.is_nan(y), mix.sample(), y)))]</span></span><br><span class="line">        <span class="comment"># return tf.while_loop(lambda i, x: i &lt; N, imputation, (0, summation), maximum_iterations=N, parallel_iterations=N)[1] / N</span></span><br><span class="line">        <span class="keyword">return</span> tf.reduce_mean([</span><br><span class="line">            mix.log_prob( tf.where(tf.math.is_nan(y), mix.sample(), y) )</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Much slower due to cond executing both branches regardless of the conditional</span></span><br><span class="line">    <span class="comment"># likelihood = tf.cond(tf.reduce_any(tf.math.is_nan(y)), lambda: impute(mix, y, self.imputations), lambda: mix.log_prob(y))</span></span><br><span class="line">    likelihood = mix.log_prob(y)</span><br><span class="line">    <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + self.model.losses)</span><br></pre></td></tr></table></figure>
+<p>返回值是tf.reduce_mean(-likelihood) + tf.add_n([0.] + self.model.losses)</p>
+<p>impute这个函数似乎一直都没有用到</p>
+<p>计算张量的各个维度上的元素的平均值.</p>
+<p>而这里计算的是likelihood，计算方式是mix.log_prob(y)</p>
+<p>mix这个类来自于tfp.distributions.MixtureSameFamily(prob, dist), prob和dist来自output</p>
+<p>tfp这个东西来自于tensorflow_probability</p>
+<p>接下来请见第三篇，tensorflow_probability</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>周大侠
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://lifeodyssey.github.io/posts/8bb8e4ec.html" title="Mixture Density Network(2)">https://lifeodyssey.github.io/posts/8bb8e4ec.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+              <a href="/tags/Inversion/" rel="tag"># Inversion</a>
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/b5654816.html" rel="prev" title="我也成了精致的利己主义者">
+      <i class="fa fa-chevron-left"></i> 我也成了精致的利己主义者
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/182a5f48.html" rel="next" title="SeaDAS OCSSW及大气矫正 2022年使用指北">
+      SeaDAS OCSSW及大气矫正 2022年使用指北 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周大侠</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">767k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">11:38</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      const script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

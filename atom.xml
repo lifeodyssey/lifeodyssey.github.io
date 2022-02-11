@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-01-31T14:39:36.294Z</updated>
+  <updated>2022-02-11T09:25:28.000Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>probabilistic method in machine learning</title>
+    <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
+    <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
+    <published>2022-02-12T06:24:22.000Z</published>
+    <updated>2022-02-11T09:25:28.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
+    
+    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
+    
+    <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SeaDAS OCSSW及大气矫正 2022年使用指北</title>
+    <link href="https://lifeodyssey.github.io/posts/182a5f48.html"/>
+    <id>https://lifeodyssey.github.io/posts/182a5f48.html</id>
+    <published>2022-02-11T12:09:56.000Z</published>
+    <updated>2022-02-11T12:24:56.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近越来越多小伙伴顺着&lt;a href=&quot;https://lifeodyssey.github.io/posts/ce08f3a2.html&quot;&gt;这个&lt;/a&gt;来找到我，特此更新一篇。&lt;/p&gt;
+&lt;p&gt;欢迎任何问题的交流和咨询 zhenjiazhou0127@outlook.com&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Research" scheme="https://lifeodyssey.github.io/tags/Research/"/>
+    
+    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
+    
+    <category term="Oceanography" scheme="https://lifeodyssey.github.io/tags/Oceanography/"/>
+    
+    <category term="MODIS" scheme="https://lifeodyssey.github.io/tags/MODIS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mixture Density Network(2)</title>
+    <link href="https://lifeodyssey.github.io/posts/8bb8e4ec.html"/>
+    <id>https://lifeodyssey.github.io/posts/8bb8e4ec.html</id>
+    <published>2022-02-10T05:23:00.000Z</published>
+    <updated>2022-02-11T12:33:49.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;太长了，分P&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
+    
+    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>我也成了精致的利己主义者</title>
@@ -32,31 +106,6 @@
     
     
     <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>probabilistic method in machine learning</title>
-    <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
-    <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
-    <published>2022-01-28T06:24:22.000Z</published>
-    <updated>2022-01-28T07:27:07.508Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
-    
-    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
-    
-    <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
     
   </entry>
   
@@ -174,7 +223,7 @@
     <link href="https://lifeodyssey.github.io/posts/a23e5172.html"/>
     <id>https://lifeodyssey.github.io/posts/a23e5172.html</id>
     <published>2021-12-29T01:56:33.000Z</published>
-    <updated>2022-01-31T14:00:46.389Z</updated>
+    <updated>2022-02-02T14:29:05.064Z</updated>
     
     
     <summary type="html">&lt;p&gt;2021，马上就又要过去了。&lt;/p&gt;
@@ -192,11 +241,11 @@
   </entry>
   
   <entry>
-    <title>Mixture Density Network</title>
+    <title>Mixture Density Network(1)</title>
     <link href="https://lifeodyssey.github.io/posts/fbd0b1b0.html"/>
     <id>https://lifeodyssey.github.io/posts/fbd0b1b0.html</id>
     <published>2021-12-28T05:23:00.000Z</published>
-    <updated>2022-01-28T06:12:03.603Z</updated>
+    <updated>2022-02-11T09:23:23.000Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。&lt;/p&gt;</summary>
@@ -411,46 +460,6 @@
     <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>国内网络问题</title>
-    <link href="https://lifeodyssey.github.io/posts/cfa4e4d8.html"/>
-    <id>https://lifeodyssey.github.io/posts/cfa4e4d8.html</id>
-    <published>2021-12-02T08:24:01.000Z</published>
-    <updated>2021-12-02T08:54:50.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;回国之后才想起的一些问题&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="资料贴整理" scheme="https://lifeodyssey.github.io/categories/%E8%B5%84%E6%96%99%E8%B4%B4%E6%95%B4%E7%90%86/"/>
-    
-    
-    <category term="To Be Sorted" scheme="https://lifeodyssey.github.io/tags/To-Be-Sorted/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lfs</title>
-    <link href="https://lifeodyssey.github.io/posts/442707f1.html"/>
-    <id>https://lifeodyssey.github.io/posts/442707f1.html</id>
-    <published>2021-11-29T04:06:20.000Z</published>
-    <updated>2021-12-03T02:21:29.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Github大文件&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="python" scheme="https://lifeodyssey.github.io/tags/python/"/>
-    
-    <category term="git" scheme="https://lifeodyssey.github.io/tags/git/"/>
     
   </entry>
   
