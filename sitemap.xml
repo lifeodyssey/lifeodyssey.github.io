@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/8bb8e4ec.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/62469dc9.html</loc>
     
     <lastmod>2022-02-11</lastmod>
     
@@ -16,14 +16,21 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/ce08f3a2.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/4dfc84d2.html</loc>
     
     <lastmod>2022-02-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/62469dc9.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/8bb8e4ec.html</loc>
+    
+    <lastmod>2022-02-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/ce08f3a2.html</loc>
     
     <lastmod>2022-02-11</lastmod>
     
@@ -45,13 +52,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/posts/a23e5172.html</loc>
-    
-    <lastmod>2022-02-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/4dfc84d2.html</loc>
     
     <lastmod>2022-02-02</lastmod>
     
@@ -977,27 +977,6 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Data-Fusion/</loc>
-    <lastmod>2022-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/International-Conference/</loc>
-    <lastmod>2022-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/Presensentation/</loc>
-    <lastmod>2022-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lifeodyssey.github.io/tags/Remote-Sensing/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
@@ -1019,13 +998,6 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Fluorescence/</loc>
-    <lastmod>2022-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lifeodyssey.github.io/tags/Ocean-Optics/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
@@ -1033,14 +1005,42 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Sub-pixel/</loc>
+    <loc>https://lifeodyssey.github.io/tags/Research-Basis/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Research-Basis/</loc>
+    <loc>https://lifeodyssey.github.io/tags/Data-Fusion/</loc>
+    <lastmod>2022-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/International-Conference/</loc>
+    <lastmod>2022-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Presensentation/</loc>
+    <lastmod>2022-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Fluorescence/</loc>
+    <lastmod>2022-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Sub-pixel/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1061,14 +1061,14 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/OLCI/</loc>
+    <loc>https://lifeodyssey.github.io/tags/Chla-Algorithm/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/Chla-Algorithm/</loc>
+    <loc>https://lifeodyssey.github.io/tags/OLCI/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1089,6 +1089,13 @@
   </url>
   
   <url>
+    <loc>https://lifeodyssey.github.io/tags/paper-reading/</loc>
+    <lastmod>2022-02-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/tags/Harmful-Algae/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
@@ -1097,13 +1104,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/Research-Article/</loc>
-    <lastmod>2022-02-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/paper-reading/</loc>
     <lastmod>2022-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
