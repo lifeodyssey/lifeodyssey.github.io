@@ -34,8 +34,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142022.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142153.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142309.png">
-<meta property="og:image" content="https://lifeodyssey.github.io/posts/blog/source_posts/MODIS-L2-OC-batch-download/20200220142411.png">
-<meta property="og:image" content="https://lifeodyssey.github.io/posts/blog/source_posts/MODIS-L2-OC-batch-download/1582176279212.png">
+<meta property="og:image" content="https://lifeodyssey.github.io/posts/I:%5Cblog%5Csource_posts%5CMODIS-L2-OC-batch-download%5C20200220142411.png">
+<meta property="og:image" content="https://lifeodyssey.github.io/posts/I:%5Cblog%5Csource_posts%5CMODIS-L2-OC-batch-download%5C1582176279212.png">
 <meta property="article:published_time" content="2020-02-20T06:05:08.000Z">
 <meta property="article:modified_time" content="2020-02-28T08:24:28.000Z">
 <meta property="article:author" content="周大侠">
@@ -229,7 +229,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#requirement"><span class="nav-number">1.</span> <span class="nav-text">Requirement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-by-step"><span class="nav-number">2.</span> <span class="nav-text">Step by Step</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#requirement"><span class="nav-number">1.</span> <span class="nav-text"> Requirement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-by-step"><span class="nav-number">2.</span> <span class="nav-text"> Step by Step</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -367,7 +367,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>804</span>
+              <span>916</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -386,27 +386,25 @@
     <div class="post-body" itemprop="articleBody">
         <p>This blog introduce a MODIS(also suitable for other available satellites) Ocean Color data batch download method without wget(since it doesn’t work on my laptop).</p>
 <a id="more"></a>
-<h2 id="requirement">Requirement</h2>
+<h2 id="requirement"><a class="markdownIt-Anchor" href="#requirement"></a> Requirement</h2>
 <p>1.Earthdata account</p>
-<p>2.cygwim(https://www.cygwin.com/)</p>
-<h2 id="step-by-step">Step by Step</h2>
-<p>1.Login to Earthdata. Then enter <span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZWFydGhkYXRhLm5hc2EuZ292L3NlYXJjaD9tPTAhLTAuMDcwMzEyNSEyITEhMCEwJTJDMiZhbXA7ZmRjPU9jZWFuJTIwQmlvbG9neSUyMERpc3RyaWJ1dGVkJTIwQWN0aXZlJTIwQXJjaGl2ZSUyMENlbnRlciUyMChPQi5EQUFDKSZhbXA7YWM9dHJ1ZQ==">https://search.earthdata.nasa.gov/search?m=0!-0.0703125!2!1!0!0%2C2&amp;fdc=Ocean%20Biology%20Distributed%20Active%20Archive%20Center%20(OB.DAAC)&amp;ac=true<i class="fa fa-external-link-alt"></i></span></p>
+<p>2.cygwim(<span class="exturl" data-url="aHR0cHM6Ly93d3cuY3lnd2luLmNvbS8=">https://www.cygwin.com/<i class="fa fa-external-link-alt"></i></span>)</p>
+<h2 id="step-by-step"><a class="markdownIt-Anchor" href="#step-by-step"></a> Step by Step</h2>
+<p>1.Login to Earthdata. Then enter [<span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZWFydGhkYXRhLm5hc2EuZ292L3NlYXJjaD9tPTAhLTAuMDcwMzEyNSEyITEhMCEwJTJDMiZhbXA7ZmRjPU9jZWFuJTIwQmlvbG9neSUyMERpc3RyaWJ1dGVkJTIwQWN0aXZlJTIwQXJjaGl2ZSUyMENlbnRlciUyMChPQi5EQUFDKSZhbXA7YWM9dHJ1ZQ==">https://search.earthdata.nasa.gov/search?m=0!-0.0703125!2!1!0!0%2C2&amp;fdc=Ocean Biology Distributed Active Archive Center (OB.DAAC)&amp;ac=true<i class="fa fa-external-link-alt"></i></span>](<span class="exturl" data-url="aHR0cHM6Ly9zZWFyY2guZWFydGhkYXRhLm5hc2EuZ292L3NlYXJjaD9tPTAhLTAuMDcwMzEyNSEyITEhMCEwJTJDMiZhbXA7ZmRjPU9jZWFu">https://search.earthdata.nasa.gov/search?m=0!-0.0703125!2!1!0!0%2C2&amp;fdc=Ocean<i class="fa fa-external-link-alt"></i></span> Biology Distributed Active Archive Center (OB.DAAC)&amp;ac=true)</p>
 <p>2.Select desired satellite in the option ’Instruments’</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220141643.png"></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220141643.png" alt></p>
 <p>3.Select desired region by spatial polygon, rectangular or coordinate.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220141833.png"></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220141833.png" alt></p>
 <p>Then select desired product</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142022.png"></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142022.png" alt></p>
 <p>4.Screen the data by granule filters</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142153.png"></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142153.png" alt></p>
 <p>5.Click download all, then choose data access method and click download data in the end</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142309.png"></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200220142309.png" alt></p>
 <p>6.Click download access script</p>
-<p><img src="/posts/blog\source_posts\MODIS-L2-OC-batch-download\20200220142411.png"></p>
+<p><img src="/posts/I:%5Cblog%5Csource_posts%5CMODIS-L2-OC-batch-download%5C20200220142411.png" alt></p>
 <p>download the script</p>
-<figure>
-<img src="/posts/blog\source_posts\MODIS-L2-OC-batch-download\1582176279212.png" alt="1582176279212"><figcaption aria-hidden="true">1582176279212</figcaption>
-</figure>
+<p><img src="/posts/I:%5Cblog%5Csource_posts%5CMODIS-L2-OC-batch-download%5C1582176279212.png" alt="1582176279212"></p>
 <p>open cygwin in the same download folder</p>
 <p>enter:</p>
 <p><code>chmod 777 download.sh</code></p>
@@ -512,12 +510,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">767k</span>
+    <span title="Symbols count total">783k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11:38</span>
+    <span title="Reading time total">11:52</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

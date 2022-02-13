@@ -222,7 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一个简单的神经网络搭建流程</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text"> 一个简单的神经网络搭建流程</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -379,7 +379,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>开始炼丹的第二天</p>
 <a id="more"></a>
-<h1 id="一个简单的神经网络搭建流程">一个简单的神经网络搭建流程</h1>
+<h1 id="一个简单的神经网络搭建流程"><a class="markdownIt-Anchor" href="#一个简单的神经网络搭建流程"></a> 一个简单的神经网络搭建流程</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test,  y_test, verbose=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>产出的结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Epoch 1/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.2962 - accuracy: 0.9155</span><br><span class="line">Epoch 2/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.1420 - accuracy: 0.9581</span><br><span class="line">Epoch 3/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.1064 - accuracy: 0.9672</span><br><span class="line">Epoch 4/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.0885 - accuracy: 0.9730</span><br><span class="line">Epoch 5/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.0749 - accuracy: 0.9765</span><br><span class="line">313/313 - 0s - loss: 0.0748 - accuracy: 0.9778</span><br><span class="line">[0.07484959065914154, 0.9778000116348267]</span><br></pre></td></tr></table></figure>
@@ -484,12 +484,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">767k</span>
+    <span title="Symbols count total">783k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11:38</span>
+    <span title="Reading time total">11:52</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

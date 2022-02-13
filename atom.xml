@@ -50,7 +50,7 @@
     
     
     <summary type="html">&lt;p&gt;最近越来越多小伙伴顺着&lt;a href=&quot;https://lifeodyssey.github.io/posts/ce08f3a2.html&quot;&gt;这个&lt;/a&gt;来找到我，特此更新一篇。&lt;/p&gt;
-&lt;p&gt;欢迎任何问题的交流和咨询 zhenjiazhou0127@outlook.com&lt;/p&gt;</summary>
+&lt;p&gt;欢迎任何问题的交流和咨询 &lt;a href=&quot;mailto:zhenjiazhou0127@outlook.com&quot;&gt;zhenjiazhou0127@outlook.com&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -72,7 +72,7 @@
     <link href="https://lifeodyssey.github.io/posts/8bb8e4ec.html"/>
     <id>https://lifeodyssey.github.io/posts/8bb8e4ec.html</id>
     <published>2022-02-10T05:23:00.000Z</published>
-    <updated>2022-02-11T13:51:24.388Z</updated>
+    <updated>2022-02-13T06:55:53.356Z</updated>
     
     
     <summary type="html">&lt;p&gt;太长了，分P&lt;/p&gt;</summary>
@@ -138,7 +138,10 @@
     
     <summary type="html">&lt;p&gt;时间过得好快，马上就要到25岁了。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;もしももしも今死んじゃったら 泣いてくれる人はいますか？ 一年いや一ヶ月も経てば どうせ忘れられてるんでしょ？&lt;/p&gt;
+&lt;p&gt;もしももしも今死んじゃったら&lt;br&gt;
+泣いてくれる人はいますか？&lt;br&gt;
+一年いや一ヶ月も経てば&lt;br&gt;
+どうせ忘れられてるんでしょ？&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -146,9 +149,9 @@
     <category term="梦里真真语真幻" scheme="https://lifeodyssey.github.io/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/"/>
     
     
-    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
     <category term="总结" scheme="https://lifeodyssey.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
   </entry>
   
@@ -210,9 +213,6 @@
     <updated>2021-12-30T07:45:41.000Z</updated>
     
     
-    <summary type="html">
-</summary>
-    
     
     
     
@@ -234,9 +234,9 @@
     <category term="梦里真真语真幻" scheme="https://lifeodyssey.github.io/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/"/>
     
     
-    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
     <category term="总结" scheme="https://lifeodyssey.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
   </entry>
   
@@ -273,14 +273,14 @@
     
     <summary type="html">&lt;p&gt;因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白&lt;/p&gt;
 &lt;p&gt;一些地址&lt;/p&gt;
-&lt;p&gt;https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d&lt;/p&gt;
-&lt;p&gt;https://issueexplorer.com/issue/automl/auto-sklearn/1297&lt;/p&gt;
-&lt;p&gt;https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn&lt;/p&gt;
-&lt;p&gt;https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features&lt;/p&gt;
-&lt;p&gt;https://github.com/automl/auto-sklearn/issues/524&lt;/p&gt;
-&lt;p&gt;https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015&lt;/p&gt;
-&lt;p&gt;https://scikit-learn.org/stable/modules/feature_selection.html&lt;/p&gt;
-&lt;p&gt;https://github.com/automl/auto-sklearn/issues/524&lt;/p&gt;</summary>
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2JleW9uZC1ncmlkLXNlYXJjaC1oeXBlcmNoYXJnZS1oeXBlcnBhcmFtZXRlci10dW5pbmctZm9yLXhnYm9vc3QtN2M3OGY3YTI5Mjlk&quot;&gt;https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9pc3N1ZWV4cGxvcmVyLmNvbS9pc3N1ZS9hdXRvbWwvYXV0by1za2xlYXJuLzEyOTc=&quot;&gt;https://issueexplorer.com/issue/automl/auto-sklearn/1297&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9yZXNpZGVudG1hcmlvL2F1dG9tYXRlZC1mZWF0dXJlLXNlbGVjdGlvbi13aXRoLXNrbGVhcm4=&quot;&gt;https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTQwMzU2NDUvZmVhdHVyZXMtYW5kLWZlYXR1cmUtaW1wb3J0YW5jZS1pbi1hdXRvLXNrbGVhcm4td2l0aC1vbmUtaG90LWVuY29kZWQtZmVhdHVyZXM=&quot;&gt;https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2ZlYXR1cmUtcHJlcHJvY2Vzc29yLWluLWF1dG9tYXRlZC1tYWNoaW5lLWxlYXJuaW5nLWMzYWY2ZjIyZjAxNQ==&quot;&gt;https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2lraXQtbGVhcm4ub3JnL3N0YWJsZS9tb2R1bGVzL2ZlYXR1cmVfc2VsZWN0aW9uLmh0bWw=&quot;&gt;https://scikit-learn.org/stable/modules/feature_selection.html&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
     
@@ -436,9 +436,9 @@
     <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
-    
     <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
+    
+    <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
     
   </entry>
   

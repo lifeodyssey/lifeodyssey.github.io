@@ -224,7 +224,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wsl"><span class="nav-number">1.</span> <span class="nav-text">WSL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#anaconda"><span class="nav-number">2.</span> <span class="nav-text">anaconda</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E6%9B%B2"><span class="nav-number">2.1.</span> <span class="nav-text">插曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text">换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9E%E7%8E%AF%E5%A2%83"><span class="nav-number">2.3.</span> <span class="nav-text">搞环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jupyter"><span class="nav-number">3.</span> <span class="nav-text">Jupyter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E6%AC%A1%E4%B8%80%E4%B8%AA%E8%BD%A6%E7%9A%84%E7%BF%BB"><span class="nav-number">3.1.</span> <span class="nav-text">再次一个车的翻</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu-and-memory-limit"><span class="nav-number">4.</span> <span class="nav-text">CPU and memory limit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AAbug"><span class="nav-number">5.</span> <span class="nav-text">一个bug</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wsl"><span class="nav-number">1.</span> <span class="nav-text"> WSL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#anaconda"><span class="nav-number">2.</span> <span class="nav-text"> anaconda</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E6%9B%B2"><span class="nav-number">2.1.</span> <span class="nav-text"> 插曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text"> 换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9E%E7%8E%AF%E5%A2%83"><span class="nav-number">2.3.</span> <span class="nav-text"> 搞环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jupyter"><span class="nav-number">3.</span> <span class="nav-text"> Jupyter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E6%AC%A1%E4%B8%80%E4%B8%AA%E8%BD%A6%E7%9A%84%E7%BF%BB"><span class="nav-number">3.1.</span> <span class="nav-text"> 再次一个车的翻</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu-and-memory-limit"><span class="nav-number">4.</span> <span class="nav-text"> CPU and memory limit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AAbug"><span class="nav-number">5.</span> <span class="nav-text"> 一个bug</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,7 +362,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.3k</span>
+              <span>4.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -381,17 +381,15 @@
     <div class="post-body" itemprop="articleBody">
         <p>自己之前经常用autosklearn，但是这玩意在windows下不能跑，本来想跟之前一样装个ubuntu但是感觉太麻烦了，于是试着用WSL，这里是配置全过程</p>
 <a id="more"></a>
-<h1 id="wsl">WSL</h1>
+<h1 id="wsl"><a class="markdownIt-Anchor" href="#wsl"></a> WSL</h1>
 <p>以管理员权限打开cmd，输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wsl --install</span><br></pre></td></tr></table></figure>
 <p>重启之后在MS store里下载ubuntu就行 我下了unbuntu 20.04LTS</p>
 <p>然后在命令行里直接输入wsl就可以开始了</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211204211035801.png" alt="image-20211204211035801"><figcaption aria-hidden="true">image-20211204211035801</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211204211035801.png" alt="image-20211204211035801"></p>
 <p>注意这个是默认安装在C盘。</p>
 <p>补一个<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGludXh3cy9wLzkzMDcxODcuaHRtbA==">ubuntu常用命令<i class="fa fa-external-link-alt"></i></span></p>
-<h1 id="anaconda">anaconda</h1>
+<h1 id="anaconda"><a class="markdownIt-Anchor" href="#anaconda"></a> anaconda</h1>
 <p>我这里装的是miniconda 感觉自己也用不了那么多包</p>
 <p>命令如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p miniconda</span><br><span class="line">$ <span class="built_in">cd</span> miniconda</span><br><span class="line">$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
@@ -400,7 +398,7 @@
 <p>然后</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bash Miniconda.... .sh</span><br><span class="line">$ conda create --name pysoc python=3.7</span><br><span class="line">$ conda activate pysoc</span><br></pre></td></tr></table></figure>
 <p>然后就是必不可少的社会主义特色，换清华。</p>
-<h2 id="插曲">插曲</h2>
+<h2 id="插曲"><a class="markdownIt-Anchor" href="#插曲"></a> 插曲</h2>
 <p>在那之前还有个小插曲。</p>
 <p>我想直接用reboot来重启，但是不行，显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ System has not been booted with systemd as init </span><br><span class="line">$ system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">$ Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">$ Failed to talk to init daemon.</span></span><br></pre></td></tr></table></figure>
@@ -417,56 +415,54 @@
 <p>然后成功翻车了</p>
 <p>查了查原因是</p>
 <blockquote>
-<p>So why don't normal <code>reboot</code>/<code>shutdown</code> commands work? Two reasons. First, as covered by Bengt, WSL doesn't currently support systemd, and Ubuntu simply links these two legacy commands to <code>/usr/bin/systemctl</code> (the systemd control utility). You can see this with <code>ls -l /usr/sbin</code>.</p>
-<p>But even if these were the legacy commands which directly called <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xLzI4ODEyNTE0LzExODEwOTMz">Linux's shutdown API<i class="fa fa-external-link-alt"></i></span>, it wouldn't work. Microsoft doesn't typically hook up API's that interact directly with the hardware, instead providing virtualization interfaces where necessary. But in the case of starting and stopping a WSL instance, it's just so "lightweight" (as discussed above) that there's not any real reason to do so.</p>
+<p>So why don’t normal <code>reboot</code>/<code>shutdown</code> commands work? Two reasons. First, as covered by Bengt, WSL doesn’t currently support systemd, and Ubuntu simply links these two legacy commands to <code>/usr/bin/systemctl</code> (the systemd control utility). You can see this with <code>ls -l /usr/sbin</code>.</p>
+<p>But even if these were the legacy commands which directly called <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xLzI4ODEyNTE0LzExODEwOTMz">Linux’s shutdown API<i class="fa fa-external-link-alt"></i></span>, it wouldn’t work. Microsoft doesn’t typically hook up API’s that interact directly with the hardware, instead providing virtualization interfaces where necessary. But in the case of starting and stopping a WSL instance, it’s just so “lightweight” (as discussed above) that there’s not any real reason to do so.</p>
 </blockquote>
 <p>最后只能另开一个cmd</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wsl --list</span><br><span class="line">$ wsl --terminate Ubuntu</span><br><span class="line"><span class="comment">#or wsl shutdown to shut all the sub system</span></span><br></pre></td></tr></table></figure>
 <p>重启进入之后显示前面有个base就是进了conda环境了</p>
-<h2 id="换源">换源</h2>
+<h2 id="换源"><a class="markdownIt-Anchor" href="#换源"></a> 换源</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$　conda config --add channels <span class="string">&#x27;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/&#x27;</span></span><br><span class="line">$ conda config --<span class="built_in">set</span> show_channel_urls yes</span><br></pre></td></tr></table></figure>
-<h2 id="搞环境">搞环境</h2>
+<h2 id="搞环境"><a class="markdownIt-Anchor" href="#搞环境"></a> 搞环境</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ conda create --name pysoc python=3.7 </span><br><span class="line">$ conda activate pysoc</span><br></pre></td></tr></table></figure>
 <p>千万 千万 千万不要在base里跑东西装东西</p>
 <p>经典装包时间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ conda install gxx_linux-64 gcc_linux-64 swig</span><br><span class="line">$ conda config --add channels conda-forge</span><br><span class="line">$ conda config --<span class="built_in">set</span> channel_priority strict</span><br><span class="line">$ conda install auto-sklearn</span><br><span class="line">$ conda install -c conda-forge geopandas</span><br></pre></td></tr></table></figure>
 <p>然后成功再次翻车</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205111723183.png" alt="image-20211205111723183"><figcaption aria-hidden="true">image-20211205111723183</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205111723183.png" alt="image-20211205111723183"></p>
 <p>试着删除再重新创建环境也不行，没办法，重装系统吧</p>
 <p>直接打开ubuntu的设置点击reset就行</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205114045880.png" alt="image-20211205114045880"><figcaption aria-hidden="true">image-20211205114045880</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205114045880.png" alt="image-20211205114045880"></p>
 <p>重装之后再来一遍，不过这次没有搞reboot相关的那个包genie，</p>
 <p>然后这次就没有翻车了，装完上面那俩之后，继续</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ conda install seaborn</span><br><span class="line">$ conda install -c conda-forge xarray dask netCDF4 bottleneck</span><br><span class="line">$ conda install -c conda-forge cartopy</span><br><span class="line">$ conda install -c conda-forge pyresample</span><br><span class="line">$ conda install python-ternary</span><br></pre></td></tr></table></figure>
 <p>常用的好像就这些，有啥缺少的待会再试试。</p>
-<h1 id="jupyter">Jupyter</h1>
+<h1 id="jupyter"><a class="markdownIt-Anchor" href="#jupyter"></a> Jupyter</h1>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br></pre></td></tr></table></figure>
 <p>可以参考之前写的<a href="https://lifeodyssey.github.io/posts/c958af43.html">这个</a></p>
 <p>然后直接输入jupyter lab就行了</p>
 <p>由于可能闪过一大堆信息，直接在cmd里跳到下一页，导致看不到token，可以摁一下ctrl+c，会出来token，复制到浏览器就行</p>
 <p>因为我git clone的repo也在c盘，就直接打开直接之前写的jupyterlab用就行了，</p>
 <p>总共花了我七八个小时吧，大部分都是因为想搞reboot弄出来的 没那玩意大概四个小时结束。</p>
-<p>注意访问的路径改变为/mnt/c(defgh...)</p>
-<h2 id="再次一个车的翻">再次一个车的翻</h2>
+<p>注意访问的路径改变为/mnt/c(defgh…)</p>
+<h2 id="再次一个车的翻"><a class="markdownIt-Anchor" href="#再次一个车的翻"></a> 再次一个车的翻</h2>
 <p>我在jupyter里尝试import autosklearn的时候显示autosklearn没有，原来conda 那句没有装上</p>
 <p>再次试着装了下，我发现，居然是geopandas和autosklearn有冲突，我无语了。</p>
 <p>最后用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install auto-sklearn</span><br></pre></td></tr></table></figure>
 <p>搞定了</p>
 <p>另外注意autosklearn的一些关键字现在（2021.12.5）和我本科的那个有一些区别，注意就行。</p>
-<h1 id="cpu-and-memory-limit">CPU and memory limit</h1>
+<h1 id="cpu-and-memory-limit"><a class="markdownIt-Anchor" href="#cpu-and-memory-limit"></a> CPU and memory limit</h1>
 <p>跑了一天之后发现还没跑出来结果，刷新一看显示kernel seems to die。</p>
 <p>然后查了查是分配的内存不够</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wsl --shutdown</span><br><span class="line">$ notepad <span class="string">&quot;<span class="variable">$env</span>:USERPROFILE/.wslconfig&quot;</span></span><br></pre></td></tr></table></figure>
 <p>写入</p>
-<p>[wsl2] memory=3GB # Limits VM memory in WSL 2 up to 3GB processors=4 # Makes the WSL 2 VM use two virtual processors</p>
+<p>[wsl2]<br>
+memory=3GB   # Limits VM memory in WSL 2 up to 3GB<br>
+processors=4 # Makes the WSL 2 VM use two virtual processors</p>
 <p>想写多少写多少</p>
 <p>在wsl里用free -h可以看到内存分配情况</p>
-<h1 id="一个bug">一个bug</h1>
+<h1 id="一个bug"><a class="markdownIt-Anchor" href="#一个bug"></a> 一个bug</h1>
 <p>最近碰到了无法识别外接硬盘的问题</p>
 <p>就是老显示No such device</p>
 <p>然后查到了<span class="exturl" data-url="aHR0cHM6Ly9kb3d3dy5zcGVuY2Vyd29vLmNvbS8=">这个<i class="fa fa-external-link-alt"></i></span></p>
@@ -571,12 +567,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">767k</span>
+    <span title="Symbols count total">783k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11:38</span>
+    <span title="Reading time total">11:52</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

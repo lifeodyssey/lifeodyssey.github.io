@@ -222,7 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E9%97%B4%E8%B7%9D%E8%B0%83%E6%95%B4"><span class="nav-number">1.</span> <span class="nav-text">子图间距调整</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="nav-number">2.</span> <span class="nav-text">共享坐标轴</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E5%9B%BE%E9%97%B4%E8%B7%9D%E8%B0%83%E6%95%B4"><span class="nav-number">1.</span> <span class="nav-text"> 子图间距调整</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="nav-number">2.</span> <span class="nav-text"> 共享坐标轴</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -360,7 +360,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>911</span>
+              <span>875</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -379,15 +379,13 @@
     <div class="post-body" itemprop="articleBody">
         <p>今天发现的一些东西</p>
 <a id="more"></a>
-<h1 id="子图间距调整">子图间距调整</h1>
-<p>来自 https://blog.csdn.net/qq_33039859/article/details/79424858</p>
+<h1 id="子图间距调整"><a class="markdownIt-Anchor" href="#子图间距调整"></a> 子图间距调整</h1>
+<p>来自 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzMDM5ODU5L2FydGljbGUvZGV0YWlscy83OTQyNDg1OA==">https://blog.csdn.net/qq_33039859/article/details/79424858<i class="fa fa-external-link-alt"></i></span></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plt.subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,</span><br><span class="line">                wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)<span class="number">12</span></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># the left side of the subplots of the figure</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># the right side of the subplots of the figure</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># the bottom of the subplots of the figure</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># the top of the subplots of the figure</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># the amount of width reserved for blank space between subplots,</span></span><br><span class="line">               <span class="comment"># expressed as a fraction of the average axis width</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># the amount of height reserved for white space between subplots,</span></span><br><span class="line">               <span class="comment"># expressed as a fraction of the average axis height</span></span><br></pre></td></tr></table></figure>
-<h1 id="共享坐标轴">共享坐标轴</h1>
+<h1 id="共享坐标轴"><a class="markdownIt-Anchor" href="#共享坐标轴"></a> 共享坐标轴</h1>
 <p>当你通过<code>pyplot.subplot()</code>、<code>pyplot.axes()</code>函数或者<code>Figure.add_subplot()</code>、<code>Figure.add_axes()</code>方法创建一个<code>Axes</code>时，你可以通过<code>sharex</code>关键字参数传入另一个<code>Axes</code>表示共享X轴；或者通过<code>sharey</code>关键字参数传入另一个<code>Axes</code>表示共享Y轴。<strong>共享轴线时，当你缩放某个<code>Axes</code>时，另一个<code>Axes</code>也跟着缩放。</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fig =plt.figure()</span><br><span class="line">ax1 =fig.add_subplot(<span class="number">211</span>)</span><br><span class="line">ax1.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">ax2 =fig.add_subplot(<span class="number">212</span>,sharex=ax1)</span><br><span class="line">ax2.plot([<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/1252882-20191225232904746-1316411337.png" alt="1252882-20191225232904746-1316411337"><figcaption aria-hidden="true">1252882-20191225232904746-1316411337</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/1252882-20191225232904746-1316411337.png" alt="1252882-20191225232904746-1316411337"></p>
 
     </div>
 
@@ -487,12 +485,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">767k</span>
+    <span title="Symbols count total">783k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">11:38</span>
+    <span title="Reading time total">11:52</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
