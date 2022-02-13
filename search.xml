@@ -6323,6 +6323,8 @@ L(\theta|x)=f(x|\theta)
 <p>没昨晚 后续 继续参考 https://github.com/tensorflow/probability/blob/main/tensorflow_probability/python/distributions/mixture_same_family.py</p>
 <p>https://lulaoshi.info/machine-learning/linear-model/maximum-likelihood-estimation</p>
 <p>https://zhangzhenhu.github.io/blog/glm/source/%E6%A6%82%E7%8E%87%E5%9F%BA%E7%A1%80/content.html#id17</p>
+<h1 id="最后一句">最后一句</h1>
+<p>tf.reduce_mean(-likelihood) + tf.add_n([0.] + self.model.losses)</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
