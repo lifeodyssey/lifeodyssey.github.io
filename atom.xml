@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-13T10:01:28.808Z</updated>
+  <updated>2022-02-13T10:05:58.591Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>日本語ノート(1)</title>
+    <link href="https://lifeodyssey.github.io/posts/c07919ba.html"/>
+    <id>https://lifeodyssey.github.io/posts/c07919ba.html</id>
+    <published>2022-02-13T10:03:54.000Z</published>
+    <updated>2022-02-13T10:05:58.591Z</updated>
+    
+    
+    <summary type="html">
+</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="日本語" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
+    
+    <category term="动词变形" scheme="https://lifeodyssey.github.io/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/"/>
+    
+    <category term="形容词变形" scheme="https://lifeodyssey.github.io/tags/%E5%BD%A2%E5%AE%B9%E8%AF%8D%E5%8F%98%E5%BD%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>probabilistic method in machine learning</title>
     <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
     <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
     <published>2022-02-12T06:24:22.000Z</published>
-    <updated>2022-02-13T10:01:28.808Z</updated>
+    <updated>2022-02-13T10:07:42.296Z</updated>
     
     
     <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>
@@ -437,27 +461,6 @@
     
     
     <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WSL+anaconda+jupyter</title>
-    <link href="https://lifeodyssey.github.io/posts/60b81fb7.html"/>
-    <id>https://lifeodyssey.github.io/posts/60b81fb7.html</id>
-    <published>2021-12-04T11:00:45.000Z</published>
-    <updated>2021-12-22T15:51:06.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;自己之前经常用autosklearn，但是这玩意在windows下不能跑，本来想跟之前一样装个ubuntu但是感觉太麻烦了，于是试着用WSL，这里是配置全过程&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
     
