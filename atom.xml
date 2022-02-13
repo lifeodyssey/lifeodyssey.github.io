@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-13T11:37:25.403Z</updated>
+  <updated>2022-02-13T13:37:08.532Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -21,10 +21,12 @@
     <link href="https://lifeodyssey.github.io/posts/c07919ba.html"/>
     <id>https://lifeodyssey.github.io/posts/c07919ba.html</id>
     <published>2022-02-13T10:03:54.000Z</published>
-    <updated>2022-02-13T11:37:25.403Z</updated>
+    <updated>2022-02-13T13:37:08.532Z</updated>
     
     
-    <summary type="html">&lt;p&gt;感觉大概是N5-N4左右水平的语法合集&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;感觉大概是N5-N4左右水平的语法合集&lt;/p&gt;
+&lt;p&gt;还没做完的 日期 月份 四季 方位 时分秒 形容词变形&lt;/p&gt;
+&lt;p&gt;https://youseiraws.gitbook.io/nihongo-note/ge-zhong-chang-yong-ci/4.-ri-qi-biao-da-fa&lt;/p&gt;</summary>
     
     
     
@@ -44,7 +46,7 @@
     <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
     <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
     <published>2022-02-12T06:24:22.000Z</published>
-    <updated>2022-02-13T10:07:42.296Z</updated>
+    <updated>2022-02-13T14:33:28.760Z</updated>
     
     
     <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>

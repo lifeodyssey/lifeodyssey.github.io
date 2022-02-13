@@ -6279,14 +6279,20 @@ to visible wavelengths.</p>
 <p>但是这里用的是利用getattr来调用函数的办法</p>
 <p>self.distribution等于 'MultivariateNormalTriL'这句话实际上是 在tfp.distributions里调用了一个 'MultivariateNormalTriL'的函数实例，然后把(mu, scale)这两个参数传给这个函数</p>
 <p>这个函数是</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultivariateNormalTriL</span>(<span class="params"></span></span></span><br><span class="line"><span class="class"><span class="params">    mvn_linear_operator.MultivariateNormalLinearOperator</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;The multivariate normal distribution on `R^k`.</span></span><br><span class="line"><span class="string">  The Multivariate Normal distribution is defined over `R^k` and parameterized</span></span><br><span class="line"><span class="string">  by a (batch of) length-`k` `loc` vector (aka &quot;mu&quot;) and a (batch of) `k x k`</span></span><br><span class="line"><span class="string">  `scale` matrix; `covariance = scale @ scale.T` where `@` denotes</span></span><br><span class="line"><span class="string">  matrix-multiplication.</span></span><br><span class="line"><span class="string">  #### Mathematical Details</span></span><br><span class="line"><span class="string">  The probability density function (pdf) is,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  pdf(x; loc, scale) = exp(-0.5 ||y||**2) / Z,</span></span><br><span class="line"><span class="string">  y = inv(scale) @ (x - loc),</span></span><br><span class="line"><span class="string">  Z = (2 pi)**(0.5 k) |det(scale)|,</span></span><br></pre></td></tr></table></figure>
-<p>where: * <code>loc</code> is a vector in <code>R^k</code>, * <code>scale</code> is a matrix in <code>R^&#123;k x k&#125;</code>, <code>covariance = scale @ scale.T</code>, * <code>Z</code> denotes the normalization constant, and, * <code>||y||**2</code> denotes the squared Euclidean norm of <code>y</code>. A (non-batch) <code>scale</code> matrix is: <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scale &#x3D; scale_tril</span><br></pre></td></tr></table></figure> where <code>scale_tril</code> is lower-triangular <code>k x k</code> matrix with non-zero diagonal, i.e., <code>tf.diag_part(scale_tril) != 0</code>. Additional leading dimensions (if any) will index batches. The MultivariateNormal distribution is a member of the <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTG9jYXRpb24tc2NhbGVfZmFtaWx5">location-scale family<i class="fa fa-external-link-alt"></i></span>, i.e., it can be constructed as, <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X ~ MultivariateNormal(loc&#x3D;0, scale&#x3D;1)   # Identity scale, zero shift.</span><br><span class="line">Y &#x3D; scale @ X + loc</span><br></pre></td></tr></table></figure> Trainable (batch) lower-triangular matrices can be created with <code>tfp.distributions.matrix_diag_transform()</code> and/or <code>tfp.math.fill_triangular()</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">简单理解就是传入了方差和均值两个参数，来计算一个多变量的正态分布</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;python</span><br><span class="line"></span><br><span class="line">  tfd &#x3D; tfp.distributions</span><br><span class="line">  # Initialize a single 3-variate Gaussian.</span><br><span class="line">  mu &#x3D; [1., 2, 3]</span><br><span class="line">  cov &#x3D; [[ 0.36,  0.12,  0.06],</span><br><span class="line">         [ 0.12,  0.29, -0.13],</span><br><span class="line">         [ 0.06, -0.13,  0.26]]</span><br><span class="line">  scale &#x3D; tf.linalg.cholesky(cov)</span><br><span class="line">  # &#x3D;&#x3D;&gt; [[ 0.6,  0. ,  0. ],</span><br><span class="line">  #      [ 0.2,  0.5,  0. ],</span><br><span class="line">  #      [ 0.1, -0.3,  0.4]])</span><br><span class="line">  mvn &#x3D; tfd.MultivariateNormalTriL(</span><br><span class="line">      loc&#x3D;mu,</span><br><span class="line">      scale_tril&#x3D;scale)</span><br><span class="line">  mvn.mean()</span><br><span class="line">  # &#x3D;&#x3D;&gt; [1., 2, 3]</span><br><span class="line">  # Covariance agrees with cholesky(cov) parameterization.</span><br><span class="line">  mvn.covariance()</span><br><span class="line">  # &#x3D;&#x3D;&gt; [[ 0.36,  0.12,  0.06],</span><br><span class="line">  #      [ 0.12,  0.29, -0.13],</span><br><span class="line">  #      [ 0.06, -0.13,  0.26]]</span><br><span class="line">  # Compute the pdf of an observation in &#96;R^3&#96; ; return a scalar.</span><br><span class="line">  mvn.prob([-1., 0, 1])  # shape: []</span><br><span class="line">  # Initialize a 2-batch of 3-variate Gaussians.</span><br><span class="line">  mu &#x3D; [[1., 2, 3],</span><br><span class="line">        [11, 22, 33]]              # shape: [2, 3]</span><br><span class="line">  tril &#x3D; ...  # shape: [2, 3, 3], lower triangular, non-zero diagonal.</span><br><span class="line">  mvn &#x3D; tfd.MultivariateNormalTriL(</span><br><span class="line">      loc&#x3D;mu,</span><br><span class="line">      scale_tril&#x3D;tril)</span><br><span class="line">  # Compute the pdf of two &#96;R^3&#96; observations; return a length-2 vector.</span><br><span class="line">  x &#x3D; [[-0.9, 0, 0.1],</span><br><span class="line">       [-10, 0, 9]]     # shape: [2, 3]</span><br><span class="line">  mvn.prob(x)           # shape: [2]</span><br><span class="line">  # Instantiate a &quot;learnable&quot; MVN.</span><br><span class="line">  dims &#x3D; 4</span><br><span class="line">  mvn &#x3D; tfd.MultivariateNormalTriL(</span><br><span class="line">      loc&#x3D;tf.Variable(tf.zeros([dims], dtype&#x3D;tf.float32), name&#x3D;&quot;mu&quot;),</span><br><span class="line">      scale_tril&#x3D;tfp.util.TransformedVariable(</span><br><span class="line">          tf.eye(dims, dtype&#x3D;tf.float32),</span><br><span class="line">          tfp.bijectors.FillScaleTriL(),</span><br><span class="line">          name&#x3D;&quot;raw_scale_tril&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultivariateNormalTriL</span>(<span class="params"></span></span></span><br><span class="line"><span class="class"><span class="params">    mvn_linear_operator.MultivariateNormalLinearOperator</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;The multivariate normal distribution on `R^k`.</span></span><br><span class="line"><span class="string">  The Multivariate Normal distribution is defined over `R^k` and parameterized</span></span><br><span class="line"><span class="string">  by a (batch of) length-`k` `loc` vector (aka &quot;mu&quot;) and a (batch of) `k x k`</span></span><br><span class="line"><span class="string">  `scale` matrix; `covariance = scale @ scale.T` where `@` denotes</span></span><br><span class="line"><span class="string">  matrix-multiplication.</span></span><br><span class="line"><span class="string">  #### Mathematical Details</span></span><br><span class="line"><span class="string">  The probability density function (pdf) is,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  pdf(x; loc, scale) = exp(-0.5 ||y||**2) / Z,</span></span><br><span class="line"><span class="string">  y = inv(scale) @ (x - loc),</span></span><br><span class="line"><span class="string">  Z = (2 pi)**(0.5 k) |det(scale)|,</span></span><br><span class="line"><span class="string">  where:</span></span><br><span class="line"><span class="string">  * `loc` is a vector in `R^k`,</span></span><br><span class="line"><span class="string">  * `scale` is a matrix in `R^&#123;k x k&#125;`, `covariance = scale @ scale.T`,</span></span><br><span class="line"><span class="string">  * `Z` denotes the normalization constant, and,</span></span><br><span class="line"><span class="string">  * `||y||**2` denotes the squared Euclidean norm of `y`.</span></span><br><span class="line"><span class="string">    A (non-batch) `scale` matrix is:</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  scale = scale_tril</span></span><br><span class="line"><span class="string">```</span></span><br><span class="line"><span class="string">  where `scale_tril` is lower-triangular `k x k` matrix with non-zero diagonal,</span></span><br><span class="line"><span class="string">  i.e., `tf.diag_part(scale_tril) != 0`.</span></span><br><span class="line"><span class="string">  Additional leading dimensions (if any) will index batches.</span></span><br><span class="line"><span class="string">  The MultivariateNormal distribution is a member of the [location-scale</span></span><br><span class="line"><span class="string">  family](https://en.wikipedia.org/wiki/Location-scale_family), i.e., it can be</span></span><br><span class="line"><span class="string">  constructed as,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  X ~ MultivariateNormal(loc=0, scale=1)   # Identity scale, zero shift.</span></span><br><span class="line"><span class="string">  Y = scale @ X + loc</span></span><br><span class="line"><span class="string">  ```</span></span><br><span class="line"><span class="string">  Trainable (batch) lower-triangular matrices can be created with</span></span><br><span class="line"><span class="string">  `tfp.distributions.matrix_diag_transform()` and/or</span></span><br><span class="line"><span class="string">  `tfp.math.fill_triangular()</span></span><br></pre></td></tr></table></figure>
+<p>简单理解就是传入了方差和均值两个参数，来计算一个多变量的正态分布</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">tfd = tfp.distributions</span><br><span class="line"><span class="comment"># Initialize a single 3-variate Gaussian.</span></span><br><span class="line">mu = [<span class="number">1.</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">cov = [[ <span class="number">0.36</span>,  <span class="number">0.12</span>,  <span class="number">0.06</span>],</span><br><span class="line">       [ <span class="number">0.12</span>,  <span class="number">0.29</span>, -<span class="number">0.13</span>],</span><br><span class="line">       [ <span class="number">0.06</span>, -<span class="number">0.13</span>,  <span class="number">0.26</span>]]</span><br><span class="line">scale = tf.linalg.cholesky(cov)</span><br><span class="line"><span class="comment"># ==&gt; [[ 0.6,  0. ,  0. ],</span></span><br><span class="line"><span class="comment">#      [ 0.2,  0.5,  0. ],</span></span><br><span class="line"><span class="comment">#      [ 0.1, -0.3,  0.4]])</span></span><br><span class="line">mvn = tfd.MultivariateNormalTriL(</span><br><span class="line">    loc=mu,</span><br><span class="line">    scale_tril=scale)</span><br><span class="line">mvn.mean()</span><br><span class="line"><span class="comment"># ==&gt; [1., 2, 3]</span></span><br><span class="line"><span class="comment"># Covariance agrees with cholesky(cov) parameterization.</span></span><br><span class="line">mvn.covariance()</span><br><span class="line"><span class="comment"># ==&gt; [[ 0.36,  0.12,  0.06],</span></span><br><span class="line"><span class="comment">#      [ 0.12,  0.29, -0.13],</span></span><br><span class="line"><span class="comment">#      [ 0.06, -0.13,  0.26]]</span></span><br><span class="line"><span class="comment"># Compute the pdf of an observation in `R^3` ; return a scalar.</span></span><br><span class="line">mvn.prob([-<span class="number">1.</span>, <span class="number">0</span>, <span class="number">1</span>])  <span class="comment"># shape: []</span></span><br><span class="line"><span class="comment"># Initialize a 2-batch of 3-variate Gaussians.</span></span><br><span class="line">mu = [[<span class="number">1.</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">      [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>]]              <span class="comment"># shape: [2, 3]</span></span><br><span class="line">tril = ...  <span class="comment"># shape: [2, 3, 3], lower triangular, non-zero diagonal.</span></span><br><span class="line">mvn = tfd.MultivariateNormalTriL(</span><br><span class="line">    loc=mu,</span><br><span class="line">    scale_tril=tril)</span><br><span class="line"><span class="comment"># Compute the pdf of two `R^3` observations; return a length-2 vector.</span></span><br><span class="line">x = [[-<span class="number">0.9</span>, <span class="number">0</span>, <span class="number">0.1</span>],</span><br><span class="line">     [-<span class="number">10</span>, <span class="number">0</span>, <span class="number">9</span>]]     <span class="comment"># shape: [2, 3]</span></span><br><span class="line">mvn.prob(x)           <span class="comment"># shape: [2]</span></span><br><span class="line"><span class="comment"># Instantiate a &quot;learnable&quot; MVN.</span></span><br><span class="line">dims = <span class="number">4</span></span><br><span class="line">mvn = tfd.MultivariateNormalTriL(</span><br><span class="line">    loc=tf.Variable(tf.zeros([dims], dtype=tf.float32), name=<span class="string">&quot;mu&quot;</span>),</span><br><span class="line">    scale_tril=tfp.util.TransformedVariable(</span><br><span class="line">        tf.eye(dims, dtype=tf.float32),</span><br><span class="line">        tfp.bijectors.FillScaleTriL(),</span><br><span class="line">        name=<span class="string">&quot;raw_scale_tril&quot;</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="第二句">第二句</h1>
 <p>在获取了这个分布之后</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">prob  = tfp.distributions.Categorical(probs=prior)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Categorical</span>(<span class="params">distribution.AutoCompositeTensorDistribution</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;Categorical distribution over integers.</span></span><br><span class="line"><span class="string">  The Categorical distribution is parameterized by either probabilities or</span></span><br><span class="line"><span class="string">  log-probabilities of a set of `K` classes. It is defined over the integers</span></span><br><span class="line"><span class="string">  `&#123;0, 1, ..., K-1&#125;`.</span></span><br><span class="line"><span class="string">  The Categorical distribution is closely related to the `OneHotCategorical` and</span></span><br><span class="line"><span class="string">  `Multinomial` distributions.  The Categorical distribution can be intuited as</span></span><br><span class="line"><span class="string">  generating samples according to `argmax&#123; OneHotCategorical(probs) &#125;` itself</span></span><br><span class="line"><span class="string">  being identical to `argmax&#123; Multinomial(probs, total_count=1) &#125;`.</span></span><br><span class="line"><span class="string">  #### Mathematical Details</span></span><br><span class="line"><span class="string">  The probability mass function (pmf) is,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  pmf(k; pi) = prod_j pi_j**[k == j]</span></span><br></pre></td></tr></table></figure>
-<p>#### Pitfalls The number of classes, <code>K</code>, must not exceed: - the largest integer representable by <code>self.dtype</code>, i.e., <code>2**(mantissa_bits+1)</code> (IEEE 754), - the maximum <code>Tensor</code> index, i.e., <code>2**31-1</code>. In other words, <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">K &lt;= <span class="built_in">min</span>(<span class="number">2</span>**<span class="number">31</span>-<span class="number">1</span>, &#123;</span><br><span class="line">  tf.float16: <span class="number">2</span>**<span class="number">11</span>,</span><br><span class="line">  tf.float32: <span class="number">2</span>**<span class="number">24</span>,</span><br><span class="line">  tf.float64: <span class="number">2</span>**<span class="number">53</span> &#125;[param.dtype])</span><br></pre></td></tr></table></figure> Note: This condition is validated only when <code>self.validate_args = True</code>. <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Categorical distribution是一种离散分布</span><br><span class="line"></span><br><span class="line">又要补数学了</span><br><span class="line"></span><br><span class="line">## Categorical distribution</span><br><span class="line"></span><br><span class="line">这里参考[这个](https:&#x2F;&#x2F;zhangzhenhu.github.io&#x2F;blog&#x2F;glm&#x2F;source&#x2F;%E6%A6%82%E7%8E%87%E5%9F%BA%E7%A1%80&#x2F;content.html#id17)</span><br><span class="line"></span><br><span class="line">伯努利分布（Bernoulli distribution）是单个随机变量的一种分布，它只有两个可能的取值。</span><br><span class="line"></span><br><span class="line">多努利分布（multinoulli distribution）或者范畴分布（categorical distribution）是单个随机变量的一种分布，它有 k 个可能的取值，不过 k 是有限的。例如人的血型。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;python</span><br><span class="line">dist &#x3D; Categorical(probs&#x3D;[0.1, 0.5, 0.4])</span><br><span class="line">n &#x3D; 1e4</span><br><span class="line">empirical_prob &#x3D; tf.cast(</span><br><span class="line">tf.histogram_fixed_width(</span><br><span class="line">        dist.sample(int(n)),</span><br><span class="line">        [0., 2],</span><br><span class="line">        nbins&#x3D;3),</span><br><span class="line">      dtype&#x3D;tf.float32) &#x2F; n</span><br><span class="line">  # &#x3D;&#x3D;&gt; array([ 0.1005,  0.5037,  0.3958], dtype&#x3D;float32)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Categorical</span>(<span class="params">distribution.AutoCompositeTensorDistribution</span>):</span></span><br><span class="line">  <span class="string">&quot;&quot;&quot;Categorical distribution over integers.</span></span><br><span class="line"><span class="string">  The Categorical distribution is parameterized by either probabilities or</span></span><br><span class="line"><span class="string">  log-probabilities of a set of `K` classes. It is defined over the integers</span></span><br><span class="line"><span class="string">  `&#123;0, 1, ..., K-1&#125;`.</span></span><br><span class="line"><span class="string">  The Categorical distribution is closely related to the `OneHotCategorical` and</span></span><br><span class="line"><span class="string">  `Multinomial` distributions.  The Categorical distribution can be intuited as</span></span><br><span class="line"><span class="string">  generating samples according to `argmax&#123; OneHotCategorical(probs) &#125;` itself</span></span><br><span class="line"><span class="string">  being identical to `argmax&#123; Multinomial(probs, total_count=1) &#125;`.</span></span><br><span class="line"><span class="string">  #### Mathematical Details</span></span><br><span class="line"><span class="string">  The probability mass function (pmf) is,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  pmf(k; pi) = prod_j pi_j**[k == j]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Pitfalls</span></span><br><span class="line"><span class="string">  The number of classes, `K`, must not exceed:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  - the largest integer representable by `self.dtype`, i.e.,</span></span><br><span class="line"><span class="string">    `2**(mantissa_bits+1)` (IEEE 754),</span></span><br><span class="line"><span class="string">  - the maximum `Tensor` index, i.e., `2**31-1`.</span></span><br><span class="line"><span class="string">    In other words,</span></span><br><span class="line"><span class="string">  ```python</span></span><br><span class="line"><span class="string">  K &lt;= min(2**31-1, &#123;</span></span><br><span class="line"><span class="string">    tf.float16: 2**11,</span></span><br><span class="line"><span class="string">    tf.float32: 2**24,</span></span><br><span class="line"><span class="string">    tf.float64: 2**53 &#125;[param.dtype])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Note: This condition is validated only when `self.validate_args = True`.</span></span><br></pre></td></tr></table></figure>
+<p>Categorical distribution是一种离散分布</p>
+<p>又要补数学了</p>
+<h2 id="categorical-distribution">Categorical distribution</h2>
+<p>这里参考<span class="exturl" data-url="aHR0cHM6Ly96aGFuZ3poZW5odS5naXRodWIuaW8vYmxvZy9nbG0vc291cmNlLyVFNiVBNiU4MiVFNyU4RSU4NyVFNSU5RiVCQSVFNyVBMSU4MC9jb250ZW50Lmh0bWwjaWQxNw==">这个<i class="fa fa-external-link-alt"></i></span></p>
+<p>伯努利分布（Bernoulli distribution）是单个随机变量的一种分布，它只有两个可能的取值。</p>
+<p>多努利分布（multinoulli distribution）或者范畴分布（categorical distribution）是单个随机变量的一种分布，它有 k 个可能的取值，不过 k 是有限的。例如人的血型。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dist = Categorical(probs=[<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.4</span>])</span><br><span class="line">n = <span class="number">1e4</span></span><br><span class="line">empirical_prob = tf.cast(</span><br><span class="line">tf.histogram_fixed_width(</span><br><span class="line">        dist.sample(<span class="built_in">int</span>(n)),</span><br><span class="line">        [<span class="number">0.</span>, <span class="number">2</span>],</span><br><span class="line">        nbins=<span class="number">3</span>),</span><br><span class="line">      dtype=tf.float32) / n</span><br><span class="line">  <span class="comment"># ==&gt; array([ 0.1005,  0.5037,  0.3958], dtype=float32)</span></span><br></pre></td></tr></table></figure>
 <p>一个例子。</p>
 <p>这里的prior是权重，也就是创建了一个范畴分布，概率是权重。</p>
 <h1 id="第三句">第三句</h1>
@@ -6307,7 +6313,13 @@ to visible wavelengths.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0.9999778336488041</span><br></pre></td></tr></table></figure>
 <p>确实是1</p>
 <h1 id="下一句">下一句</h1>
-<p>likelihood = mix.log_prob(y)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">likelihood = mix.log_prob(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_prob</span>(<span class="params">self, value, name=<span class="string">&#x27;log_prob&#x27;</span>, **kwargs</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Log probability density/mass function.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      value: `float` or `double` `Tensor`.</span></span><br><span class="line"><span class="string">      name: Python `str` prepended to names of ops created by this function.</span></span><br><span class="line"><span class="string">      **kwargs: Named arguments forwarded to subclass implementation.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      log_prob: a `Tensor` of shape `sample_shape(x) + self.batch_shape` with</span></span><br><span class="line"><span class="string">        values of type `self.dtype`.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> self._call_log_prob(value, name, **kwargs)</span><br></pre></td></tr></table></figure>
+<p>我又不懂了 为啥likelihood是logpdf呢，查了查<span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzU0MDgyMDAw">这个<i class="fa fa-external-link-alt"></i></span></p>
+<p>先看似然函数的定义，他是在给定联合样本值X下关于（未知）参数<span class="math inline">\(\theta\)</span>的函数: <span class="math display">\[
+L(\theta|x)=f(x|\theta)
+\]</span> 这里小x是指联合样本随机变量X取到的值，<span class="math inline">\(\theta\)</span>是指未知参数，它属于参数空间。</p>
+<p>这里<span class="math inline">\(f(x|\theta)\)</span>是一个密度函数，特别的，他表示</p>
 <p>没昨晚 后续 继续参考 https://github.com/tensorflow/probability/blob/main/tensorflow_probability/python/distributions/mixture_same_family.py</p>
 <p>https://lulaoshi.info/machine-learning/linear-model/maximum-likelihood-estimation</p>
 <p>https://zhangzhenhu.github.io/blog/glm/source/%E6%A6%82%E7%8E%87%E5%9F%BA%E7%A1%80/content.html#id17</p>
@@ -10394,8 +10406,314 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
     <title>日本語ノート(1)</title>
     <url>/posts/c07919ba.html</url>
     <content><![CDATA[<p>感觉大概是N5-N4左右水平的语法合集</p>
+<p>还没做完的 日期 月份 四季 方位 时分秒 形容词变形</p>
+<p>https://youseiraws.gitbook.io/nihongo-note/ge-zhong-chang-yong-ci/4.-ri-qi-biao-da-fa</p>
 <a id="more"></a>
 <h1 id="数数">数数</h1>
+<h2 id="数字念法">数字念法</h2>
+<table>
+<thead>
+<tr class="header">
+<th>数字</th>
+<th>日语</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>れい／ぜる</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>いち</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>に</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>さん</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>し／よん</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>ご</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>ろく</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>しち／なな</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>はち</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>く／きゅう*</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>じゅう</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>じゅういち</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>じゅうに</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>じゅうさん</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>じゅうし／じゅうよん</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>じゅうご</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>じゅうろく</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>じゅうしち／じゅうなな</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>じゅうはち</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>じゅうく／じゅうきゅう</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>にじゅう</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>さんじゅう</td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>よんじゅう</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>ごじゅう</td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td>ろくじゅう</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>ななじゅう</td>
+</tr>
+<tr class="odd">
+<td>80</td>
+<td>はちじゅう</td>
+</tr>
+<tr class="even">
+<td>90</td>
+<td>きゅうじゅう</td>
+</tr>
+<tr class="odd">
+<td>100</td>
+<td>ひゃく</td>
+</tr>
+<tr class="even">
+<td>0.1</td>
+<td>れいてんいち</td>
+</tr>
+<tr class="odd">
+<td>2/3</td>
+<td>さんぶんのに</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>せん</td>
+</tr>
+<tr class="odd">
+<td>10，000</td>
+<td>いちまん</td>
+</tr>
+</tbody>
+</table>
+<p>音变</p>
+<table>
+<thead>
+<tr class="header">
+<th>二百</th>
+<th>にひゃく</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>三百</td>
+<td>さんびゃく</td>
+</tr>
+<tr class="even">
+<td>四百</td>
+<td>よんひゃく</td>
+</tr>
+<tr class="odd">
+<td>六百</td>
+<td>ろっぴゃく</td>
+</tr>
+<tr class="even">
+<td>八百</td>
+<td>はっぴゃく</td>
+</tr>
+<tr class="odd">
+<td>四千</td>
+<td>よんせん</td>
+</tr>
+<tr class="even">
+<td>六千</td>
+<td>ろくせん</td>
+</tr>
+<tr class="odd">
+<td>八千</td>
+<td>はっせん</td>
+</tr>
+</tbody>
+</table>
+<h2 id="东西的量词">东西的量词</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>數字</strong></th>
+<th style="text-align: center;"><strong>日文</strong></th>
+<th style="text-align: center;">平假名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">一つ</td>
+<td style="text-align: center;">ひとつ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">二つ</td>
+<td style="text-align: center;">ふたつ</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">三つ</td>
+<td style="text-align: center;">みっつ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">四つ</td>
+<td style="text-align: center;"><strong>よっつ</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">五つ</td>
+<td style="text-align: center;"><strong>いつつ</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">六つ</td>
+<td style="text-align: center;"><strong>むっつ</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">七つ</td>
+<td style="text-align: center;">ななつ</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">八つ</td>
+<td style="text-align: center;"><strong>やっつ</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">九つ</td>
+<td style="text-align: center;"><strong>ここのつ</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">十</td>
+<td style="text-align: center;"><strong>とお</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="人的数量">人的数量</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">人数</th>
+<th style="text-align: center;"><strong>日文</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">ひとり</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">ふたり</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">さんにん</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">よにん</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">ごにん</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">ろくにん</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">しちにん</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">はちにん</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">きゅうにん</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">じゅうにん</td>
+</tr>
+</tbody>
+</table>
+<h2 id="星期">星期</h2>
+<p>何曜日（なんようび）星期几</p>
+<p>月曜日（げつようび）星期一</p>
+<p>火曜日（かようび）星期二</p>
+<p>水曜日（すいようび）星期三</p>
+<p>木曜日（もくようび）星期四</p>
+<p>金曜日（きんようび）星期五</p>
+<p>土曜日（どようび）星期六</p>
+<p>日曜日（にちようび）星期日</p>
 <h1 id="形容词变形">形容词变形</h1>
 <h1 id="动词变形">动词变形</h1>
 <h2 id="动词分类">动词分类</h2>
