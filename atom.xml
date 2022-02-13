@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-13T11:32:43.187Z</updated>
+  <updated>2022-02-13T11:37:25.403Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -21,17 +21,21 @@
     <link href="https://lifeodyssey.github.io/posts/c07919ba.html"/>
     <id>https://lifeodyssey.github.io/posts/c07919ba.html</id>
     <published>2022-02-13T10:03:54.000Z</published>
-    <updated>2022-02-13T11:32:43.187Z</updated>
+    <updated>2022-02-13T11:37:25.403Z</updated>
     
     
-    <summary type="html">&lt;p&gt;动词变形&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;感觉大概是N5-N4左右水平的语法合集&lt;/p&gt;</summary>
     
     
     
     <category term="日本語" scheme="https://lifeodyssey.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"/>
     
     
-    <category term="日本語动词变形" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/"/>
+    <category term="日本語 动词变形" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/"/>
+    
+    <category term="日本語 形容词变形" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E5%BD%A2%E5%AE%B9%E8%AF%8D%E5%8F%98%E5%BD%A2/"/>
+    
+    <category term="日本語 数数" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E6%95%B0%E6%95%B0/"/>
     
   </entry>
   

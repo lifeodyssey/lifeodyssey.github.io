@@ -1439,7 +1439,21 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
+    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
+    <lastmod>2022-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E5%BD%A2%E5%AE%B9%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
+    <lastmod>2022-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E6%95%B0%E6%95%B0/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
