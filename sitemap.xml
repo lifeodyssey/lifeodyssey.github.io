@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/62469dc9.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/c07919ba.html</loc>
     
     <lastmod>2022-02-13</lastmod>
     
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/c07919ba.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/62469dc9.html</loc>
     
     <lastmod>2022-02-13</lastmod>
     
@@ -1439,21 +1439,14 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
+    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
-    <lastmod>2022-02-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/tags/%E5%BD%A2%E5%AE%B9%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
+    <loc>https://lifeodyssey.github.io/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%BD%A2%E5%AE%B9%E8%AF%8D%E5%8F%98%E5%BD%A2/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1533,6 +1526,13 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2022-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
     <lastmod>2022-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
