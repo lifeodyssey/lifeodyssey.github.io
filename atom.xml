@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-13T13:37:08.532Z</updated>
+  <updated>2022-02-14T14:44:49.147Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ESA Oceanic Carbon From Space 2022</title>
+    <link href="https://lifeodyssey.github.io/posts/31f16e8d.html"/>
+    <id>https://lifeodyssey.github.io/posts/31f16e8d.html</id>
+    <published>2022-02-14T14:40:09.000Z</published>
+    <updated>2022-02-14T14:44:49.147Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="ocean color" scheme="https://lifeodyssey.github.io/tags/ocean-color/"/>
+    
+    <category term="research" scheme="https://lifeodyssey.github.io/tags/research/"/>
+    
+    <category term="meeting" scheme="https://lifeodyssey.github.io/tags/meeting/"/>
+    
+  </entry>
   
   <entry>
     <title>日本語ノート(1)</title>
@@ -46,7 +69,7 @@
     <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
     <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
     <published>2022-02-12T06:24:22.000Z</published>
-    <updated>2022-02-13T15:53:03.123Z</updated>
+    <updated>2022-02-14T14:37:29.058Z</updated>
     
     
     <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>
@@ -296,16 +319,15 @@
     <updated>2021-12-29T07:34:51.000Z</updated>
     
     
+      
+      
+        
+        
     <summary type="html">&lt;p&gt;因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白&lt;/p&gt;
 &lt;p&gt;一些地址&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2JleW9uZC1ncmlkLXNlYXJjaC1oeXBlcmNoYXJnZS1oeXBlcnBhcmFtZXRlci10dW5pbmctZm9yLXhnYm9vc3QtN2M3OGY3YTI5Mjlk&quot;&gt;https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9pc3N1ZWV4cGxvcmVyLmNvbS9pc3N1ZS9hdXRvbWwvYXV0by1za2xlYXJuLzEyOTc=&quot;&gt;https://issueexplorer.com/issue/automl/auto-sklearn/1297&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9yZXNpZGVudG1hcmlvL2F1dG9tYXRlZC1mZWF0dXJlLXNlbGVjdGlvbi13aXRoLXNrbGVhcm4=&quot;&gt;https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTQwMzU2NDUvZmVhdHVyZXMtYW5kLWZlYXR1cmUtaW1wb3J0YW5jZS1pbi1hdXRvLXNrbGVhcm4td2l0aC1vbmUtaG90LWVuY29kZWQtZmVhdHVyZXM=&quot;&gt;https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2ZlYXR1cmUtcHJlcHJvY2Vzc29yLWluLWF1dG9tYXRlZC1tYWNoaW5lLWxlYXJuaW5nLWMzYWY2ZjIyZjAxNQ==&quot;&gt;https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2lraXQtbGVhcm4ub3JnL3N0YWJsZS9tb2R1bGVzL2ZlYXR1cmVfc2VsZWN0aW9uLmh0bWw=&quot;&gt;https://scikit-learn.org/stable/modules/feature_selection.html&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;span class=&quot;exturl&quot;</summary>
+        
+      
     
     
     
@@ -443,27 +465,6 @@
     
     
     <category term="python" scheme="https://lifeodyssey.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ocean color Environment on Server</title>
-    <link href="https://lifeodyssey.github.io/posts/eff06e8d.html"/>
-    <id>https://lifeodyssey.github.io/posts/eff06e8d.html</id>
-    <published>2021-12-06T07:16:53.000Z</published>
-    <updated>2021-12-14T09:06:39.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Python, SeaDAS&amp;amp;OCSSW, SNAP&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Linux" scheme="https://lifeodyssey.github.io/tags/Linux/"/>
     
   </entry>
   

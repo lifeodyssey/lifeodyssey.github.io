@@ -6319,12 +6319,29 @@ to visible wavelengths.</p>
 <p>先看似然函数的定义，他是在给定联合样本值X下关于（未知）参数<span class="math inline">\(\theta\)</span>的函数: <span class="math display">\[
 L(\theta|x)=f(x|\theta)
 \]</span> 这里小x是指联合样本随机变量X取到的值，<span class="math inline">\(\theta\)</span>是指未知参数，它属于参数空间。</p>
-<p>这里<span class="math inline">\(f(x|\theta)\)</span>是一个密度函数，特别的，他表示</p>
-<p>没昨晚 后续 继续参考 https://github.com/tensorflow/probability/blob/main/tensorflow_probability/python/distributions/mixture_same_family.py</p>
+<p>这里<span class="math inline">\(f(x|\theta)\)</span>是一个密度函数，特别的，他表示给定<span class="math inline">\(\theta\)</span>下关于样本联合值x的联合密度函数。</p>
+<p>所以从定义上，似然函数和密度函数是完全不同的两个<strong>数学对象</strong>：前者是关于<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">的函数，后者是关于<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的函数。所以这里的等号<img src="https://www.zhihu.com/equation?tex=%3D" alt="[公式]"> 理解为<strong>函数值形式</strong>的相等，而不是两个函数本身是同一函数(根据函数相等的定义，函数相等当且仅当定义域相等并且对应关系相等)。</p>
+<p>两者的联系则是</p>
+<p>（1）如果<strong>x</strong>是离散的随机向量，那么其<strong>概率</strong>密度函数<span class="math inline">\(f(x|\theta)\)</span>可改写为<span class="math inline">\(f(x|\theta)=P_{\theta}(X=x)\)</span>，即代表了在参数<span class="math inline">\(\theta\)</span>下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>；并且，<strong>如果</strong>我们发现</p>
+<figure>
+<img src="https://www.zhihu.com/equation?tex=L(\theta_1+%7C+\textbf%7Bx%7D+)+%3D+\mathbb%7BP%7D_%7B\theta_1%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3E+\mathbb%7BP%7D_%7B\theta_2%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3D+L(\theta_2+%7C+\textbf%7Bx%7D)" alt="[公式]"><figcaption aria-hidden="true">[公式]</figcaption>
+</figure>
+<p>那么<strong>似然</strong>函数就反应出这样一个<strong>朴素推测</strong>：在参数<img src="https://www.zhihu.com/equation?tex=\theta_1" alt="[公式]">下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的<strong>可能性大于</strong> 在参数<img src="https://www.zhihu.com/equation?tex=\theta_2" alt="[公式]">下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>。换句话说，我们更有理由相信(相对于<img src="https://www.zhihu.com/equation?tex=%5Ctheta_2" alt="[公式]">来说)<img src="https://www.zhihu.com/equation?tex=%5Ctheta_1" alt="[公式]"></p>
+<p><strong>更有可能</strong>是真实值。这里的可能性由概率来刻画。</p>
+<p>（2）如果<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">是连续的随机向量，那么其密度函数<img src="https://www.zhihu.com/equation?tex=+f(\textbf%7Bx%7D+%7C+\theta)" alt="[公式]">本身（如果在<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">连续的话）在<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">处的<strong>概率</strong>为0，为了方便考虑一维情况：给定一个充分小<img src="https://www.zhihu.com/equation?tex=\epsilon+%3E+0" alt="[公式]">，那么随机变量<img src="https://www.zhihu.com/equation?tex=X" alt="[公式]">取值在<img src="https://www.zhihu.com/equation?tex=(x+-+\epsilon%2C+x+%2B+\epsilon)" alt="[公式]">区间内的<strong>概率</strong>即为</p>
+<figure>
+<img src="https://www.zhihu.com/equation?tex=\mathbb%7BP%7D_\theta(x+-+\epsilon+%3C+X+%3C+x+%2B+\epsilon)+%3D+\int_%7Bx+-+\epsilon%7D%5E%7Bx+%2B+\epsilon%7D+f(x+%7C+\theta)+dx+\approx+2+\epsilon+f(x+%7C+\theta)+%3D+2+\epsilon+L(\theta+%7C+x)" alt="[公式]"><figcaption aria-hidden="true">[公式]</figcaption>
+</figure>
+<p>并且两个未知参数的情况下做比就能约掉<img src="https://www.zhihu.com/equation?tex=2\epsilon" alt="[公式]">，所以和离散情况下的理解一致，只是此时<strong>似然</strong>所表达的那种<strong>可能性</strong>和<strong>概率</strong><img src="https://www.zhihu.com/equation?tex=f(x%7C\theta)+%3D+0" alt="[公式]">无关。</p>
+<p>综上，<strong>概率</strong>(密度)表达给定<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">下样本随机向量<img src="https://www.zhihu.com/equation?tex=\textbf%7BX%7D+%3D+\textbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>，而<strong>似然</strong>表达了给定样本<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D+%3D+%5Ctextbf%7Bx%7D" alt="[公式]">下参数<img src="https://www.zhihu.com/equation?tex=%5Ctheta_1" alt="[公式]">(相对于另外的参数<img src="https://www.zhihu.com/equation?tex=%5Ctheta_2" alt="[公式]">)为真实值的<strong>可能性</strong>。我们总是对随机变量的取值谈<strong>概率</strong>，而在非贝叶斯统计的角度下，参数是一个实数而非随机变量，所以我们一般不谈一个参数的<strong>概率</strong>。</p>
+<p>最后我们再回到<img src="https://www.zhihu.com/equation?tex=L(\theta+%7C+\textbf%7Bx%7D)+%3D+f(\textbf%7Bx%7D+%7C+\theta)" alt="[公式]">这个表达。首先我们严格记号，竖线<img src="https://www.zhihu.com/equation?tex=%7C" alt="[公式]">表示条件概率)或者条件分布，分号<img src="https://www.zhihu.com/equation?tex=%3B" alt="[公式]">表示把参数隔开。所以这个式子的严格书写方式是<img src="https://www.zhihu.com/equation?tex=L(\theta+%7C+\textbf%7Bx%7D)+%3D+f(\textbf%7Bx%7D+%3B+\theta)" alt="[公式]">因为<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">在右端只当作参数理解。</p>
+<p>我没有看懂，说实话，先放这里吧</p>
+<p>一些参考</p>
+<p>https://github.com/tensorflow/probability/blob/main/tensorflow_probability/python/distributions/mixture_same_family.py</p>
 <p>https://lulaoshi.info/machine-learning/linear-model/maximum-likelihood-estimation</p>
 <p>https://zhangzhenhu.github.io/blog/glm/source/%E6%A6%82%E7%8E%87%E5%9F%BA%E7%A1%80/content.html#id17</p>
 <h1 id="最后一句">最后一句</h1>
-<p>tf.reduce_mean(-likelihood) + tf.add_n([0.] + self.model.losses)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + self.model.losses)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -10856,6 +10873,30 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
         <tag>日本語 动词变形</tag>
         <tag>日本語 形容词变形</tag>
         <tag>日本語 数数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESA Oceanic Carbon From Space 2022</title>
+    <url>/posts/31f16e8d.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2e57f9537d3dcc869bcdd785fffd199fdbc4407b26e4a6528412a31f5c5ca160">049194f62ca1dea8cd990998a9937ce4effc238be118f464cd306ca4aa7a91b36799b630490f48bcb6d173be95e61d46ab50d4d6c5038a5f6f95ed8ab436c117feaaf81f3509ed101b5ea1da55edcc0462aa2680467c2f8a60e6113879e40d24ae57dd882c79dd9fddd4749562fb1c6a649dffd2269b7a65d6f945eb959816cbbeabadd544e722035aa2aad9d18c200393f41306587640b1359093682429c8080478718433351bc28086c586d1db32a40c2719e393d5481098fbc4c28231fa3f04644c77a8c8f03b1ca71c4a830256d6923c0c74d9c0525ddc76d85ef732cca31a8ef9cca12d91017e3a3a818b354ab491a4ebac6335670f64c634d4bee67d0e4cba5038225f27161f1a30f1fde429c23724ab5620c81d5923298038f839d50b710942f4adfd552e897bd9ef4babcf632332ff65a688eee0d6284287dadcc2bb70737c45a1eb0017543f861d16038e844ece1ccfa5fb48b45a3b3fca8500c791cf89a0f9a619f2eeffb162475187762979dab3630661052abdb74e36d801d2b9d5783e91b01f15475c71b144e33459a4</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>ocean color</tag>
+        <tag>research</tag>
+        <tag>meeting</tag>
       </tags>
   </entry>
 </search>
