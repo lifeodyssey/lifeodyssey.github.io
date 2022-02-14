@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-14T14:44:49.147Z</updated>
+  <updated>2022-02-14T16:57:45.465Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -21,10 +21,21 @@
     <link href="https://lifeodyssey.github.io/posts/31f16e8d.html"/>
     <id>https://lifeodyssey.github.io/posts/31f16e8d.html</id>
     <published>2022-02-14T14:40:09.000Z</published>
-    <updated>2022-02-14T14:44:49.147Z</updated>
+    <updated>2022-02-14T16:57:45.465Z</updated>
     
     
-    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    <summary type="html">&lt;div class=&quot;hbe hbe-container&quot; id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;Oh, this is an invalid password. Check and try again, please.&quot; data-whm=&quot;OOPS, these decrypted content may changed, but you can still have a look.&quot;&gt;
+  &lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;41bfc1cc7827bf6acabf16df1b80fe9fee4e715aa0129f563e30bf0565378c8c&quot;&gt;049194f62ca1dea8cd990998a9937ce4effc238be118f464cd306ca4aa7a91b36799b630490f48bcb6d173be95e61d4630bd602259cbd2f47079de572f9a8dd1aac8897e8915b340ab5fbc91fe654cc6f7511d5c22ee9b19340211738b1e574a1803e130033dc0546747c3b14150068f9e223834b0eccfe4ccd340c6840c3f52397b5e5fd90ece94c4e7b1db97dda02cbb2b3564a21a435b7cd647b904185551e2dae02f3e65f41b12b80a9d8875a0926a31fdaabe9a8ee085f42588096edf1b0838855d659154dbc1a978aab92bc12bc1cdf1fec0e502ff6212d2b451e3db1bba9fbe5402552a6d6922103f1799514bcca7a84b5e3769e9a5fbd5922c1ae7ce98c3008c2c2ae758ec21c6d9d5784151eaf829009d590112500fd0521954e5fe3a60a585a18b44a8a02d9a4a6d16836373230a0168b2b0e91753dfdc4644e5196fcc2e88b7da0936c18ebd6d983b337015f75e6ab88994267d91ad32597c40ac482216240a11f77432907cb8b6ebce363d09b213df907d32f8db88f8ffa8d2089553a73072f64e7aab6374856c2173c349fc0e9d87e7d3c96bc3bb548fd9f9c38c891c9ac61101826b942fa33aed5610b413f3e74e9ec867989aadafca16bdc7fcb82566504a111bec09ac8429451b19562750b0dd267bb55b835c7f4714648b4762e570d7f2af02084f92f2c5d2211ec476a7b84383e9ef589e6442d2bebd92b98f76a226a0bf8e050f36fc6c852053388b4ed05c9742ab4d8a0347ac29261e1805b3ca8a5ab59156e57324af9a56f717ee80d7196e86d667006c6cfb5dcfbde203ca3d9b12fe0ed5c085873a548f7ee7246f336d83a343963b4489d660df41377374847397e97550c96b38bc0da18ec5ac302dcfa954ef46849ae4989a0a8446a2dd71c82ede2b0f1dd244a30b6c6cfe6cd763004e5ae0c2f87cc06b5815b3f6129a2e8c2c70d4f4435bc6678bba42580527f6f044691f66b1b7bc24c793acf2aea629b31e8cef04d010c7c654e45072f1e59cf22158198df13c3c67f52640c6e3ed7b18f5c9787c6d0fe3b8eea39fee509994ce6be92de41cce688c1c0aecc84a3b3d4449ab8cf6e1cc1329a627862d1af7172d1ba6544dbd2b5b257b08f6bcb70ed9b9afffe5e6c23148bdc015695fec8115a8c1279a113eeab0b3b1330eac04ebdba182d3e0c6d07154af7bb8ebe00144c0d34e39ca4d56bd4138e39df830e6e6a4a5ebbdd85e0db0a3ecdf289e338f21dbeede32a68f4edd72744b65df475d6c608c1da4ec11850a84b0a07bb5f8cf402d2e87c6db9c7ef05aec0941c218ac6b2f7dc35ca7eff637a4926bad4b5adfbef32ba6f309ca5764f661b5707577e06771a5c9fe3439f44b591ebddb3b3c4379a203c3295a6d51a2085f8682d61584eabd5c859afcff63df3e7fe17632a5b6812fa866ada989e36386e831107e7345424593697c82671613dc30ef782c1a1684680de09c7eed735aed569db3120b95d8dd7cb025b03ec7987b3543f7811ab2282c9058a9f61ab5547b53f15c5e69702a7f3df322396392f70e29a6501a509161d8f52eed698542650dba595b18aafbb1ce89ca7ec554d353285768d6006c228623e321c42b56bd3d62738be755c08824cb34faf1b21b0b89c8b6171c52db1e961ab1b35ddd8cf735015a3236430eaec74960602a864f45be0458d9819f54d5d3c15a1cfdb26b0f6097c390fdda92e0d06e75df8b56494f0c98c997a6fba7dc2d6fc2623b65cce2f6b8261b680c3fe6c470a23f5a023c6ea16dd7a282030d075d5aa23f45a03890a8f64c9f490ed8c9fae7dfd474d6aa698fbde2f1064c9956d8de8dbac6087dded197f236975fc28e435c9003a4a425de0b45837b2dd9e9b84abedce2c6a510a0b5d4b08ad9013023909fb073b781e1579682e6cbaa31feb920450b002a00f3a791e5e57b49063699cefaa2075b3ce8bf90d013de742b0e11fa7ecef32982e0716ff1c01d4a40035fd4bf4772ec3b39cf6b4e8eefbfb9c14f3ceba7b3d071b491abf982d1842e0cc92143eb2039197064e1ff24974250fd525057039f73ae3db874b0981c911c04c7ce06cb9e6019326f3667e18501318d7aad6c12ad5a26c670a74746572a4214ce57ed21b25c2debf3f99017b5042df5528552026cd71a782f82d7a1d4fb1d044bae8e10470c4570feb94216c56a1bffd0521a07b96dfbf22c125cfc4ffab51674773b92e8704e30c3401e38f65d761bbd065b87a2c108426a7900845c37c4a0bea8286afcd163b3e5d03682d410867376ad86810f1dc4aba3ed9f01f993ca16abaca4dd3327b9b1e838b889487e7d5ed4dea4ce6010222a4e6bd77a98c1e358c8400b45d6dea7db735a97d17031b485903ade442321dfe67228e5e2be0dda1daaa83957b463856c433ae564922391d0edb7f4bff10892c0870c3c4979372cf442b1bde6e2332879799f1d66477f0fba745ba405d3971a11fb6690998ca3c1b17d30ae0ec312506a7cc7968867f32cbef5dfc737cbc19c1edaf0b12e25a118191b887e19a63719446aeeed020de3b6142df080db30af6fb9116b429deb2af0b7deca9cb490ceb6a4eb5c3f2eb335791c0ffae0fad59a4a01bebc52bfda62692e96b5bf21414f6fd8e2fff43a923d5764f3b75e12cf6caefd2b5fd0e76e505b336c91acb07890d8fbb47cb4d7d464e4a42c3cfcc24bfd3eea9628bcbd9cdbdb6640dfe6546ae7cc05b1ca9b6e160709d79995f608c9a7338e5cfc85dbfd823ef624e8e2e3f4b45d2e353bf91d715f8a44d150af22c00f329ea305bbe8322aefd332fdae204b4283535b1b1e78e24ebeec0e6ff885b8de79295412cbd4346db27a59fd3f2a17b9ac70ca7002a18f5178f509cb6c8207c4e7430181f2f5fb60de454d3908f49ef056feb10f2da6a7b39064538adc4a39f710940d8c9509795ccc02912416bfaf17057c1e75a688f1e0763944144e2cdf352718a2729c96c3b62bfd80be1a481356cae3f5b51e4e80cdae9d5ad635f9d2f3fbefbe0d76a7efc25b656f1480a45c49cfb71b1c7e062b3224e5cafa8c012c18d1508f8e403a96a5d64ffd150af55c074f1ef1013e5cd566bbdd46e72dd31a9a9876e6f2b6e1d4f44ad2172b025f96d33e10d5fd53e62697b60658166407fd3a5204f71091175c0420324796038cba2a81da3132ead5c4a05e194cf011e682ff4ca8701cfc6dadee682e15cced382b323fe3ccd4e3dc5f2a47070149e2789ca34fd8a281b04aca82d742a1c1c4a42885cb6fd543c836fe47d61e8e7d1e825c494cc42f321f7ed3246083d3107069b979b7bf677619bc818653321094c59ed676b6dc48f00416209ab8828e437a12db45c7e9bebca1a88eb28c1302a72ba75e552f6969b81707b8502e6376c5115b6e003362c8dc93e1145fc0cbe4efc63b44dbb955bb376394c0a4619f64f059f7aa7395478a4609dacecabef9e908da1d55de84677d6c2610b46f6ec1269c4370d2998eccf35f8687077ccfe5215b280e839b0fd07b2ac4ee5068f8e67fd1d46d93a442902f1f6cc94056921eda489d920c7ddeb5e01cad23e37babd347f4c251886c9c82d92b6e438f696fc4e41bf0ae7282f58621c9b5c9f7a82b894070fa53f5402ce723ab49271bf63e85c52bb3628956729722c695bed3485e61a7a31bb9e05f4c70308c3b9d3d8915fc924127f645013def5e2051b1a5f661610a74ffc445b7a2f586ebd0496cd646496fa516e26d8077dd00139220c5cfca60e94bdc806d18e18aa06cbf2dd1dac0709c8bdd8c68b01cf2730973ef04b3e33b9e9364a873598b8f57af2ab036a48c56aae45ac42d5bdfc65674c71add955d00213960d0a27723308d9e1ac9536eb5ea86ec9345a8e2c7b6739f72f2e450b173290e51f9d5c9624fb5c591b37233a9ddb5d97f681b0e90b2a544f0f6ad5acdccb2e3f47285b477882c382eda97edb9cf2dc837eebbf62d214f094b94705b8ef1af266c0f36e29562981fc20b68fdeb3c84ce1de7b1639ce279ddcb5112bd4dd0f54c3f20a2c4a18512522cd3682022b2c952b172515bc48d54dfabbaf5f19ec3f160bfea354612d7cb2193cd79d6a22202f816a15dce26d9d71077b8cd02fe2419a1bfa885316ddc20a32024367fa80371ab8f7ed24e76843c1646828b84ce4c8f60dc6b9a7654e2e9d2c920c338193d67da88748965fa9ce7806990a0d42ba0a8d0cec3dd588ccdee8646537bc1e74f96df013aef02c94b8ea6c091049518e416ce8dc5e833c1406a1d5ad8ccc3309ad0e6b863882e8ddc600d1b05565b741d1c3edd2ecc9e3410d77474649f571068371ec34af07d25f078f574516da9ec38ebfb64af748965a3ca3188bb6ab4d260706ec2bdb95e584af5be09065482f2a5982ef18acb1a85f7c07302c8c25c9eaf74f3ae8abf6815126a6c2cd6d0989e9e6253d40030f2062deaad94926d4d071a88b6f94996ae178c8007da8b21f2b349d73b3782ce8686cd0927ac23ebc2bfa762bbac556ac0b737f1e99519d29298f235667bcb5f29d23391957d03f40eacf4be06601baeb3da9128a34fda4a736f982bef07b78ef0c8dc72f726b54f929e&lt;/script&gt;
+  &lt;div class=&quot;hbe hbe-content&quot;&gt;
+    &lt;div class=&quot;hbe hbe-input hbe-input-default&quot;&gt;
+      &lt;input class=&quot;hbe hbe-input-field hbe-input-field-default&quot; type=&quot;password&quot; id=&quot;hbePass&quot;&gt;
+      &lt;label class=&quot;hbe hbe-input-label hbe-input-label-default&quot; for=&quot;hbePass&quot;&gt;
+        &lt;span class=&quot;hbe hbe-input-label-content hbe-input-label-content-default&quot;&gt;Hey, password is required here.&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&quot;/lib/hbe.js&quot;&gt;&lt;/script&gt;&lt;link href=&quot;/css/hbe.style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</summary>
     
     
     
@@ -69,7 +80,7 @@
     <link href="https://lifeodyssey.github.io/posts/62469dc9.html"/>
     <id>https://lifeodyssey.github.io/posts/62469dc9.html</id>
     <published>2022-02-12T06:24:22.000Z</published>
-    <updated>2022-02-14T14:37:29.058Z</updated>
+    <updated>2022-02-14T16:51:41.435Z</updated>
     
     
     <summary type="html">&lt;p&gt;机器学习中的统计方法，主要是跟着mixture density network那篇下来的&lt;/p&gt;</summary>
@@ -319,15 +330,16 @@
     <updated>2021-12-29T07:34:51.000Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白&lt;/p&gt;
 &lt;p&gt;一些地址&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot;</summary>
-        
-      
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2JleW9uZC1ncmlkLXNlYXJjaC1oeXBlcmNoYXJnZS1oeXBlcnBhcmFtZXRlci10dW5pbmctZm9yLXhnYm9vc3QtN2M3OGY3YTI5Mjlk&quot;&gt;https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9pc3N1ZWV4cGxvcmVyLmNvbS9pc3N1ZS9hdXRvbWwvYXV0by1za2xlYXJuLzEyOTc=&quot;&gt;https://issueexplorer.com/issue/automl/auto-sklearn/1297&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9yZXNpZGVudG1hcmlvL2F1dG9tYXRlZC1mZWF0dXJlLXNlbGVjdGlvbi13aXRoLXNrbGVhcm4=&quot;&gt;https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTQwMzU2NDUvZmVhdHVyZXMtYW5kLWZlYXR1cmUtaW1wb3J0YW5jZS1pbi1hdXRvLXNrbGVhcm4td2l0aC1vbmUtaG90LWVuY29kZWQtZmVhdHVyZXM=&quot;&gt;https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2ZlYXR1cmUtcHJlcHJvY2Vzc29yLWluLWF1dG9tYXRlZC1tYWNoaW5lLWxlYXJuaW5nLWMzYWY2ZjIyZjAxNQ==&quot;&gt;https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2lraXQtbGVhcm4ub3JnL3N0YWJsZS9tb2R1bGVzL2ZlYXR1cmVfc2VsZWN0aW9uLmh0bWw=&quot;&gt;https://scikit-learn.org/stable/modules/feature_selection.html&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==&quot;&gt;https://github.com/automl/auto-sklearn/issues/524&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
     
     
     
