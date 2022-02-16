@@ -29,14 +29,17 @@
 <meta property="og:site_name" content="乔克叔叔的床边故事">
 <meta property="og:description" content="开始炼丹的第二天">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_0.png">
+<meta property="og:image" content="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_1.png">
 <meta property="article:published_time" content="2022-01-04T02:43:02.000Z">
-<meta property="article:modified_time" content="2022-01-16T14:31:20.041Z">
+<meta property="article:modified_time" content="2022-02-16T11:46:45.000Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="tensorflow">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_0.png">
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/fd169b9d.html">
 
@@ -222,7 +225,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text"> 一个简单的神经网络搭建流程</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一个简单的神经网络搭建流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92"><span class="nav-number">2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E5%92%8C%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">过拟合和欠拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">训练过程</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -342,7 +345,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-16 22:31:20" itemprop="dateModified" datetime="2022-01-16T22:31:20+08:00">2022-01-16</time>
+                <time title="Modified: 2022-02-16 19:46:45" itemprop="dateModified" datetime="2022-02-16T19:46:45+08:00">2022-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,14 +363,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>7.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>7 mins.</span>
             </span>
 
         </div>
@@ -379,10 +382,78 @@
     <div class="post-body" itemprop="articleBody">
         <p>开始炼丹的第二天</p>
 <a id="more"></a>
-<h1 id="一个简单的神经网络搭建流程"><a class="markdownIt-Anchor" href="#一个简单的神经网络搭建流程"></a> 一个简单的神经网络搭建流程</h1>
+<h1 id="一个简单的神经网络搭建流程">一个简单的神经网络搭建流程</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line"></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">  tf.keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">  tf.keras.layers.Dropout(<span class="number">0.2</span>),</span><br><span class="line">  tf.keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">model.evaluate(x_test,  y_test, verbose=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>产出的结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Epoch 1/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.2962 - accuracy: 0.9155</span><br><span class="line">Epoch 2/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.1420 - accuracy: 0.9581</span><br><span class="line">Epoch 3/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.1064 - accuracy: 0.9672</span><br><span class="line">Epoch 4/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.0885 - accuracy: 0.9730</span><br><span class="line">Epoch 5/5</span><br><span class="line">1875/1875 [==============================] - 3s 2ms/step - loss: 0.0749 - accuracy: 0.9765</span><br><span class="line">313/313 - 0s - loss: 0.0748 - accuracy: 0.9778</span><br><span class="line">[0.07484959065914154, 0.9778000116348267]</span><br></pre></td></tr></table></figure>
+<p>来看一下这个简单的神经网络的结构</p>
+<p>x_train, x_test = x_train / 255.0, x_test / 255.0 是因为minist这个数据集是0-255的，做了规范化。</p>
+<p>tf.keras.models.Sequential 则是一个计算的连接器，意思就是这个网络由下面这几步骤连接起来，按照顺序进行计算。</p>
+<p>该网络的第一层 <code>tf.keras.layers.Flatten</code> 将图像格式从二维数组（28 x 28 像素）转换成一维数组（28 x 28 = 784 像素）。将该层视为图像中未堆叠的像素行并将其排列起来。该层没有要学习的参数，它只会重新格式化数据</p>
+<p>展平像素后，网络会包括两个 <code>tf.keras.layers.Dense</code> 层的序列。它们是密集连接或全连接神经层。第一个 <code>Dense</code> 层有 128 个节点（或神经元）。第二个（也是最后一个）层会返回一个长度为 10 的 logits 数组。每个节点都包含一个得分，用来表示当前图像属于 10 个类中的哪一类。</p>
+<p>这里面的Dropout则是一个正则化的trick，用来放置过拟合。Dropout的意思是：每次训练时随机忽略一部分神经元，这些神经元dropped-out了。换句话讲，这些神经元在正向传播时对下游的启动影响被忽略，反向传播时也不会更新权重。</p>
+<p>神经网络的所谓“学习”是指，让各个神经元的权重符合需要的特性。不同的神经元组合后可以分辨数据的某个特征。每个神经元的邻居会依赖邻居的行为组成的特征，如果过度依赖，就会造成过拟合。如果每次随机拿走一部分神经元，那么剩下的神经元就需要补上消失神经元的功能，整个网络变成很多独立网络（对同一问题的不同解决方法）的合集。。意思就是在训练完第一个Dense之后，去掉20%的神经元来训练下一个Dense。相当于手动设置了一部分可能出错的神经元，用其他神经元来纠错。</p>
+<p>model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])</p>
+<p>这个是模型的编译。需要添加三个东西。</p>
+<ul>
+<li><em>损失函数</em> - 用于测量模型在训练期间的准确率。您会希望最小化此函数，以便将模型“引导”到正确的方向上。</li>
+<li><em>优化器</em> - 决定模型如何根据其看到的数据和自身的损失函数进行更新。</li>
+<li><em>指标</em> - 用于监控训练和测试步骤。以下示例使用了<em>准确率</em>，即被正确分类的图像的比率</li>
+</ul>
+<p>损失函数和指标是两个因为目的不同而分开的东西。</p>
+<p>损失函数存在的意义是在优化参数中需要最小化的一个函数，它存在的目的是优化模型的参数，当这个值最小的时候模型最好，一般需要求导或者做gradiant之类的。。而指标则是我们关心的评价。</p>
+<p>举个例子，在回归中，MSE既可以是损失函数也可以是指标，但是R^2就不一定能作为损失函数使用，因为R2越大模型越好。</p>
+<p>在分类问题中，我们可能只关注Accuracy（准确率Precision（精准率）Recall（召回率）ROC-AUC P-R曲线里面的某一项指标，但是这些指标一个可能是算起来困难花费时间，另一个是可能和R2有同样地问题，所以我们用的是交叉熵之类的。</p>
+<p>具体的可以看<span class="exturl" data-url="aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xMTY1MjYz">这里<i class="fa fa-external-link-alt"></i></span></p>
+<p>后面就很熟悉了。唯一一个之前没见过的东西就是 verbose=2</p>
+<ul>
+<li><strong>verbose</strong>: 'auto', 0, 1, or 2. Verbosity mode. 0 = silent, 1 = progress bar, 2 = one line per epoch. 'auto' defaults to 1 for most cases, but 2 when used with <code>ParameterServerStrategy</code>. Note that the progress bar is not particularly useful when logged to a file, so verbose=2 is recommended when not running interactively (eg, in a production environment).</li>
+</ul>
+<p>所以看一眼输出</p>
+<p>Epoch 5/5 1875/1875 [==============================] - 3s 2ms/step - loss: 0.0749 - accuracy: 0.9765 313/313 - 0s - loss: 0.0748 - accuracy: 0.9778</p>
+<p>这种类似的是因为我们verbose=2之后输出的在训练集上面的结果</p>
+<p>[0.07484959065914154, 0.9778000116348267]这个则是在测试集上面的</p>
+<h1 id="回归">回归</h1>
+<p>大部分流程和前面一样，不再具体解释，例子来自于<span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi90dXRvcmlhbHMva2VyYXMvcmVncmVzc2lvbg==">这里<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pathlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line">....<span class="comment">#做了一些数据的清洗之后 我直接跳到模型的构建那里</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_model</span>():</span></span><br><span class="line">  model = keras.Sequential([</span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=<span class="string">&#x27;relu&#x27;</span>, input_shape=[<span class="built_in">len</span>(train_dataset.keys())]),</span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">    layers.Dense(<span class="number">1</span>)</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  optimizer = tf.keras.optimizers.RMSprop(<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">  model.<span class="built_in">compile</span>(loss=<span class="string">&#x27;mse&#x27;</span>,</span><br><span class="line">                optimizer=optimizer,</span><br><span class="line">                metrics=[<span class="string">&#x27;mae&#x27;</span>, <span class="string">&#x27;mse&#x27;</span>])</span><br><span class="line">  <span class="keyword">return</span> model</span><br><span class="line">model = build_model()</span><br></pre></td></tr></table></figure>
+<p>因为输出的是单独一个值，所以最后一层只有一个神经元。这个build model相当于一个生成model的函数。</p>
+<p>在生成完模型之后可以看一下模型的简单描述</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model.summary()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Model: <span class="string">&quot;sequential&quot;</span></span><br><span class="line">_________________________________________________________________</span><br><span class="line">Layer (<span class="built_in">type</span>)                 Output Shape              Param <span class="comment">#   </span></span><br><span class="line">=================================================================</span><br><span class="line">dense (Dense)                (None, 64)                640       </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dense_1 (Dense)              (None, 64)                4160      </span><br><span class="line">_________________________________________________________________</span><br><span class="line">dense_2 (Dense)              (None, 1)                 65        </span><br><span class="line">=================================================================</span><br><span class="line">Total params: 4,865</span><br><span class="line">Trainable params: 4,865</span><br><span class="line">Non-trainable params: 0</span><br><span class="line">_________________________________________________________________</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过为每个完成的时期打印一个点来显示训练进度</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintDot</span>(<span class="params">keras.callbacks.Callback</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">on_epoch_end</span>(<span class="params">self, epoch, logs</span>):</span></span><br><span class="line">    <span class="keyword">if</span> epoch % <span class="number">100</span> == <span class="number">0</span>: <span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;.&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">EPOCHS = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">history = model.fit(</span><br><span class="line">  normed_train_data, train_labels,</span><br><span class="line">  epochs=EPOCHS, validation_split = <span class="number">0.2</span>, verbose=<span class="number">0</span>,</span><br><span class="line">  callbacks=[PrintDot()])</span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvYXBpX2RvY3MvcHl0aG9uL3RmL2tlcmFzL2NhbGxiYWNrcy9DYWxsYmFjaw==">callbacks<i class="fa fa-external-link-alt"></i></span>是每个epochs结束的时候执行的函数。</p>
+<p>validation则是搞一个交叉验证。</p>
+<p>history对象则可以可视化模型的训练进度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_history</span>(<span class="params">history</span>):</span></span><br><span class="line">  hist = pd.DataFrame(history.history)</span><br><span class="line">  hist[<span class="string">&#x27;epoch&#x27;</span>] = history.epoch</span><br><span class="line"></span><br><span class="line">  plt.figure()</span><br><span class="line">  plt.xlabel(<span class="string">&#x27;Epoch&#x27;</span>)</span><br><span class="line">  plt.ylabel(<span class="string">&#x27;Mean Abs Error [MPG]&#x27;</span>)</span><br><span class="line">  plt.plot(hist[<span class="string">&#x27;epoch&#x27;</span>], hist[<span class="string">&#x27;mae&#x27;</span>],</span><br><span class="line">           label=<span class="string">&#x27;Train Error&#x27;</span>)</span><br><span class="line">  plt.plot(hist[<span class="string">&#x27;epoch&#x27;</span>], hist[<span class="string">&#x27;val_mae&#x27;</span>],</span><br><span class="line">           label = <span class="string">&#x27;Val Error&#x27;</span>)</span><br><span class="line">  plt.ylim([<span class="number">0</span>,<span class="number">5</span>])</span><br><span class="line">  plt.legend()</span><br><span class="line"></span><br><span class="line">  plt.figure()</span><br><span class="line">  plt.xlabel(<span class="string">&#x27;Epoch&#x27;</span>)</span><br><span class="line">  plt.ylabel(<span class="string">&#x27;Mean Square Error [$MPG^2$]&#x27;</span>)</span><br><span class="line">  plt.plot(hist[<span class="string">&#x27;epoch&#x27;</span>], hist[<span class="string">&#x27;mse&#x27;</span>],</span><br><span class="line">           label=<span class="string">&#x27;Train Error&#x27;</span>)</span><br><span class="line">  plt.plot(hist[<span class="string">&#x27;epoch&#x27;</span>], hist[<span class="string">&#x27;val_mse&#x27;</span>],</span><br><span class="line">           label = <span class="string">&#x27;Val Error&#x27;</span>)</span><br><span class="line">  plt.ylim([<span class="number">0</span>,<span class="number">20</span>])</span><br><span class="line">  plt.legend()</span><br><span class="line">  plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plot_history(history)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_0.png" alt="png"><figcaption aria-hidden="true">png</figcaption>
+</figure>
+<figure>
+<img src="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_1.png" alt="png"><figcaption aria-hidden="true">png</figcaption>
+</figure>
+<p>该图表显示在约100个 epochs 之后误差非但没有改进，反而出现恶化。 让我们更新 <code>model.fit</code> 调用，当验证值没有提高上是自动停止训练。 我们将使用一个 <em>EarlyStopping callback</em> 来测试每个 epoch 的训练条件。如果经过一定数量的 epochs 后没有改进，则自动停止训练。</p>
+<p>你可以从<span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi92ZXJzaW9ucy9tYXN0ZXIvYXBpX2RvY3MvcHl0aG9uL3RmL2tlcmFzL2NhbGxiYWNrcy9FYXJseVN0b3BwaW5n">这里<i class="fa fa-external-link-alt"></i></span>学习到更多的回调。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = build_model()</span><br><span class="line"></span><br><span class="line"><span class="comment"># patience 值用来检查改进 epochs 的数量</span></span><br><span class="line">early_stop = keras.callbacks.EarlyStopping(monitor=<span class="string">&#x27;val_loss&#x27;</span>, patience=<span class="number">10</span>)</span><br><span class="line"><span class="comment">#即如果在10个训练后没有改进，就停止</span></span><br><span class="line">history = model.fit(normed_train_data, train_labels, epochs=EPOCHS,</span><br><span class="line">                    validation_split = <span class="number">0.2</span>, verbose=<span class="number">0</span>, callbacks=[early_stop, PrintDot()])</span><br><span class="line"></span><br><span class="line">plot_history(history)</span><br></pre></td></tr></table></figure>
+<h1 id="过拟合和欠拟合">过拟合和欠拟合</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly90ZW5zb3JmbG93Lmdvb2dsZS5jbi90dXRvcmlhbHMva2VyYXMvb3ZlcmZpdF9hbmRfdW5kZXJmaXQ=">这一节<i class="fa fa-external-link-alt"></i></span>开始就是英语了</p>
+<p>依然是省略了一些前期处理</p>
+<p>防止过度拟合的最简单方法是以一个小模型开始。一个具有少量可学习参数的模型（由层数和每层的单元数决定）。在深度学习中，一个模型中的可学习参数的数量通常被称为模型的 "容量"。</p>
+<p>直观地说，一个拥有更多参数的模型将拥有更多的 "记忆能力"，因此能够轻易地在训练样本和它们的目标之间学习一个完美的类似字典的映射，这种映射没有任何泛化能力，但在对以前未见过的数据进行预测时，这将毫无用处。</p>
+<p>永远记住这一点：深度学习模型往往善于拟合训练数据，但真正的挑战是泛化，而不是拟合。</p>
+<p>另一方面，如果网络的记忆资源有限，它将无法轻易学习映射。为了使其损失最小化，它将不得不学习具有更多预测能力的压缩表征。同时，如果你让你的模型太小，它将难以适应训练数据。在 "容量太大 "和 "容量不足 "之间存在着一种平衡。</p>
+<p>不幸的是，没有神奇的公式来确定你的模型的正确大小或架构（就层数而言，或每层的正确大小）。你将不得不使用一系列不同的架构进行试验。</p>
+<p>为了找到一个合适的模型大小，最好从相对较少的层和参数开始，然后开始增加层的大小或增加新的层，直到你看到验证损失的回报递减。</p>
+<p>接下来将从一个只使用密集连接层（tf.keras.layer.Dense）的简单模型开始作为基线，然后创建更大的模型，并进行比较。</p>
+<h2 id="训练过程">训练过程</h2>
+<p>一般来说学习率越小效果越好,这个不难理解，我们可以利用<a target="_blank" rel="noopener" href="https://tensorflow.google.cn/api_docs/python/tf/keras/optimizers/schedules"><code>tf.keras.optimizers.schedules</code></a>来随着时间减少学习率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lr_schedule = tf.keras.optimizers.schedules.InverseTimeDecay(</span><br><span class="line">  <span class="number">0.001</span>,</span><br><span class="line">  decay_steps=STEPS_PER_EPOCH*<span class="number">1000</span>,</span><br><span class="line">  decay_rate=<span class="number">1</span>,</span><br><span class="line">  staircase=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_optimizer</span>():</span></span><br><span class="line">  <span class="keyword">return</span> tf.keras.optimizers.Adam(lr_schedule)</span><br></pre></td></tr></table></figure>
+<p>这个函数会双曲线的来减少学习率，比如，第1000epochs会降低到一半，两千会到1/3。具体的公式是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tf.keras.optimizers.schedules.InverseTimeDecay(</span><br><span class="line">    initial_learning_rate, decay_steps, decay_rate, staircase=<span class="literal">False</span>, name=<span class="literal">None</span></span><br><span class="line">)<span class="comment">#这是参数</span></span><br><span class="line"><span class="comment">#这是默认的函数（staircase=False）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decayed_learning_rate</span>(<span class="params">step</span>):</span></span><br><span class="line">  <span class="keyword">return</span> initial_learning_rate / (<span class="number">1</span> + decay_rate * step / decay_step)</span><br><span class="line">  <span class="comment">#这是另一个函数（staircase=True）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decayed_learning_rate</span>(<span class="params">step</span>):</span></span><br><span class="line">  <span class="keyword">return</span> initial_learning_rate / (<span class="number">1</span> + decay_rate * floor(step / decay_step))</span><br></pre></td></tr></table></figure>
+<p>https://www.kaggle.com/c/tensorflow-great-barrier-reef</p>
+<p>https://tensorflow.google.cn/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay</p>
+<p>https://stackoverflow.com/questions/44747343/keras-input-explanation-input-shape-units-batch-size-dim-etc</p>
+<p>https://vimsky.com/examples/usage/python-tf.keras.layers.Dropout-tf.html</p>
+<p>https://cnbeining.github.io/deep-learning-with-python-cn/4-advanced-multi-layer-perceptrons-and-keras/ch16-reduce-overfitting-with-dropout-regularization.html</p>
 
     </div>
 
@@ -484,12 +555,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">800k</span>
+    <span title="Symbols count total">818k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:07</span>
+    <span title="Reading time total">12:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
