@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_0.png">
 <meta property="og:image" content="https://tensorflow.google.cn/tutorials/keras/regression_files/output_B6XriGbVPh2t_1.png">
 <meta property="article:published_time" content="2022-01-04T02:43:02.000Z">
-<meta property="article:modified_time" content="2022-02-16T11:46:45.000Z">
+<meta property="article:modified_time" content="2022-02-16T18:15:30.425Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -239,7 +239,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -345,7 +345,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-16 19:46:45" itemprop="dateModified" datetime="2022-02-16T19:46:45+08:00">2022-02-16</time>
+                <time title="Modified: 2022-02-17 02:15:30" itemprop="dateModified" datetime="2022-02-17T02:15:30+08:00">2022-02-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -363,7 +363,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>7.6k</span>
+              <span>7.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -449,6 +449,10 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lr_schedule = tf.keras.optimizers.schedules.InverseTimeDecay(</span><br><span class="line">  <span class="number">0.001</span>,</span><br><span class="line">  decay_steps=STEPS_PER_EPOCH*<span class="number">1000</span>,</span><br><span class="line">  decay_rate=<span class="number">1</span>,</span><br><span class="line">  staircase=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_optimizer</span>():</span></span><br><span class="line">  <span class="keyword">return</span> tf.keras.optimizers.Adam(lr_schedule)</span><br></pre></td></tr></table></figure>
 <p>这个函数会双曲线的来减少学习率，比如，第1000epochs会降低到一半，两千会到1/3。具体的公式是</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tf.keras.optimizers.schedules.InverseTimeDecay(</span><br><span class="line">    initial_learning_rate, decay_steps, decay_rate, staircase=<span class="literal">False</span>, name=<span class="literal">None</span></span><br><span class="line">)<span class="comment">#这是参数</span></span><br><span class="line"><span class="comment">#这是默认的函数（staircase=False）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decayed_learning_rate</span>(<span class="params">step</span>):</span></span><br><span class="line">  <span class="keyword">return</span> initial_learning_rate / (<span class="number">1</span> + decay_rate * step / decay_step)</span><br><span class="line">  <span class="comment">#这是另一个函数（staircase=True）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decayed_learning_rate</span>(<span class="params">step</span>):</span></span><br><span class="line">  <span class="keyword">return</span> initial_learning_rate / (<span class="number">1</span> + decay_rate * floor(step / decay_step))</span><br></pre></td></tr></table></figure>
+<p>下一步则是加入<a target="_blank" rel="noopener" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping"><code>tf.keras.callbacks.EarlyStopping</code></a>来避免训练太久。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_callbacks</span>(<span class="params">name</span>):</span></span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    tfdocs.modeling.EpochDots(),</span><br><span class="line">    tf.keras.callbacks.EarlyStopping(monitor=<span class="string">&#x27;val_binary_crossentropy&#x27;</span>, patience=<span class="number">200</span>),</span><br><span class="line">    tf.keras.callbacks.TensorBoard(logdir/name),</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+<p>这里EarlyStopping关注的是val_binary_crossentropy，而不是val_loss，区别在后面会讲到。</p>
+<p>tf.keras.callbacks.TensorBoard则会直接显示一些定义好的metrics给你看</p>
 <p>https://www.kaggle.com/c/tensorflow-great-barrier-reef</p>
 <p>https://tensorflow.google.cn/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay</p>
 <p>https://stackoverflow.com/questions/44747343/keras-input-explanation-input-shape-units-batch-size-dim-etc</p>
@@ -555,12 +559,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">818k</span>
+    <span title="Symbols count total">819k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:23</span>
+    <span title="Reading time total">12:25</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
