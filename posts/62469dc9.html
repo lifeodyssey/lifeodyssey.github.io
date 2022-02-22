@@ -66,7 +66,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=L(\theta+%7C+\textbf%7Bx%7D)+%3D+f(\textbf%7Bx%7D+%3B+\theta)">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=\theta">
 <meta property="article:published_time" content="2022-02-12T06:24:22.000Z">
-<meta property="article:modified_time" content="2022-02-14T17:20:45.018Z">
+<meta property="article:modified_time" content="2022-02-22T06:17:19.020Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -259,7 +259,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">第一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">第二句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#categorical-distribution"><span class="nav-number">2.1.</span> <span class="nav-text">Categorical distribution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">第三句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">下一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E5%8F%A5"><span class="nav-number">5.</span> <span class="nav-text">最后一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%91%E4%B8%AAdebug%E5%BA%B7%E5%BA%B7"><span class="nav-number">6.</span> <span class="nav-text">跑个debug康康</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">第一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">第二句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#categorical-distribution"><span class="nav-number">2.1.</span> <span class="nav-text">Categorical distribution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">第三句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E5%8F%A5"><span class="nav-number">4.</span> <span class="nav-text">下一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E5%8F%A5"><span class="nav-number">5.</span> <span class="nav-text">最后一句</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%91%E4%B8%AAdebug%E5%BA%B7%E5%BA%B7"><span class="nav-number">6.</span> <span class="nav-text">跑个debug康康</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mdn%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">6.1.</span> <span class="nav-text">MDN代码解析</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -379,7 +379,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-02-15 01:20:45" itemprop="dateModified" datetime="2022-02-15T01:20:45+08:00">2022-02-15</time>
+                <time title="Modified: 2022-02-22 14:17:19" itemprop="dateModified" datetime="2022-02-22T14:17:19+08:00">2022-02-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -397,14 +397,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>8k</span>
+              <span>9.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>7 mins.</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -502,6 +502,19 @@ L(\theta|x)=f(x|\theta)
 <p>self.model.losses 这个我就真的不是特别懂了，除了这里之外没找到有别的地方用过这个</p>
 <h1 id="跑个debug康康">跑个debug康康</h1>
 <p>我好像没有看到这个函数被调用</p>
+<h2 id="mdn代码解析">MDN代码解析</h2>
+<p>默认模型参数为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">param=&#123;<span class="string">&#x27;LOO_CV&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;align&#x27;</span>:<span class="literal">None</span>,<span class="string">&#x27;animate&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;avg_est&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;batch&#x27;</span>:<span class="number">128</span>, </span><br><span class="line"> <span class="string">&#x27;benchmark&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;darktheme&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;data_loc&#x27;</span>:<span class="string">&#x27;D:/Data/Insitu&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;dataset&#x27;</span>:<span class="string">&#x27;all&#x27;</span>, <span class="string">&#x27;epsilon&#x27;</span>:<span class="number">0.001</span>,</span><br><span class="line"> </span><br><span class="line"> <span class="string">&#x27;filename&#x27;</span>:<span class="literal">None</span>,</span><br><span class="line"> <span class="string">&#x27;imputations&#x27;</span>:<span class="number">5</span>, </span><br><span class="line"> <span class="string">&#x27;l2&#x27;</span>:<span class="number">0.001</span>, <span class="string">&#x27;lr&#x27;</span>:<span class="number">0.001</span>, </span><br><span class="line"> <span class="string">&#x27;model_lbl&#x27;</span>:<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;model_loc&#x27;</span>:<span class="string">&#x27;Weights&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;n_hidden&#x27;</span>:<span class="number">100</span>, <span class="string">&#x27;n_iter&#x27;</span>:<span class="number">10000</span>, </span><br><span class="line"> <span class="string">&#x27;n_layers&#x27;</span>:<span class="number">5</span>, </span><br><span class="line"> <span class="string">&#x27;n_mix&#x27;</span>:<span class="number">5</span>, </span><br><span class="line"> <span class="string">&#x27;n_redraws&#x27;</span>:<span class="number">50</span>, </span><br><span class="line"> <span class="string">&#x27;n_rounds&#x27;</span>:<span class="number">10</span>, </span><br><span class="line"> <span class="string">&#x27;no_bagging&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;no_load&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;no_save&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;plot_loss&#x27;</span>:<span class="literal">False</span>, <span class="string">&#x27;product&#x27;</span>:<span class="string">&#x27;chl&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;sat_bands&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;save_data&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;save_stats&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;seed&#x27;</span>:<span class="number">42</span>, </span><br><span class="line"> <span class="string">&#x27;sensor&#x27;</span>:<span class="string">&#x27;sgli&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;silent&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;sim_loc&#x27;</span>:<span class="string">&#x27;D:/Data/Simulated&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;subset&#x27;</span>:<span class="string">&#x27;&#x27;</span>, </span><br><span class="line"> <span class="string">&#x27;threshold&#x27;</span>:<span class="literal">None</span>, </span><br><span class="line"> <span class="string">&#x27;use_all_ratio&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_auc&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_boosting&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_excl_Rrs&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_kbest&#x27;</span>:<span class="number">0</span>, </span><br><span class="line"> <span class="string">&#x27;use_noise&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_ratio&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_sim&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;use_tchlfix&#x27;</span>:<span class="literal">False</span>, </span><br><span class="line"> <span class="string">&#x27;verbose&#x27;</span>:<span class="literal">False</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>里面有这么几个参数之前没了解过</p>
+<p>batch是指从全部样本里取的一批数据。</p>
+<p>神经网络这种通常要求大数据量的模型，把所有数据同时扔进模型里训练，计算量太大，内存会爆</p>
+<p>一个样本跑一次的话，训练速度又太慢</p>
+<p>所以一般找一个合适大小的样本量，可以并行计算加快训练速度，一次跑的数据量又不会过大</p>
+<p>imputations是数据插补</p>
+<p>'l2':0.001, 'lr':0.001,不解释了</p>
+<p>剩下的都差不多</p>
+<p>还是有一些写代码的细节，自己需要再开一篇</p>
+<p>自己写代码的功底真的好差</p>
 
     </div>
 
@@ -603,12 +616,12 @@ L(\theta|x)=f(x|\theta)
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">832k</span>
+    <span title="Symbols count total">834k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:37</span>
+    <span title="Reading time total">12:38</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
