@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-17T07:16:49.459Z</updated>
+  <updated>2022-02-22T06:27:05.621Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mixture Density Network 3</title>
+    <link href="https://lifeodyssey.github.io/posts/b6e8cccb.html"/>
+    <id>https://lifeodyssey.github.io/posts/b6e8cccb.html</id>
+    <published>2022-02-22T06:17:57.000Z</published>
+    <updated>2022-02-22T06:27:05.621Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;继续来看人家写代码的的一些技巧&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
+    
+    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>我到底喜欢什么呢</title>
@@ -238,7 +261,7 @@
     <link href="https://lifeodyssey.github.io/posts/fd169b9d.html"/>
     <id>https://lifeodyssey.github.io/posts/fd169b9d.html</id>
     <published>2022-01-04T02:43:02.000Z</published>
-    <updated>2022-02-22T03:17:30.326Z</updated>
+    <updated>2022-02-22T14:49:13.728Z</updated>
     
     
     <summary type="html">&lt;p&gt;开始炼丹的第二天&lt;/p&gt;</summary>
@@ -454,29 +477,6 @@
     <category term="Remote Sensing" scheme="https://lifeodyssey.github.io/tags/Remote-Sensing/"/>
     
     <category term="大气校正" scheme="https://lifeodyssey.github.io/tags/%E5%A4%A7%E6%B0%94%E6%A0%A1%E6%AD%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ocean color data download script</title>
-    <link href="https://lifeodyssey.github.io/posts/f157bdd2.html"/>
-    <id>https://lifeodyssey.github.io/posts/f157bdd2.html</id>
-    <published>2021-12-08T06:00:54.000Z</published>
-    <updated>2021-12-21T04:58:32.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;之前写过一个&lt;a href=&quot;https://lifeodyssey.github.io/posts/8636bca2.html&quot;&gt;这个&lt;/a&gt;，但是除了这个之外还有更多其他更方便的方法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Data Download" scheme="https://lifeodyssey.github.io/tags/Data-Download/"/>
-    
-    <category term="Remote sensing" scheme="https://lifeodyssey.github.io/tags/Remote-sensing/"/>
     
   </entry>
   
