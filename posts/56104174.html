@@ -22,15 +22,23 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="乔克叔叔的床边故事">
-<meta property="og:url" content="https://lifeodyssey.github.io/archives/2020/11/index.html">
+  <meta name="description" content="看起来这个东西可以让我炼丹更快一点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras Tuner&amp; Transfer Learning">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/56104174.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
+<meta property="og:description" content="看起来这个东西可以让我炼丹更快一点">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-24T02:41:27.000Z">
+<meta property="article:modified_time" content="2022-02-24T08:25:31.000Z">
 <meta property="article:author" content="周大侠">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Inversion">
+<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="tensorflow">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lifeodyssey.github.io/archives/2020/11/">
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/56104174.html">
 
 
 <script class="page-configurations">
@@ -38,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | 乔克叔叔的床边故事</title>
+  <title>Keras Tuner& Transfer Learning | 乔克叔叔的床边故事</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
     <script>
@@ -202,7 +210,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -214,6 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#keras-tuner"><span class="nav-number">1.</span> <span class="nav-text">Keras Tuner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">1.1.</span> <span class="nav-text">一个快速上手的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A5%E5%BA%B7%E5%BA%B7%E7%BB%86%E8%8A%82"><span class="nav-number">1.2.</span> <span class="nav-text">来康康细节</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -294,131 +303,141 @@
       <div class="main-inner">
         
 
-        <div class="content archive">
+        <div class="content post posts-expand">
           
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/56104174.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Keras Tuner& Transfer Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-24 10:41:27 / Modified: 16:25:31" itemprop="dateCreated datePublished" datetime="2022-02-24T10:41:27+08:00">2022-02-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>952</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>看起来这个东西可以让我炼丹更快一点</p>
+<a id="more"></a>
+<h1 id="keras-tuner">Keras Tuner</h1>
+<p>这个东西需要独立安装，python3.6+和tensorflow2.0+</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras-tuner --upgrade</span><br></pre></td></tr></table></figure>
+<h2 id="一个快速上手的例子">一个快速上手的例子</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_model</span>(<span class="params">hp</span>):</span></span><br><span class="line">    model = keras.Sequential()</span><br><span class="line">    model.add(layers.Flatten())</span><br><span class="line">    model.add(</span><br><span class="line">        layers.Dense(</span><br><span class="line">            <span class="comment"># Define the hyperparameter.</span></span><br><span class="line">            units=hp.Int(<span class="string">&quot;units&quot;</span>, min_value=<span class="number">32</span>, max_value=<span class="number">512</span>, step=<span class="number">32</span>),</span><br><span class="line">            activation=<span class="string">&quot;relu&quot;</span>,</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">    model.add(layers.Dense(<span class="number">10</span>, activation=<span class="string">&quot;softmax&quot;</span>))</span><br><span class="line">    model.<span class="built_in">compile</span>(</span><br><span class="line">        optimizer=<span class="string">&quot;adam&quot;</span>, loss=<span class="string">&quot;categorical_crossentropy&quot;</span>, metrics=[<span class="string">&quot;accuracy&quot;</span>],</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+<p>接着定义一个tuner</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tuner = kt.RandomSearch(</span><br><span class="line">    build_model,</span><br><span class="line">    objective=<span class="string">&#x27;val_loss&#x27;</span>,</span><br><span class="line">    max_trials=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>接着开始就行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuner.search(x_train, y_train, epochs=<span class="number">5</span>, validation_data=(x_val, y_val))</span><br><span class="line">best_model = tuner.get_best_models()[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="来康康细节">来康康细节</h2>
+<p>实际上上面那个和我要做的并不太一样</p>
+<p>我要做的是调节模型参数，而不是超参数</p>
+<p>如果不需要超参数的话，那要做的可能就是重新fit，也就是常说的transfer learning了</p>
+<p>#　Transfer Learning</p>
+<p>在<a href="https://lifeodyssey.github.io/posts/fd169b9d.html">上一篇</a>里已经写了一点</p>
+<p>然后我重新看了下发现真的非常简单</p>
+<p>只要把需要训练的参数固定好，然后重新调用fit就行了</p>
+
+    </div>
+
+    
+    
+    
         
-        <span class="collection-header">Good! 129 posts in total. Keep on posting.</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>周大侠
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://lifeodyssey.github.io/posts/56104174.html" title="Keras Tuner&amp; Transfer Learning">https://lifeodyssey.github.io/posts/56104174.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+              <a href="/tags/Inversion/" rel="tag"># Inversion</a>
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+              <a href="/tags/tensorflow/" rel="tag"># tensorflow</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/b6e8cccb.html" rel="prev" title="Mixture Density Network 3">
+      <i class="fa fa-chevron-left"></i> Mixture Density Network 3
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-30T11:56:28+08:00"
-              content="2020-11-30">
-          11-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/adc0cb59.html" itemprop="url">
-            <span itemprop="name">Annotated Bibliography 2020 11.30-12.6</span>
-          </a>
-      </div>
-
-    </header>
+      </footer>
+    
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-24T17:04:12+08:00"
-              content="2020-11-24">
-          11-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/d1210079.html" itemprop="url">
-            <span itemprop="name">Annotated Bibliography 2020 11.24-11.29</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-17T10:51:25+08:00"
-              content="2020-11-17">
-          11-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/179aa5a3.html" itemprop="url">
-            <span itemprop="name">Annotated Bibliography 2020 11.17-11.20</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-10T17:04:17+08:00"
-              content="2020-11-10">
-          11-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/3da0aceb.html" itemprop="url">
-            <span itemprop="name">Note in writing and presentation</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-10T10:08:30+08:00"
-              content="2020-11-10">
-          11-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/39e89397.html" itemprop="url">
-            <span itemprop="name">np.ma.mask</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 

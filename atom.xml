@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-02-22T14:49:24.994Z</updated>
+  <updated>2022-02-24T08:25:31.000Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Keras Tuner&amp; Transfer Learning</title>
+    <link href="https://lifeodyssey.github.io/posts/56104174.html"/>
+    <id>https://lifeodyssey.github.io/posts/56104174.html</id>
+    <published>2022-02-24T02:41:27.000Z</published>
+    <updated>2022-02-24T08:25:31.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;看起来这个东西可以让我炼丹更快一点&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
+    
+    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
+    
+    <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
+    
+  </entry>
   
   <entry>
     <title>Mixture Density Network 3</title>
@@ -456,27 +481,6 @@
     <category term="国产卫星数据处理" scheme="https://lifeodyssey.github.io/tags/%E5%9B%BD%E4%BA%A7%E5%8D%AB%E6%98%9F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     <category term="FY4A" scheme="https://lifeodyssey.github.io/tags/FY4A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>py6s</title>
-    <link href="https://lifeodyssey.github.io/posts/514b9dac.html"/>
-    <id>https://lifeodyssey.github.io/posts/514b9dac.html</id>
-    <published>2021-12-10T07:04:43.000Z</published>
-    <updated>2021-12-24T05:59:51.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;之前一直想方设法跨过去的事情今天终于要开始搞了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Remote Sensing" scheme="https://lifeodyssey.github.io/tags/Remote-Sensing/"/>
-    
-    <category term="大气校正" scheme="https://lifeodyssey.github.io/tags/%E5%A4%A7%E6%B0%94%E6%A0%A1%E6%AD%A3/"/>
     
   </entry>
   
