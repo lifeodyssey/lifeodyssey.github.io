@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203101252161.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203101253397.png">
 <meta property="article:published_time" content="2022-03-10T04:45:24.000Z">
-<meta property="article:modified_time" content="2022-03-10T05:10:08.230Z">
+<meta property="article:modified_time" content="2022-03-10T05:46:55.038Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="LeetCode">
@@ -337,7 +337,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-03-10 12:45:24 / Modified: 13:10:08" itemprop="dateCreated datePublished" datetime="2022-03-10T12:45:24+08:00">2022-03-10</time>
+              <time title="Created: 2022-03-10 12:45:24 / Modified: 13:46:55" itemprop="dateCreated datePublished" datetime="2022-03-10T12:45:24+08:00">2022-03-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -355,14 +355,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -396,6 +396,10 @@
 <p>如果没有，则返回假设该元素存在的时候该元素的位置</p>
 <h1 id="变种题">变种题</h1>
 <p>LeetCode 69</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> right=<span class="built_in">sqrt</span>(x);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; <span class="comment">// 定义target在左闭右开的区间里，即：[left, right)</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right)</span><br><span class="line">        &#123; <span class="comment">// 因为left == right的时候，在[left, right)是无效的空间，所以使用 &lt;</span></span><br><span class="line">            <span class="keyword">int</span> middle = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (middle&lt; right)</span><br><span class="line">            &#123;</span><br><span class="line">                left = middle + <span class="number">1</span>; <span class="comment">// target 在右区间，在[middle + 1, right)中</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>好耶 我自己做出来了</p>
+<p>leetcode 278</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The API isBadVersion is defined for you.</span></span><br><span class="line"><span class="comment">// bool isBadVersion(int version);</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = n; <span class="comment">// 定义target在左闭右开的区间里，即：[left, right)</span></span><br><span class="line">        <span class="keyword">int</span> middle=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right)</span><br><span class="line">        &#123; <span class="comment">// 因为left == right的时候，在[left, right)是无效的空间，所以使用 &lt;</span></span><br><span class="line">            middle = left + ((right - left) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isBadVersion</span>(middle) )&#123;</span><br><span class="line"></span><br><span class="line">                right = middle; </span><br><span class="line">             <span class="comment">// target 在左区间，在[left, middle)中</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">            &#123;</span><br><span class="line">                left = middle+<span class="number">1</span> ; <span class="comment">// target 在右区间，在[middle + 1, right)中</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">        <span class="comment">/*因为是左开右闭，需要判断最后一个会不会是坏的</span></span><br><span class="line"><span class="comment">        因为到了现在这个情况，已经缩小到left&gt;=right了</span></span><br><span class="line"><span class="comment">        就比如 一共五个，第四个坏了的话，这个时候left是4，right也是4，4是false。</span></span><br><span class="line"><span class="comment">        如果是第一个就坏了，这个时候left是比right大的</span></span><br><span class="line"><span class="comment">        如果</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isBadVersion</span>(right))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> right;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;<span class="keyword">return</span> middle;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -492,12 +496,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">839k</span>
+    <span title="Symbols count total">840k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">12:43</span>
+    <span title="Reading time total">12:44</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
