@@ -11225,6 +11225,15 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>一个需要注意的地方是ceil(1.0 * piles[i] / k) 这是吃掉第i块需要的时间，吃完之后就不吃了，所以用了ceil</p>
 <p>另一个变形 378</p>
 <p>又是一道medium</p>
+<p>没有思路</p>
+<p>哦哦，看一下有多少个数比我的这个数要小</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> left = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> right = matrix[n - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                 res += <span class="built_in">upper_bound</span>(matrix[i].<span class="built_in">begin</span>(), matrix[i].<span class="built_in">end</span>(), mid) - matrix[i].<span class="built_in">begin</span>();</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(res &lt; k) &#123;</span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个思路是利用upper bound 计算前面有多少个比中间值要小</p>
+<p>就是说 我对每一行，做一个upper bound 参数分别是这一行的第一个值，这一行的最后一个值，以及整个矩阵的中间值。</p>
+<p>upper bound会返回会第一个大于矩阵中间值的下标。</p>
+<p>如果这个下标比k小，则证明矩阵中间值还不够，也就是说这个值还在右边</p>
+<p>因为这个结束肯定是==就直接回left了</p>
+<p>总结 这类题目最重要的是找到g（m）剩下的就都是套用模板了</p>
 ]]></content>
       <categories>
         <category>刷题找工作</category>
@@ -11249,6 +11258,27 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hash</title>
+    <url>/posts/718acd86.html</url>
+    <content><![CDATA[<p>这次这个来自于</p>
+<a id="more"></a>
+<h1 id="经典问题引入">经典问题引入</h1>
+<p>给出N个正整数，再给出M个正整数，问这M个数中的每个数是否在N中出现过。</p>
+<p>一个最直观暴力的方法是，对于M里的每个数都去N里查一遍，这样时间复杂度是o(mn)，当MN都很大的时候，这个时间是无法承受的。</p>
+<p>所以另一个办法就是拿空间换时间，即设定一个bool array hashTable[N], if x appear in N, hashTable[x]=true, else hashTable[x]=false, thus the code is</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000010</span>;</span><br><span class="line"><span class="keyword">bool</span> hashTable[maxn]=&#123;<span class="literal">false</span>&#125;;<span class="comment">//init as false</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">        hashTable[x]=<span class="literal">true</span>;<span class="comment">//appeared</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">        <span class="keyword">if</span>(hashTable[x]==<span class="literal">true</span>)&#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">&quot;Yes&quot;</span>);   </span><br><span class="line">        &#125;<span class="comment">//appeared</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;No&quot;</span>)    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Onething I do not understand is that where is the input of x?</p>
+<p>Maybe need to review again when I meet similar problem</p>
+]]></content>
       <categories>
         <category>刷题找工作</category>
       </categories>
