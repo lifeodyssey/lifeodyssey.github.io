@@ -3789,15 +3789,17 @@ b(\lambda)=\int\beta(\psi,\lambda)d\Omega\\
     <url>/posts/60b81fb7.html</url>
     <content><![CDATA[<p>自己之前经常用autosklearn，但是这玩意在windows下不能跑，本来想跟之前一样装个ubuntu但是感觉太麻烦了，于是试着用WSL，这里是配置全过程</p>
 <a id="more"></a>
-<h1 id="wsl"><a class="markdownIt-Anchor" href="#wsl"></a> WSL</h1>
+<h1 id="wsl">WSL</h1>
 <p>以管理员权限打开cmd，输入</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wsl --install</span><br></pre></td></tr></table></figure>
 <p>重启之后在MS store里下载ubuntu就行 我下了unbuntu 20.04LTS</p>
 <p>然后在命令行里直接输入wsl就可以开始了</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211204211035801.png" alt="image-20211204211035801"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211204211035801.png" alt="image-20211204211035801"><figcaption aria-hidden="true">image-20211204211035801</figcaption>
+</figure>
 <p>注意这个是默认安装在C盘。</p>
 <p>补一个<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGludXh3cy9wLzkzMDcxODcuaHRtbA==">ubuntu常用命令<i class="fa fa-external-link-alt"></i></span></p>
-<h1 id="anaconda"><a class="markdownIt-Anchor" href="#anaconda"></a> anaconda</h1>
+<h1 id="anaconda">anaconda</h1>
 <p>我这里装的是miniconda 感觉自己也用不了那么多包</p>
 <p>命令如下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p miniconda</span><br><span class="line">$ <span class="built_in">cd</span> miniconda</span><br><span class="line">$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
@@ -3806,7 +3808,7 @@ b(\lambda)=\int\beta(\psi,\lambda)d\Omega\\
 <p>然后</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash Miniconda.... .sh</span><br><span class="line">$ conda create --name pysoc python=3.7</span><br><span class="line">$ conda activate pysoc</span><br></pre></td></tr></table></figure>
 <p>然后就是必不可少的社会主义特色，换清华。</p>
-<h2 id="插曲"><a class="markdownIt-Anchor" href="#插曲"></a> 插曲</h2>
+<h2 id="插曲">插曲</h2>
 <p>在那之前还有个小插曲。</p>
 <p>我想直接用reboot来重启，但是不行，显示</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ System has not been booted with systemd as init </span><br><span class="line">$ system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">$ Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">$ Failed to talk to init daemon.</span></span><br></pre></td></tr></table></figure>
@@ -3823,59 +3825,63 @@ b(\lambda)=\int\beta(\psi,\lambda)d\Omega\\
 <p>然后成功翻车了</p>
 <p>查了查原因是</p>
 <blockquote>
-<p>So why don’t normal <code>reboot</code>/<code>shutdown</code> commands work? Two reasons. First, as covered by Bengt, WSL doesn’t currently support systemd, and Ubuntu simply links these two legacy commands to <code>/usr/bin/systemctl</code> (the systemd control utility). You can see this with <code>ls -l /usr/sbin</code>.</p>
-<p>But even if these were the legacy commands which directly called <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xLzI4ODEyNTE0LzExODEwOTMz">Linux’s shutdown API<i class="fa fa-external-link-alt"></i></span>, it wouldn’t work. Microsoft doesn’t typically hook up API’s that interact directly with the hardware, instead providing virtualization interfaces where necessary. But in the case of starting and stopping a WSL instance, it’s just so “lightweight” (as discussed above) that there’s not any real reason to do so.</p>
+<p>So why don't normal <code>reboot</code>/<code>shutdown</code> commands work? Two reasons. First, as covered by Bengt, WSL doesn't currently support systemd, and Ubuntu simply links these two legacy commands to <code>/usr/bin/systemctl</code> (the systemd control utility). You can see this with <code>ls -l /usr/sbin</code>.</p>
+<p>But even if these were the legacy commands which directly called <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xLzI4ODEyNTE0LzExODEwOTMz">Linux's shutdown API<i class="fa fa-external-link-alt"></i></span>, it wouldn't work. Microsoft doesn't typically hook up API's that interact directly with the hardware, instead providing virtualization interfaces where necessary. But in the case of starting and stopping a WSL instance, it's just so "lightweight" (as discussed above) that there's not any real reason to do so.</p>
 </blockquote>
 <p>最后只能另开一个cmd</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wsl --list</span><br><span class="line">$ wsl --terminate Ubuntu</span><br><span class="line"><span class="comment">#or wsl shutdown to shut all the sub system</span></span><br></pre></td></tr></table></figure>
 <p>重启进入之后显示前面有个base就是进了conda环境了</p>
-<h2 id="换源"><a class="markdownIt-Anchor" href="#换源"></a> 换源</h2>
+<h2 id="换源">换源</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$　conda config --add channels <span class="string">&#x27;https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/&#x27;</span></span><br><span class="line">$ conda config --<span class="built_in">set</span> show_channel_urls yes</span><br></pre></td></tr></table></figure>
-<h2 id="搞环境"><a class="markdownIt-Anchor" href="#搞环境"></a> 搞环境</h2>
+<h2 id="搞环境">搞环境</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda create --name pysoc python=3.7 </span><br><span class="line">$ conda activate pysoc</span><br></pre></td></tr></table></figure>
 <p>千万 千万 千万不要在base里跑东西装东西</p>
 <p>经典装包时间</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda install gxx_linux-64 gcc_linux-64 swig</span><br><span class="line">$ conda config --add channels conda-forge</span><br><span class="line">$ conda config --<span class="built_in">set</span> channel_priority strict</span><br><span class="line">$ conda install auto-sklearn</span><br><span class="line">$ conda install -c conda-forge geopandas</span><br></pre></td></tr></table></figure>
 <p>然后成功再次翻车</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205111723183.png" alt="image-20211205111723183"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205111723183.png" alt="image-20211205111723183"><figcaption aria-hidden="true">image-20211205111723183</figcaption>
+</figure>
 <p>试着删除再重新创建环境也不行，没办法，重装系统吧</p>
 <p>直接打开ubuntu的设置点击reset就行</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205114045880.png" alt="image-20211205114045880"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205114045880.png" alt="image-20211205114045880"><figcaption aria-hidden="true">image-20211205114045880</figcaption>
+</figure>
 <p>重装之后再来一遍，不过这次没有搞reboot相关的那个包genie，</p>
 <p>然后这次就没有翻车了，装完上面那俩之后，继续</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda install seaborn</span><br><span class="line">$ conda install -c conda-forge xarray dask netCDF4 bottleneck</span><br><span class="line">$ conda install -c conda-forge cartopy</span><br><span class="line">$ conda install -c conda-forge pyresample</span><br><span class="line">$ conda install python-ternary</span><br></pre></td></tr></table></figure>
 <p>常用的好像就这些，有啥缺少的待会再试试。</p>
-<h1 id="jupyter"><a class="markdownIt-Anchor" href="#jupyter"></a> Jupyter</h1>
+<h1 id="jupyter">Jupyter</h1>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br></pre></td></tr></table></figure>
 <p>可以参考之前写的<a href="https://lifeodyssey.github.io/posts/c958af43.html">这个</a></p>
 <p>然后直接输入jupyter lab就行了</p>
 <p>由于可能闪过一大堆信息，直接在cmd里跳到下一页，导致看不到token，可以摁一下ctrl+c，会出来token，复制到浏览器就行</p>
 <p>因为我git clone的repo也在c盘，就直接打开直接之前写的jupyterlab用就行了，</p>
 <p>总共花了我七八个小时吧，大部分都是因为想搞reboot弄出来的 没那玩意大概四个小时结束。</p>
-<p>注意访问的路径改变为/mnt/c(defgh…)</p>
-<h2 id="再次一个车的翻"><a class="markdownIt-Anchor" href="#再次一个车的翻"></a> 再次一个车的翻</h2>
+<p>注意访问的路径改变为/mnt/c(defgh...)</p>
+<h2 id="再次一个车的翻">再次一个车的翻</h2>
 <p>我在jupyter里尝试import autosklearn的时候显示autosklearn没有，原来conda 那句没有装上</p>
 <p>再次试着装了下，我发现，居然是geopandas和autosklearn有冲突，我无语了。</p>
 <p>最后用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip3 install auto-sklearn</span><br></pre></td></tr></table></figure>
 <p>搞定了</p>
 <p>另外注意autosklearn的一些关键字现在（2021.12.5）和我本科的那个有一些区别，注意就行。</p>
-<h1 id="cpu-and-memory-limit"><a class="markdownIt-Anchor" href="#cpu-and-memory-limit"></a> CPU and memory limit</h1>
+<h1 id="cpu-and-memory-limit">CPU and memory limit</h1>
 <p>跑了一天之后发现还没跑出来结果，刷新一看显示kernel seems to die。</p>
 <p>然后查了查是分配的内存不够</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wsl --shutdown</span><br><span class="line">$ notepad <span class="string">&quot;<span class="variable">$env</span>:USERPROFILE/.wslconfig&quot;</span></span><br></pre></td></tr></table></figure>
 <p>写入</p>
-<p>[wsl2]<br>
-memory=3GB   # Limits VM memory in WSL 2 up to 3GB<br>
-processors=4 # Makes the WSL 2 VM use two virtual processors</p>
+<p>[wsl2] memory=3GB # Limits VM memory in WSL 2 up to 3GB processors=4 # Makes the WSL 2 VM use two virtual processors</p>
 <p>想写多少写多少</p>
 <p>在wsl里用free -h可以看到内存分配情况</p>
-<h1 id="一个bug"><a class="markdownIt-Anchor" href="#一个bug"></a> 一个bug</h1>
+<h1 id="一个bug">一个bug</h1>
 <p>最近碰到了无法识别外接硬盘的问题</p>
 <p>就是老显示No such device</p>
 <p>然后查到了<span class="exturl" data-url="aHR0cHM6Ly9kb3d3dy5zcGVuY2Vyd29vLmNvbS8=">这个<i class="fa fa-external-link-alt"></i></span></p>
 <p>真的是宝藏！快去给我收藏。</p>
 <p>虽然这个问题跟我遇到的并不一样</p>
+<h2 id="密码重置">密码重置</h2>
+<p>https://zikin.org/wsl-forgot-passwd/</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -4514,7 +4520,7 @@ to the sum of the semi-diurnal ones (M2+S2 ).</p>
     <title>hyperspectral and phytoplankton</title>
     <url>/posts/ed08fed2.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f8088fb067c705df74d904d196941cd1a471b63e33d826bb1216507e3803fe59">d6a866592e99971ace0156e763f7eb76f5a0381dde2f8596eefa42d876cc528225330397e6d9086a94591fa3b51ed74f7050f7e25068f11b0aa2c9aed1862cd48ea24ea48fa0d52fd8be1a1026d2fdbd81e3266b1cc8150046af90fee571ea1605eea72e72eebf65a20c342ed6ad5bc73833cf2605d6214d9050b6dbbd4e88877ce15f5c4673d0b473af4bc1f600b1e2fd4f32090e16145639769a224ee5d673055334aa8f425ebfa52c7a07818568b5d5a2f18a4849567a38cdb9ec16232e0efd2e43c0b921cad2a2f7fb69739e56ee3fcbccbe8c981de5e3e70e7fc85695d606d4d5dc145042a1370a549d833f2665b1953eba7b5cc66dcb470c2f207efad29bbe193afddac8db309b046d5b584f9bde2b2985f0066fa6f49eee555a87a2fec4f600702695bf3b4fd0997939ace12e7bce0a2d90eee51e30803e8609f64cbb6ad729953901d6913b65ea10fbc8a791437e48c070f1f73ff3011201368a5b9211bb337b845e59ce07d3b6719039bcf22804af95402f0e77a653b4ddc38ad4068ba13685ea71f8b3208311cd4d7bdd49b2e78d1cfc5f9cd36acf15f8639135c9b38deb3a8216e363722e88eb5ff6138aaa5da637320f81580c1644769ad7d1db14f31820b3f1d369da2cc7f653b2c4c5a8159be1b70b74b3b7c178a6c322c3ecebc9e97ef40a031dfabebf581486ae0063ed2495b6e180d741e29bec277a502cdb42ff342e66d2ae0d7385f9a1effa045e160e08904ca331b63d9492fb566e84b48130fc16eb57185b47a1f6629e1714cf870f2b16a9efb036cce59a4a2912932e202b9f20ba74827ab936857d6194241839ef0f9280eadf1afc250793d5bc278d505762168e38db5b8a9fb561f47cf46b7cdbfc2a3b151cbe473e5b044f22798b56b759344436a18c3d3f290b7f1d3eec401c8cd3252461c45f59f5830dd08367354117ca6af65c03baae2e3317fad6383944405e80335e943304d5099356ff559e8e8aef4813e37f29598a0969aef8cbb6d76892794a05fcc7c4c7215190a0c7d80fa17e008a8e44a96f3a37d8b3767aae836eb6f853b68468eee8f0c2a3b25aa3ea789b173740eee1f3a26c131747db44763e30d5e29522e3511f60969b6132baf15b16ac46178f987b3e444ada80e3cbf391a5a207a541d5d2ea8b0ac466b692f76fef8a9d4ee10f9ad750065fc57ad546fe36a2bda09c36cf7fe491759029a7d47d2de50431803c17843ed5485b53b0ec68130c82aa64c4a1cf3500005474dc3c272d364a9d10486d36bca67a963ab0b862bcb4b57f7b7cb11348fad38d2ce65bff5c650bd182e50da00e495a64e0fd67b8486739bdcf2abe11ffa82fa6ada23e9330a150d9d14a6243864cc385d1225b4b4fd9c506e16749adca0a0835228c79996c6cd7727e8e911109a1877146e74aaa02a3fbfd6d96ffba7d98b60f88732b7988c1b3ddcdabe2481e9f34d5a29db4318c26be146a2c9887039806415c85b4e58cd53dfa0538bf7b7940b254bc48e764bf34e3b378b88111ace3da0f79544b722cbf93ad9c30165c3479addcc0fa48accfd56faf9ecda225f89303a592bf42728b72dbeb50c0f3e726eec4fb8b13cb7097a9ab1be804aa5d92cb7f9103a500e626a672a2c6a5aea707553a72</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="74a386375b8d0fd1126c845032fd042a5eed88855233c33ec28010834be60108">d477c8ba007a8acd2dab137c41330f64c04d5f8b3b31cc7f2e25b571bfd2fc0176d557801e650531b9a47ec0d3e1bb370227736991c15b438d8423439ed4ae64678429fb7746af6bf034111e61f6c06855b66e013a5779bc91b4cbcd94b13dcb274a2d647b95edecb56037686709a28093982a82efb0001546a02c6e45497e6628ca7bdd78f4f94ed07f53bc42f98a19b265fa90b862c2e20f3f3985a08abdfd62a783c539c12d5318410a2066bf90bbf7918a8e331ae23e627793a7a2e476073f7c46c09b050ad00a54d8bf6516419b4ba6b94e773a2a4957e116fb53d626476b0143b5fb40148b2ed24ffdf8e7be45822aeda93eb362c586bd6cdfe38c1c257d9229fc51b76ec6bd91a50391b1ce56e129477faa0a6582b1edeb67f50dea78350d6d2b1eabdb17eff7864f6e12a7931cc3d981c3bc1b2971d6824f02f992b98692da08a455c6cc3a0f9eb6423adaebc05e5d0e88f706c9d4481f8e7947e4bf38bd991c0d0222805027a3a83299d72ce5dce97a82b391e9c45fd82ab6fe642d0a9b7eb9cda0dd220a414ef1caeecc9d7f794ad96d2dcc0f048b1eb990cf98b5ac3504aff83805c36e2d02165b1df238d17c546ff55f6c91c1cb5eb33ec18c9e2dbff129c5eaea944cdece2cf7a14d232d6869cc7533daaf839a3d2ba48ca53a23dafaa6a2656f4bf9264e1183bdb5890c886b030327baf5f49014e05aef894d24bed326417a6a35a1a54b2612b7af7b28bb467af5306124ca73946987b30951fb12535b556ea46d8abd4b8dc1aa9e515c39a1accaae96e3e27fb4658b2a0d4159faa25685a7c4aec984ac16548b233c43a711ddb5d7bcf40865d88b32d1f0ffe406d1342a7dbe97aa044d0881e77c1d0565bda849fc1ba74a2cddb343fa662e73879cd4e7c86d334e274c5677fea21ec6c655a0c109446f0aa43191db0fb206c0dfc916a18fd4b4ac6191af8e94cf1ba50ab1a7e04ab0e73fe6b002d58eabc293d31da794d887e3e32bf211747674cee67f77ca39b69119f6d12a50cab25742def9dd0fe5a81f16abd014e52eeac1bd4103846f88c197a04b8405f6478f693cd1d12aeffadaba8117fcbb2a251faf3565267283ca930ecd615b6a437fd0a35002681937188de245b842933e48f948409160ec2a2048befad24b3559c44f224bb919604253b7a963ec0658afdf5b01ef61310c44c5df32c8eb244004127d37929f0b8a499f236acab93e3eeb226f77676181cabf0a05679e4b7578ee632a3a976dc35f0b4682bd398f51aff8e27ec51095428ed94f20cf8e39a0f958c6c011bf11907e2ad86134f97bd11a9707600f5b45aded4e5da44c019245358cb4b51ff90e3739ba166d8694b67a08ddf6e85a7e11cd27661e7e7e7c9a34f72afcd4ea0cdeee811f36a4b8c75e7a248ce6de0b93e8fdec301763d475ca2f4a9bd91b715a658288ba94f8b340f7f72e47023e473b6f906a710ccd42b5a65115b4a586efef8025b2639a46df1c2bf8c50ff372a65542a8ea4596e45d596c999a7a21f9880b292157d7b14a40948d0d3490daabab6ecce31794273e7c486af893f3215f15399cc1347536dceb05a568b760788f7e28fef83fcfa1f310e3cb2fbd0b359473c2d75686bf84bf7eb1d7e0c2b27211c746ec51a534e6bb626e8205e929eaea288c</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -11026,7 +11032,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 </tr>
 <tr class="odd">
 <td>能动态</td>
-<td>う→え＋る　かく→かける　送る→おくれる</td>
+<td>最后一个音节→变成え段＋る　かく→かける　　　送る→おくれる</td>
 <td>去る加られる　でる→でられる　食べる→食べられる</td>
 <td>くる→こられる　する→できる</td>
 <td>前面加が不加を</td>
@@ -11290,36 +11296,81 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
   <entry>
     <title>recursive</title>
     <url>/posts/b8c59cfd.html</url>
-    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1BcUdhZ0JtRlhndw==">https://www.youtube.com/watch?v=AqGagBmFXgw<i class="fa fa-external-link-alt"></i></span></p>
+    <content><![CDATA[<p>https://www.youtube.com/watch?v=AqGagBmFXgw</p>
+<p>太难了 等以后做的多了回来总结</p>
 <a id="more"></a>
-<h1 id="recursion-intro"><a class="markdownIt-Anchor" href="#recursion-intro"></a> Recursion intro</h1>
+<h1 id="recursion-intro">Recursion intro</h1>
 <p>Recursion is an approach to solving problems using a function calls itself as a subroutine</p>
 <p>to divide the whole big problem into different small problems.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111009870.png" alt="image-20220311100950791"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111009870.png" alt="image-20220311100950791"><figcaption aria-hidden="true">image-20220311100950791</figcaption>
+</figure>
 <p>Leetcode 700</p>
-<p>先复习一下结构体…</p>
+<p>先复习一下结构体...</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;指向左节点的指针</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;指向右节点的指针</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;默认生成的构造函数</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">searchBST</span><span class="params">(TreeNode* root, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//if root is null return null</span></span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="comment">//create node to return </span></span><br><span class="line">        TreeNode *node=<span class="keyword">new</span> <span class="built_in">TreeNode</span>(); </span><br><span class="line">        <span class="comment">// if root-&gt;val != val,search in left and right</span></span><br><span class="line">        <span class="comment">//otherwise this would be required node and we would return it</span></span><br><span class="line">        <span class="keyword">if</span>(val&lt;root-&gt;val)&#123;</span><br><span class="line">            <span class="comment">//search in left </span></span><br><span class="line">            node=<span class="built_in">searchBST</span>(root-&gt;left,val);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(val&gt;root-&gt;val)&#123;</span><br><span class="line">            <span class="comment">//search in right</span></span><br><span class="line">            node=<span class="built_in">searchBST</span>(root-&gt;right,val);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//required node</span></span><br><span class="line">            node=root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>对结构体不熟悉，才做不出来，看了提示才做出来的题目。</p>
 <p>以后这种题可以换python</p>
-<h1 id="三中常见形式"><a class="markdownIt-Anchor" href="#三中常见形式"></a> 三中常见形式</h1>
-<h2 id="memorization"><a class="markdownIt-Anchor" href="#memorization"></a> Memorization</h2>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111052742.png" alt="image-20220311105216687"></p>
+<h1 id="三中常见形式">三中常见形式</h1>
+<h2 id="memorization">Memorization</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111052742.png" alt="image-20220311105216687"><figcaption aria-hidden="true">image-20220311105216687</figcaption>
+</figure>
 <p>经典问题就是斐波那契数列</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111053066.png" alt="image-20220311105311156"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111053066.png" alt="image-20220311105311156"><figcaption aria-hidden="true">image-20220311105311156</figcaption>
+</figure>
 <p>Leetcode 509</p>
 <p>挺简单的</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n==<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            sum=sum+<span class="built_in">fib</span>(n<span class="number">-1</span>)+<span class="built_in">fib</span>(n<span class="number">-2</span>);</span><br><span class="line">            n=n<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="divide-and-conquer"><a class="markdownIt-Anchor" href="#divide-and-conquer"></a> Divide and conquer</h2>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111404030.png" alt="image-20220311140416967"></p>
+<h2 id="divide-and-conquer">Divide and conquer</h2>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203111404030.png" alt="image-20220311140416967"><figcaption aria-hidden="true">image-20220311140416967</figcaption>
+</figure>
 <p>Leetcode 98</p>
 <p>又是一个medium</p>
 <p>还是对结构体不熟</p>
 <p>自己可能需要专门搞一下binary search tree</p>
 <p>代码模板</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide_and_conquer</span>(<span class="params">S</span>):</span></span><br><span class="line">    <span class="comment">#(1)Divide the problem into a set of subproblem</span></span><br><span class="line">    [S1,S2,...Sn]=divide(S)</span><br><span class="line">    <span class="comment">#2 solve the subproblem</span></span><br><span class="line">    <span class="comment">#obtain the result of subproblem</span></span><br><span class="line">    ret=[divide_and_conquer(Si) <span class="keyword">for</span> Si <span class="keyword">in</span> [S1..Sn]]</span><br><span class="line">    [R1,R2..Rn]=rets</span><br><span class="line">    <span class="comment">#3combine</span></span><br><span class="line">    <span class="keyword">return</span> combine([R1,R2,..Rn])</span><br></pre></td></tr></table></figure>
-<h2 id="backtracking"><a class="markdownIt-Anchor" href="#backtracking"></a> backtracking</h2>
+<h2 id="backtracking">backtracking</h2>
 <p>太难了55555</p>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Greedy</title>
+    <url>/posts/4a214119.html</url>
+    <content><![CDATA[<p>https://houbb.github.io/2020/01/23/data-struct-learn-07-base-greedy</p>
+<a id="more"></a>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>two pointers</title>
+    <url>/posts/8f8ed91a.html</url>
+    <content><![CDATA[<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题如果用双指针怎么写呢。</p>
+<p>归并排序？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt="image"><figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
+<p>记得要新创建一个vector</p>
 ]]></content>
       <categories>
         <category>刷题找工作</category>
