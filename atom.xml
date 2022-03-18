@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-03-12T06:02:40.957Z</updated>
+  <updated>2022-03-18T09:17:16.396Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ThoughtWorks Super X</title>
+    <link href="https://lifeodyssey.github.io/posts/47def00e.html"/>
+    <id>https://lifeodyssey.github.io/posts/47def00e.html</id>
+    <published>2022-03-18T08:40:15.000Z</published>
+    <updated>2022-03-18T09:17:16.396Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;我的代码背景就不写了，看一下过去的文章就知道了。&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="成为社畜的路上" scheme="https://lifeodyssey.github.io/categories/%E6%88%90%E4%B8%BA%E7%A4%BE%E7%95%9C%E7%9A%84%E8%B7%AF%E4%B8%8A/"/>
+    
+    
+    <category term="日常记录" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>two pointers</title>
     <link href="https://lifeodyssey.github.io/posts/8f8ed91a.html"/>
     <id>https://lifeodyssey.github.io/posts/8f8ed91a.html</id>
     <published>2022-03-11T06:54:41.000Z</published>
-    <updated>2022-03-12T06:02:40.957Z</updated>
+    <updated>2022-03-17T17:15:42.126Z</updated>
     
     
       
@@ -49,7 +76,7 @@
     <link href="https://lifeodyssey.github.io/posts/4a214119.html"/>
     <id>https://lifeodyssey.github.io/posts/4a214119.html</id>
     <published>2022-03-11T06:23:51.000Z</published>
-    <updated>2022-03-11T06:52:01.535Z</updated>
+    <updated>2022-03-17T17:15:42.122Z</updated>
     
     
     <summary type="html">&lt;p&gt;https://houbb.github.io/2020/01/23/data-struct-learn-07-base-greedy&lt;/p&gt;</summary>
@@ -473,19 +500,6 @@
     <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
     
     <category term="PyTorch" scheme="https://lifeodyssey.github.io/tags/PyTorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux常用命令</title>
-    <link href="https://lifeodyssey.github.io/posts/fe4ef317.html"/>
-    <id>https://lifeodyssey.github.io/posts/fe4ef317.html</id>
-    <published>2021-12-29T09:55:30.000Z</published>
-    <updated>2021-12-30T07:45:41.000Z</updated>
-    
-    
-    
-    
     
   </entry>
   
