@@ -2774,53 +2774,58 @@ z_\mu = W_{\mu} z_h + b_{\mu}
     <url>/posts/b58cbef5.html</url>
     <content><![CDATA[<p>在听了榛子的分享会之后决定把我日常梳理论文的东西从公开发布的Annotated Bibliography改成Obsidian，但是这个网站上有的时候还会发一些我写的类似于综述的东西吧。</p>
 <a id="more"></a>
-<h1 id="git同步"><a class="markdownIt-Anchor" href="#git同步"></a> Git同步</h1>
+<h1 id="git同步">Git同步</h1>
 <p>需要安装<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Rlbm9sZWhvdi9vYnNpZGlhbi1naXQ=">obsidian-git<i class="fa fa-external-link-alt"></i></span>这个插件，然后就和其他的创建repo同步的方法差不多了，我参照的是<span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1INmlwanphTjJXWQ==">这个<i class="fa fa-external-link-alt"></i></span>视频。</p>
 <p>在Obsidian-git插件里可以设置同步时间之类的</p>
-<h1 id="day-planner-and-calendar"><a class="markdownIt-Anchor" href="#day-planner-and-calendar"></a> Day planner and Calendar</h1>
+<h1 id="day-planner-and-calendar">Day planner and Calendar</h1>
 <p>基本弄完之后就很好看</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030619235856373.png" alt="image-00030619235856373"></p>
-<h1 id="work-with-zotero"><a class="markdownIt-Anchor" href="#work-with-zotero"></a> Work with zotero</h1>
-<h1 id="榛子-写作工作流分享会"><a class="markdownIt-Anchor" href="#榛子-写作工作流分享会"></a> 榛子 写作工作流分享会</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030619235856373.png" alt="image-00030619235856373"><figcaption aria-hidden="true">image-00030619235856373</figcaption>
+</figure>
+<h1 id="work-with-zotero">Work with zotero</h1>
+<h1 id="榛子-写作工作流分享会">榛子 写作工作流分享会</h1>
 <p>讲的很细，自己还是得先把双向链接用起来再听这个</p>
 <p>前期可以依靠很多输入，但是不能依靠脑图这种方式，脑图是别人的想法。</p>
 <p>除非写下自己为什么在乎这个，自己对这个的想法是什么，一边输入一边输出</p>
-<h2 id="双向链接"><a class="markdownIt-Anchor" href="#双向链接"></a> 双向链接</h2>
+<h2 id="双向链接">双向链接</h2>
 <p>Backlinks: 在写的时候就想链接在一起的</p>
-<h2 id="其他东西"><a class="markdownIt-Anchor" href="#其他东西"></a> 其他东西</h2>
+<h2 id="其他东西">其他东西</h2>
 <p>工作的时候专注产出，自己写的产出，而不是时间之类的</p>
 <p>虚假繁荣</p>
-<ol>
+<ol type="1">
 <li>Mind-map</li>
 <li>复盘方式</li>
 <li>copy past</li>
 <li>note taking：除非paraphrase成自己的话</li>
 <li>好看的排版</li>
 </ol>
-<h2 id="plugin"><a class="markdownIt-Anchor" href="#plugin"></a> Plugin</h2>
-<h3 id="citations"><a class="markdownIt-Anchor" href="#citations"></a> Citations</h3>
+<h2 id="plugin">Plugin</h2>
+<h3 id="citations">Citations</h3>
 <p>修改content template</p>
-<h3 id="dataview"><a class="markdownIt-Anchor" href="#dataview"></a> dataview</h3>
+<h3 id="dataview">dataview</h3>
 <p>可以用来学习SQL</p>
-<h3 id="calenda"><a class="markdownIt-Anchor" href="#calenda"></a> Calenda</h3>
+<h3 id="calenda">Calenda</h3>
 <p>添加模版，和day planner 联动</p>
-<h3 id="templater"><a class="markdownIt-Anchor" href="#templater"></a> Templater</h3>
+<h3 id="templater">Templater</h3>
 <p>用来生成模版</p>
-<h3 id="advancede-tablels"><a class="markdownIt-Anchor" href="#advancede-tablels"></a> Advancede tablels</h3>
+<h3 id="advancede-tablels">Advancede tablels</h3>
 <p>用来写表格</p>
-<h3 id="better-word-countsdaily-stat"><a class="markdownIt-Anchor" href="#better-word-countsdaily-stat"></a> Better word counts&amp;Daily stat</h3>
+<h3 id="better-word-countsdaily-stat">Better word counts&amp;Daily stat</h3>
 <p>前者用来统计整个仓库多少字，每天多少字，后面那个类似github</p>
-<h3 id="outliner"><a class="markdownIt-Anchor" href="#outliner"></a> Outliner</h3>
-<h3 id="iframesmediam-extent"><a class="markdownIt-Anchor" href="#iframesmediam-extent"></a> Iframes&amp;Mediam extent</h3>
+<h3 id="outliner">Outliner</h3>
+<h3 id="iframesmediam-extent">Iframes&amp;Mediam extent</h3>
 <p>方便视频笔记</p>
 <p>后者只能用油管和B站</p>
-<h3 id="hotkey-settings"><a class="markdownIt-Anchor" href="#hotkey-settings"></a> Hotkey settings</h3>
+<h3 id="hotkey-settings">Hotkey settings</h3>
 <p>设置快捷键</p>
-<h3 id="check-list"><a class="markdownIt-Anchor" href="#check-list"></a> Check list</h3>
+<h3 id="check-list">Check list</h3>
 <p>GTD</p>
-<h3 id="reviewperiodic-notes"><a class="markdownIt-Anchor" href="#reviewperiodic-notes"></a> Review&amp;Periodic Notes</h3>
+<h3 id="reviewperiodic-notes">Review&amp;Periodic Notes</h3>
 <p>像Anki</p>
 <p>可以自动创建提醒</p>
+<h1 id="一个新的一些资源">一个新的一些资源</h1>
+<p>https://sheldonxxd.github.io/</p>
+<p>https://github.com/sheldonxxd/obsidian_vault_template_for_researcher</p>
 ]]></content>
       <categories>
         <category>实用工具</category>
@@ -3854,7 +3859,7 @@ b(\lambda)=\int\beta(\psi,\lambda)d\Omega\\
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ conda install seaborn</span><br><span class="line">$ conda install -c conda-forge xarray dask netCDF4 bottleneck</span><br><span class="line">$ conda install -c conda-forge cartopy</span><br><span class="line">$ conda install -c conda-forge pyresample</span><br><span class="line">$ conda install python-ternary</span><br></pre></td></tr></table></figure>
 <p>常用的好像就这些，有啥缺少的待会再试试。</p>
 <h1 id="jupyter">Jupyter</h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ conda install ipykernel</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br><span class="line">$ python -m ipykernel install --name acolite</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>可以参考之前写的<a href="https://lifeodyssey.github.io/posts/c958af43.html">这个</a></p>
 <p>然后直接输入jupyter lab就行了</p>
 <p>由于可能闪过一大堆信息，直接在cmd里跳到下一页，导致看不到token，可以摁一下ctrl+c，会出来token，复制到浏览器就行</p>
@@ -3884,6 +3889,7 @@ b(\lambda)=\int\beta(\psi,\lambda)d\Omega\\
 <p>虽然这个问题跟我遇到的并不一样</p>
 <h2 id="密码重置">密码重置</h2>
 <p>https://zikin.org/wsl-forgot-passwd/</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;acolite&#x2F;acolite_luts&#x2F;main&#x2F;ACOLITE-LUT-202110-Reverse&#x2F;L8_OLI&#x2F;ACOLITE-LUT-202110-MOD2-reverse-L8_OLI-romix-8.nc</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -11048,6 +11054,20 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <td>去る加られる　でる→でられる　食べる→食べられる</td>
 <td>くる→こられる　する→できる</td>
 <td>前面加が不加を</td>
+</tr>
+<tr class="even">
+<td>よ</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>被动态</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
