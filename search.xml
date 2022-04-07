@@ -11390,7 +11390,8 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
   <entry>
     <title>two pointers</title>
     <url>/posts/8f8ed91a.html</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>双指针</p>
+<a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
 <p>这题如果用双指针怎么写呢。</p>
 <p>归并排序？</p>
@@ -11475,6 +11476,42 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
       </categories>
       <tags>
         <tag>日常记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CLI</title>
+    <url>/posts/de5113b6.html</url>
+    <content><![CDATA[<p>一些之前欠下的债 https://lifeodyssey.github.io/posts/fe4ef317.html 还有没那么熟悉的Git的操作</p>
+<a id="more"></a>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>super X Roadmap</title>
+    <url>/posts/4cc6684d.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="733aa37d7c0a7f2997845b5d70e272aaeea442f7730191d35e3088d937b61245">f71e8650f1f4f47fcb72a81bd9940c821896e689ab91661c5f3a2694e355e59e8741927d5da2d5d08bd78e4ee314a895d629f8735d6f1e9324de906a6b20f5ec7b8c890916106d968b125cc43dde6d9b00db501b3a363e7fc3bf309c0d3f8d35394433297fc131c85c1dd04ca81a839e460f5a8c7ff057ca163bd8af3c80d342f46ef1f032303c18d7dd3d3d0070b6ef61cf81f0a91de59f4c0079690a2987d6d35a09d1f082faabf896b9b260653ea2458949e86cb640f67417bf0249eafb1bf85d6d4d90e49de6079dd3a1fe0089ac58365b2564bc27ce8a589f04eb4aabbb482c6eb923822a7e6f27edee3a5b1383766939bc0f172a6f66c33d3b6d719e6449d84cd0629a1a163fbedd1e33b9089b1b71a8d579d2274cc2bfb22f95ddb20891daf907e40a0105261617d08736802d71e1732489d6d1369776def6f7c4557a9ffde2782c3939095f0deb992f2d3e674636a185a08d7e2abb4e79fd505b62701d5e09d05599b10e65dfc82b544dcb964788ec43dd3bcde1bb75adbaa431c10987cea76cdd1844d4c32f3f3d50c3f1cb38853ae483773a27ecf79e6da6918da3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Software Development</tag>
       </tags>
   </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-03-27T00:54:41.581Z</updated>
+  <updated>2022-04-07T15:35:05.286Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CLI</title>
+    <link href="https://lifeodyssey.github.io/posts/de5113b6.html"/>
+    <id>https://lifeodyssey.github.io/posts/de5113b6.html</id>
+    <published>2022-04-07T15:27:54.000Z</published>
+    <updated>2022-04-07T15:35:05.286Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一些之前欠下的债 https://lifeodyssey.github.io/posts/fe4ef317.html 还有没那么熟悉的Git的操作&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="git" scheme="https://lifeodyssey.github.io/tags/git/"/>
+    
+    <category term="bash" scheme="https://lifeodyssey.github.io/tags/bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>super X Roadmap</title>
+    <link href="https://lifeodyssey.github.io/posts/4cc6684d.html"/>
+    <id>https://lifeodyssey.github.io/posts/4cc6684d.html</id>
+    <published>2022-04-07T15:17:38.000Z</published>
+    <updated>2022-04-07T15:27:29.662Z</updated>
+    
+    
+    <summary type="html">&lt;div class=&quot;hbe hbe-container&quot; id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;Oh, this is an invalid password. Check and try again, please.&quot; data-whm=&quot;OOPS, these decrypted content may changed, but you can still have a look.&quot;&gt;
+  &lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;733aa37d7c0a7f2997845b5d70e272aaeea442f7730191d35e3088d937b61245&quot;&gt;f71e8650f1f4f47fcb72a81bd9940c821896e689ab91661c5f3a2694e355e59e8741927d5da2d5d08bd78e4ee314a895d629f8735d6f1e9324de906a6b20f5ec7b8c890916106d968b125cc43dde6d9b00db501b3a363e7fc3bf309c0d3f8d35394433297fc131c85c1dd04ca81a839e460f5a8c7ff057ca163bd8af3c80d342f46ef1f032303c18d7dd3d3d0070b6ef61cf81f0a91de59f4c0079690a2987d6d35a09d1f082faabf896b9b260653ea2458949e86cb640f67417bf0249eafb1bf85d6d4d90e49de6079dd3a1fe0089ac58365b2564bc27ce8a589f04eb4aabbb482c6eb923822a7e6f27edee3a5b1383766939bc0f172a6f66c33d3b6d719e6449d84cd0629a1a163fbedd1e33b9089b1b71a8d579d2274cc2bfb22f95ddb20891daf907e40a0105261617d08736802d71e1732489d6d1369776def6f7c4557a9ffde2782c3939095f0deb992f2d3e674636a185a08d7e2abb4e79fd505b62701d5e09d05599b10e65dfc82b544dcb964788ec43dd3bcde1bb75adbaa431c10987cea76cdd1844d4c32f3f3d50c3f1cb38853ae483773a27ecf79e6da6918da3&lt;/script&gt;
+  &lt;div class=&quot;hbe hbe-content&quot;&gt;
+    &lt;div class=&quot;hbe hbe-input hbe-input-default&quot;&gt;
+      &lt;input class=&quot;hbe hbe-input-field hbe-input-field-default&quot; type=&quot;password&quot; id=&quot;hbePass&quot;&gt;
+      &lt;label class=&quot;hbe hbe-input-label hbe-input-label-default&quot; for=&quot;hbePass&quot;&gt;
+        &lt;span class=&quot;hbe hbe-input-label-content hbe-input-label-content-default&quot;&gt;Hey, password is required here.&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&quot;/lib/hbe.js&quot;&gt;&lt;/script&gt;&lt;link href=&quot;/css/hbe.style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Software Development" scheme="https://lifeodyssey.github.io/tags/Software-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>ThoughtWorks Super X（已OC</title>
@@ -40,17 +91,10 @@
     <link href="https://lifeodyssey.github.io/posts/8f8ed91a.html"/>
     <id>https://lifeodyssey.github.io/posts/8f8ed91a.html</id>
     <published>2022-03-11T06:54:41.000Z</published>
-    <updated>2022-03-17T17:15:42.126Z</updated>
+    <updated>2022-04-07T15:30:45.526Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
+    <summary type="html">&lt;p&gt;双指针&lt;/p&gt;</summary>
     
     
     
@@ -444,56 +488,6 @@
     <category term="总结" scheme="https://lifeodyssey.github.io/tags/%E6%80%BB%E7%BB%93/"/>
     
     <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tensorflow基础</title>
-    <link href="https://lifeodyssey.github.io/posts/fd169b9d.html"/>
-    <id>https://lifeodyssey.github.io/posts/fd169b9d.html</id>
-    <published>2022-01-04T02:43:02.000Z</published>
-    <updated>2022-02-23T15:56:58.014Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;开始炼丹的第二天&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
-    
-    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
-    
-    <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PyTorch基础</title>
-    <link href="https://lifeodyssey.github.io/posts/fee729e7.html"/>
-    <id>https://lifeodyssey.github.io/posts/fee729e7.html</id>
-    <published>2021-12-31T02:43:02.000Z</published>
-    <updated>2022-01-04T16:10:34.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;没想到我也有开始炼丹的一天&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
-    
-    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
-    
-    <category term="PyTorch" scheme="https://lifeodyssey.github.io/tags/PyTorch/"/>
     
   </entry>
   

@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lifeodyssey.github.io/posts/de5113b6.html</loc>
+    
+    <lastmod>2022-04-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/8f8ed91a.html</loc>
+    
+    <lastmod>2022-04-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/4cc6684d.html</loc>
+    
+    <lastmod>2022-04-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/posts/c38ba18c.html</loc>
     
     <lastmod>2022-04-07</lastmod>
@@ -54,13 +75,6 @@
     <loc>https://lifeodyssey.github.io/posts/4ce7830b.html</loc>
     
     <lastmod>2022-03-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/8f8ed91a.html</loc>
-    
-    <lastmod>2022-03-17</lastmod>
     
   </url>
   
@@ -1566,6 +1580,20 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/LeetCode/</loc>
+    <lastmod>2022-04-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/bash/</loc>
+    <lastmod>2022-04-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/tags/Software-Development/</loc>
     <lastmod>2022-04-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
