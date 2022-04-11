@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-04-11T05:37:10.787Z</updated>
+  <updated>2022-04-11T10:12:50.973Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java</title>
+    <link href="https://lifeodyssey.github.io/posts/7f1ae6d2.html"/>
+    <id>https://lifeodyssey.github.io/posts/7f1ae6d2.html</id>
+    <published>2022-04-11T09:49:43.000Z</published>
+    <updated>2022-04-11T10:12:50.973Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;为什么不用go呢&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Java" scheme="https://lifeodyssey.github.io/tags/Java/"/>
+    
+    <category term="Software Engineer" scheme="https://lifeodyssey.github.io/tags/Software-Engineer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CLI</title>
     <link href="https://lifeodyssey.github.io/posts/de5113b6.html"/>
     <id>https://lifeodyssey.github.io/posts/de5113b6.html</id>
     <published>2022-04-07T15:27:54.000Z</published>
-    <updated>2022-04-11T05:37:10.787Z</updated>
+    <updated>2022-04-11T13:13:01.878Z</updated>
     
     
     <summary type="html">&lt;p&gt;一些之前欠下的债 https://lifeodyssey.github.io/posts/fe4ef317.html 还有没那么熟悉的Git的操作&lt;/p&gt;</summary>
@@ -461,33 +482,6 @@
     
     
     <category term="python" scheme="https://lifeodyssey.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人生は最高の暇つぶし</title>
-    <link href="https://lifeodyssey.github.io/posts/661d51c5.html"/>
-    <id>https://lifeodyssey.github.io/posts/661d51c5.html</id>
-    <published>2022-01-21T07:27:00.000Z</published>
-    <updated>2022-01-28T09:13:40.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;时间过得好快，马上就要到25岁了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;もしももしも今死んじゃったら&lt;br&gt;
-泣いてくれる人はいますか？&lt;br&gt;
-一年いや一ヶ月も経てば&lt;br&gt;
-どうせ忘れられてるんでしょ？&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="梦里真真语真幻" scheme="https://lifeodyssey.github.io/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/"/>
-    
-    
-    <category term="总结" scheme="https://lifeodyssey.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
-    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
   </entry>
   
