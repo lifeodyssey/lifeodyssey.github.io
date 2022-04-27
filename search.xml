@@ -9275,94 +9275,18 @@ by considering the contributions of different particle sources, aph(443)/ ad(443
   <entry>
     <title>未选择的路</title>
     <url>/posts/8abcc3ae.html</url>
-    <content><![CDATA[<blockquote>
-<p>Two roads diverged in a wood, and I–</p>
-<p>I took the one less traveled by,</p>
-<p>And that has made all the difference.</p>
-</blockquote>
-<a id="more"></a>
-<p>其实我选择的路反而不是什么选择的人比较少的路，我自身感觉最近读研读博的人真的越来越多了，虽然说最后坚持在科研道路上的人没有多少。</p>
-<blockquote>
-<p>大事上的选择一定要深思熟虑 做到当下的自己最好的选择。既然选择了就要把当下的选择做到最好。</p>
-<p>思考你想要什么样的人生，想过什么样的生活。</p>
-<p>博士是一份给你学位的工作，而且还是一份工资不高且时间有限的工作。博士只是人生的一个阶段，而且是很短暂的一个阶段，不可能一直在学校读博士，即使继续做科研，也不一定能有机会继续做博士的研究内容。做好人生规划，尽快做好自己的工作按时完成论文按时走人，继续人生的下一阶段才是正事。</p>
-</blockquote>
-<p>这三句话基本是我做出这个选择的原因了吧。</p>
-<p>其实自己已经不止一次的想过要转行了。</p>
-<p>本科时候在想要不要转CS，然后学了一点python机器学习统计的玩意，但是就没能下定决心去转。</p>
-<p>本科毕业的时候在想要不要转CS的master，也没有去</p>
-<p>研究生期间在想要不要不读博了在日本找工作，没去</p>
-<p>现在又在想要不要转行CS，还是没去</p>
-<p>前几天查了查我这行几个经典的学校的招聘要求（直接给事业编制的那种）</p>
-<ul>
-<li>海大：4篇以上论文+其中有一篇TOP，按照我现在的速度不太可能拿到</li>
-<li>南京师范大学：没有写明，讲师直接事业编，但是过去有过黑历史</li>
-<li>南信工：二区 4（一区TOP1）</li>
-<li>浙海大：二区3（一区TOP1）</li>
-<li>广东海洋大学：没查到，讲师直接事业编</li>
-<li>汕头大学：没查到</li>
-<li>南海所：没查到</li>
-</ul>
-<p>这些都是要求35岁以下。那我就假设个文章膨胀，在我毕业的时候二区*4是讲师的要求，怎么算我都发不到。</p>
-<p>所以我真的也不是啥学术大神。</p>
-<blockquote>
-<p>你能看到这个领域亟待的问题嘛？</p>
-</blockquote>
-<p>能。大气校正，时空分辨率，光谱分辨率，反演算法，次表层反演，算是几个光学上（或者遥感上）亟待解决的问题。</p>
-<p>生物海洋学上，pCO2 relation with phytoplankton，data assimilation with biology data，算是我觉得比较亟待解决的问题，但是确实不如上一个领域了解的多。</p>
-<p>还有一个问题就是这个领域缺少出口，如果只把生物地化当一个出口的话，那人员明显过剩了，所以才会有那么多人转去做水质遥感。</p>
-<p>我可以做渔业的出口。</p>
-<blockquote>
-<p>你能解决这些问题吗？</p>
-</blockquote>
-<p>说实话，我并不能。</p>
-<p>这就是我和小狼的差别吧。小狼不仅能发现问题，还能第一个formulate这些问题，提出确切的数学规则，最后解决这些问题。</p>
-<p>但是我可以是在小范围里，那个把精度从0.4提升到0.41的人，不知道这样算不算解决问题。</p>
-<p>当自己在一个领域做不到前5%的时候，那最好的选择就是让自己在多个领域都处于前20%或者前50%也行。</p>
-<p>一个很简单的道理，如果你只是在单一领域的前5%，那你的稀缺度只有5%。</p>
-<p>你是两个领域的前20%，那你的稀缺度就有了4%。</p>
-<p>对我来讲 可能就是 渔业，ML，水色这几个领域一起了吧</p>
-<p>这只是学术上的。</p>
-<p>前段时间我有不懂的东西的时候，就去油管上搜，但是好多就也不带中文字幕，我自己听起来也有点犯困，就想去B站查一下。</p>
-<p>结果B站完全搜不到相关的资料。</p>
-<p>而那些信息并不是特别specialized 的。</p>
-<p>我不是很清楚国内那些课题组的学生在遇到和我类似的问题的时候是怎么解决这些问题的，但是我想把这些我能分享的知识也用中文分享一下。</p>
-<p>我生于毫末，家徒四壁，父母未上过高中，一路走到这里，分不清是运气还是努力的成分偏多。</p>
-<p>一路上犹豫失落迷惑闪躲，于是，终于到了我现在的这个地方，走上了一条我从未作为最优选择的道路。</p>
-<blockquote>
-<p>做好人生规划，尽快做好自己的工作按时完成论文按时走人，继续人生的下一阶段才是正事。</p>
-</blockquote>
-<p>对我来讲，我能成为一个一本二本的老师，就已经是阶级跨越了。</p>
-<p>不行毕业去当个高中老师也可以。</p>
-<p>从现在开始，你的目标很明确了，就两个。</p>
-<p>一个是基金，一个是文章。</p>
-<blockquote>
-<p>大事上的选择一定要深思熟虑 做到当下的自己最好的选择。既然选择了就要把当下的选择做到最好。</p>
-</blockquote>
-<p>其实我还有一个选择，就是gap一年或者半年，转到大气或者陆地等方向，五年后毕业，但是这个是当下自己最好的选择吗？</p>
-<p>现在国内进老师的政策一年一变，并且目前来看，是一年变得比一年差，所以对我来说就是越早毕业越好了。</p>
-<p>我没有那个本事预测五年后的风向会是什么情况，只要在自己能够掌控的部分里面，一天比一天好，那未来肯定也不会差。</p>
-<p>无论什么选择都会有烦恼，就像我之前博客里写的。</p>
-<blockquote>
-<p>希望这次我能做到对自己负责，成为一个大人。</p>
-<p>接受这个选择所带来的后果。</p>
-</blockquote>
-<p>既然这些选择都那么让自己难以抉择，就说明这些选择都差不多。</p>
-<p>那就坚定继续做下去好了。</p>
-<blockquote>
-<p>世界上只有一种英雄主义</p>
-</blockquote>
-<p>也许我做不到热爱，但是我可以诚实。</p>
-<p>之前一直想做一点生物-物理模型的东西，现在看起来也不太容易，而且和现在的方向有点远。</p>
-<p>未来三年的目标</p>
-<ol>
-<li>三篇文章</li>
-<li>日语学好</li>
-<li>补足Data science 的课程</li>
-</ol>
-<p>能进江苏海洋大学就算成功。</p>
-<p>不行就去当高中地理老师！</p>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="e1ed748464f8d7b0d6e5b209c1a5e69106dc5ea54c51a14da3185947aa42794c">fbe12f49142b31517d68523697ea6580f468373b21d0d8d9b1389a628485b2680e0e70821d6b24be5f50f84a5a216d528cc1b4bb7a4b078a5ae2b6b7bd9e0707fba01a718046ff8b37548e0a729657d4b5dfcb58ea247044f0ae083a8754e87aeea8c38152097dacbe4b195441a69862acd5b156fcce3300ad182a5bed8f30bd39436fafb12b0553e7d8e35f99a36ee98fa4ca3f87eb56b22273300bd15b9b0c6170c23864fb69ea300b5f40cce74e4fedffebebf1f182b7d5088f51e2ad6408fac305f2563efbdf79fb2be47a49f6f63e65696151ac6f2d8d048dc06c99774f324304ddac5b30930cce834359457e9137d1787805f951bcba3a70d6677981f08cfc8013dbc05da12dad7641ef676c48737e5f02528d230ff0ab17a08541cccc4585abb33486f6f0fe48bcef99748cedb36629852cc6a5f56a07d9d2dd80d003b5d6ef8132ef760fce6d6569c067c4e054e4ba497a02ddd15b7c054b62f7f99973ddbe39f273a0100d75b4c4ffbe9c8604ec500b17a59f81d040e60e86118e76b6b0f611d684bc789b3baa2f51c036a9476ce62c17c8b0ebd7847a4f85ceccaa8a5baf03bae5985633fc4154a65dd6b0aa99fbb8716220c38ab9369cabcbb2cc011180031c4ea102a8de62c79ea591398083a9a6d6fd3e23aae3233c044db5aa0a67d91b695b5348b3d75b1c591108c65011800b1b7342c91d4f0e776bfaeb1fd5a09f8a46d16799d797063662e8e9f4eb7314d377efdad41ece1add0e47cbea31404e895fe0d76e5b6a3fae60a94dc36a02f2d6646ef5a072d653071c113d0e640f84f862d9ce661ab7e944cbf2e2600b2739a5eae08f2ac7b40b7d5af57f3aeb2091095a07911029505ced5879387059653ece461d95c4675277c1e114b1331be5db8b4a19e38d5a9f6f650d9182934a14c5681739a34ee97ddc5bad4dd189dd2d45fe267fa702dc5eec00b6b53b1b346514a0aac372476a95f26a68486d66049bafd8f79f8c030e277dd0b611fc13c9312a11c2a452313ab0badfc8ddb2f92ea04c1c09a8be7fdf6db8203707146643b3d11af5b6fb40a5302f91794bef30c9ac5dc9c837838441046f704098da56d173f94de4628891dbb8c4495a3965ef358f69d355b43d4d3c9f2ab6a27fd32367b043399774174281b13383042731130fb08942f10c247ade179650c9bc5770d44267f1a55543af3d404a95fc98715e5cef1790abea971de1bdec6e9ea23b124a40ee1b3633d15855fb63fcf7b43d870e566412f2417c0989b1aa212381afc45c0e93516b2079b351eb0929dcd23ccd42908e3c283ecd42559b1ad4a6b50ef695338abd23e300d1c004ae4d11430889bef25469b363879e7a8a26ebe4d9ddd6193b5987fa4846d05a2e08fd50cb7bed071b6b9e487ccf2215a5e2487a514fde4474cad2f89f6628ed4ad9b4683ee570af54530912f778976ed112402d38b834949bb5583bd92a48b0aa0f469ea3277b3d8f431c4ca58a81d5e284f9b4272969888a3260faf928ce147afa9c3bc8d6241e0abdc67b49911176b3932800077c36ca999e856c0c510d3636400ee712617b338744e10ce775c0ca5025b6373c13a403c89f6253e262270fe4fed168adb03d2dd2bdaa18d61a98326e78348de34db27aecdc822ae997fa91553366978503ed8fa43630e8df4cad75b3fa7fa86f29ddcdb807bead55c3f4801fbb1b4350964db232ae0eb73b76c0adc79a2b5547fed657666e33b9f73e51d3d223bc2350ee81e7003096bf1c552eba3a8abbe558299da395d89a82a21ce9fd798d64faf191118f1c20284deaa293ff100c44fb216dbc9dd225e1ac107b0d3e2ca3f440126fbcba38fb38ea5bd731f0739395b028d08a3e36ab3a5054fefade8ef326fd88aeec929cee11a6223f32dfcc47806084645aad1f618a52f91c94d227ad694d0f6281043719ae4be0b30ef0f885d00293da610357709438a9d936203dae6bceb8eb6154bdb343657300de1b25713eb6f9929417dd9235f8c6c3b0b1d447fb1ee569f92b6ab8fb85c39b3b42617eac9cf93809e6382fe0e170f162a5e98c985267055169b226ff7a0bdbe5f5e82625f3716c1eb925ff550570dd65eda49f5edb76b65238ed1a45ee844db2f7e76f4cd95a1318e8d9d601cd9aaed90659824034b3036eaa08155ebd359acfb199febb35f7b35ef11b2dfd23fdc51afa3f3cc9467eccf5c94e6b12222f475aa001b6f4e7a39bd75ddb14681caa16ee04b2d3758c6bd0a99d8c9103ffc44226faa28bfa88aba88d08e1ff0bb2110765756f08907fc7842ec12dd5692c058f9875ec96c37a143a340eb6d070661dc290ff521203af1dd8c3cb3ad58806313cf7a7ebbfc80fab2040826cd07918820cb6409ab6c7093b7a2249999c7a82b4fddbd76b75caced795506c2424aab29864b17e54c3db6cdc558f8a2428718a7eba5c5640d0c6e996907ba4ba6af80a127ecc4a50cebb03d668bd9c5efb15e51a050abdc27b7aa62ee6f94ae7d9ce6cc5abb8480f59e72a6c40ef2787a1639537a1119b85ab9a97db8499dd52971ef72ef0bca7ca779a6933f2969bb860e36e81f5cfef5e9177988cf89a3a45a6a6c360008bdb6edd6959f30e4a67208336c7c8e395285576317fa0a7eb8e1595dc5218efac87b78146d721e49869ec13b5a2431013beae342c07e33b08bbe18f7cbcf5c02f2d91985ffee3bdc089525253fddc7764fdf890deb5444c041883347d14b2f9a9c5bcb19c2f00dc50bcc32cc27531cd0cd047db1ce7bed221876258274b3d402e0003b1de1475f2820b36e7eb92d1fc11300abd89a28a3c0f2ba152d1dfa59f9d6293af68f4f1ecc16d69eae1912aa1a5eec7ae8294215b293b303b09884647918f8f00aad77ca93583bf28bdb25d40dbcffc9ff76a68761fb32ddbfccc55eb1b73cebaba8a92298f3a26e0ffec35c78d2cd179d2f3cb5bf7dea232b50eabe6ec973c84277630640b9c44a7137a2333c73c70a0e978cc95561a54b6f2e10c312f1edc2500247a7d4c45cc83a738cfd995c885cc0ecff6260af3f00837090de91600ec812adfb88ee36fec841088fe572c71e8899d233b96d9626fcd4985bed266301694693b923f1b76de44d9613808013e3cf97588ad0b6918d051d29910733d8b193cb6a224fdc8a03c86a207aba3b3b545838588f9a2adb6ecabb947be47ba68b8bf6f456e4ede2fc2f33eabf43599c72c7028005ba22b229b672fd3810de9c491392737a4c6a1d600b325e72cb86dc3af2b138dea117ce0814af375f9a68eefc8327312f9bca08e41f01b5f66df95cecb9255f7c3c116840466e89781f7087f16c9ab0d9a3d8af9f62ded2c01123ff5e6f322413059b1e7baf40ee799a8f03a6b89a35770455427cf02ce9d6e2e6c2845ca696ea98cfd2bb880e66351f94ac87ae8a23983074b431c34d18a462696cbb3407760a003827dd2df4416cf3562ee31235959dc48aa042879f302b4157915898541618b10681e1d9f3f21d5abf32f3bf2520681a43438e83141dce086b07974efb2f5b7047381984b857489a9aa540d9681e4fb1ddc6af49d78c73f3817e9a87451907954bf2580bd66e832f389df46b5b137cf70ea273d9474203b8741f2514377c1ce75ad578cbfb5c516722152a4df4253c87ce3016890d459717bec752480453465eec05113078205381e499f397080798888ab411138fcd62af63ada24c21738547248b202be8fe22677fe853feb7eec7d0f8dbd4193a3a954745080993fa07749bdc7e9e941d1c1c4fbe5e7ac057fd9fbad553c1be7e8fd97d3d7a461c0154d5c415c2956a8330d71ec90dd55b4b42fe2651fa8f415f5cf62a77bbe9bc6800093bc15ac21d60cdc71e50d2ee6130cf882b36a85bf534a21a961bb22e46e41b3f00e956fa4c24e000f273da4c2edbbc2865dafd327e08e933cb0ba065037b753717fbfc09795d8bf7fb4dce28d49db2429fc96ce47350e6ca02a935ed0e0a01e1bb59892086637e8cd8d282b2de98d0dc02220a8af40de7c2fdd2147f45b53c6d7672db311abf549ded00a6b4dc1956cb2f7bf1e3b633d0a356aa092b41706dc752724fdd30ac0858059640565ecbfd07041910728cc00b56eb0147e0bc611c598b91e88ea62f950b062e41b3cf19503402072ff0d18a3d398c556f535038a6311eaeba71643b0d515d8c863ea37c140e9e3f3c2baaade0ea8ec4ee86bd0e51a869a77746ed90232a2f6c61ae4c861baeaad8b2e4c96cacb508cc8503ec1e7bffdeebf588a8484191a54e8edf05b14ac9020238bbc93017166e854f3f6f0e24804e28fa71f03c4e8b55a4fa8b49906b64d525c51b1f03248918e5b254a07bf5a943fd92e505f0a711abcf537d8c7e53fac6847bb420d19ef95da1b839bd2e836f4e00f54819773c2d178764e2707b3c94eb07fed972e9a4d0482bfe2f80bac5085aeba9d07de6677e02cbe85530474ae44ca934be20c97c5fb6701b62d92cf4df9d11ced0e671003c1937b2ed2427678961068cc8b8b1f0555fee37d82171ffdecd82e1180fe128806d08654f13bd9d0ebfa31f66d8b5c2ecd7cfc2d8df6f6e74ec1d80b90179aa108783504462e4dc619748d59a34cc32e6aa7995c025981e42ef64813614cf87e1092c138762d0e03fe5216c4f24392434ed3a4b83dd4b58579754cdef6671dd74762fdbba4038ffcb2c1d97af8a2c28fef6046f9ff068b2e05344d1543b1aca6cd6ae7559ec1b3421e359af43dd28a2313d9dcdd6108214ee593d9a5280089a1c4533a79dd4420544f6b485bf3f4c4a392ee523d982b103959825962a880f62a0ace9e948a286bad4c3e95ac3f6318c4f832e023c8076b886b217da576ced481784bacddb8ce98e5916e80da2f6f05732ab5b72772a25d7165aef36f73ee26ddb7c9846de4d75754a1ff473796984447d70f2123c7d310f3294b8d735edca31d8cb4e4028c5b19b410eb768323a810ae49ffba4399627dac7e97dbd823d0bd4f7a30dc51ea968985196038263fa9a14637b7fc13c278224a1785f6701ec2b276ec0b5fec6b46c93eeaf1b8074335b938a62465b33d68adfd7a95f2505c3b1cafa058e18a134471d6617bda42e23865badf4297dc8a4a8e3ecaf53548e234135cb0235e32e206a2f07e41f578d6d2e2ed7b9c87351e7ae73ef6415191a112a2b739318a2a25935b1c86572e6de41a6d67eeed14c37a9f46c6f4ef41c12ed116c4f99fd7e00ffbe50b5b10c125b76f12da15cc909ca722da774d115812a271e1c185053be7d224d518aae0768d6eb939f813e68bb7dc02fdce4f3bd8f629d13c14be42ea8499c9b9febf2146cb8f9ab336addb7bb6941f886ee5d5395b150bc7877dc0cff328854a1651178128f3f336033ff9b4d65ed6a3b98e3bc69b063369a7c47a6d27491300b470e7602f8dac6a7c81afcfd311ea7e57937285eba978e01e68d112f9f07875a625675cb7f3919ebc4a67789131b162455cf0d855796214a608f381d25b5e2a647577642536238a102a6d7beae9bd5ab6c76235e276c37f56bc7929255c1bcca9cda6941639955279fe42b79abd80b02912230f4153336e55e308a475487f1b97177e2310bcf9e2758bccf20431bb01f371c1b81703c7fee07a7deb23cd75ffc6a063e6a4b0e4b6a260b9dde36546a3ab2d24045b62afc7ab24d9e8a40429af7d3d1910b775ec4c25ba2b20091854fe79049a5956a2bbf349f2d609813c200f81da27ac1613780d4ae710df5a2a28fba168094313a3fecfd6369f7394f7602cc20c9029760260683ba1147cf6416eec262eafa538628a7988a6aa346d1039f49282fd7bed488a0499a786155e4f04c6c18214836a74650e1a7776c433c6ba4bf9ac1ceeb81e57609101f7a18f83969046cc546e054defe6d01030bf6983b8be53647c150b1453e6e18a6dd554b2fdf629f207660023879092090d24e1b86546afee20e7322a1823f2f45a211638b1ee754d697e8841924f7d260ce8fdf5900ddb0f85db0f72b828c0e8b8fac5cd5fde0e32cbf37b7b0ee5a0bd90d57eb2d5d99574ff0832b3c05e190779bef9bfa2f38917d0942a6693faf80505f7082d97aa4b81eec618fc702bf542096a2455b7c7b4b588d293a204c59231873ca3b0379438df860f9d215ea8968e2d439e280ecfb0e2f5755ad00783324345c8c96105fad2611ad43f8188cdba8535b647fedbbab12a82e36d325f55c04073f7edc3563ba81d53d9eae2d00b726bc0d6b138fe2fb93763bcce4a6f0e9274bc2c8033dd18959cee42e24dc1e853239e4c32df4ce4dd0bd62ed73a98404000476d5f6d6bf5afb27a1a802d6e4bb6e1539020454b5635992cc1e31c5d26cbba41508cf02142c5ef4a3656c1584c25f8e4451e35b47f18bd2a9b8e5e96d9d2f360233bd858ee1c6d4d1b0fcd0d10b85ea4ad96575078b810cd7874aa07c243f57d2eca03ac4542f95a42e85b022dbdb3d48ad9e74c3a0282369f793f8ff6a53759b5b9d89068dd19493f8c86738323bfd1ae797d31e0691af8812c8c3caf2b762fadb3a1b96f6dacb65e6489a1be25dd4f4d8eb09999e9b58f14b43cb4cd69dbfed3c03f4c65b0d1bcc46f1a57351f77897d1286c2519390355ed05d78732c4700dd2b30c43263c7eb3c4805bae3d5a8049e0aba859fc315f4c2b271918892e003fcc84f44d6fc50b4848727354702067e44b096f6ebfe5fc52fda2310dfc5f26e8b06f7e7c016585b2a1843e8632cfeffc9b585be0d9f0008a8c5417d42669881e63da076805a50e091913a866b6c80045117af2fb74da80f2c42a8a5421d5b2951776f08f2869f458ccbbc1265fc7dc1b48770630ee1891b5e5f98c95e6b06d9b8e5f9475c0776250da38ce5308966944409febb0bf0ce920fcbffe2abd13a3865ecf828b5e1fe7fd606867f26a0878e3f6c45701ffd93da35114e43caec30d2a8082ac90fe9b34b8183f0dd2838b2e96306096248539587b83f3cea858b9511bb9273b9db8a0f6a01db94299843a48a414099ab213ebb198fbbf208dcdaa250f9f1c26d39bf2fe6c61d3edf07acd37ad4168996f7ad67c27b4855621b581c03c4aa08841b5418728b629f85e20bf29b7af5544949f57a559b66ab5e134125d0942a96dafe0b19a5a2d28ad39842d63843acf283e7d04fe2ab8eed1fa0b84c629d16b83b77b3588385dcdd7025100402ccb5ec61b5d7c122364a306cc0dda48d88ad6bf672a6fd5363af29f48dadd5b683fa9051ec004d61df7d0c0e687641c5a11576731c52ccb3a337c9050acc103b2dbc8c6d1f166ec0ff6a98ce4b3258ea92d136a295e2bdb86a5bd74e5e24513d328b963b85b7beef5bf53cee6c54fb5dfca3c43501e8165ecf485b1e883ef144a51cdc644843b66d8bbdf21c3b2cb10aa0a2d0f5d4a254ab734dfbee37fd857122d1373e848c7897d3e16e1b94716dead7c072e20c2f102c24a4d05f3e2f380b74e07a4c5b2d7efd44fe33252860527dff7e6065b879888d3c93aa89dc38cc02c11f74925ad915db1d61dcb9f22b3bff1e99077a87068a78674548be075e2756c3e819b8378c52b5a333ec39a7984c3871135bdde75048179dbac20db6b7865e650feb5e0951708b29e7005949dd7018291e99d7c5146270720383ec2e4041c32bca95f76db15ebd3c65cc7a5ba6eee47b321f81af09b63b07fe78d2320fe70d6026f10f7442605d72a2191a24e2b0a8061d4447c2dcea0b20ca6514f8ead9350639604ac781477706d456f212427cfc280a176af3402fe54f278b05414e63e3c2cb496bf5a05eccbab0dc1d652e3fb510a1a9f81972e4dc2b8d840047c3529d45e7a0f77a0781452ffaa7113b639f2f8cc26184d757f6450df0848632aa0c6831d257e3f58508844870136f8ec26ee461a4e5f3a866e76e8538cdcabdbef3afbef60fb5e4dd25d11a959bd1f437cd3041a6ca92d804f9ec751334f281d1353736e8f5b3221a843c140b4b4d0bf0076df275dc62a1110243f1ac706ca2f244477c37b8b8abdcca3b6e2b0d5cf6358a42fc5a9683d5960933c42e5a487c6fadb46a4849ca831a48bc90c0a986afbae49de337729968408c6fa689e14ecc3a9c27b0deb0964afaadbedd462b448dc2d081012de24d199b4f27323be9d6303b5753022b028773d5ce7a873b02cf35bd5249594f5bb7dee9233a0d20eee522eb07789c2a62671159a332594c55a3a3f9b6fc7fc120f57c9675206499bc804b17151c8e70123cd424847b4477d971596821259e0839ee1e51ca7f2bc1f0fdf871e9563329d3e69f95fffd734f5e68cd03c99efbb49abb3632a570b1ebede6a9f8a0f74a3e4cb751c258409bdee87da3e7aad5c3b194695fea0910720ba99b9fc66f3f823b36747111cd32fcfb152138bba1c5cc7e7555f6586b074336e64f23dfb18a0f265f31454bdb903237830accc9496441d3518658986d46fed30380a763307ff4baad142e4f686892e647f7e4ee06d846010543279c8f11cf5606c9a88de30a3f8f96606be6b00d6da09320649d3db4d16db856d8cca3821c411d876396a262ce7eb89fe023512207eaacf59f293b75b0b099096a9184a02ad01fd122107eeff50b2915a29c0ade676532864cdad2cc1222c261f3ffc301444b8a14c2d65fd1c2b01a39b8e7be26201be60f0d225cd0b69374f6b9b123439e3f879a9e70177d23f83949311c01cc417ac1ce4306ccf329e62bb50eae66df12df8c6814922b1e102e6ab3358aa1fd2a316d2b1ecd06f61fd1c578885d6e7306a05d88ea9c8a3684353e47e2500b34237c8617c7e25a8a4a63150fb729cc797676366dd14f8eb0545c1635cba72d13e7df2af950f08e8fedb3575e8d6068661cfedd54cf63488c048922eaff2b93b245714a66bb65b03fe52cb60d247f084bf4ce212baef963ddf970b682c7faea05dbd026ed82304509f32334aa586159f87656fdef772542b77ebc6212e88b0d4b2682c57a0045dc2bf01475b52d6e09475aabf49409f39379e0757d5a572bb73715cd3dcb841d9c06409a1d792e1438d4113abd4a2e11d61f247dbe933b5410347189c52c1bb081238275c2ceb4ea37e250002e005e441dc6d3cac2e19b3204ad58f53c5ce8082b065acb31f3c38318a6c1473628f35c41c2cc3c83f2610cc9cd069f96b8da559b4da98ce6a081ad5bcf6f9a494a14d456ad6dd3273998c291ec00</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>梦里真真语真幻</category>
       </categories>
@@ -10227,11 +10151,11 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>写的比较粗浅，切莫见笑。</p>
 <a id="more"></a>
 <p>朱宇,现担任北京<em>新东方</em>学校优能一对一部总监、<em>新东方</em>迅程K12项目部总监和<em>新东方</em>东方优播公司CEO</p>
-<h1 id="p1学习及工作经历"><a class="markdownIt-Anchor" href="#p1学习及工作经历"></a> P1学习及工作经历</h1>
-<h2 id="学校经历"><a class="markdownIt-Anchor" href="#学校经历"></a> 学校经历</h2>
+<h1 id="p1学习及工作经历">P1学习及工作经历</h1>
+<h2 id="学校经历">学校经历</h2>
 <p>2004年竞赛保送到清华大学材料科学与工程系，大一主要忙于学业，绩点排名全系第二。第二年竞选为学生会副主席，大三周转于学校各类社团活动并参与了团委的志愿者活动，大四直博到系主任张政军（教育部长江学者特聘教授，现任清华大学材料科学与工程学院院长）的科研团队，同时由于由宿舍朋友推荐08年3月开始在新东方兼职</p>
 <p>08年9月到10年9月一边在张政军的团队中从事材料科学基础研究，一边在新东方任职，10年9月从清华博士退学，在新东方全职工作</p>
-<h2 id="新东方工作经历"><a class="markdownIt-Anchor" href="#新东方工作经历"></a> 新东方工作经历</h2>
+<h2 id="新东方工作经历">新东方工作经历</h2>
 <p>开始时初中数学物理老师</p>
 <p>08年9月成为初中物理组组长</p>
 <p>09年4月成为高中物理组组长</p>
@@ -10242,44 +10166,36 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>14年4成为整个北京所有校区优能中学的主管，负责招生运营主管工作</p>
 <p>15年4月调任北京优能一对一部，成为整个北京新东方优能一对一部的总监至今</p>
 <p>成名作《教育培训行业现状分析十五篇》，系统分析了新东方、学而思、学大的不同，各自的发展营销模式以及互联网+的局势下传统教培行业的发展方向。并借由此建立了一套行之有效的制度，使得新东方优能中学从星星之火成燎原之势，完美反杀学而思</p>
-<h1 id="p2qa"><a class="markdownIt-Anchor" href="#p2qa"></a> P2Q&amp;A</h1>
-<p>##放弃清华博士去新东方的原因</p>
-<ol>
-<li>
-<p>能够看出来新东方这个教配行业背后的大量隐患以及机会</p>
-</li>
-<li>
-<p>当时新东方中学部处于蓬勃发展状态，优秀的数学物理老师急缺，会在新东方获得更多发展机会</p>
-</li>
-<li>
-<p>由于在新东方的两年兼职，对新东方产生了情感‘</p>
-</li>
-<li>
-<p>在科研阶段个人想法兴趣的改变，不适应国内的科研环境。相比之下觉得在教培行业能让自身获得更大发展</p>
-</li>
+<h1 id="p2qa">P2Q&amp;A</h1>
+<h2 id="放弃清华博士去新东方的原因">放弃清华博士去新东方的原因</h2>
+<ol type="1">
+<li><p>能够看出来新东方这个教配行业背后的大量隐患以及机会</p></li>
+<li><p>当时新东方中学部处于蓬勃发展状态，优秀的数学物理老师急缺，会在新东方获得更多发展机会</p></li>
+<li><p>由于在新东方的两年兼职，对新东方产生了情感‘</p></li>
+<li><p>在科研阶段个人想法兴趣的改变，不适应国内的科研环境。相比之下觉得在教培行业能让自身获得更大发展</p></li>
 </ol>
-<h2 id="教培行业的待遇"><a class="markdownIt-Anchor" href="#教培行业的待遇"></a> 教培行业的待遇</h2>
+<h2 id="教培行业的待遇">教培行业的待遇</h2>
 <p>优能中学部老师平均年薪25万，大量30万，而且每年会有二十人左右八十万，两人超过百万，老师之外的基层人员每年五万到六万</p>
 <p>一对一部的基层人员十万到十五万</p>
 <p>顶层总监年薪一百万以上</p>
-<h2 id="最希望招聘员工所具有的特点"><a class="markdownIt-Anchor" href="#最希望招聘员工所具有的特点"></a> 最希望招聘员工所具有的特点</h2>
-<p>1）  执行力强。没有拖延症说干就干干净利落</p>
-<p>2）  责任心强。具有对团队和自己负责任的想法。</p>
-<p>3）  进取心强。能够自我学习自我发展，有强烈的进步意愿</p>
-<h2 id="八十万以上名师的特点"><a class="markdownIt-Anchor" href="#八十万以上名师的特点"></a> 八十万以上名师的特点：</h2>
+<h2 id="最希望招聘员工所具有的特点">最希望招聘员工所具有的特点</h2>
+<p>1） 执行力强。没有拖延症说干就干干净利落</p>
+<p>2） 责任心强。具有对团队和自己负责任的想法。</p>
+<p>3） 进取心强。能够自我学习自我发展，有强烈的进步意愿</p>
+<h2 id="八十万以上名师的特点">八十万以上名师的特点：</h2>
 <p>进入新东方时间较早，具有强大的人格魅力，能够带动学生情绪，课堂具有感染力，知识储备丰富，博闻强识，博古通今，课程结构严谨讲述设计巧妙。</p>
-<h2 id="学生会和社团工作对于现在工作的影响"><a class="markdownIt-Anchor" href="#学生会和社团工作对于现在工作的影响"></a> 学生会和社团工作对于现在工作的影响</h2>
+<h2 id="学生会和社团工作对于现在工作的影响">学生会和社团工作对于现在工作的影响</h2>
 <p>在学生会和社团的工作中学会了如何和别人打交道，如何管理一群人为共同目标努力、如何计划、组织，如何培训、指导，如何监督、反馈、总结，这些都是管理能力的很重要的一部分，这些能力只有在时间和经验的积累才能提升——初中物理组组长的敲门砖</p>
-<h2 id="工作对自己的改变"><a class="markdownIt-Anchor" href="#工作对自己的改变"></a> 工作对自己的改变</h2>
+<h2 id="工作对自己的改变">工作对自己的改变</h2>
 <p>自己在工作中变得更成熟 能够清晰地判断一件事情的收获与损害，遇事不在慌张手足无措而是能够沉着冷静，将意外的损失降到最小，学会了如何更好地解决问题，提升了跟别人打交道的熟练程度，提高了研究事物规律、公开演讲、管理培训的能力，学会了如何在自己的领域产生影响力</p>
-<h2 id="工作之余的提升途径"><a class="markdownIt-Anchor" href="#工作之余的提升途径"></a> 工作之余的提升途径</h2>
+<h2 id="工作之余的提升途径">工作之余的提升途径</h2>
 <p>阅读，偏重于数理方面的书籍教材，例如经济学、运营学、管理学相关的西方教材，以及博弈论、运筹学，策略决策方面的书籍帮助自己去理解行业、公司的发展规律</p>
 <p>文科方面主要是是专业性历史书，比如欧洲史，美国经济史、西方国家科学技术发展史及政治经济制度发展史、哲学发展史，帮助自己理解公司的制度、理解人的行为</p>
-<h2 id="文科与理科思维的差异"><a class="markdownIt-Anchor" href="#文科与理科思维的差异"></a> 文科与理科思维的差异</h2>
+<h2 id="文科与理科思维的差异">文科与理科思维的差异</h2>
 <p>文科思维-感性，直接</p>
 <p>理科思维-长线，间接寻找事物规律</p>
 <p>例如新东方和学而思，新东方就是典型的文科思维，他看到了中考高考补习这个刚需，于是就专心去研究中考与高考。而学而思则是典型的理科思维，看到了背后的规律，不是从中考高考开始做起而是从初一高一开始，这样学员上完初一高一的课程之后升入初二高二，学而思就会顺势推出下一阶段的补习班，利用之前建立起的口碑来招收学员。</p>
-<h1 id="对我们想说的话"><a class="markdownIt-Anchor" href="#对我们想说的话"></a> 对我们想说的话</h1>
+<h1 id="对我们想说的话">对我们想说的话</h1>
 <p>针对刚刚踏入大学生活的大一学生我有非常多的心里话想跟你们分享。</p>
 <p>大学四年时间是非常宝贵，但是对于目前中国绝大多数大学生而言这四年都是荒废过去的，这非常的可惜。因为这四年，说实在的，是从中学阶段那种强压式的学习，转换到了一种自我学习、自我提升、自我成长，从中学阶段那种考试成绩作为唯一目标和唯一方向的学习，变成大学里的多样化目标和多样化标准，是一种非常突兀的转变，大学新生对此会非常的不适应。哪怕是在清华也有将这四年荒废过去的同学，他到了打死的时候人生一片茫然，对于未来怎么发展心里没底。</p>
 <p>而能在如果大一大二时给自己选定一个发展方向，提前进行规划和准备，对于未来能够走好这条路是非常有好处的。现在的发展方向基本上就是从五条路中挑出来一个两个来。</p>
@@ -11638,6 +11554,9 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>一些你应该知道是用来干嘛的网站https://www.cnblogs.com/gentlescholar/p/15145771.html</p>
 <p>https://zhuanlan.zhihu.com/p/484244128</p>
 <p>https://www.exception.site/essay/idea-reset-eval</p>
+<p>这个使用教程太长了不想看</p>
+<h1 id="java-程序基础">java 程序基础</h1>
+<p>自己一直逃避的面向对象他又来了</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -11645,6 +11564,111 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
       <tags>
         <tag>Java</tag>
         <tag>Software Engineer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Passion &amp; Motivation</title>
+    <url>/posts/49d62bf8.html</url>
+    <content><![CDATA[<blockquote>
+<p>"对于读博这件事，你什么都有了，却没有了Passion"</p>
+</blockquote>
+<p>我朋友说的很对。</p>
+<p>跟朋友圈的各位讲一下我最近发生的事情。</p>
+<h1 id="这个jd简直就是照着我写的">这个JD简直就是照着我写的</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202204202208501.png" alt="image-20220420220830295"><figcaption aria-hidden="true">image-20220420220830295</figcaption>
+</figure>
+<p>3.9那天，半夜睡不着的我看到了这个博士岗位的广告，点进去看了看。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202204202245345.png" alt="image-20220420224548306"><figcaption aria-hidden="true">image-20220420224548306</figcaption>
+</figure>
+<p>? 这个人是不是看到了我的简历，我连Desired qualification都满足了。当时又没有拿到工作的offer，就想着申请了下。迅速找到了我之前的导师和师姐要了推荐信，申请了这个位置。</p>
+<p>一个插曲，我连这个optional的文件都有很多东西可以交上去</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202204202315954.png" alt="image-20220420231528911"><figcaption aria-hidden="true">image-20220420231528911</figcaption>
+</figure>
+<p>22号，这个老师回复了我，24号面试，31号笔试，一切都非常的顺利。</p>
+<p>顺利到什么程度呢，面试时长从半个小时扩展到了一个小时，笔试的代码我之前写过直接拿过来用，笔试涉及到的文献我之前都认真精读过，都不需要重新翻阅那几篇论文。</p>
+<p>这个岗位简直是为了我而生的。</p>
+<p>是的，一切都非常顺利。</p>
+<p>4月12号，我拿到了offer，波士顿大学五年的全奖offer。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202204202317701.png" alt="image-20220420231707664"><figcaption aria-hidden="true">image-20220420231707664</figcaption>
+</figure>
+<p>在一阵狂喜之后，我忽然冷静了下来。</p>
+<p>4.12这个的时间点，我已经收到了国内一家外企的软件开发的offer，虽然在国内这个互联网裁员的背景下，可能也不是什么特别好的选择。</p>
+<p>但是对我来讲，属于是有的选择了。</p>
+<p>如果我没有这个工作offer，我肯定就去了。</p>
+<p>漫长的心理斗争从现在就开始了。</p>
+<h1 id="我真的喜欢研究吗">我真的喜欢研究吗</h1>
+<p>对于这个问题，我立马给出了否定答案。</p>
+<p>我觉得我只是擅长做题，我自己并不能从我所研究的问题和对象中收获任何的快乐。</p>
+<p>之前支撑我做研究的原因仅仅是，我想毕业，我想找工作，我想发论文，我想赢得残酷的学术竞争。</p>
+<p>而不是我喜欢做研究，我热爱我所研究的东西。</p>
+<p>有的人不做研究浑身发痒，生不如死，吃饭睡觉走路都在想着研究的问题。</p>
+<p>我也可以做到吃饭睡觉走路都在想着研究的问题，但是那是因为我给了自己太多的压力，多到让我不得不一直想着研究的问题。</p>
+<p>这个过程，说实话，很痛苦，非常痛苦。</p>
+<p>不避讳的说，去年这个时候，我接受了长达两个半月的心理咨询，而这个的起因就是我被我自己心里的压力压垮了。那个时候我做不出研究，想不出思路，觉得自己就快要延期毕业了。</p>
+<p>真的非常痛苦。</p>
+<p>但是我觉得我毕业，应该是没有问题的。但是在那之后做博士后，非升即走，我觉得我会面临更大的心理压力。</p>
+<p>毕竟当时单单硕士毕业这一项都快将我压垮，我觉得我在后面的博士后和非升即走的过程中会面临更大的心理压力。并且这种毫无work life balance的工作，也并不是我一个喜欢打游戏的肥宅所想要的生活。</p>
+<p>如果博士，在博士毕业之后进入工业界，做research scientist呢？或者回国呢？</p>
+<p>我很快就否定了后一个选择。</p>
+<p>就我在国内找工作的经历，和我所了解的信息看来，国内能够承载的起水色遥感博士毕业生的机构，基本都是体制内。因为我不想去继续从事研究了，研究所这一项率先划掉。</p>
+<p>剩下的就是自然资源部和生态环境部的下属事业单位或者类似的单位了。这些单位集中在北京，大多不提供户口，更重要的是，由于学位翻译的问题，很多单位我连考的资格都没有。</p>
+<p>剩下的的就是仅有的几家国企央企，而我之前投递国企央企的经历也让我明白，在这些有保密要求的企业里，我一个留学生并不是那么好进的。</p>
+<p>后面这个大概率是被封死了。</p>
+<p>那，前一个选择呢？</p>
+<p>在经过在领英，glassdoor，indeed等等网站的查询之后，我也认识到，对于非美国公民，在美国从事遥感相关的research scientist，也基本是不可能的。</p>
+<p>那么，我如果要去读这个博士，然后毕业之后不做科研，剩下的选择就只有一条，就是转行在美国做Data Scientist或者Software development。</p>
+<p>前者，我问了实验室毕业的美国人，他本硕统计，投递data scientist都被拒绝了，美国人在美国找工作比留学生不知道好找多少倍。后者则需要在博士毕业的同时刷题或者修一个cs master。而且最好投递实习，拿return offer，这样才更有可能找到工作。</p>
+<p>这是一件很困难的事情，但是收益很大，毕竟这个工资干几年就立马财富自由了。</p>
+<p>我刚刚开始兴奋起来，然后刚想规划我博士五年的生活的时候，我忽然一愣。</p>
+<p>那我读博士有什么意义呢？</p>
+<p>这么困难的事情，我真的能做到吗？</p>
+<p>前者其实很容易回答，在这种情况下我读博士的意义在于走NIW或者eb的绿卡，但是这种情况要求我在博士的前几年就发出来好文章，并且担任审稿任务。对我这个两年都没发出来论文的菜鸡来说，这件事情本身就是和转行冲突的。</p>
+<p>后者，我持悲观态度。对于时间跨度很长的事情，我一向不能坚持下来。</p>
+<p>(我不否认我在美国读博之后可能会有新的合适的工作机会出现，例如五年前data scientist就不是什么很火的岗位，但是那是我完全不能预测的东西，所以我就不考虑了。)</p>
+<p>这些事情，也是我找各种各样的人咨询之后才得知的。</p>
+<p>感谢各位在这期间对我的帮助</p>
+<h1 id="回到原点">回到原点</h1>
+<p>那么现在问题就变成了，是选择去美国读博走学术道路（尽管也有可能进行转行，但是转行的机会非常小），还是在国内做普通的软件开发工作。</p>
+<p>人总是会给内心的选择找无数说服自己的理由，来让自己不后悔自己选择的道路。</p>
+<p>像我，就是内心非常倾向于后面那一个。</p>
+<p>所以这期间我给我自己找了无数理由来让自己选择后面的道路，包括但不限于。</p>
+<ul>
+<li>当前领域最近几年不会有啥突破性进展，我有自信我两三年后还能申请的到博士。</li>
+<li>对于没有太大自制力的自己，读博大概率没有精力分心去忙转行的事情，最终大概率只能接着做博后。</li>
+<li>既然一直有转码或者去工业界的想法，不如真正来试试工业界的工作是什么样的。如果真的不喜欢，再去卷学术也好。</li>
+<li>自己在做研究之外还有很多其他一直想做的事情，比如开发一个游戏的MOD，比如将自己过去写的代码发布成package，比如找个女朋友（不是</li>
+</ul>
+<p>那就不如去试试。</p>
+<h1 id="passionmotivation">Passion&amp;Motivation</h1>
+<p>第一次听到和这两个词相关的问题，是在大二的一次答辩上。当时陈老师问我:"是什么驱使着你做出这些事情的呢？"</p>
+<p>当时的我，其实我也想不出来是什么驱使着我，每天早晨五点半起床赶车去上课，晚上十点多回到宿舍的。</p>
+<p>现在想想，可能是因为学习数学和物理相关的这些东西更容易驱使我沉浸下去，更容易让我获得正反馈。这些不仅在大学四年里面有体现，读研的时候最让我开心的那段时间也是我有机会能沉下心来推导光学辐射传输理论公式的时候。</p>
+<p>后面再次集中的遇到这些问题，则是在我读研的时候。</p>
+<p>我一次又一次的拷问我自己</p>
+<blockquote>
+<p>你为什么要做这个研究</p>
+<p>你喜欢做科研吗</p>
+<p>你想读博吗</p>
+</blockquote>
+<p>毕业快半年之后，我才清清楚楚的认识到，读研两年期间驱使我这么努力的原因，大部分不是因为我喜欢做，而是我想发论文，想找到学术职位，想在残酷的学术竞争中赢下来。</p>
+<p>这次跟同学交流要不要去读博的时候，有一个同学很准确地描述了我的心理状态。</p>
+<blockquote>
+<p>对于读博这件事情，你什么都准备好了。</p>
+<p>就是没有了passion</p>
+</blockquote>
+<p>是啊，我知道我们这行需要解决的难题在那里，解决的技能我也完全具备。自信的说，当时申请那个波士顿大学职位要做的内容，我可以大概猜出来结果是什么，也知道每一步应该怎么做，甚至现在就可以开始写论文了，只等实地数据采样结果出来之后，做一些工作，填上去就好了。</p>
+<p>但是我却不想做了。</p>
+<p>希望我未来能够重新收获这两个词。</p>
+]]></content>
+      <categories>
+        <category>人生得意须尽欢</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
       </tags>
   </entry>
 </search>
