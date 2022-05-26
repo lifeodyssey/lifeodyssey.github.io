@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-05-25T19:55:56.480Z</updated>
+  <updated>2022-05-26T06:31:04.751Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Idea debug/Gradle/Building tools</title>
     <link href="https://lifeodyssey.github.io/posts/984bc8b6.html"/>
     <id>https://lifeodyssey.github.io/posts/984bc8b6.html</id>
-    <published>2022-05-12T15:12:22.189Z</published>
-    <updated>2022-05-25T19:55:56.480Z</updated>
+    <published>2022-05-12T15:12:22.000Z</published>
+    <updated>2022-05-26T06:31:04.751Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;hbe hbe-container&quot; id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;Oh, this is an invalid password. Check and try again, please.&quot; data-whm=&quot;OOPS, these decrypted content may changed, but you can still have a look.&quot;&gt;
@@ -41,6 +41,10 @@
     
     <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
+    
+    <category term="Java" scheme="https://lifeodyssey.github.io/tags/Java/"/>
+    
+    <category term="Software Engineer" scheme="https://lifeodyssey.github.io/tags/Software-Engineer/"/>
     
   </entry>
   
