@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-06-01T21:17:53.944Z</updated>
+  <updated>2022-06-04T10:38:48.218Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql</title>
+    <link href="https://lifeodyssey.github.io/posts/dbd66adf.html"/>
+    <id>https://lifeodyssey.github.io/posts/dbd66adf.html</id>
+    <published>2022-06-04T10:34:45.000Z</published>
+    <updated>2022-06-04T10:38:48.218Z</updated>
+    
+    
+    <summary type="html">&lt;div class=&quot;hbe hbe-container&quot; id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;Oh, this is an invalid password. Check and try again, please.&quot; data-whm=&quot;OOPS, these decrypted content may changed, but you can still have a look.&quot;&gt;
+  &lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;b5e8591a4a1d429ad0fa0aae36cdb0008178af81c042e540f295d1591fd5c9af&quot;&gt;7bd4cf0d215e2cea1c390ddf95ddf79d399a7cf17012cccb78e74d3a2699d9915895606ede2c4d8177bbe564e8f20050696f13b252d699f08a0eab896b842182b7783c787ed654cd5c1d2dd8b1f6ba44b48d0034f16ec9762e875de10cb2b4a937176aa649d9814e406032d1644b881f821c878d6df4cc94e0a420c11ed7aace2934757b08a9a6d404a4a72ae8b2ea0f&lt;/script&gt;
+  &lt;div class=&quot;hbe hbe-content&quot;&gt;
+    &lt;div class=&quot;hbe hbe-input hbe-input-default&quot;&gt;
+      &lt;input class=&quot;hbe hbe-input-field hbe-input-field-default&quot; type=&quot;password&quot; id=&quot;hbePass&quot;&gt;
+      &lt;label class=&quot;hbe hbe-input-label hbe-input-label-default&quot; for=&quot;hbePass&quot;&gt;
+        &lt;span class=&quot;hbe hbe-input-label-content hbe-input-label-content-default&quot;&gt;Hey, password is required here.&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&quot;/lib/hbe.js&quot;&gt;&lt;/script&gt;&lt;link href=&quot;/css/hbe.style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</summary>
+    
+    
+    
+    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Java" scheme="https://lifeodyssey.github.io/tags/Java/"/>
+    
+    <category term="Software Engineer" scheme="https://lifeodyssey.github.io/tags/Software-Engineer/"/>
+    
+  </entry>
   
   <entry>
     <title>Peer Pressure and Experience</title>
@@ -480,34 +512,6 @@
     <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
     
     <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SeaDAS OCSSW及大气矫正 2022年使用指北</title>
-    <link href="https://lifeodyssey.github.io/posts/182a5f48.html"/>
-    <id>https://lifeodyssey.github.io/posts/182a5f48.html</id>
-    <published>2022-02-11T12:09:56.000Z</published>
-    <updated>2022-03-27T00:58:19.288Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近越来越多小伙伴顺着&lt;a href=&quot;https://lifeodyssey.github.io/posts/ce08f3a2.html&quot;&gt;这个&lt;/a&gt;来找到我，特此更新一篇。&lt;/p&gt;
-&lt;p&gt;欢迎任何问题的交流和咨询 zhenjiazhou0127@outlook.com&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Research" scheme="https://lifeodyssey.github.io/tags/Research/"/>
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Oceanography" scheme="https://lifeodyssey.github.io/tags/Oceanography/"/>
-    
-    <category term="MODIS" scheme="https://lifeodyssey.github.io/tags/MODIS/"/>
-    
-    <category term="大气校正" scheme="https://lifeodyssey.github.io/tags/%E5%A4%A7%E6%B0%94%E6%A0%A1%E6%AD%A3/"/>
     
   </entry>
   
