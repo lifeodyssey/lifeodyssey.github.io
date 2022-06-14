@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-06-14T11:59:38.934Z</updated>
+  <updated>2022-06-14T14:52:48.080Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -21,14 +21,10 @@
     <link href="https://lifeodyssey.github.io/posts/6c4d8823.html"/>
     <id>https://lifeodyssey.github.io/posts/6c4d8823.html</id>
     <published>2022-06-14T11:29:29.000Z</published>
-    <updated>2022-06-14T11:59:38.934Z</updated>
+    <updated>2022-06-14T14:52:48.080Z</updated>
     
     
-    <summary type="html">&lt;p&gt;看到标题是不是觉得很奇怪，没错，我也觉得很奇怪，但没办法，这是客户的要求。&lt;/p&gt;
-&lt;h1 id=&quot;开局吐槽&quot;&gt;开局吐槽&lt;/h1&gt;
-&lt;p&gt;国产卫星两大麻烦的地方，一个是没有准确的辐射校正与大气校正，然后还不公开完整的数据与标准处理方式，这样的话我们想搞准确的辐射校正和大气校正，或者说需要某个波段处理到某一个级别的未公开的数据，就只能自己从头开始搞而且，并且想参考标准的处理流程的时候人家不给你代码；另一个是没有公开详细的ATBD (Algorithm Theoretical Basis Document)，别的国家啥情况我不知道，日本和韩国在卫星书还没公开的时候就把最初版本的ATBD放出来了，并且在获取了足够的卫星数据之后很快就发布标准产品的实地检验结果，国产那俩水色卫星发射这么久，国家海洋卫星应用中心的官网连个P都不放一个。&lt;/p&gt;
-&lt;p&gt;当然还有一个麻烦的地方就是下载麻烦，批量下载还需要写机构申请或者拿U盘，真的2202年了，世界第二大国能不能有点世界大国的心胸，官网没有英语页面也就罢了，下载的方法能不能和国际接轨一下。日本水色人才都空心了，SGLI卫星的各个指标都搞得比国内好的不知道哪里去了，我们交了这么多税你们就搁着干这个呢？&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;看到标题是不是觉得很奇怪，没错，我也觉得很奇怪，但没办法，这是客户的要求。&lt;/p&gt;</summary>
     
     
     
