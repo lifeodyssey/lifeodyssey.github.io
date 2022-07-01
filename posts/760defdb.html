@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白 一些地址 https:&#x2F;&#x2F;towardsdatascience.com&#x2F;beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d https:&#x2F;&#x2F;issueexplorer.com&#x2F;issue&#x2F;aut">
+  <meta name="description" content="因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白 一些地址 https:&#x2F;&#x2F;towardsdatascience.com&#x2F;beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d https:&#x2F;&#x2F;issueexplorer.com&#x2F;issue&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tree Family in Machine learning and XGBoost">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/760defdb.html">
 <meta property="og:site_name" content="�ǿ�����Ĵ��߹���">
-<meta property="og:description" content="因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白 一些地址 https:&#x2F;&#x2F;towardsdatascience.com&#x2F;beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d https:&#x2F;&#x2F;issueexplorer.com&#x2F;issue&#x2F;aut">
+<meta property="og:description" content="因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白 一些地址 https:&#x2F;&#x2F;towardsdatascience.com&#x2F;beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d https:&#x2F;&#x2F;issueexplorer.com&#x2F;issue&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-23T02:33:20.000Z">
 <meta property="article:modified_time" content="2021-12-29T07:34:51.000Z">
@@ -221,7 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-tree"><span class="nav-number">1.</span> <span class="nav-text"> What is tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tree-or-neutral-network"><span class="nav-number">2.</span> <span class="nav-text"> Tree or neutral network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bagging-and-boostensemble"><span class="nav-number">3.</span> <span class="nav-text"> Bagging and Boost(ensemble)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hyperparameter-selection-the-bayes"><span class="nav-number">4.</span> <span class="nav-text"> Hyperparameter selection: the Bayes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#how-auto-sklearn-works-and-how-auto-it-is"><span class="nav-number">5.</span> <span class="nav-text"> How auto-sklearn works and how ‘auto’ it is</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hands-on-and-integration-with-original-model"><span class="nav-number">6.</span> <span class="nav-text"> Hands on and integration with original model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost"><span class="nav-number">7.</span> <span class="nav-text"> XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-and-boosting"><span class="nav-number">7.1.</span> <span class="nav-text"> Bagging and Boosting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E6%A0%91"><span class="nav-number">7.2.</span> <span class="nav-text"> 提升树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96"><span class="nav-number">7.3.</span> <span class="nav-text"> 模型原理及优化</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what-is-tree"><span class="nav-number">1.</span> <span class="nav-text">What is tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tree-or-neutral-network"><span class="nav-number">2.</span> <span class="nav-text">Tree or neutral network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bagging-and-boostensemble"><span class="nav-number">3.</span> <span class="nav-text">Bagging and Boost(ensemble)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hyperparameter-selection-the-bayes"><span class="nav-number">4.</span> <span class="nav-text">Hyperparameter selection: the Bayes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#how-auto-sklearn-works-and-how-auto-it-is"><span class="nav-number">5.</span> <span class="nav-text">How auto-sklearn works and how ‘auto’ it is</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hands-on-and-integration-with-original-model"><span class="nav-number">6.</span> <span class="nav-text">Hands on and integration with original model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xgboost"><span class="nav-number">7.</span> <span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bagging-and-boosting"><span class="nav-number">7.1.</span> <span class="nav-text">Bagging and Boosting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E6%A0%91"><span class="nav-number">7.2.</span> <span class="nav-text">提升树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96"><span class="nav-number">7.3.</span> <span class="nav-text">模型原理及优化</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -378,34 +378,34 @@
     <div class="post-body" itemprop="articleBody">
         <p>因为研究的原因又回到了老本行，要用auto-sklearn和XGBoost，这次一定要把我自己讲明白</p>
 <p>一些地址</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2JleW9uZC1ncmlkLXNlYXJjaC1oeXBlcmNoYXJnZS1oeXBlcnBhcmFtZXRlci10dW5pbmctZm9yLXhnYm9vc3QtN2M3OGY3YTI5Mjlk">https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9pc3N1ZWV4cGxvcmVyLmNvbS9pc3N1ZS9hdXRvbWwvYXV0by1za2xlYXJuLzEyOTc=">https://issueexplorer.com/issue/automl/auto-sklearn/1297<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cua2FnZ2xlLmNvbS9yZXNpZGVudG1hcmlvL2F1dG9tYXRlZC1mZWF0dXJlLXNlbGVjdGlvbi13aXRoLXNrbGVhcm4=">https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTQwMzU2NDUvZmVhdHVyZXMtYW5kLWZlYXR1cmUtaW1wb3J0YW5jZS1pbi1hdXRvLXNrbGVhcm4td2l0aC1vbmUtaG90LWVuY29kZWQtZmVhdHVyZXM=">https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==">https://github.com/automl/auto-sklearn/issues/524<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly90b3dhcmRzZGF0YXNjaWVuY2UuY29tL2ZlYXR1cmUtcHJlcHJvY2Vzc29yLWluLWF1dG9tYXRlZC1tYWNoaW5lLWxlYXJuaW5nLWMzYWY2ZjIyZjAxNQ==">https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zY2lraXQtbGVhcm4ub3JnL3N0YWJsZS9tb2R1bGVzL2ZlYXR1cmVfc2VsZWN0aW9uLmh0bWw=">https://scikit-learn.org/stable/modules/feature_selection.html<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F1dG9tbC9hdXRvLXNrbGVhcm4vaXNzdWVzLzUyNA==">https://github.com/automl/auto-sklearn/issues/524<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hdXRvbWwuZ2l0aHViLmlvL2F1dG8tc2tsZWFybi9tYXN0ZXIvZXhhbXBsZXMvNDBfYWR2YW5jZWQvZXhhbXBsZV9pbnNwZWN0X3ByZWRpY3Rpb25zLmh0bWw=">https://automl.github.io/auto-sklearn/master/examples/40_advanced/example_inspect_predictions.html<i class="fa fa-external-link-alt"></i></span></p>
+<p>https://towardsdatascience.com/beyond-grid-search-hypercharge-hyperparameter-tuning-for-xgboost-7c78f7a2929d</p>
+<p>https://issueexplorer.com/issue/automl/auto-sklearn/1297</p>
+<p>https://www.kaggle.com/residentmario/automated-feature-selection-with-sklearn</p>
+<p>https://stackoverflow.com/questions/54035645/features-and-feature-importance-in-auto-sklearn-with-one-hot-encoded-features</p>
+<p>https://github.com/automl/auto-sklearn/issues/524</p>
+<p>https://towardsdatascience.com/feature-preprocessor-in-automated-machine-learning-c3af6f22f015</p>
+<p>https://scikit-learn.org/stable/modules/feature_selection.html</p>
+<p>https://github.com/automl/auto-sklearn/issues/524</p>
+<p>https://automl.github.io/auto-sklearn/master/examples/40_advanced/example_inspect_predictions.html</p>
 <p>POC baiyan那个</p>
-<h1 id="what-is-tree"><a class="markdownIt-Anchor" href="#what-is-tree"></a> What is tree</h1>
-<h1 id="tree-or-neutral-network"><a class="markdownIt-Anchor" href="#tree-or-neutral-network"></a> Tree or neutral network</h1>
-<h1 id="bagging-and-boostensemble"><a class="markdownIt-Anchor" href="#bagging-and-boostensemble"></a> Bagging and Boost(ensemble)</h1>
-<h1 id="hyperparameter-selection-the-bayes"><a class="markdownIt-Anchor" href="#hyperparameter-selection-the-bayes"></a> Hyperparameter selection: the Bayes</h1>
+<h1 id="what-is-tree">What is tree</h1>
+<h1 id="tree-or-neutral-network">Tree or neutral network</h1>
+<h1 id="bagging-and-boostensemble">Bagging and Boost(ensemble)</h1>
+<h1 id="hyperparameter-selection-the-bayes">Hyperparameter selection: the Bayes</h1>
 <p>这里要顺便补充一下之前写了一半的那个</p>
-<h1 id="how-auto-sklearn-works-and-how-auto-it-is"><a class="markdownIt-Anchor" href="#how-auto-sklearn-works-and-how-auto-it-is"></a> How auto-sklearn works and how ‘auto’ it is</h1>
-<h1 id="hands-on-and-integration-with-original-model"><a class="markdownIt-Anchor" href="#hands-on-and-integration-with-original-model"></a> Hands on and integration with original model</h1>
-<h1 id="xgboost"><a class="markdownIt-Anchor" href="#xgboost"></a> XGBoost</h1>
-<h2 id="bagging-and-boosting"><a class="markdownIt-Anchor" href="#bagging-and-boosting"></a> Bagging and Boosting</h2>
+<h1 id="how-auto-sklearn-works-and-how-auto-it-is">How auto-sklearn works and how ‘auto’ it is</h1>
+<h1 id="hands-on-and-integration-with-original-model">Hands on and integration with original model</h1>
+<h1 id="xgboost">XGBoost</h1>
+<h2 id="bagging-and-boosting">Bagging and Boosting</h2>
 <p>共同点：都是由弱分类器构成。弱分类器就是表现不好的分类器</p>
 <p>Bagging，训练多个，然后投票加权，弱分类器通常是过拟合的</p>
 <p>Boosting，训练多个，然后投票加权，弱分类器通常是欠拟合的</p>
-<h2 id="提升树"><a class="markdownIt-Anchor" href="#提升树"></a> 提升树</h2>
+<h2 id="提升树">提升树</h2>
 <p>提升树是由基于残差的训练</p>
 <p>不由一个模型完成最终预测，将一个模型训练之后的残差作为下一个模型预测的目标值，记为y2，如此循环</p>
-<p>最终预测=模型1的预测+模型2的预测+模型3的预测+…</p>
+<p>最终预测=模型1的预测+模型2的预测+模型3的预测+...</p>
 <p>没有投票，每个模型都参与的预测的记过里面</p>
-<h2 id="模型原理及优化"><a class="markdownIt-Anchor" href="#模型原理及优化"></a> 模型原理及优化</h2>
+<h2 id="模型原理及优化">模型原理及优化</h2>
 
     </div>
 
@@ -511,7 +511,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

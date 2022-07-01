@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
+  <meta name="description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客第三方插件和图片问题解决">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/361a6d0d.html">
 <meta property="og:site_name" content="�ǿ�����Ĵ��߹���">
-<meta property="og:description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
+<meta property="og:description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509163920.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509182929.png">
@@ -226,7 +226,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text"> 评论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text"> 注册应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalkswig"><span class="nav-number">1.2.</span> <span class="nav-text"> gitalk.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commentsswig"><span class="nav-number">1.3.</span> <span class="nav-text"> comments.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#indexswig"><span class="nav-number">1.4.</span> <span class="nav-text"> index.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalktstyl"><span class="nav-number">1.5.</span> <span class="nav-text"> gitalkt.styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#third-party-styl"><span class="nav-number">1.6.</span> <span class="nav-text"> third-party-styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#_configyml"><span class="nav-number">1.7.</span> <span class="nav-text"> _config.yml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text"> 站点地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFseo%E4%BC%98%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text"> 开启SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90sitmap%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text"> 生成sitmap地图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E7%BB%99%E8%B0%B7%E6%AD%8C"><span class="nav-number">2.3.</span> <span class="nav-text"> 提交给谷歌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.4.</span> <span class="nav-text"> Robots协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E9%87%8F%E4%B8%8E%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text"> 阅读量与字数统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E4%BA%AB"><span class="nav-number">4.</span> <span class="nav-text"> 分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98%E7%9A%84%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3"><span class="nav-number">5.</span> <span class="nav-text"> 图片问题的彻底解决</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">评论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">注册应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalk.swig"><span class="nav-number">1.2.</span> <span class="nav-text">gitalk.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comments.swig"><span class="nav-number">1.3.</span> <span class="nav-text">comments.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index.swig"><span class="nav-number">1.4.</span> <span class="nav-text">index.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalkt.styl"><span class="nav-number">1.5.</span> <span class="nav-text">gitalkt.styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#third-party-styl"><span class="nav-number">1.6.</span> <span class="nav-text">third-party-styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config.yml"><span class="nav-number">1.7.</span> <span class="nav-text">_config.yml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">站点地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFseo%E4%BC%98%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text">开启SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90sitmap%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text">生成sitmap地图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E7%BB%99%E8%B0%B7%E6%AD%8C"><span class="nav-number">2.3.</span> <span class="nav-text">提交给谷歌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.4.</span> <span class="nav-text">Robots协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E9%87%8F%E4%B8%8E%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">阅读量与字数统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E4%BA%AB"><span class="nav-number">4.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98%E7%9A%84%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3"><span class="nav-number">5.</span> <span class="nav-text">图片问题的彻底解决</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -384,39 +384,39 @@
         <p>啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。</p>
 <p>这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。</p>
 <a id="more"></a>
-<h1 id="评论"><a class="markdownIt-Anchor" href="#评论"></a> 评论</h1>
+<h1 id="评论">评论</h1>
 <p>我采用的评论系统是gitalk，因为这个系统不用注册什么乱七八糟的网站，支持github登录，搞起来很方便。</p>
 <p>gitalk详情参见<span class="exturl" data-url="aHR0cHM6Ly9naXRhbGsuZ2l0aHViLmlvLw==">https://gitalk.github.io/<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="注册应用"><a class="markdownIt-Anchor" href="#注册应用"></a> 注册应用</h2>
+<h2 id="注册应用">注册应用</h2>
 <p>在GitHub上注册新应用，点击<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2FwcGxpY2F0aW9ucy9uZXc=">这里<i class="fa fa-external-link-alt"></i></span>。</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509163920.png" alt></p>
-<p>网址就填你网站的母页面(<span class="exturl" data-url="aHR0cDovL3huLS1saWZlb2R5c3NleS0ybjVyMDgwcHZibTN2M2QuZ2l0aHViLmlv">像我的是lifeodyssey.github.io<i class="fa fa-external-link-alt"></i></span>)，callback URL也是这个，剩余的随意即可。</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509163920.png"></p>
+<p>网址就填你网站的母页面(像我的是lifeodyssey.github.io)，callback URL也是这个，剩余的随意即可。</p>
 <p>点击注册之后页面跳转，其中Client ID和Client Secret在后面用到的时候复制粘贴即可。</p>
-<h2 id="gitalkswig"><a class="markdownIt-Anchor" href="#gitalkswig"></a> gitalk.swig</h2>
+<h2 id="gitalk.swig">gitalk.swig</h2>
 <p>新建<code>/layout/_third-party/comments/gitalk.swig</code>文件，并添加内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> page.comments &amp;&amp; theme.gitalk.enable %&#125;</span><br><span class="line">  &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;</span>&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">   &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">        var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: <span class="string">&#x27;&#123;&#123; theme.gitalk.ClientID &#125;&#125;&#x27;</span>,</span><br><span class="line">          clientSecret: <span class="string">&#x27;&#123;&#123; theme.gitalk.ClientSecret &#125;&#125;&#x27;</span>,</span><br><span class="line">          repo: <span class="string">&#x27;&#123;&#123; theme.gitalk.repo &#125;&#125;&#x27;</span>,</span><br><span class="line">          owner: <span class="string">&#x27;&#123;&#123; theme.gitalk.githubID &#125;&#125;&#x27;</span>,</span><br><span class="line">          admin: [<span class="string">&#x27;&#123;&#123; theme.gitalk.adminUser &#125;&#125;&#x27;</span>],</span><br><span class="line">          id: location.pathname,</span><br><span class="line">          distractionFreeMode: <span class="string">&#x27;&#123;&#123; theme.gitalk.distractionFreeMode &#125;&#125;&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>)           </span><br><span class="line">       &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="commentsswig"><a class="markdownIt-Anchor" href="#commentsswig"></a> comments.swig</h2>
+<h2 id="comments.swig">comments.swig</h2>
 <p>修改<code>/layout/_partials/comments.swig</code>，添加内容如下，与前面的<code>elseif</code>同一级别上：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elseif theme.gitalk.enable %&#125;</span><br><span class="line"> &lt;div id=<span class="string">&quot;gitalk-container&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="indexswig"><a class="markdownIt-Anchor" href="#indexswig"></a> index.swig</h2>
+<h2 id="index.swig">index.swig</h2>
 <p>修改<code>layout/_third-party/comments/index.swig</code>，在最后一行添加内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include <span class="string">&#x27;gitalk.swig&#x27;</span> %&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="gitalktstyl"><a class="markdownIt-Anchor" href="#gitalktstyl"></a> gitalkt.styl</h2>
+<h2 id="gitalkt.styl">gitalkt.styl</h2>
 <p>新建<code>/source/css/_common/components/third-party/gitalk.styl</code>文件，添加内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.gt-header a, .gt-comments a, .gt-popup a</span><br><span class="line">  border-bottom: none;</span><br><span class="line">.gt-container .gt-popup .gt-action.is--active:before</span><br><span class="line">  top: 0.7em;</span><br></pre></td></tr></table></figure>
-<h2 id="third-party-styl"><a class="markdownIt-Anchor" href="#third-party-styl"></a> third-party-styl</h2>
+<h2 id="third-party-styl">third-party-styl</h2>
 <p>修改<code>/source/css/_common/components/third-party/third-party.styl</code>，在最后一行上添加内容，引入样式：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import <span class="string">&quot;gitalk&quot;</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="_configyml"><a class="markdownIt-Anchor" href="#_configyml"></a> _config.yml</h2>
+<h2 id="config.yml">_config.yml</h2>
 <p>在主题配置文件<code>next/_config.yml</code>中添加如下内容：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  githubID: github帐号  <span class="comment"># 例：asdfv1929   </span></span><br><span class="line">  repo: 仓库名称   <span class="comment"># 例：asdfv1929.github.io</span></span><br><span class="line">  ClientID: Client ID</span><br><span class="line">  ClientSecret: Client Secret</span><br><span class="line">  adminUser: github帐号 <span class="comment">#指定可初始化评论账户</span></span><br><span class="line">  distractionFreeMode: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>参考<span class="exturl" data-url="aHR0cHM6Ly9hc2RmdjE5MjkuZ2l0aHViLmlvLzIwMTgvMDEvMjAvZ2l0YWxrLw==">https://asdfv1929.github.io/2018/01/20/gitalk/<i class="fa fa-external-link-alt"></i></span>的教程。</p>
-<h1 id="站点地图"><a class="markdownIt-Anchor" href="#站点地图"></a> 站点地图</h1>
+<h1 id="站点地图">站点地图</h1>
 <p>俗话说得好，酒香害怕巷子深，自己做的宝贝当然是想让别人也看到的。站点地图提交到搜索引擎之后就可以被搜索引擎搜索到了。不过我这里只写了怎么提交谷歌搜索，百度站长所需要的个人信息资料太多太私密，让我不寒而栗，因此我自己不做提交，也不做讲解。</p>
 <p>谷歌提交之后还可以通过analytics平台分析访客数据。</p>
-<h2 id="开启seo优化"><a class="markdownIt-Anchor" href="#开启seo优化"></a> 开启SEO优化</h2>
+<h2 id="开启seo优化">开启SEO优化</h2>
 <p>打开主题配置文件，找到seo选项改为true</p>
-<h2 id="生成sitmap地图"><a class="markdownIt-Anchor" href="#生成sitmap地图"></a> 生成sitmap地图</h2>
+<h2 id="生成sitmap地图">生成sitmap地图</h2>
 <p>先，安装插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
 <p>在博客配置文件中改url为你自己的地址</p>
@@ -424,35 +424,35 @@
 <p>并添加</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
 <p>之后hexo d -g，这时在public目录下会生成sitemap.xml。这个之后需要提交给谷歌</p>
-<h2 id="提交给谷歌"><a class="markdownIt-Anchor" href="#提交给谷歌"></a> 提交给谷歌</h2>
+<h2 id="提交给谷歌">提交给谷歌</h2>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">点这里<i class="fa fa-external-link-alt"></i></span></p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509182929.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509182929.png"></p>
 <p>点击添加资源</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183019.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183019.png"></p>
 <p>选择网址前缀验证，里面选标签验证，在主题配置文件中修改</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Google Webmaster tools verification setting</span><br><span class="line"># See: https:&#x2F;&#x2F;www.google.com&#x2F;webmasters&#x2F;</span><br><span class="line">google_site_verification: xxxxxxxxxxxxx # 此处改为google提供给你的HTML标签content后的内容</span><br></pre></td></tr></table></figure>
-<p>这里也可以使用analytics验证，我自己用的是analytics，但是因为时间太久了我忘了怎么做了…没有特别麻烦总之。</p>
-<p>回到search consle，点击左侧sitemap<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183405.png" alt></p>
+<p>这里也可以使用analytics验证，我自己用的是analytics，但是因为时间太久了我忘了怎么做了......没有特别麻烦总之。</p>
+<p>回到search consle，点击左侧sitemap<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183405.png"></p>
 <p>输入站点地图的网址并提交，例如https://xxx.github.io/sitemap.xml，接下来就可以谷歌搜一下你自己的博客看看有没有被收录了。</p>
 <p>参考：<span class="exturl" data-url="aHR0cHM6Ly9sdWFuemh1eGlhbi5naXRodWIuaW8vcG9zdC84MmQ5MmFkNC5odG1s">https://luanzhuxian.github.io/post/82d92ad4.html<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="robots协议"><a class="markdownIt-Anchor" href="#robots协议"></a> Robots协议</h2>
+<h2 id="robots协议">Robots协议</h2>
 <p>为了防止自己的网站被恶意爬取，这一步是必须的。</p>
 <p>在站点<code>source</code>文件夹下新建<code>robots.txt</code>文件，文件内容如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: &#x2F;</span><br><span class="line">Allow: &#x2F;archives&#x2F;</span><br><span class="line">Allow: &#x2F;tags&#x2F;</span><br><span class="line">Allow: &#x2F;categories&#x2F;</span><br><span class="line"></span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;js&#x2F;</span><br><span class="line">Disallow: &#x2F;css&#x2F;</span><br><span class="line">Disallow: &#x2F;fonts&#x2F;</span><br><span class="line">Disallow: &#x2F;vendors&#x2F;</span><br><span class="line">Disallow: &#x2F;fancybox&#x2F;</span><br><span class="line"></span><br><span class="line">Sitemap: http:&#x2F;&#x2F;yoursite.com&#x2F;sitemap.xml</span><br></pre></td></tr></table></figure>
 <p><code>Allow</code>字段的值即为允许搜索引擎爬区的内容，<code>/</code>表示网站首页，<code>/categories/</code>为分类页面，如果菜单栏还有其他选项都可以按照格式自行添加。</p>
-<h1 id="阅读量与字数统计"><a class="markdownIt-Anchor" href="#阅读量与字数统计"></a> 阅读量与字数统计</h1>
+<h1 id="阅读量与字数统计">阅读量与字数统计</h1>
 <p>阅读量统计我用的是leancloud。<span class="exturl" data-url="aHR0cHM6Ly9sZndlbi5zaXRlLzIwMTYvMDUvMzEvYWRkLWNvdW50LWZvci1oZXhvLW5leHQv">https://lfwen.site/2016/05/31/add-count-for-hexo-next/<i class="fa fa-external-link-alt"></i></span>这篇文章讲的贼详细我就不再赘述了。</p>
 <p>字数统计我用的https://github.com/theme-next/hexo-symbols-count-time，也是特别详细，没啥好讲的，需要注意的是这个可能需要一段时间才能显示出来效果。</p>
-<h1 id="分享"><a class="markdownIt-Anchor" href="#分享"></a> 分享</h1>
+<h1 id="分享">分享</h1>
 <p>同样是出于对隐私的担心和对国产厂商的不信任，没有采用ShareSDK和百度分享，用的AddThis，不知道啥时候会被屏蔽掉。可以直接关联到google。</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509184840.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509184840.png"></p>
 <p>进去之后点share button，选一个你喜欢的样式，右上角可以切换PC和Phone显示，点continue可以选择平台，都选完了点Activate Tool,然后获取代码ID</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/1557399873308.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/1557399873308.png"></p>
 <p>即public后面的，接着编辑主题配置文件，知道关键字add_this_id,添加即可</p>
 <p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80ZWYzNTUyMWZlZTk=">https://www.jianshu.com/p/4ef35521fee9<i class="fa fa-external-link-alt"></i></span></p>
 <p>以下更新于2019.5.11。</p>
 <p>最后发现其实这个并没有那么好用，自己测试了一下如果是分享到微信的话，只会生成一个链接或者二维码。看了一下主题配置文件中有官方支持的三方插件，发现百度share的隐私要求没有那么严格，但是不支持https协议因此放弃。最后采用likely的方案，具体参见https://ilyabirman.net/projects/likely/。缺点就是不支持微信。不过也就这样吧，做这个博客并不是为了想要多少人看到，想要赚什么钱，只是想记录下自己成长的点点滴滴。</p>
-<h1 id="图片问题的彻底解决"><a class="markdownIt-Anchor" href="#图片问题的彻底解决"></a> 图片问题的彻底解决</h1>
+<h1 id="图片问题的彻底解决">图片问题的彻底解决</h1>
 <p>我上一篇一直没能把图片问题解决，本地插件一直不成功，然后想注册图床又因为隐私泄露的问题望而却步，突然想到github既然能作为评论系统的载体，能不能作为我图片系统的载体呢？网上一搜果然有人做过了。点击<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">这里<i class="fa fa-external-link-alt"></i></span>即可开启PicGo的丝滑体验。</p>
 <p>下一篇：定制优化，包括版权页、右下角的猫、升级与备份、背景图片、代码复制、文章连接唯一化、语法优化，pdf。其他花里胡哨但是我没有放到博客里的内容会统一整理出链接放在下一篇里。</p>
 
@@ -558,7 +558,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

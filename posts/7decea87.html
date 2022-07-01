@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="主要是几个常用的 minimize Least_square nnls Lsq_linear Curve_fit 另外附带一个numpy.linalg.lstsq 另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好">
+  <meta name="description" content="主要是几个常用的 minimize Least_square nnls Lsq_linear Curve_fit 另外附带一个numpy.linalg.lstsq 另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scipy optimize">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/7decea87.html">
 <meta property="og:site_name" content="�ǿ�����Ĵ��߹���">
-<meta property="og:description" content="主要是几个常用的 minimize Least_square nnls Lsq_linear Curve_fit 另外附带一个numpy.linalg.lstsq 另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好">
+<meta property="og:description" content="主要是几个常用的 minimize Least_square nnls Lsq_linear Curve_fit 另外附带一个numpy.linalg.lstsq 另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/2560px-Rosenbrock_function.svg.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/scipy-optimize-curve_fit-1.png">
@@ -225,7 +225,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#minimize"><span class="nav-number">1.</span> <span class="nav-text"> minimize</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#least_square"><span class="nav-number">2.</span> <span class="nav-text"> Least_square</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nnls"><span class="nav-number">3.</span> <span class="nav-text"> nnls</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lsq_linear"><span class="nav-number">4.</span> <span class="nav-text"> lsq_linear</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#curve_fit"><span class="nav-number">5.</span> <span class="nav-text"> curve_fit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numpylinalglstsq"><span class="nav-number">6.</span> <span class="nav-text"> numpy.linalg.lstsq</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#minimize"><span class="nav-number">1.</span> <span class="nav-text">minimize</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#least_square"><span class="nav-number">2.</span> <span class="nav-text">Least_square</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nnls"><span class="nav-number">3.</span> <span class="nav-text">nnls</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lsq_linear"><span class="nav-number">4.</span> <span class="nav-text">lsq_linear</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#curve_fit"><span class="nav-number">5.</span> <span class="nav-text">curve_fit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numpy.linalg.lstsq"><span class="nav-number">6.</span> <span class="nav-text">numpy.linalg.lstsq</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -363,7 +363,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>8.7k</span>
+              <span>8.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -389,7 +389,7 @@
 <p>另外附带一个numpy.linalg.lstsq</p>
 <p>另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好</p>
 <a id="more"></a>
-<h1 id="minimize"><a class="markdownIt-Anchor" href="#minimize"></a> minimize</h1>
+<h1 id="minimize">minimize</h1>
 <p>这个主要是用来代替matlab中的fminunc</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.optimize.minimize(fun, x0, args=(), method=<span class="literal">None</span>, jac=<span class="literal">None</span>, hess=<span class="literal">None</span>, hessp=<span class="literal">None</span>, bounds=<span class="literal">None</span>, constraints=(), tol=<span class="literal">None</span>, callback=<span class="literal">None</span>, options=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
 <p>fun就是要去最小化的cost func，对cost func的要求是</p>
@@ -407,7 +407,7 @@
 <p><strong>bounds</strong>sequence or <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a>, optional</p>
 <p>Bounds on variables for L-BFGS-B, TNC, SLSQP, Powell, and trust-constr methods. There are two ways to specify the bounds:</p>
 <blockquote>
-<ol>
+<ol type="1">
 <li>Instance of <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a> class.</li>
 <li>Sequence of <code>(min, max)</code> pairs for each element in <em>x</em>. None is used to specify no bound.</li>
 </ol>
@@ -428,66 +428,50 @@
 <p>Tolerance for termination. For detailed control, use solver-specific options.</p>
 </blockquote>
 <p>Tol 是最小迭代值，就是迭代停止的条件</p>
-<p>Here is the example of <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvUm9zZW5icm9ja19mdW5jdGlvbg==">Rosenbrock function<i class="fa fa-external-link-alt"></i></span></p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow></munderover><mn>100</mn><mo stretchy="false">(</mo><msub><mi>x</mi><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>x</mi><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">f(x)=\sum_{i=1}^{N-1}100(x_{x+1}-x_i^2)+(1-x_i)^2
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.1060050000000006em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000004em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.300005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/2560px-Rosenbrock_function.svg.png" alt="2560px-Rosenbrock_function.svg"></p>
+<p>Here is the example of <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvUm9zZW5icm9ja19mdW5jdGlvbg==">Rosenbrock function<i class="fa fa-external-link-alt"></i></span> <span class="math display">\[
+f(x)=\sum_{i=1}^{N-1}100(x_{x+1}-x_i^2)+(1-x_i)^2
+\]</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/2560px-Rosenbrock_function.svg.png" alt="2560px-Rosenbrock_function.svg"><figcaption aria-hidden="true">2560px-Rosenbrock_function.svg</figcaption>
+</figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> minimize</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rosen</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;The Rosenbrock function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="number">100.0</span>*(x[<span class="number">1</span>:]-x[:-<span class="number">1</span>]**<span class="number">2.0</span>)**<span class="number">2.0</span> + (<span class="number">1</span>-x[:-<span class="number">1</span>])**<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line">x0 = np.array([<span class="number">1.3</span>, <span class="number">0.7</span>, <span class="number">0.8</span>, <span class="number">1.9</span>, <span class="number">1.2</span>])</span><br><span class="line">res = minimize(rosen, x0, method=<span class="string">&#x27;nelder-mead&#x27;</span>,</span><br><span class="line">               options=&#123;<span class="string">&#x27;xatol&#x27;</span>: <span class="number">1e-8</span>, <span class="string">&#x27;disp&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">Optimization terminated successfully.</span><br><span class="line">         Current function value: <span class="number">0.000000</span></span><br><span class="line">         Iterations: <span class="number">339</span></span><br><span class="line">         Function evaluations: <span class="number">571</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="built_in">print</span>(res.x)</span><br><span class="line">[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
 <p>More often, we need to use the boudnarrays or constrains. Here I show the boundary</p>
-<h1 id="least_square"><a class="markdownIt-Anchor" href="#least_square"></a> Least_square</h1>
+<h1 id="least_square">Least_square</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.optimize.least_squares(fun, x0, jac=<span class="string">&#x27;2-point&#x27;</span>, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, ftol=<span class="number">1e-08</span>, xtol=<span class="number">1e-08</span>, gtol=<span class="number">1e-08</span>, x_scale=<span class="number">1.0</span>, loss=<span class="string">&#x27;linear&#x27;</span>, f_scale=<span class="number">1.0</span>, diff_step=<span class="literal">None</span>, tr_solver=<span class="literal">None</span>, tr_options=&#123;&#125;, jac_sparsity=<span class="literal">None</span>, max_nfev=<span class="literal">None</span>, verbose=<span class="number">0</span>, args=(), kwargs=&#123;&#125;)</span><br></pre></td></tr></table></figure>
 <p>这个与上一个几乎一样</p>
-<h1 id="nnls"><a class="markdownIt-Anchor" href="#nnls"></a> nnls</h1>
+<h1 id="nnls">nnls</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.optimize.nnls(A, b, maxiter=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
 <p>Solve <code>argmin_x || Ax - b ||_2</code> for <code>x&gt;=0</code>.</p>
 <p>Parameters</p>
 <ul>
-<li>
-<p>**A **ndarray</p>
-<p>Matrix <code>A</code> as shown above.</p>
-</li>
-<li>
-<p>**b ** ndarray</p>
-<p>Right-hand side vector.</p>
-</li>
-<li>
-<p><strong>maxiter: int, optional</strong></p>
-<p>Maximum number of iterations, optional. Default is <code>3 * A.shape[1]</code>.</p>
-</li>
+<li><p><strong>A </strong>ndarray</p>
+<p>Matrix <code>A</code> as shown above.</p></li>
+<li><p><strong>b </strong> ndarray</p>
+<p>Right-hand side vector.</p></li>
+<li><p><strong>maxiter: int, optional</strong></p>
+<p>Maximum number of iterations, optional. Default is <code>3 * A.shape[1]</code>.</p></li>
 </ul>
 <p>Returns</p>
 <ul>
-<li>
-<p>**x ** ndarray</p>
-<p>Solution vector.</p>
-</li>
-<li>
-<p>**rnorm: float</p>
-<p>The residual, <code>|| Ax-b ||_2</code>.</p>
-</li>
+<li><p><strong>x </strong> ndarray</p>
+<p>Solution vector.</p></li>
+<li><p>**rnorm: float</p>
+<p>The residual, <code>|| Ax-b ||_2</code>.</p></li>
 </ul>
-<h1 id="lsq_linear"><a class="markdownIt-Anchor" href="#lsq_linear"></a> lsq_linear</h1>
+<h1 id="lsq_linear">lsq_linear</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.optimize.lsq_linear(A, b, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, tol=<span class="number">1e-10</span>, lsq_solver=<span class="literal">None</span>, lsmr_tol=<span class="literal">None</span>, max_iter=<span class="literal">None</span>, verbose=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <p>Solve a linear least-squares problem with bounds on the variables.</p>
 <p>Given a m-by-n design matrix A and a target vector b with m elements, <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.lsq_linear.html#scipy.optimize.lsq_linear"><code>lsq_linear</code></a> solves the following optimization problem:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">minimize <span class="number">0.5</span> * ||A x - b||**<span class="number">2</span></span><br><span class="line">subject to lb &lt;= x &lt;= ub</span><br></pre></td></tr></table></figure>
-<h1 id="curve_fit"><a class="markdownIt-Anchor" href="#curve_fit"></a> curve_fit</h1>
+<h1 id="curve_fit">curve_fit</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scipy.optimize.curve_fit(f, xdata, ydata, p0=<span class="literal">None</span>, sigma=<span class="literal">None</span>, absolute_sigma=<span class="literal">False</span>, check_finite=<span class="literal">True</span>, bounds=- inf, inf, method=<span class="literal">None</span>, jac=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
 <p>这个其实是最常用的一个函数</p>
 <p>需要注意 这里的f并不是cost func,而是model func，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f_1</span>(<span class="params">x, A, B</span>):</span></span><br><span class="line">    <span class="keyword">return</span> A * x + B</span><br></pre></td></tr></table></figure>
 <ul>
-<li>**xdata<br>
-array_like or object<br>
-**The independent variable where the data is measured. Should usually be an M-length sequence or an (k,M)-shaped array for functions with k predictors, but can actually be any object.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span><br>
-简单说就是要拟合的自变量数组</li>
-<li>**ydata<br>
-array_like<br>
-**The dependent data, a length M array - nominally<code>f(xdata,...)</code>.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span><br>
-简单说就是要拟合的因变量的值</li>
-<li><strong>p0<br>
-array_like , optional</strong>Initial guess for the parameters (length N). If None, then the initial values will all be 1 (if the number of parameters for the function can be determined using introspection, otherwise a ValueError is raised).[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span><br>
-就是给你的函数的参数确定一个初始值来减少计算机的计算量</li>
+<li><strong>xdata array_like or object </strong>The independent variable where the data is measured. Should usually be an M-length sequence or an (k,M)-shaped array for functions with k predictors, but can actually be any object.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的自变量数组</li>
+<li><strong>ydata array_like </strong>The dependent data, a length M array - nominally<code>f(xdata,...)</code>.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的因变量的值</li>
+<li><strong>p0 array_like , optional</strong>Initial guess for the parameters (length N). If None, then the initial values will all be 1 (if the number of parameters for the function can be determined using introspection, otherwise a ValueError is raised).[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 就是给你的函数的参数确定一个初始值来减少计算机的计算量</li>
 <li>Method to use for optimization. See <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html#scipy.optimize.least_squares"><code>least_squares</code></a> for more details. Default is ‘lm’ for unconstrained problems and ‘trf’ if <em>bounds</em> are provided. The method ‘lm’ won’t work when the number of observations is less than the number of variables, use ‘trf’ or ‘dogbox’ in this case.</li>
 </ul>
 <p>这里放一下官方例子</p>
@@ -500,20 +484,20 @@ array_like , optional</strong>Initial guess for the parameters (length N). If No
 <p>Constrain the optimization to the region of <code>0 &lt;= a &lt;= 3</code>, <code>0 &lt;= b &lt;= 1</code> and <code>0 &lt;= c &lt;= 0.5</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">popt, pcov = curve_fit(func, xdata, ydata, bounds=(<span class="number">0</span>, [<span class="number">3.</span>, <span class="number">1.</span>, <span class="number">0.5</span>]))</span><br><span class="line">popt</span><br><span class="line"></span><br><span class="line">plt.plot(xdata, func(xdata, *popt), <span class="string">&#x27;g--&#x27;</span>,</span><br><span class="line">         label=<span class="string">&#x27;fit: a=%5.3f, b=%5.3f, c=%5.3f&#x27;</span> % <span class="built_in">tuple</span>(popt))</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/scipy-optimize-curve_fit-1.png" alt="scipy-optimize-curve_fit-1"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/scipy-optimize-curve_fit-1.png" alt="scipy-optimize-curve_fit-1"><figcaption aria-hidden="true">scipy-optimize-curve_fit-1</figcaption>
+</figure>
 <p>但是这里有个问题，如果我想固定a的值，或者我想得到一串的函数每个函数都有固定的a的值，该怎么办呢？</p>
 <p>这种时候其实就需要把a不视为变量，再次建立一个函数 把a传进去，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
 <p>利用lambda建立了小的匿名函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.optimize </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gaussian</span>(<span class="params">x, mu, sigma</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> / sigma / np.sqrt(<span class="number">2</span> * np.pi) * np.exp(-(x - mu)**<span class="number">2</span> / <span class="number">2</span> / sigma**<span class="number">2</span>)</span><br><span class="line"><span class="comment"># This is the original, full parameter gaussion function</span></span><br><span class="line"><span class="comment"># Create sample data</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">200</span>)</span><br><span class="line">y = gaussian(x, <span class="number">1</span>, <span class="number">0.1</span>) + np.random.rand(*x.shape) - <span class="number">0.5</span></span><br><span class="line">plt.plot(x, y, label=<span class="string">&quot;sample data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with original fit function</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(gaussian, x, y)</span><br><span class="line">plt.plot(x, gaussian(x, *popt), label=<span class="string">&quot;gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with custom fit function with fixed `sigma`</span></span><br><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br><span class="line"><span class="comment"># this is the customed gaussion function that we want to fuit</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(custom_gaussian, x, y)</span><br><span class="line">plt.plot(x, custom_gaussian(x, *popt), label=<span class="string">&quot;custom_gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/fiwXS.png" alt="fiwXS"></p>
-<h1 id="numpylinalglstsq"><a class="markdownIt-Anchor" href="#numpylinalglstsq"></a> numpy.linalg.lstsq</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/fiwXS.png" alt="fiwXS"><figcaption aria-hidden="true">fiwXS</figcaption>
+</figure>
+<h1 id="numpy.linalg.lstsq">numpy.linalg.lstsq</h1>
 <p>这个是numpy自带的the least-squares solution to a linear matrix equation.</p>
-<p>这里需要回忆一下线性方程组的问题</p>
-<p class="katex-block katex-error" title="ParseError: KaTeX parse error: No such environment: equation at position 7: \begin{̲e̲q̲u̲a̲t̲i̲o̲n̲}̲
-\left\{ 
-
-a_{1…">\begin{equation}
+<p>这里需要回忆一下线性方程组的问题 $$ <span class="math display">\[\begin{equation}
 \left\{ 
 
 a_{1,1}x_1+a_{1,2}x_2+\cdots+a_{1,n}=b_1,\\
@@ -521,19 +505,13 @@ a_{2,1}x_1+a_{2,2}x_2+\cdots+a_{1,n}=b_2, \\
 \vdots \\
 a_{m,1}x_1+a_{m,2}x_2+...+a_{m,n}=b_m,
 \right.
-\end{equation}
-</p>
-<p>这个大括号的排版是不是有点问题</p>
-<p>其中的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>a</mi><mrow><mn>1</mn><mo separator="true">,</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mn>1</mn><mo separator="true">,</mo><mn>2</mn></mrow></msub></mstyle></mrow><annotation encoding="application/x-tex">{\displaystyle a_{1,1},\,a_{1,2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mpunct mtight">,</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span>以及<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>b</mi><mn>1</mn></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>b</mi><mn>2</mn></msub></mstyle></mrow><annotation encoding="application/x-tex">{\displaystyle b_{1},\,b_{2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>等等是已知的常数，而<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>x</mi><mn>2</mn></msub></mstyle></mrow><annotation encoding="application/x-tex">{\displaystyle x_{1},\,x_{2}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>等等则是要求的未知数。</p>
-<p>如果用线性代数的概念来表达，线性方程组则可以写成</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>x</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">Ax=b
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></span></p>
-<p class="katex-block katex-error" title="ParseError: KaTeX parse error: Undefined control sequence: \
- at position 189: …nd{bmatrix}
-, 
-\̲
-̲x=
-\begin{bmatr…">A=
+\end{equation}\]</span> $$ 这个大括号的排版是不是有点问题</p>
+<p>其中的<span class="math inline">\({\displaystyle a_{1,1},\,a_{1,2}}\)</span>以及<span class="math inline">\({\displaystyle b_{1},\,b_{2}}\)</span>等等是已知的常数，而<span class="math inline">\({\displaystyle x_{1},\,x_{2}}\)</span>等等则是要求的未知数。</p>
+<p>如果用线性代数的概念来表达，线性方程组则可以写成 <span class="math display">\[
+Ax=b
+\]</span></p>
+<p><span class="math display">\[
+A=
 \begin{bmatrix}
 a_{1,1}&amp;\ a_{1,2}&amp;\ \cdots&amp;\ a_{1,n}\\
 a_{2,1}&amp;\ a_{2,2}&amp;\ \cdots&amp;\ a_{2,n}\\
@@ -557,65 +535,47 @@ b_{2}\\
 \vdots\\
 b_m
 \end{bmatrix}
-</p>
-<p>这里的<em>A</em>是<em>m</em>×<em>n</em> <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JTlGJUE5JUU5JTk5JUEz">矩阵<i class="fa fa-external-link-alt"></i></span>，<strong>x</strong>是含有<em>n</em>个元素<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTkwJTkxJUU5JTg3JThG">列向量<i class="fa fa-external-link-alt"></i></span>，<strong>b</strong>是含有<em>m</em> 个元素列向量。</p>
-<p>如果有一组数<strong>x</strong>1、<strong>x</strong>2、……<strong>x</strong>n使得方程组的等号都成立，那么这组数就叫做方程组的解。一个线性方程组的所有的解的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTlCJTg2JUU1JTkwJTg4">集合<i class="fa fa-external-link-alt"></i></span>会被简称为<strong>解集</strong>。根据解的存在情况，线性方程组可以分为三类：</p>
+\]</span></p>
+<p>这里的<em>A</em>是<em>m</em>×<em>n</em> <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55+p6Zmj">矩阵<i class="fa fa-external-link-alt"></i></span>，<strong>x</strong>是含有<em>n</em>个元素<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5ZCR6YeP">列向量<i class="fa fa-external-link-alt"></i></span>，<strong>b</strong>是含有<em>m</em> 个元素列向量。</p>
+<p>如果有一组数<strong>x</strong>1、<strong>x</strong>2、……<strong>x</strong>n使得方程组的等号都成立，那么这组数就叫做方程组的解。一个线性方程组的所有的解的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv6ZuG5ZCI">集合<i class="fa fa-external-link-alt"></i></span>会被简称为<strong>解集</strong>。根据解的存在情况，线性方程组可以分为三类：</p>
 <ul>
-<li>
-<p>有唯一解的恰定方程组，</p>
-</li>
-<li>
-<p>解不存在的超定方程组，</p>
-</li>
-<li>
-<p>有无穷多解的欠定方程组（也被通俗地称为不定方程组）。</p>
+<li><p>有唯一解的恰定方程组，</p></li>
+<li><p>解不存在的超定方程组，</p></li>
+<li><p>有无穷多解的欠定方程组（也被通俗地称为不定方程组）。</p>
 <p>线性代数基本就是讲了怎判断有没有解和怎么求解这两件事</p>
-<p>想复习线性方程组可以看<span class="exturl" data-url="aHR0cHM6Ly9tYXRoLmZ1ZGFuLmVkdS5jbi9nZHN4L0pJQU9BTi8lRTclQkElQkYlRTYlODAlQTclRTYlOTYlQjklRTclQTglOEIlRTclQkIlODQucGRm">/Users/zhenjia/hexoblog/source/_posts/Scipy-optimize/线性方程组.pdf<i class="fa fa-external-link-alt"></i></span></p>
-</li>
+<p>想复习线性方程组可以看<span class="exturl" data-url="aHR0cHM6Ly9tYXRoLmZ1ZGFuLmVkdS5jbi9nZHN4L0pJQU9BTi8lRTclQkElQkYlRTYlODAlQTclRTYlOTYlQjklRTclQTglOEIlRTclQkIlODQucGRm">/Users/zhenjia/hexoblog/source/_posts/Scipy-optimize/线性方程组.pdf<i class="fa fa-external-link-alt"></i></span></p></li>
 </ul>
-<p>不严格地说，当m&gt;n的时候一般没有解，成为超定方程组，但是这种时候可以把问题转化为优化问题，即求一组x使得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><mi>A</mi><mi>x</mi><mo>−</mo><mi>b</mi><msup><mi mathvariant="normal">∣</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">|Ax-b|^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathdefault">A</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mord"><span class="mord">∣</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>最小，这就是个最小二乘问题</p>
+<p>不严格地说，当m&gt;n的时候一般没有解，成为超定方程组，但是这种时候可以把问题转化为优化问题，即求一组x使得<span class="math inline">\(|Ax-b|^2\)</span>最小，这就是个最小二乘问题</p>
 <p>Parameters</p>
 <ul>
-<li>
-<p><strong>a</strong>(M, N) array_like</p>
-<p>“Coefficient” matrix.</p>
-</li>
-<li>
-<p><strong>b</strong>{(M,), (M, K)} array_like</p>
-<p>Ordinate or “dependent variable” values. If <em>b</em> is two-dimensional, the least-squares solution is calculated for each of the <em>K</em> columns of <em>b</em>.</p>
-</li>
-<li>
-<p><strong>rcond</strong>float, optional</p>
-<p>Cut-off ratio for small singular values of <em>a</em>. For the purposes of rank determination, singular values are treated as zero if they are smaller than <em>rcond</em> times the largest singular value of <em>a</em>.<em>Changed in version 1.14.0:</em> If not set, a FutureWarning is given. The previous default of <code>-1</code> will use the machine precision as <em>rcond</em> parameter, the new default will use the machine precision times <em>max(M, N)</em>. To silence the warning and use the new default, use <code>rcond=None</code>, to keep using the old behavior, use <code>rcond=-1</code>.</p>
-</li>
+<li><p><strong>a</strong>(M, N) array_like</p>
+<p>“Coefficient” matrix.</p></li>
+<li><p><strong>b</strong>{(M,), (M, K)} array_like</p>
+<p>Ordinate or “dependent variable” values. If <em>b</em> is two-dimensional, the least-squares solution is calculated for each of the <em>K</em> columns of <em>b</em>.</p></li>
+<li><p><strong>rcond</strong>float, optional</p>
+<p>Cut-off ratio for small singular values of <em>a</em>. For the purposes of rank determination, singular values are treated as zero if they are smaller than <em>rcond</em> times the largest singular value of <em>a</em>.<em>Changed in version 1.14.0:</em> If not set, a FutureWarning is given. The previous default of <code>-1</code> will use the machine precision as <em>rcond</em> parameter, the new default will use the machine precision times <em>max(M, N)</em>. To silence the warning and use the new default, use <code>rcond=None</code>, to keep using the old behavior, use <code>rcond=-1</code>.</p></li>
 </ul>
 <p>Returns</p>
 <ul>
-<li>
-<p><strong>x</strong>{(N,), (N, K)} ndarray</p>
-<p>Least-squares solution. If <em>b</em> is two-dimensional, the solutions are in the <em>K</em> columns of <em>x</em>.</p>
-</li>
-<li>
-<p><strong>residuals</strong>{(1,), (K,), (0,)} ndarray</p>
-<p>Sums of residuals; squared Euclidean 2-norm for each column in <code>b - a*x</code>. If the rank of <em>a</em> is &lt; N or M &lt;= N, this is an empty array. If <em>b</em> is 1-dimensional, this is a (1,) shape array. Otherwise the shape is (K,).</p>
-</li>
-<li>
-<p><strong>rank</strong>int</p>
-<p>Rank of matrix <em>a</em>.</p>
-</li>
-<li>
-<p><strong>s</strong>(min(M, N),) ndarray</p>
+<li><p><strong>x</strong>{(N,), (N, K)} ndarray</p>
+<p>Least-squares solution. If <em>b</em> is two-dimensional, the solutions are in the <em>K</em> columns of <em>x</em>.</p></li>
+<li><p><strong>residuals</strong>{(1,), (K,), (0,)} ndarray</p>
+<p>Sums of residuals; squared Euclidean 2-norm for each column in <code>b - a*x</code>. If the rank of <em>a</em> is &lt; N or M &lt;= N, this is an empty array. If <em>b</em> is 1-dimensional, this is a (1,) shape array. Otherwise the shape is (K,).</p></li>
+<li><p><strong>rank</strong>int</p>
+<p>Rank of matrix <em>a</em>.</p></li>
+<li><p><strong>s</strong>(min(M, N),) ndarray</p>
 <p>Singular values of <em>a</em>.</p>
-<p>Examples fot <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">y=mx+c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y = np.array([-<span class="number">1</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">2.1</span>])</span><br></pre></td></tr></table></figure>
-</li>
+<p>Examples fot <span class="math inline">\(y=mx+c\)</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y = np.array([-<span class="number">1</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">2.1</span>])</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>By examining the coefficients, we see that the line should have a gradient of roughly 1 and cut the y-axis at, more or less, -1.</p>
 <p>We can rewrite the line equation as <code>y = Ap</code>, where <code>A = [[x 1]]</code> and <code>p = [[m], [c]]</code>. Now use <a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq"><code>lstsq</code></a> to solve for <em>p</em>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A = np.vstack([x, np.ones(<span class="built_in">len</span>(x))]).T</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">2.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">3.</span>,  <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m, c = np.linalg.lstsq(A, y, rcond=<span class="literal">None</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m, c</span><br><span class="line">(<span class="number">1.0</span> -<span class="number">0.95</span>) <span class="comment"># may vary</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>, markersize=<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, m*x + c, <span class="string">&#x27;r&#x27;</span>, label=<span class="string">&#x27;Fitted line&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.legend()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/numpy-linalg-lstsq-1.png" alt="numpy-linalg-lstsq-1"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/numpy-linalg-lstsq-1.png" alt="numpy-linalg-lstsq-1"><figcaption aria-hidden="true">numpy-linalg-lstsq-1</figcaption>
+</figure>
 
     </div>
 
@@ -720,7 +680,7 @@ b_m
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

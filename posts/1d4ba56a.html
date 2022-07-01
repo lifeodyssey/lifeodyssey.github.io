@@ -220,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#obsidian"><span class="nav-number">1.</span> <span class="nav-text"> Obsidian</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEgit-ssh"><span class="nav-number">1.1.</span> <span class="nav-text"> 设置git ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.2.</span> <span class="nav-text"> 同步到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text"> 重装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some-problem-you-know"><span class="nav-number">1.4.</span> <span class="nav-text"> some problem you know</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo"><span class="nav-number">2.</span> <span class="nav-text"> hexo</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#obsidian"><span class="nav-number">1.</span> <span class="nav-text">Obsidian</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEgit-ssh"><span class="nav-number">1.1.</span> <span class="nav-text">设置git ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.2.</span> <span class="nav-text">同步到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">重装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some-problem-you-know"><span class="nav-number">1.4.</span> <span class="nav-text">some problem you know</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo"><span class="nav-number">2.</span> <span class="nav-text">hexo</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -379,16 +379,16 @@
 <a id="more"></a>
 <p>因为自己现在搞了俩电脑，虽然原本的打算是游戏本只用来跑程序和打游戏，不安装什么乱七八糟的微信之类的，所有的文案类工作都放在另一个轻薄本上，但是现在看来还是有点难，比如我想一遍写程序一遍把程序放到博客上。现在打算是游戏本上只处理轻文本，以markdown为主，通过obisidian同步过去，在另一个电脑上写出word和ppt做最终处理。</p>
 <p>其实这俩跨平台同步最好的就是利用第三方的服务，比如之前我就把<a href="https://lifeodyssey.github.io/posts/4ce7830b.html">zotero</a>放在了onedrive里，只需要改一下储存的位置就好了。但是一方面我俩电脑上的node和hexo的版本好像不太一样，插件会有冲突，另一方面就是熟练一下我git的操作，所以就写这个来记录一下。</p>
-<h1 id="obsidian"><a class="markdownIt-Anchor" href="#obsidian"></a> Obsidian</h1>
-<p>这个的同步我之前就用的github，这里	其实就直接用github的方式来同步就好，很方便。</p>
-<h2 id="设置git-ssh"><a class="markdownIt-Anchor" href="#设置git-ssh"></a> 设置git ssh</h2>
+<h1 id="obsidian">Obsidian</h1>
+<p>这个的同步我之前就用的github，这里 其实就直接用github的方式来同步就好，很方便。</p>
+<h2 id="设置git-ssh">设置git ssh</h2>
 <p>下载好git之后打开bash</p>
 <p>依次</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name yourname</span><br><span class="line">git config --global user.email youremail</span><br><span class="line">ssh-keygen -t rsa -C your email</span><br></pre></td></tr></table></figure>
 <p>然后在github里提交ssh就好</p>
-<h2 id="同步到本地"><a class="markdownIt-Anchor" href="#同步到本地"></a> 同步到本地</h2>
+<h2 id="同步到本地">同步到本地</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line">git init</span><br><span class="line">git remote add origin link</span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
-<h2 id="重装插件"><a class="markdownIt-Anchor" href="#重装插件"></a> 重装插件</h2>
+<h2 id="重装插件">重装插件</h2>
 <p>我也记不清原来mac上装了啥了，有点印象的直接装上了</p>
 <p>依次有</p>
 <p>Better world count</p>
@@ -402,9 +402,9 @@
 <p>Periodic Notes</p>
 <p>Templater</p>
 <p>结束</p>
-<h2 id="some-problem-you-know"><a class="markdownIt-Anchor" href="#some-problem-you-know"></a> some problem you know</h2>
+<h2 id="some-problem-you-know">some problem you know</h2>
 <p>I don’t know whether use English or Chinese or Japanese is better to protect my privacy for providing this method. But it actually not very difficult. So please read <span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vaW5lbzYvaG9zdHM=">this<i class="fa fa-external-link-alt"></i></span></p>
-<h1 id="hexo"><a class="markdownIt-Anchor" href="#hexo"></a> hexo</h1>
+<h1 id="hexo">hexo</h1>
 <p>这个稍微麻烦一些 因为平时推送到github pages上面的没有源码，只有渲染好之后的html。目前比较通用的方式是<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dvZHJlYWRfY24vYXJ0aWNsZS9kZXRhaWxzLzExODM4Mzk2Mz91dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctMn5kZWZhdWx0fmJhaWR1anNfdGl0bGV+ZGVmYXVsdC0wLm5vX3NlYXJjaF9saW5rJmFtcDtzcG09MTAwMS4yMTAxLjMwMDEuNDI0Mg==">这种<i class="fa fa-external-link-alt"></i></span>。就是在github上再建一个分支然后把源文件都搞上去。但是这样对我来讲有个问题就是，我有一部分文章是加密的，传源文件代表着这一部分不再被保护了，最后我还是用了坚果云来搞。</p>
 <p>这样唯一的坏处就是无法用hexo d -g在游戏本上发布了，还得同步到另一台电脑上才行，另外就是无法利用hexo new来立马生成一个新的文档。</p>
 <p>所以大概就是用他来写草稿，然后放在draft下面，然后等同步回来拿hexo publish</p>
@@ -512,7 +512,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

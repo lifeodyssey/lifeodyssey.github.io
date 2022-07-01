@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="广义加性模型 去年这个时候准备SRDP立项就看到了一堆用广义加性模型的例子，国内关于这个的资源实在太少了，大半年之后我才开始学习用这玩意。把自己找到的各种参考文献整理一下作为学习笔记发出来，给别人一个方便。">
+  <meta name="description" content="广义加性模型 去年这个时候准备SRDP立项就看到了一堆用广义加性模型的例子，国内关于这个的资源实在太少了，大半年之后我才开始学习用这玩意。把自己找到的各种参考文献整理一下作为学习笔记发出来，给别人一个方便。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="广义加性模型">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/17683e80.html">
 <meta property="og:site_name" content="�ǿ�����Ĵ��߹���">
-<meta property="og:description" content="广义加性模型 去年这个时候准备SRDP立项就看到了一堆用广义加性模型的例子，国内关于这个的资源实在太少了，大半年之后我才开始学习用这玩意。把自己找到的各种参考文献整理一下作为学习笔记发出来，给别人一个方便。">
+<meta property="og:description" content="广义加性模型 去年这个时候准备SRDP立项就看到了一堆用广义加性模型的例子，国内关于这个的资源实在太少了，大半年之后我才开始学习用这玩意。把自己找到的各种参考文献整理一下作为学习笔记发出来，给别人一个方便。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://beader.me/imgs/auc-roc/9686a1f19149fe16eb4b6b383904d086.png">
 <meta property="og:image" content="http://beader.me/imgs/auc-roc/1a02adedd70816dcd49461354390aaed.png">
@@ -38,6 +38,7 @@
 <meta property="og:image" content="http://beader.me/imgs/auc-roc/1a9a293ac6c97475ebb337fb32081a4d.png">
 <meta property="og:image" content="http://beader.me/imgs/auc-roc/074c46dccea3031e5ce8fcbb67453cd4.png">
 <meta property="og:image" content="https://lifeodyssey.github.io/home/zhenjiazhou/%E5%9B%BE%E7%89%87/%E9%80%89%E5%8C%BA_002.bmp">
+<meta property="og:image" content="file://tmp/wps-zhenjiazhou/ksohtml/wpsoAF24S.jpg">
 <meta property="article:published_time" content="2017-11-20T08:33:27.000Z">
 <meta property="article:modified_time" content="2019-05-11T10:58:55.000Z">
 <meta property="article:author" content="�ܴ���">
@@ -231,7 +232,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%BF%E4%B9%89%E5%8A%A0%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text"> 广义加性模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gam-%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%8A%A0%E6%A8%A1%E5%9E%8Bgeneralized-additive-model"><span class="nav-number">1.1.</span> <span class="nav-text"> GAM 广义相加模型Generalized additive model</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aic-bic-roc%E4%B8%8Eauc"><span class="nav-number">2.</span> <span class="nav-text"> AIC BIC ROC与AUC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#aic"><span class="nav-number">2.1.</span> <span class="nav-text"> AIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bic"><span class="nav-number">2.2.</span> <span class="nav-text"> BIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#roc%E4%B8%8Eauc-%E8%A1%A1%E9%87%8F%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E5%A5%BD%E5%9D%8F"><span class="nav-number">2.3.</span> <span class="nav-text"> ROC与AUC-衡量分类器的好坏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 二元分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roc%E7%A9%BA%E9%97%B4%E4%B8%8Eroc%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.3.2.</span> <span class="nav-text"> ROC空间与ROC曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auc"><span class="nav-number">2.3.3.</span> <span class="nav-text"> AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.3.4.</span> <span class="nav-text"> 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85gini-coefficient"><span class="nav-number">2.3.5.</span> <span class="nav-text"> 补充：Gini coefficient</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.</span> <span class="nav-text"> R语言实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%B9%BF%E4%B9%89%E5%8A%A0%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text"> R语言实现广义加性模型及相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E5%AE%9E%E7%8E%B0%E5%92%8C%E7%94%BB%E5%9B%BE"><span class="nav-number">2.4.1.0.1.</span> <span class="nav-text"> 1.实现和画图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E5%85%B6%E5%AE%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.0.2.</span> <span class="nav-text"> 2.其它函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r%E5%AE%9E%E7%8E%B0aic-bic-roc-auc"><span class="nav-number">2.4.1.1.</span> <span class="nav-text"> R实现AIC BIC ROC AUC</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%BF%E4%B9%89%E5%8A%A0%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">广义加性模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gam-%E5%B9%BF%E4%B9%89%E7%9B%B8%E5%8A%A0%E6%A8%A1%E5%9E%8Bgeneralized-additive-model"><span class="nav-number">1.1.</span> <span class="nav-text">GAM 广义相加模型Generalized additive model</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aic-bic-roc%E4%B8%8Eauc"><span class="nav-number">2.</span> <span class="nav-text">AIC BIC ROC与AUC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#aic"><span class="nav-number">2.1.</span> <span class="nav-text">AIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bic"><span class="nav-number">2.2.</span> <span class="nav-text">BIC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#roc%E4%B8%8Eauc-%E8%A1%A1%E9%87%8F%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E5%A5%BD%E5%9D%8F"><span class="nav-number">2.3.</span> <span class="nav-text">ROC与AUC-衡量分类器的好坏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">2.3.1.</span> <span class="nav-text">二元分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roc%E7%A9%BA%E9%97%B4%E4%B8%8Eroc%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.3.2.</span> <span class="nav-text">ROC空间与ROC曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auc"><span class="nav-number">2.3.3.</span> <span class="nav-text">AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.3.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85gini-coefficient"><span class="nav-number">2.3.5.</span> <span class="nav-text">补充：Gini coefficient</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#r%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.</span> <span class="nav-text">R语言实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%B9%BF%E4%B9%89%E5%8A%A0%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text">R语言实现广义加性模型及相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%92%8C%E7%94%BB%E5%9B%BE"><span class="nav-number">2.4.1.0.1.</span> <span class="nav-text">1.实现和画图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.0.2.</span> <span class="nav-text">2.其它函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#r%E5%AE%9E%E7%8E%B0aic-bic-roc-auc"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">R实现AIC BIC ROC AUC</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -386,53 +387,57 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="广义加性模型"><a class="markdownIt-Anchor" href="#广义加性模型"></a> 广义加性模型</h1>
+        <h1 id="广义加性模型">广义加性模型</h1>
 <p>去年这个时候准备SRDP立项就看到了一堆用广义加性模型的例子，国内关于这个的资源实在太少了，大半年之后我才开始学习用这玩意。把自己找到的各种参考文献整理一下作为学习笔记发出来，给别人一个方便。</p>
 <a id="more"></a>
 <p>（吐槽一句关于机器学习，感觉就是一个生造的概念，我在这里就把所有的这些东西称为统计学习——应用统计学的方法，让机器自行学习规律，然后给出结果。)</p>
 <p>线性模型简单、只管、便于理解，但是很多时候在实际情况中并不能满足线性的假设。这时有两种方法，一个是通过降低模型的复杂度和估计量的方差来改善模型，另一种方法就是改变线性假设。由第二种方法引出的就是广义加性模型。</p>
-<h2 id="gam-广义相加模型generalized-additive-model"><a class="markdownIt-Anchor" href="#gam-广义相加模型generalized-additive-model"></a> GAM 广义相加模型Generalized additive model</h2>
+<h2 id="gam-广义相加模型generalized-additive-model">GAM 广义相加模型Generalized additive model</h2>
 <table>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>项目</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>概念</td>
 <td>回归模型中部分或全部的自变量采用平滑函数，降低线性设定带来的模型风险，对模型的假定不严，如不需要假定自变量线性相关于因变量（线性或非线性都可以）。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>方程</td>
 <td>，<em>g</em>是一个链接函数，y是独立变量,为未知的光滑函数,代替经典线性回归中的，对样本要求少，适用性广</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>参数估计方法</td>
 <td>最小二乘法，极大似然法</td>
 </tr>
-<tr>
+<tr class="even">
 <td>检验</td>
 <td>残差Pseduo系数(PCf)估计，PCf = 1 - RD / ND (RD残差偏差，ND 无效偏差)</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>分类</td>
 <td>可加/非参数（Aditive/Nonparametric): 参数（Parametric): 半参数/部分线性（Semiparametric/Partial Linear）: 薄板样条（Thin-plate spline）：允许两个自变量里有交互作用</td>
 </tr>
-<tr>
+<tr class="even">
 <td>前提</td>
 <td>如x1和x2并非独立而存在交互作用，则应设为Thin-plate spline: f(x1, x2)（之所以有这一项是因为广义加性模型假定各项之间是相互独立的，这样计算最后的期望的时候就可以把他们加起来，如果不是相互独立的，需要手动设置交叉相互作用项） 模型中不必每一项都是非线性的，如都非线性会出现计算量大、过拟合等问题，通过查看xi与y的是否存在线性关系来判断是否使用平滑函数。 要遵循统计学和操作中的注意事项</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>光滑函数</td>
 <td>见”样条函数”</td>
 </tr>
-<tr>
+<tr class="even">
 <td>缺点</td>
 <td>样条函数参数的不确定性使之不能直接用于预估新的数据</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Q&amp;A</td>
 <td>如何确定光滑项？ 这是个比较哲学的问题（掐死吧！） 1.计算每一种可能性，然后使用拟合效果最好的那个（利用一些标准来衡量，例如AIC） 2.使用最能够反应数据产生过程的那一个模型</td>
 </tr>
@@ -443,40 +448,40 @@
 <p>我理解的这个模型就是说，和之间是线性关系，这样就可以使用线性回归的计算方法和检验方法来得到结果了，然后是一个平滑函数。这里样条函数是啥…对我就是不明白这一点，网上查到的资料说是和三次样条插值的那个函数差不多，但是这样不就变成插值了吗摔。</p>
 <p>先给自己一个存疑，留待日后解决，然后更详细的参考资料如下</p>
 <p><span class="exturl" data-url="aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9uZ3dlaWdhbmdscC9hcnRpY2xlL2RldGFpbHMvNTM0MjIzMjQ=">http://blog.csdn.net/tongweiganglp/article/details/53422324<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5sb3lob21lLmNvbS8lZTIlODklYWElZTclYmIlOWYlZTglYWUlYTElZTUlYWQlYTYlZTQlYjklYTAlZTclYjIlYmUlZTglYTYlODF0aGUtZWxlbWVudHMtb2Ytc3RhdGlzdGljYWwtbGVhcm5pbmclZTIlODklYWIlZTglYWYlYmUlZTUlYTAlODIlZTclYWMlOTQlZTglYWUlYjAlZWYlYmMlODglZTUlOGQlODElZTQlYmElOGMlZWYlYmMlODkv">http://www.loyhome.com/≪统计学习精要the-elements-of-statistical-learning≫课堂笔记（十二）/<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5sb3lob21lLmNvbS8lZTIlODklYWElZTclYmIlOWYlZTglYWUlYTElZTUlYWQlYTYlZTQlYjklYTAlZTclYjIlYmUlZTglYTYlODF0aGUtZWxlbWVudHMtb2Ytc3RhdGlzdGljYWwtbGVhcm5pbmclZTIlODklYWIlZTglYWYlYmUlZTUlYTAlODIlZTclYWMlOTQlZTglYWUlYjAlZWYlYmMlODglZTUlOGQlODElZTQlYmElOGMlZWYlYmMlODkv">http://www.loyhome.com/%e2%89%aa%e7%bb%9f%e8%ae%a1%e5%ad%a6%e4%b9%a0%e7%b2%be%e8%a6%81the-elements-of-statistical-learning%e2%89%ab%e8%af%be%e5%a0%82%e7%ac%94%e8%ae%b0%ef%bc%88%e5%8d%81%e4%ba%8c%ef%bc%89/<i class="fa fa-external-link-alt"></i></span></p>
 <p>mgcv manual</p>
 <p>Generalized Additive Models:An inroduction with R</p>
-<h1 id="aic-bic-roc与auc"><a class="markdownIt-Anchor" href="#aic-bic-roc与auc"></a> AIC BIC ROC与AUC</h1>
+<h1 id="aic-bic-roc与auc">AIC BIC ROC与AUC</h1>
 <p>任何一个统计学方法都会有过拟合欠拟合的问题，在吴恩达的课程里给出来了一种比较直观的感性的判断方式（以后会整理的抱头鼠窜）在这里介绍另一类方法，通过一个评价的函数来p安短，这里给出其中三种：AIC、BIC和ROC与AUC</p>
 <p>（其实还有交叉验证方法，在后一个吴老师课程里讲的非常详细我也会整理的抱头鼠窜）</p>
-<h2 id="aic"><a class="markdownIt-Anchor" href="#aic"></a> AIC</h2>
+<h2 id="aic">AIC</h2>
 <p>AIC是衡量统计模型拟合优良性的一种标准，由日本统计学家赤池弘次在1974年提出，它建立在熵的概念上，提供了权衡估计模型复杂度和拟合数据优良性的标准。</p>
 <p>通常情况下，AIC定义为：</p>
 <p>其中k是模型参数个数，L是似然函数。从一组可供选择的模型中选择最佳模型时，通常选择AIC最小的模型。假设条件是模型的误差服从独立正态分布。 让n为观察数，RSS为剩余平方和,则AIC变为：</p>
 <p>当两个模型之间存在较大差异时，差异主要体现在似然函数项，当似然函数差异不显著时，上式第一项，即模型复杂度则起作用，从而参数个数少的模型是较好的选择。</p>
 <p>一般而言，当模型复杂度提高（k增大）时，似然函数L也会增大，从而使AIC变小，但是k过大时，似然函数增速减缓，导致AIC增大，模型过于复杂容易造成过拟合现象。目标是选取AIC最小的模型，AIC不仅要提高模型拟合度（极大似然），而且引入了惩罚项，使模型参数尽可能少，有助于降低过拟合的可能性。</p>
-<h2 id="bic"><a class="markdownIt-Anchor" href="#bic"></a> BIC</h2>
+<h2 id="bic">BIC</h2>
 <p>BIC（Bayesian InformationCriterion）贝叶斯信息准则与AIC相似，用于模型选择，1978年由Schwarz提出。训练模型时，增加参数数量，也就是增加模型复杂度，会增大似然函数，但是也会导致过拟合现象，针对该问题，AIC和BIC均引入了与模型参数个数相关的惩罚项，BIC的惩罚项比AIC的大，考虑了样本数量，样本数量过多时，可有效防止模型精度过高造成的模型复杂度过高。</p>
 <p>其中，k为模型参数个数，n为样本数量，L为似然函数，kln(n)惩罚项在维数过大且训练样本数据相对较少的情况下，可以有限避免出现维度灾难现象。</p>
-<h2 id="roc与auc-衡量分类器的好坏"><a class="markdownIt-Anchor" href="#roc与auc-衡量分类器的好坏"></a> ROC与AUC-衡量分类器的好坏</h2>
-<h3 id="二元分类器"><a class="markdownIt-Anchor" href="#二元分类器"></a> 二元分类器</h3>
+<h2 id="roc与auc-衡量分类器的好坏">ROC与AUC-衡量分类器的好坏</h2>
+<h3 id="二元分类器">二元分类器</h3>
 <p>二元分类器是指要输出(预测)的结果只有两种类别的模型。例如预测阳性/阴性，有病/没病，在银行信用评分模型中，也用来预测用户是否会违约，等等。</p>
-<p>既然是一种预测模型，则实际情况一定是有些结果猜对了，有些结果猜错了。因为二元分类器的预测结果有两种类别(以下以阴/阳为例)，对应其真实值，则会有以下四种情形:</p>
+<p>  既然是一种预测模型，则实际情况一定是有些结果猜对了，有些结果猜错了。因为二元分类器的预测结果有两种类别(以下以阴/阳为例)，对应其真实值，则会有以下四种情形:</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>Actual</th>
 <th>class</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>predict</td>
 <td>true positive</td>
 <td>false positive</td>
 </tr>
-<tr>
+<tr class="even">
 <td>class</td>
 <td>false negative</td>
 <td>true negative</td>
@@ -493,13 +498,13 @@
 </ul>
 <p>除此之外，还有另外一个评价标准来进行trade-off</p>
 <p>越大越好</p>
-<h3 id="roc空间与roc曲线"><a class="markdownIt-Anchor" href="#roc空间与roc曲线"></a> ROC空间与ROC曲线</h3>
+<h3 id="roc空间与roc曲线">ROC空间与ROC曲线</h3>
 <p>在信号检测理论中，接收者操作特征曲线（receiver operating characteristic curve，或者叫<span class="exturl" data-url="aHR0cDovL3poLndpa2lwZWRpYS5vcmcvd2lraS9ST0MlRTYlOUIlQjIlRTclQkElQkY=">ROC曲线<i class="fa fa-external-link-alt"></i></span>）是一种座标图式的分析工具。  要了解ROC曲线，先要了解一下ROC空间，ROC空间是一个以伪阳性率(FPR, false positive rate)为X轴，真阳性率(TPR, true positive rate)为Y轴的二维坐标系所代表平面。</p>
 <ul>
 <li>TPR: 真阳性率，所有阳性样本中(TP+FN)，被分类器正确判断为阳的比例。TPR = TP / (TP + FN) = TP / 所有真实值为阳性的样本个数</li>
 <li>FPR: 伪阳性率，所有阴性样本中(FP+TN)，被分类器错误判断为阳的比例。FPR = FP / (FP + TN) = FP / 所有真实值为阴性的样本个数</li>
 </ul>
-<p>我们想象这样一种场景，接触阳性样本可以给我们带来“收益”，接触阴性样本则会给我们造成”成本”。并且如果我们接触样本中所有的阳性样本，我们的收益是1，接触样本中的所有阴性样本，我们的成本也是1。如果不接触样本，则既不产生收益也不产生成本。  自然的，如果不使用分类器，接触所有样本，则总的效益为1-1=0。现在让我们利用分类器来决定是否接触样本，分类器预测为阳，我们就去接触样本，分类器预测为阴，我们就不去接触。因为不接触样本不会产生收益或是成本，因此我们只需要看分类器预测为阳的样本。预测为阳的样本中，TP将产生 TPR 的收益， FP将产生FPR的成本。  那么一个分类器的分类效果就对应ROC空间里的一个点:</p>
+<p>  我们想象这样一种场景，接触阳性样本可以给我们带来“收益”，接触阴性样本则会给我们造成”成本”。并且如果我们接触样本中所有的阳性样本，我们的收益是1，接触样本中的所有阴性样本，我们的成本也是1。如果不接触样本，则既不产生收益也不产生成本。  自然的，如果不使用分类器，接触所有样本，则总的效益为1-1=0。现在让我们利用分类器来决定是否接触样本，分类器预测为阳，我们就去接触样本，分类器预测为阴，我们就不去接触。因为不接触样本不会产生收益或是成本，因此我们只需要看分类器预测为阳的样本。预测为阳的样本中，TP将产生 TPR 的收益， FP将产生FPR的成本。  那么一个分类器的分类效果就对应ROC空间里的一个点:</p>
 <p><a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/1a02adedd70816dcd49461354390aaed.png"><img src="http://beader.me/imgs/auc-roc/1a02adedd70816dcd49461354390aaed.png" alt="img"></a></p>
 <p>图2.ROC空间</p>
 <p>A,B,C三个点可以分别代表三个不同的分类器对同样的样本做预测的结果。最好的方法是A，因为他的收益大于成本(TPR &gt; FPR)，最差的是C(TPR &lt; FPR)。中等的是B，相当于随机分类器。这里有趣的一点是若把C以(0.5, 0.5)为中点作一个镜像，得到C’， C’的效果比A要来的好。C’相当于一个做与C预测结果完全相反的分类器。  实际的应用当中，分类器还会给出它预测某个样本为阳的概率，并且有一个事先给定的门槛值(threshold)，概率高于threshold的就预测为阳性，低于threshold的就预测为阴性。假设以下是某个分类器对id为1-10的客户的分类结果:</p>
@@ -509,14 +514,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TPR &#x3D; TP &#x2F; 所有真实值为阳性的样本个数 &#x3D; 6 &#x2F; 6 &#x3D; 1</span><br><span class="line">FPR &#x3D; FP &#x2F; 所有真实值为阴性的样本个数 &#x3D; 2 &#x2F; 4 &#x3D; 0.6</span><br></pre></td></tr></table></figure>
 <p>同理，如果我们把threshold定位0.8，即去接触id为1~5的客户。此时</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TPR &#x3D; TP &#x2F; 所有真实值为阳性的样本个数 &#x3D; 4 &#x2F; 6 &#x3D; 0.67</span><br><span class="line">FPR &#x3D; FP &#x2F; 所有真实值为阴性的样本个数 &#x3D; 1 &#x2F; 4 &#x3D; 0.25</span><br></pre></td></tr></table></figure>
-<p>这两个threshold分别对应ROC空间中的两个点A、B</p>
+<p>  这两个threshold分别对应ROC空间中的两个点A、B</p>
 <p><a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/f3aac8b8603adb924363e766992df3cd.png"><img src="http://beader.me/imgs/auc-roc/f3aac8b8603adb924363e766992df3cd.png" alt="img"></a></p>
 <p>图3.不同的threshold对应ROC空间中不同的点</p>
 <p>上面的例子当中，共有10笔预测数据，则一共有11种threshold的设定方法，每一个threshold对应ROC空间中的一个点，把这些点连接起来，就成了ROC曲线。</p>
 <p><a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/92175e2de4a480e52938a836994e823c.png"><img src="http://beader.me/imgs/auc-roc/92175e2de4a480e52938a836994e823c.png" alt="img"></a></p>
 <p>图4.ROC曲线</p>
-<p>这里因为数据量太少，所以曲线是一折一折的，数据量大的时候，看上去才像”曲线”。</p>
-<h3 id="auc"><a class="markdownIt-Anchor" href="#auc"></a> AUC</h3>
+<p>  这里因为数据量太少，所以曲线是一折一折的，数据量大的时候，看上去才像”曲线”。</p>
+<h3 id="auc">AUC</h3>
 <p>(Area under the Curve of ROC) 曲线下面积</p>
 <p>以下直接搬维基百科:</p>
 <ul>
@@ -525,57 +530,49 @@
 <li>若随机抽取一个阳性样本和一个阴性样本，分类器正确判断阳性样本的值高于阴性样本之机率。(即前文当中把C做一个镜像变为C’)</li>
 <li>简单说：AUC值越大的分类器，正确率越高。</li>
 </ul>
-<p>从AUC判断分类器（预测模型）优劣的标准：</p>
+<p>  从AUC判断分类器（预测模型）优劣的标准：</p>
 <ul>
-<li>
-<p>AUC = 1，是完美分类器，采用这个预测模型时，不管设定什么阈值都能得出完美预测。绝大多数预测的场合，不存在完美分类器。</p>
-</li>
-<li>
-<p>0.5 &lt; AUC &lt; 1，优于随机猜测。这个分类器（模型）妥善设定阈值的话，能有预测价值。</p>
-</li>
-<li>
-<p>AUC = 0.5，跟随机猜测一样（例：丢铜板），模型没有预测价值。</p>
-</li>
-<li>
-<p>AUC &lt; 0.5，比随机猜测还差；但只要总是反预测而行，就优于随机猜测，因此不存在AUC &lt; 0.5的情况。</p>
+<li><p>AUC = 1，是完美分类器，采用这个预测模型时，不管设定什么阈值都能得出完美预测。绝大多数预测的场合，不存在完美分类器。</p></li>
+<li><p>0.5 &lt; AUC &lt; 1，优于随机猜测。这个分类器（模型）妥善设定阈值的话，能有预测价值。</p></li>
+<li><p>AUC = 0.5，跟随机猜测一样（例：丢铜板），模型没有预测价值。</p></li>
+<li><p>AUC &lt; 0.5，比随机猜测还差；但只要总是反预测而行，就优于随机猜测，因此不存在AUC &lt; 0.5的情况。</p>
 <p><a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/f03add592a75ef5b5e7346a5209b0cb8.png"><img src="http://beader.me/imgs/auc-roc/f03add592a75ef5b5e7346a5209b0cb8.png" alt="img"></a></p>
 <p>图5.用AUC来衡量不同分类器的分类能力(更准确的说是排序能力)</p>
-<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<h3 id="总结">总结</h3>
 <p>一个分类模型的分类结果的好坏取决于以下两个部分：</p>
-<ol>
+<ol type="1">
 <li>分类模型的排序能力(能否把概率高的排前面，概率低的排后面)</li>
 <li>threshold的选择</li>
 </ol>
-<p>使用AUC来衡量分类模型的好坏，可以忽略由于threshold的选择所带来的影响，因为实际应用中，这个threshold常常由先验概率或是人为决定的。</p>
-<h3 id="补充gini-coefficient"><a class="markdownIt-Anchor" href="#补充gini-coefficient"></a> 补充：Gini coefficient</h3>
+<p>  使用AUC来衡量分类模型的好坏，可以忽略由于threshold的选择所带来的影响，因为实际应用中，这个threshold常常由先验概率或是人为决定的。</p>
+<h3 id="补充gini-coefficient">补充：Gini coefficient</h3>
 <p>在用SAS或者其他一些统计分析软件，用来评测分类器分类效果时，常常会看到一个叫做gini coefficient的东西，那么这个gini coefficient又是什么呢？gini系数通常被用来判断收入分配公平程度，具体请参阅<span class="exturl" data-url="aHR0cDovL3poLndpa2lwZWRpYS5vcmcvd2lraS8lRTUlOUYlQkElRTUlQjAlQkMlRTclQjMlQkIlRTYlOTUlQjA=">wikipedia-基尼系数<i class="fa fa-external-link-alt"></i></span>。<a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/1a9a293ac6c97475ebb337fb32081a4d.png"><img src="http://beader.me/imgs/auc-roc/1a9a293ac6c97475ebb337fb32081a4d.png" alt="img"></a>  图6.洛伦茨曲线与基尼系数</p>
-<p>Gini coefficient 是指绝对公平线(line of equality)和洛伦茨曲线(Lorenz Curve)围成的面积与绝对公平线以下面积的比例，即gini coefficient = A面积 / (A面积+B面积) 。</p>
-<p>用在评判分类模型的预测效力时，是指ROC曲线曲线和中线围成的面积与中线之上面积的比例。</p>
+<p>  Gini coefficient 是指绝对公平线(line of equality)和洛伦茨曲线(Lorenz Curve)围成的面积与绝对公平线以下面积的比例，即gini coefficient = A面积 / (A面积+B面积) 。</p>
+<p>  用在评判分类模型的预测效力时，是指ROC曲线曲线和中线围成的面积与中线之上面积的比例。</p>
 <p><a target="_blank" rel="noopener" href="http://beader.me/imgs/auc-roc/074c46dccea3031e5ce8fcbb67453cd4.png"><img src="http://beader.me/imgs/auc-roc/074c46dccea3031e5ce8fcbb67453cd4.png" alt="img"></a>  图7.Gini coefficient与AUC</p>
 <p>因此Gini coefficient与AUC可以互相转换：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gini &#x3D; A &#x2F; (A + B) &#x3D; (AUC - C) &#x2F; (A + B) &#x3D; (AUC -0.5) &#x2F; 0.5 &#x3D; 2*AUC - 1</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gini &#x3D; A &#x2F; (A + B) &#x3D; (AUC - C) &#x2F; (A + B) &#x3D; (AUC -0.5) &#x2F; 0.5 &#x3D; 2*AUC - 1</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>参考 ：</p>
 <p><span class="exturl" data-url="aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGZkYW5kaW5nL2FydGljbGUvZGV0YWlscy81MDczMjc2Mj9sb2NhdGlvbk51bT04JmFtcDtmcHM9MQ==">http://blog.csdn.net/lfdanding/article/details/50732762?locationNum=8&amp;fps=1<i class="fa fa-external-link-alt"></i></span></p>
 <p><span class="exturl" data-url="aHR0cDovL2JlYWRlci5tZS8yMDEzLzEyLzE1L2F1Yy1yb2Mv">http://beader.me/2013/12/15/auc-roc/<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="r语言实现"><a class="markdownIt-Anchor" href="#r语言实现"></a> R语言实现</h2>
-<h3 id="r语言实现广义加性模型及相关函数"><a class="markdownIt-Anchor" href="#r语言实现广义加性模型及相关函数"></a> R语言实现广义加性模型及相关函数</h3>
+<h2 id="r语言实现">R语言实现</h2>
+<h3 id="r语言实现广义加性模型及相关函数">R语言实现广义加性模型及相关函数</h3>
 <p>仅仅列出我最常用的几个 gam gam.check plot.gam predict.gam choose.k gam.selection</p>
 <p>(给自己开了一个大坑啊，不知道能不能在生态学下课之前写完)</p>
 <p>（看来是写不完了，要下课了…)</p>
 <p>这一部分参考了manual和 R语言实现广义加性模型 Generalized Additive Models(GAM) 入门</p>
-<h5 id="1实现和画图"><a class="markdownIt-Anchor" href="#1实现和画图"></a> 1.实现和画图</h5>
+<h5 id="实现和画图">1.实现和画图</h5>
 <p>R语言官网：<span class="exturl" data-url="aHR0cDovL3d3dy5yLXByb2plY3Qub3JnLw==">http://www.r-project.org/<i class="fa fa-external-link-alt"></i></span></p>
 <p>R语言软件下载：<span class="exturl" data-url="aHR0cDovL2Z0cC5jdGV4Lm9yZy9taXJyb3JzL0NSQU4v">http://ftp.ctex.org/mirrors/CRAN/<i class="fa fa-external-link-alt"></i></span> 注：下载时点击 install R for the first time</p>
 <p>下面进行一个简单的入门程序学习。</p>
 <p>先新建一个txt，叫做 Rice_insect.txt，内容为：</p>
 <p><a href="https://lifeodyssey.github.io/home/zhenjiazhou/%E5%9B%BE%E7%89%87/%E9%80%89%E5%8C%BA_002.bmp"><img src="https://lifeodyssey.github.io/home/zhenjiazhou/%E5%9B%BE%E7%89%87/%E9%80%89%E5%8C%BA_002.bmp" alt="选区_002"></a></p>
-<p>Adult为累计蛾量，Day为降雨持续天数，Precipitation为降雨量。</p>
+<p>　　Adult为累计蛾量，Day为降雨持续天数，Precipitation为降雨量。</p>
 <p>输入代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library(mgcv)      #加载mgcv软件包，因为gam函数在这个包里</span><br><span class="line">Data &lt;- read.delim(&quot;Rice_insect.txt&quot;)     #读取txt数据，存到Data变量中</span><br><span class="line">Data &lt;- as.matrix(Data)     #转为矩阵形式</span><br><span class="line">#查看Data数据：Data，查看第2列：Data[,2]，第2行：Data[2,]</span><br><span class="line"></span><br><span class="line">result1 &lt;- gam(log(Adult) ~ s(Day))     #此时，Adult为相应变量，Day为解释变量</span><br><span class="line">summary(result1)      #输出计算结果</span><br></pre></td></tr></table></figure>
-<p>此时可以看到：</p>
+<p>　　此时可以看到：</p>
 <p>Family: gaussian Link function: identity</p>
 <p>Formula:log(Adult) ~ s(Day)</p>
 <p>Parametric coefficients:Estimate Std. Error t value Pr(&gt;|t|) (Intercept) 7.9013 0.3562 22.18 4.83e-13 <strong>—Signif. codes: 0 ‘</strong>’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
@@ -585,7 +582,7 @@
 <p>其中，edf为自由度，理论上，当自由度接近1时，表示是线性关系；当自由度比1大，则表示为曲线关系。</p>
 <p>接下来使用另一个解释变量Precipitation。输入代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result2 &lt;- gam(log(Adult) ~ s(Precipitation))</span><br><span class="line">summary(result2)</span><br></pre></td></tr></table></figure>
-<p>发现：</p>
+<p>　　发现：</p>
 <p>Family: gaussian Link function: identity</p>
 <p>Formula:log(Adult) ~ s(Precipitation)</p>
 <p>Parametric coefficients:Estimate Std. Error t value Pr(&gt;|t|) (Intercept) 7.9013 0.2731 28.94 1.87e-12 <strong>—Signif. codes: 0 ‘</strong>’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
@@ -594,47 +591,52 @@
 <p>此时p-value为0.0774，说明该因子在P&lt;0.1水平下影响显著。（一般情况下p&lt;0.05为显著。）</p>
 <p>接下来画图：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(result2,se&#x3D;T,resid&#x3D;T,pch&#x3D;16)</span><br></pre></td></tr></table></figure>
-<p>[![img](file://tmp/wps-zhenjiazhou/ksohtml/wpsoAF24S.jpg)](file://tmp/wps-zhenjiazhou/ksohtml/wpsoAF24S.jpg)</p>
+<p>　　<a href="file://tmp/wps-zhenjiazhou/ksohtml/wpsoAF24S.jpg"><img src="file://tmp/wps-zhenjiazhou/ksohtml/wpsoAF24S.jpg" alt="img"></a></p>
 <p>pch=16这个是图标的序号，比如改成17就是三角形了。</p>
 <p>log(Adult)中的log是什么意思呢?</p>
 <p>log是数据变换，取对数可以把大范围的数变成小范围的数，这在将几组相差太大的数据画在同一个坐标轴时特别有用，比如一组数据范围是1～10，第二组数据范围是10～100000000，要是不对第二组取常用对数，第一组在坐标轴上只是一点点，都看不到，对第二组取常用对数后，第二组范围变成1～8了，这样两组数据都能看到了。</p>
 <p>下面尝试将两个变量同时作为解释变量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result3&lt;-gam(log(Adult)~s(Precipitation)+s(Day))</span><br></pre></td></tr></table></figure>
-<p>出错：Model has more coefficients than data</p>
+<p>　　出错：Model has more coefficients than data</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result3&lt;-gam(log(Adult)~s(Precipitation,k&#x3D;9)+s(Day,k&#x3D;9)</span><br></pre></td></tr></table></figure>
-<p>k是什么？</p>
-<p>k is the dimension of the basis used to represent the smooth term. If k is not specified then basis specific defaults are used.</p>
+<p>　　k是什么？</p>
+<p>　　k is the dimension of the basis used to represent the smooth term. If k is not specified then basis specific defaults are used.</p>
 <p>K的最小值是3，最大值是17，为3、4的时候都是直线，说明太小了体现不出来，在不断增大的过程中发现，K越大，曲线原来越平滑，再大时，曲线就出现了一些弯曲，说明更精准了，再大时，图形就基本不变了，说明也没必要设那么大了。</p>
 <p>再</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(result3)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
+<p>　　结果：</p>
 <p>Family: gaussian Link function: identity</p>
 <p>Formula:log(Adult) ~ s(Precipitation, k = 9) + s(Day, k = 9)</p>
 <p>Parametric coefficients:Estimate Std. Error t value Pr(&gt;|t|) (Intercept) 7.9013 0.2831 27.91 8.16e-12 <strong>—Signif. codes: 0 ‘</strong>’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
 <p>Approximate significance of smooth terms:edf Ref.df F p-value s(Precipitation) 4.653 5.572 2.546 0.0848 .s(Day) 1.000 1.000 0.500 0.4939 —Signif. codes: 0 ‘<em><strong>’ 0.001 ‘</strong>’ 0.01 ‘</em>’ 0.05 ‘.’ 0.1 ‘ ’ 1</p>
 <p>R-sq.(adj) = 0.398 Deviance explained = 59.8%GCV score = 2.288 Scale est. = 1.4423 n = 18</p>
-<h5 id="2其它函数"><a class="markdownIt-Anchor" href="#2其它函数"></a> 2.其它函数</h5>
+<h5 id="其它函数">2.其它函数</h5>
 <p>具体内容请查看manual</p>
 <table>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 45%">
+<col style="width: 45%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>函数</th>
 <th>描述</th>
 <th>用法</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>gam.check</td>
 <td>采用由gam（）生成的拟合的gam对象来产生关于拟合程序和结果的一些诊断信息。 缺省情况是产生4个残差图，关于光滑性选择优化的收敛的一些信息，以及运行基本维度选择是否足够的诊断测试。 应用于由gamm返回的gam对象时应注意解释结果。</td>
 <td>gam.check(b,old.style=FALSE, type=c(“deviance”, “pearson”, “response”), k.sample=5000,k.rep=200, rep=0, level=.9, rl.col=2, rep.col=”gray80”, …)参数说明见后</td>
 </tr>
-<tr>
+<tr class="even">
 <td>predict.gam</td>
 <td>采用由gam（）生成的拟合gam对象来给出一组新的用于模型协变量或用于模型拟合的原始值的预测值。 基于模型系数的后验分布，预测可以伴随着标准误差。 常规程序可以选择性地返回模型系数的矩阵，这个矩阵必须必须预先倍增（？？？），以便在所提供的协变量值处产生线性预测值的值：这对于从模型中获得的预测值获得置信区间是有用的（例如， 从平滑函数中衍生）以及R之外的查找表预测。</td>
 <td>predict(object, newdata, type=”link”, se.fit=FALSE, terms=NULL, exclude=NULL, block.size=NULL, newdata.guaranteed=FALSE, na.action=na.pass,unconditional=FALSE,…)参数说明：object是预测出的模型，newdata是预测基于的自变量的值，注意一个是名字要和之前构建模型的名字一样，另一个是如果缺省，给出的结果是基于之前模型构建样本的因变量值，其余缺省即可</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -644,40 +646,40 @@
 <p>gam.check参数说明</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>b</td>
 <td>由GAM模型产生的结果</td>
 </tr>
-<tr>
+<tr class="even">
 <td>old.style</td>
 <td>如果改成true得到word2006版本的图像（黑人问号脸）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>type</td>
 <td>餐叉的类型，具体参见residuals.gam</td>
 </tr>
-<tr>
+<tr class="even">
 <td>k.sample</td>
 <td>在这个k值水平上使用一个来自于样本的随机子集来测试</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>k.rep</td>
 <td>多少次重新洗牌才能得到k测试的p值（黑人）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>rep, level, rl.col, rep.col</td>
 <td>在old.style为false时传递给qq.gam（）的参数，请参阅qq.gam().</td>
 </tr>
 </tbody>
 </table>
 <p>剩余的图形参数请参见画图函数的参数</p>
-<h4 id="r实现aic-bic-roc-auc"><a class="markdownIt-Anchor" href="#r实现aic-bic-roc-auc"></a> R实现AIC BIC ROC AUC</h4>
+<h4 id="r实现aic-bic-roc-auc">R实现AIC BIC ROC AUC</h4>
 <p>非常简单！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AIC(object, ..., k &#x3D; 2)</span><br><span class="line"></span><br><span class="line">BIC(object, ...)</span><br></pre></td></tr></table></figure>
 <p>ROC<span class="exturl" data-url="aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc29sbzc3NzMvYXJ0aWNsZS9kZXRhaWxzLzg2OTk2OTM=">http://blog.csdn.net/solo7773/article/details/8699693<i class="fa fa-external-link-alt"></i></span></p>
@@ -787,7 +789,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

@@ -224,7 +224,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-package"><span class="nav-number">1.</span> <span class="nav-text"> Python package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#how-to-read-tennary-plot"><span class="nav-number">2.</span> <span class="nav-text"> How to read tennary plot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E5%BD%95%E4%B8%AA%E8%A7%86%E9%A2%91%E5%90%A7"><span class="nav-number">3.</span> <span class="nav-text"> 我录个视频吧</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-package"><span class="nav-number">1.</span> <span class="nav-text">Python package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#how-to-read-tennary-plot"><span class="nav-number">2.</span> <span class="nav-text">How to read tennary plot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%91%E5%BD%95%E4%B8%AA%E8%A7%86%E9%A2%91%E5%90%A7"><span class="nav-number">3.</span> <span class="nav-text">我录个视频吧</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -381,18 +381,24 @@
     <div class="post-body" itemprop="articleBody">
         <p>Description for ternary plot</p>
 <a id="more"></a>
-<h1 id="python-package"><a class="markdownIt-Anchor" href="#python-package"></a> Python package</h1>
-<p>This is the package I used <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hcmNoYXJwZXIvcHl0aG9uLXRlcm5hcnk=">https://github.com/marcharper/python-ternary<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="python-package">Python package</h1>
+<p>This is the package I used https://github.com/marcharper/python-ternary</p>
 <p>The following is the most usefull sample for me.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ternary</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">cm = plt.cm.get_cmap(<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dat=pd.DataFrame(columns=<span class="built_in">list</span>(<span class="string">&#x27;XYZV&#x27;</span>))</span><br><span class="line"></span><br><span class="line">dat[<span class="string">&#x27;X&#x27;</span>]=random.sample(<span class="built_in">range</span>(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Y&#x27;</span>]=random.sample(<span class="built_in">range</span>(<span class="number">45</span>),<span class="number">10</span>)</span><br><span class="line">dat[<span class="string">&#x27;Z&#x27;</span>]=<span class="number">100</span>-(dat[<span class="string">&#x27;X&#x27;</span>]+dat[<span class="string">&#x27;Y&#x27;</span>])</span><br><span class="line">dat[<span class="string">&#x27;V&#x27;</span>]=<span class="number">10</span>**np.random.randint(<span class="number">0</span>,high=<span class="number">10</span>,size=<span class="number">10</span>)/<span class="number">1e5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sc = plt.scatter(dat.X, dat.Y, c=dat.V, vmin=0, vmax=7, s=35, cmap=cm)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scale=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig, tax = ternary.figure(scale=scale)</span><br><span class="line">fig.set_size_inches(<span class="number">10</span>, <span class="number">9</span>)</span><br><span class="line"></span><br><span class="line">points=dat[[<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>,<span class="string">&#x27;Z&#x27;</span>]].values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">minv=np.log10(dat.V.<span class="built_in">min</span>())</span><br><span class="line">maxv=np.log10(dat.V.<span class="built_in">max</span>())</span><br><span class="line"></span><br><span class="line">tax.scatter(points,s=<span class="number">60</span>,vmin=minv,vmax=maxv,colormap=plt.cm.viridis,colorbar=<span class="literal">True</span>,c=np.log10(dat[<span class="string">&#x27;V&#x27;</span>].values),cmap=plt.cm.viridis)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Decoration.</span></span><br><span class="line">tax.boundary(linewidth=<span class="number">1</span>)</span><br><span class="line">tax.gridlines(multiple=<span class="number">10</span>, color=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">tax.ticks(axis=<span class="string">&#x27;lbr&#x27;</span>, linewidth=<span class="number">1</span>, multiple=<span class="number">20</span>)</span><br><span class="line">tax.get_axes().axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">figure.set_size_inches(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">tax.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/D75BADEA-86A3-4AA9-81C8-159829A7F2F7.png" alt="img"></p>
-<h1 id="how-to-read-tennary-plot"><a class="markdownIt-Anchor" href="#how-to-read-tennary-plot"></a> How to read tennary plot</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/D75BADEA-86A3-4AA9-81C8-159829A7F2F7.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h1 id="how-to-read-tennary-plot">How to read tennary plot</h1>
 <p>这个才是重头戏</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/ternary_3.jpg" alt="img"></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/ternary_3.jpg" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
 <p>一个简单的理解是，三元图是重心图，离哪个顶点近，哪个占比大。</p>
 <p>由点向底边做两条平行线建立小正三角形，将底边分成三段，中间为顶部组所占比例，左段为右侧组比例，右段为左侧组比例。</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/512.png" alt="img"></p>
-<h1 id="我录个视频吧"><a class="markdownIt-Anchor" href="#我录个视频吧"></a> 我录个视频吧</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/512.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h1 id="我录个视频吧">我录个视频吧</h1>
 <p>发现自己在中文网站上找不到相关的信息</p>
 
     </div>
@@ -498,7 +504,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>

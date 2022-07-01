@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Python Lambda 在读别人代码的时候看到的，发现自己对这个东西不是很熟悉，复习一下记个笔记。 lambda 函数是一种小的匿名函数。 lambda 函数可接受任意数量的参数，但只能有一个表达式。">
+  <meta name="description" content="Python Lambda 在读别人代码的时候看到的，发现自己对这个东西不是很熟悉，复习一下记个笔记。 lambda 函数是一种小的匿名函数。 lambda 函数可接受任意数量的参数，但只能有一个表达式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Some Usefull python function">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/d39dff82.html">
 <meta property="og:site_name" content="�ǿ�����Ĵ��߹���">
-<meta property="og:description" content="Python Lambda 在读别人代码的时候看到的，发现自己对这个东西不是很熟悉，复习一下记个笔记。 lambda 函数是一种小的匿名函数。 lambda 函数可接受任意数量的参数，但只能有一个表达式。">
+<meta property="og:description" content="Python Lambda 在读别人代码的时候看到的，发现自己对这个东西不是很熟悉，复习一下记个笔记。 lambda 函数是一种小的匿名函数。 lambda 函数可接受任意数量的参数，但只能有一个表达式。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-07T13:43:14.000Z">
 <meta property="article:modified_time" content="2020-12-17T03:31:19.000Z">
@@ -220,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-lambda"><span class="nav-number">1.</span> <span class="nav-text"> Python Lambda</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text"> 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.2.</span> <span class="nav-text"> 实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%86%85%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text"> 函数内匿名函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip"><span class="nav-number">2.</span> <span class="nav-text"> zip</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">2.1.</span> <span class="nav-text"> 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B-2"><span class="nav-number">2.2.</span> <span class="nav-text"> 实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">3.</span> <span class="nav-text"> map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">3.1.</span> <span class="nav-text"> 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B-3"><span class="nav-number">3.2.</span> <span class="nav-text"> 实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict"><span class="nav-number">4.</span> <span class="nav-text"> dict</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-lambda"><span class="nav-number">1.</span> <span class="nav-text">Python Lambda</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%86%85%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">函数内匿名函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip"><span class="nav-number">2.</span> <span class="nav-text">zip</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B-1"><span class="nav-number">2.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">3.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B-2"><span class="nav-number">3.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict"><span class="nav-number">4.</span> <span class="nav-text">dict</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -375,21 +375,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="python-lambda"><a class="markdownIt-Anchor" href="#python-lambda"></a> Python Lambda</h1>
+        <h1 id="python-lambda">Python Lambda</h1>
 <p>在读别人代码的时候看到的，发现自己对这个东西不是很熟悉，复习一下记个笔记。</p>
 <p><strong>lambda 函数是一种小的匿名函数。</strong></p>
 <p><strong>lambda 函数可接受任意数量的参数，但只能有一个表达式。</strong></p>
 <a id="more"></a>
-<h2 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h2>
+<h2 id="语法">语法</h2>
 <p><code>lambda arguments : expression</code></p>
 <p>执行表达式并返回结果</p>
-<h2 id="实例"><a class="markdownIt-Anchor" href="#实例"></a> 实例</h2>
+<h2 id="实例">实例</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">lambda</span> a : a + <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(x(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 <p>这一句话就定义了一个lambda函数，a是这个函数的参数，a+10是这个函数的表达式，x是这个函数的名字。</p>
 <p>Lambda可以接受任意数量的参数，比如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">lambda</span> a, b, c : a + b + c</span><br><span class="line"><span class="built_in">print</span>(x(<span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 <p>这个函数就是三个参数</p>
-<h2 id="函数内匿名函数"><a class="markdownIt-Anchor" href="#函数内匿名函数"></a> 函数内匿名函数</h2>
+<h2 id="函数内匿名函数">函数内匿名函数</h2>
 <p>假设我定义了这么一个函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span>(<span class="params">n</span>):</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">lambda</span> a : a * n</span><br></pre></td></tr></table></figure>
 <p>这个函数的作用是把a变成n倍。</p>
@@ -398,22 +398,22 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mydoubler</span>(<span class="params">a</span>):</span></span><br><span class="line">  <span class="keyword">return</span> n*<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>不需要想用别的的时候再去定义，比如我还想再来一个三倍的函数，就直接：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mytripler = myfunc(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="zip"><a class="markdownIt-Anchor" href="#zip"></a> zip</h1>
+<h1 id="zip">zip</h1>
 <p><strong>zip()</strong> 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的对象，这样做的好处是节约了不少的内存。</p>
 <p>我们可以使用 list() 转换来输出列表。</p>
 <p>如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 ***** 号操作符，可以将元组解压为列表。</p>
-<h2 id="语法-2"><a class="markdownIt-Anchor" href="#语法-2"></a> 语法</h2>
+<h2 id="语法-1">语法</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">zip</span>([iterable, ...])</span><br></pre></td></tr></table></figure>
-<h2 id="实例-2"><a class="markdownIt-Anchor" href="#实例-2"></a> 实例</h2>
+<h2 id="实例-1">实例</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped = <span class="built_in">zip</span>(a,b)     <span class="comment"># 返回一个对象 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped </span><br><span class="line">&lt;<span class="built_in">zip</span> <span class="built_in">object</span> at <span class="number">0x103abc288</span>&gt; </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(zipped)  <span class="comment"># list() 转换为列表 </span></span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">zip</span>(a,c))<span class="comment"># 元素个数与最短的列表一致 </span></span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>)]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a1, a2 = <span class="built_in">zip</span>(*<span class="built_in">zip</span>(a,b))<span class="comment"># 与 zip 相反，zip(*) 可理解为解压，返回二维矩阵式 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(a1) </span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(a2) </span><br><span class="line">[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
-<h1 id="map"><a class="markdownIt-Anchor" href="#map"></a> map</h1>
+<h1 id="map">map</h1>
 <p><strong>map()</strong> 会根据提供的函数对指定序列做映射。</p>
 <p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表</p>
-<h2 id="语法-3"><a class="markdownIt-Anchor" href="#语法-3"></a> 语法</h2>
+<h2 id="语法-2">语法</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>(function, iterable, ...)</span><br></pre></td></tr></table></figure>
-<h2 id="实例-3"><a class="markdownIt-Anchor" href="#实例-3"></a> 实例</h2>
+<h2 id="实例-2">实例</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="function"><span class="keyword">def</span> <span class="title">square</span>(<span class="params">x</span>) :</span>            <span class="comment"># 计算平方数     </span></span><br><span class="line"><span class="keyword">return</span> x ** <span class="number">2</span>  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">map</span>(square, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])   <span class="comment"># 计算列表各个元素的平方 </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">map</span>(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])  <span class="comment"># 使用 lambda 匿名函数 </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]  <span class="comment"># 提供了两个列表，对相同位置的列表数据进行相加 </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">map</span>(<span class="keyword">lambda</span> x, y: x + y, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]) </span><br><span class="line">[<span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>, <span class="number">19</span>]</span><br></pre></td></tr></table></figure>
-<h1 id="dict"><a class="markdownIt-Anchor" href="#dict"></a> dict</h1>
+<h1 id="dict">dict</h1>
 <p>字典是另一种可变容器模型，且可存储任意类型对象。</p>
 <p>字典的每个键值 <strong>key=&gt;value</strong> 对用冒号 <strong>:</strong> 分割，每个键值对之间用逗号 <strong>,</strong> 分割，整个字典包括在花括号 <strong>{}</strong> 中 ,格式如下所示：</p>
 <p><code>'d = &#123;key1 : value1, key2 : value2 &#125;'</code></p>
@@ -521,7 +521,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:37</span>
+    <span title="Reading time total">18:23</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
