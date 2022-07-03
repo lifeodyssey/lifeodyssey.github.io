@@ -12157,4 +12157,26 @@ k\le (\frac{R}{\gamma})^2
         <tag>日本</tag>
       </tags>
   </entry>
+  <entry>
+    <title>树莓派nas-nextcloudpi</title>
+    <url>/posts/d7f3beca.html</url>
+    <content><![CDATA[<p>今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了</p>
+<a id="more"></a>
+<h1 id="系统烧录与设置">系统烧录与设置</h1>
+<p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
+<p>不过注意这个只是一个还没测试过的版本，具体有啥坑俺也不知道</p>
+<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/</p>
+<p>安装完之后只有命令行。</p>
+<p>用lsb_release -a看了下 是Debian GNU/Linux 11(bullseye)</p>
+<p>ip address show看了下ip</p>
+]]></content>
+      <categories>
+        <category>自己动手</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>NAS</tag>
+        <tag>摄影处理</tag>
+      </tags>
+  </entry>
 </search>

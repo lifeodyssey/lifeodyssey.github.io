@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-07-01T04:22:15.766Z</updated>
+  <updated>2022-07-03T15:52:23.857Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树莓派nas-nextcloudpi</title>
+    <link href="https://lifeodyssey.github.io/posts/d7f3beca.html"/>
+    <id>https://lifeodyssey.github.io/posts/d7f3beca.html</id>
+    <published>2022-07-02T07:15:14.000Z</published>
+    <updated>2022-07-03T15:52:23.857Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="自己动手" scheme="https://lifeodyssey.github.io/categories/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B/"/>
+    
+    
+    <category term="树莓派" scheme="https://lifeodyssey.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    <category term="NAS" scheme="https://lifeodyssey.github.io/tags/NAS/"/>
+    
+    <category term="摄影处理" scheme="https://lifeodyssey.github.io/tags/%E6%91%84%E5%BD%B1%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>秋招&amp;春招进程记录及经验总结</title>
@@ -492,29 +515,6 @@
     <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
     
     <category term="tensorflow" scheme="https://lifeodyssey.github.io/tags/tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mixture Density Network 3</title>
-    <link href="https://lifeodyssey.github.io/posts/b6e8cccb.html"/>
-    <id>https://lifeodyssey.github.io/posts/b6e8cccb.html</id>
-    <published>2022-02-22T06:17:57.000Z</published>
-    <updated>2022-02-22T14:49:24.994Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;继续来看人家写代码的的一些技巧&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://lifeodyssey.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="Inversion" scheme="https://lifeodyssey.github.io/tags/Inversion/"/>
-    
-    <category term="Deep Learning" scheme="https://lifeodyssey.github.io/tags/Deep-Learning/"/>
     
   </entry>
   
