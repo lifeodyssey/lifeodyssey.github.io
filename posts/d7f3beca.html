@@ -30,7 +30,7 @@
 <meta property="og:description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-02T07:15:14.000Z">
-<meta property="article:modified_time" content="2022-07-03T15:52:23.857Z">
+<meta property="article:modified_time" content="2022-07-04T11:37:40.389Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="NAS">
@@ -221,7 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%83%A7%E5%BD%95%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">系统烧录与设置</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%83%A7%E5%BD%95%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">系统烧录与设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9pi%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">修改pi设置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -341,7 +341,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-03 23:52:23" itemprop="dateModified" datetime="2022-07-03T23:52:23+08:00">2022-07-03</time>
+                <time title="Modified: 2022-07-04 19:37:40" itemprop="dateModified" datetime="2022-07-04T19:37:40+08:00">2022-07-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -359,7 +359,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>375</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -381,10 +381,22 @@
 <h1 id="系统烧录与设置">系统烧录与设置</h1>
 <p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
 <p>不过注意这个只是一个还没测试过的版本，具体有啥坑俺也不知道</p>
-<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/</p>
+<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/ 除此之外参考的文档在这https://nextcloudpi-documentation.readthedocs.io/en/latest/</p>
 <p>安装完之后只有命令行。</p>
 <p>用lsb_release -a看了下 是Debian GNU/Linux 11(bullseye)</p>
 <p>ip address show看了下ip</p>
+<p>sudo service ssh start 启动ssh服务</p>
+<p>输入 sudo ncp-config 并在提示更新时选择是。 在下一个菜单中，选择 CONFIG 并使用向下箭头滚动到列表底部。 在这里，选择 nc-webui，然后删除 no 并输入 yes。 按 Enter，然后按任意键。 选择 Back and Finish 退出配置工具。</p>
+<p>除此之外为了方便我用ssh 我在network里还开启了config，这里需要 ssh-keyscan -t rsa server_ip　</p>
+<p>在另一台计算机上的网络浏览器中，输入地址 https://[您的 Pi 的 IP 地址]:4443</p>
+<p>如果您看到您的连接不私密或不安全的警告，请选择忽略它（通过在 Chrome 或 Firefox 中选择高级）并继续访问该站点。</p>
+<p>系统会提示您登录。默认用户名是 ncp，密码是 ownyourbits。</p>
+<p>NextCloudPi 激活屏幕显示两个密码，您需要将其复制并粘贴到文档中以安全保存。 第一个是 NextCloudPi Web 面板的密码，可让您配置服务器设置。 第二个是 Nextcloud Web 界面本身。 如果需要，您可以稍后更改这些密码。</p>
+<p>记下这些密码后，选择激活。 几秒钟后，系统将提示您登录 NextCloudPi 网络面板。 在这里可以对nextcloudpi进行一些设置 点击右上角一个魔法棒可以很方便的进行修改。</p>
+<p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp 和您记下的第二个密码登录。</p>
+<p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4 云服务器！</p>
+<h1 id="修改pi设置">修改pi设置</h1>
+<p>这一步甚至简单到不需要命令行。因为我暂时没有合适的硬盘，等我有了在会更新</p>
 
     </div>
 
