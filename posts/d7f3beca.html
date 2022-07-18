@@ -22,20 +22,22 @@
     var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了">
+  <meta name="description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。 我对于树莓派应该会有以下的几个需求  NAS 用来存放相机和手机的照片，方便P图整理备份 自动下载电影和番剧 电子图书馆 homekit  这里先写第一个，希望能赶紧解决吧哈哈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派nas-nextcloudpi">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/d7f3beca.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
-<meta property="og:description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了">
+<meta property="og:description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。 我对于树莓派应该会有以下的几个需求  NAS 用来存放相机和手机的照片，方便P图整理备份 自动下载电影和番剧 电子图书馆 homekit  这里先写第一个，希望能赶紧解决吧哈哈">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png">
 <meta property="article:published_time" content="2022-07-02T07:15:14.000Z">
-<meta property="article:modified_time" content="2022-07-04T11:37:40.389Z">
+<meta property="article:modified_time" content="2022-07-09T16:27:00.778Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="摄影处理">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png">
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/d7f3beca.html">
 
@@ -235,7 +237,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -341,7 +343,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-04 19:37:40" itemprop="dateModified" datetime="2022-07-04T19:37:40+08:00">2022-07-04</time>
+                <time title="Modified: 2022-07-10 00:27:00" itemprop="dateModified" datetime="2022-07-10T00:27:00+08:00">2022-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -359,7 +361,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -376,7 +378,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了</p>
+        <p>今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。</p>
+<p>我对于树莓派应该会有以下的几个需求</p>
+<ul>
+<li>NAS 用来存放相机和手机的照片，方便P图整理备份</li>
+<li>自动下载电影和番剧</li>
+<li>电子图书馆</li>
+<li>homekit</li>
+</ul>
+<p>这里先写第一个，希望能赶紧解决吧哈哈</p>
 <a id="more"></a>
 <h1 id="系统烧录与设置">系统烧录与设置</h1>
 <p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
@@ -396,7 +406,19 @@
 <p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp 和您记下的第二个密码登录。</p>
 <p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4 云服务器！</p>
 <h1 id="修改pi设置">修改pi设置</h1>
-<p>这一步甚至简单到不需要命令行。因为我暂时没有合适的硬盘，等我有了在会更新</p>
+<p>这一步甚至简单到不需要命令行。</p>
+<p>fdisk -l看了眼硬盘</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png" alt="image-20220706113025038"><figcaption aria-hidden="true">image-20220706113025038</figcaption>
+</figure>
+<p>https://support.huaweicloud.com/evs_faq/evs_faq_0022.html</p>
+<p>nc-automount</p>
+<p>https://zhuanlan.zhihu.com/p/258913077</p>
+<p>https://oscarcx.com/tech/raspberrypi-nas.html</p>
+<p>https://cloud.tencent.com/developer/article/1857115</p>
+<p>https://blog.csdn.net/qq_35566365/article/details/122536163</p>
+<p>https://cloud-atlas.readthedocs.io/zh_CN/latest/arm/raspberry_pi/startup/pi_os.html</p>
+<p>https://www.openmediavault.org/</p>
 
     </div>
 
@@ -437,7 +459,10 @@
     <a href="/posts/2cb8508a.html" rel="prev" title="秋招&春招进程记录及经验总结">
       <i class="fa fa-chevron-left"></i> 秋招&春招进程记录及经验总结
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/715050f6.html" rel="next" title="TDD">
+      TDD <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -499,7 +524,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:24</span>
+    <span title="Reading time total">18:50</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
