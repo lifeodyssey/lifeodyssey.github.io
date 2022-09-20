@@ -12250,7 +12250,7 @@ k\le (\frac{R}{\gamma})^2
     <url>/posts/8cacdaad.html</url>
     <content><![CDATA[<p>日子过的真的好快啊，又忍不住来写点东西</p>
 <a id="more"></a>
-<h1 id="博客低产的日子">博客低产的日子</h1>
+<h1 id="博客低产的日子"><a class="markdownIt-Anchor" href="#博客低产的日子"></a> 博客低产的日子</h1>
 <p>上班之后很少再有这么多一整块的时间来写东西了。</p>
 <p>真要说忙，倒也没有多忙。来这里一个月了都没怎么加过班。</p>
 <p>但是精神上真的好累啊，每天下班之后感觉都用尽了全身的力气，晚上还要继续学日语或者减肥，周末则是玩都玩不过来。</p>
@@ -12258,7 +12258,7 @@ k\le (\frac{R}{\gamma})^2
 <p>之前很难理解为什么他们上班之后会忙到连个消息都不回复，现在理解了。</p>
 <p>光是处理上班的的事情都耗费了很多的精力，对我来讲和别人打交道更是非常耗费能量。</p>
 <p>也难怪上班之后社交圈子急剧缩小了。</p>
-<h1 id="公司">公司</h1>
+<h1 id="公司"><a class="markdownIt-Anchor" href="#公司"></a> 公司</h1>
 <p>对于公司我不想多说什么，我也没有能力多说什么。</p>
 <p>只能说我距离一名专业的开发人员还差得远。</p>
 <p>算法题，项目经历，都差很多。</p>
@@ -12266,17 +12266,15 @@ k\le (\frac{R}{\gamma})^2
 <p>如果把别人叫上岸，我可能叫上船。</p>
 <p>嘛，已经算是挺好的选择了。</p>
 <p>想明白自己需要什么，按照成年人的方式来生活吧。</p>
-<h1 id="怀念">怀念</h1>
+<h1 id="怀念"><a class="markdownIt-Anchor" href="#怀念"></a> 怀念</h1>
 <p>看到朋友圈这两天台风的消息，忽然想起来我刚到日本的时候，迎接我的也是一场台风。</p>
 <p>而我刚到四川，迎接我的，就是一场地震了。</p>
 <p>三年了，时间好快。</p>
 <p>我还有好多巡礼的图没有做出来，但是真的好累。</p>
 <p>希望今年年底能把他们做出来吧</p>
 <p>在我考完N2之后</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202209202148672.png" alt="image-20220920214842538"><figcaption aria-hidden="true">image-20220920214842538</figcaption>
-</figure>
-<h1 id="心理">心理</h1>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202209202148672.png" alt="image-20220920214842538"></p>
+<h1 id="心理"><a class="markdownIt-Anchor" href="#心理"></a> 心理</h1>
 <p>国内没有那么好找女朋友，成都更没有。</p>
 <p>主要还是自身条件和性格都不太行吧。</p>
 <p>从小我就被培养成了讨好型人格，比如不好好学习就没有玩具。</p>
@@ -12285,7 +12283,7 @@ k\le (\frac{R}{\gamma})^2
 <p>我不配得到任何人的喜欢。</p>
 <p>除非我能怎么怎么样</p>
 <p>我真的可太擅长自我pua了。</p>
-<h1 id="未来">未来</h1>
+<h1 id="未来"><a class="markdownIt-Anchor" href="#未来"></a> 未来</h1>
 <p>感觉我走的这条路就是在走钢丝。</p>
 <p>我也不知道我能不能成功。</p>
 <p>我能做的只有努力攒钱，把原本就不多的工资里的开销一省再省。</p>
@@ -12298,7 +12296,7 @@ k\le (\frac{R}{\gamma})^2
 <p>希望未来也不会后悔。</p>
 ]]></content>
       <categories>
-        <category>社畜的生活</category>
+        <category>社畜生活</category>
       </categories>
       <tags>
         <tag>日常记录</tag>
@@ -12307,27 +12305,34 @@ k\le (\frac{R}{\gamma})^2
   <entry>
     <title>Obsidian Daily Record System</title>
     <url>/posts/f36cc8b7.html</url>
-    <content><![CDATA[<p>这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html 先写一下手上这套方案的缺陷 - 只能做日常记录，没有做到Personal Knowledge Management (PKM) - 因为没有购买obsidian的付费服务，依赖于git进行同步，无法做到全平台同步，只能在桌面端使用，移动端还是依赖于便签app - 对任务清单的支持不好，这部分还是用Microsoft ToDo解决的</p>
-<p>日后或许会把他和nextcloud结合起来 主要根据这个完成的https://diygod.me/obsidian/</p>
+    <content><![CDATA[<p>这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html<br>
+先写一下手上这套方案的缺陷</p>
+<ul>
+<li>只能做日常记录，没有做到Personal Knowledge Management (PKM)</li>
+<li>因为没有购买obsidian的付费服务，依赖于git进行同步，无法做到全平台同步，只能在桌面端使用，移动端还是依赖于便签app</li>
+<li>对任务清单的支持不好，这部分还是用Microsoft ToDo解决的</li>
+</ul>
+<p>日后或许会把他和nextcloud结合起来<br>
+主要根据这个完成的https://diygod.me/obsidian/</p>
 <a id="more"></a>
-<h1 id="需要解决的问题">需要解决的问题</h1>
+<h1 id="需要解决的问题"><a class="markdownIt-Anchor" href="#需要解决的问题"></a> 需要解决的问题</h1>
 <p>相比于原作者，我不喜欢把很多东西都加到Obsidian里，像运动健身我在google fit，睡眠在android睡眠伴侣，钱在薄荷记账。</p>
 <p>我这里用Obsidian主要完成下面几件事</p>
-<ol type="1">
+<ol>
 <li>每天的Completed List，写出来十件事来夸夸自己</li>
 <li>一些日常生活中可能会想到的小日记，大型日记写在了onenote和纸质日记，就相当于一个记事本</li>
 <li>Kanban，因为不想用trello</li>
 </ol>
 <p>所以对原来的版本做了很多简化。</p>
 <p>需求主要有如下几个</p>
-<ol type="1">
+<ol>
 <li>每天点击Calendar自动生成日记并且按照/Year/Month/Week的顺序排列</li>
 <li>每个星期生成带甘特图的计划表和toggle总结</li>
 <li>每个月自动生成kanban</li>
 <li>每年生成一个大的带甘特图的计划表，并且有一个提醒我在年底回顾的艾特</li>
 </ol>
 <p>一个个来</p>
-<h1 id="具体改动">具体改动</h1>
+<h1 id="具体改动"><a class="markdownIt-Anchor" href="#具体改动"></a> 具体改动</h1>
 <p>这个利用Periodic Note和templater里的function就可以完成，因为我动不动就开个加速器，就没有采用获取IP的方式来获取当前位置，而是用了固定地点，以getWeather为例</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl wttr.in/<span class="string">&quot;<span class="subst">$(curl -s --header <span class="string">&quot;user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36&quot;</span> https://api.ip.sb/geoip | /opt/homebrew/bin/jq -r <span class="string">&quot;.city&quot;</span> | sed &#x27;s/ /%20/&#x27;)</span>&quot;</span>\?format=<span class="string">&quot;%l+%c%t&quot;</span></span><br></pre></td></tr></table></figure>
 <p>我把他改成了</p>
