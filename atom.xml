@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2022-12-04T11:25:15.058Z</updated>
+  <updated>2023-01-08T15:25:15.770Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ギターと孤独と蒼い惑星</title>
+    <link href="https://lifeodyssey.github.io/posts/b25cb4c7.html"/>
+    <id>https://lifeodyssey.github.io/posts/b25cb4c7.html</id>
+    <published>2022-12-29T15:48:11.365Z</published>
+    <updated>2023-01-08T15:25:15.770Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;わたし わたし わたしはここにいる&lt;/p&gt;
+&lt;p&gt;殴り書きみたいな音 出せない状態で叫んだよ&lt;/p&gt;
+&lt;p&gt;なんかになりたい なりたい 何者かでいい&lt;/p&gt;
+&lt;p&gt;馬鹿なわたしは歌うだけ&lt;/p&gt;
+&lt;p&gt;ぶちまけちゃおうか 星に&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;https://www.youtube.com/watch?v=B7BxrAAXl94&lt;/p&gt;
+&lt;p&gt;-結束バンド「ギターと孤独と蒼い惑星」&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="梦里真真语真幻" scheme="https://lifeodyssey.github.io/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/"/>
+    
+    
+    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+  </entry>
   
   <entry>
     <title>一个神奇的Kotlin+SpringBoot启动bug</title>
@@ -487,27 +514,6 @@
     
     
     <summary type="html">&lt;p&gt;双指针&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="刷题找工作" scheme="https://lifeodyssey.github.io/categories/%E5%88%B7%E9%A2%98%E6%89%BE%E5%B7%A5%E4%BD%9C/"/>
-    
-    
-    <category term="Algorithm" scheme="https://lifeodyssey.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="https://lifeodyssey.github.io/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Greedy</title>
-    <link href="https://lifeodyssey.github.io/posts/4a214119.html"/>
-    <id>https://lifeodyssey.github.io/posts/4a214119.html</id>
-    <published>2022-03-11T06:23:51.000Z</published>
-    <updated>2022-03-17T17:15:42.122Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;https://houbb.github.io/2020/01/23/data-struct-learn-07-base-greedy&lt;/p&gt;</summary>
     
     
     
