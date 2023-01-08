@@ -89,15 +89,8 @@
     <updated>2022-09-20T13:59:55.512Z</updated>
     
     
-    <summary type="html">&lt;p&gt;这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html&lt;br&gt;
-先写一下手上这套方案的缺陷&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;只能做日常记录，没有做到Personal Knowledge Management (PKM)&lt;/li&gt;
-&lt;li&gt;因为没有购买obsidian的付费服务，依赖于git进行同步，无法做到全平台同步，只能在桌面端使用，移动端还是依赖于便签app&lt;/li&gt;
-&lt;li&gt;对任务清单的支持不好，这部分还是用Microsoft ToDo解决的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;日后或许会把他和nextcloud结合起来&lt;br&gt;
-主要根据这个完成的https://diygod.me/obsidian/&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html 先写一下手上这套方案的缺陷 - 只能做日常记录，没有做到Personal Knowledge Management (PKM) - 因为没有购买obsidian的付费服务，依赖于git进行同步，无法做到全平台同步，只能在桌面端使用，移动端还是依赖于便签app - 对任务清单的支持不好，这部分还是用Microsoft ToDo解决的&lt;/p&gt;
+&lt;p&gt;日后或许会把他和nextcloud结合起来 主要根据这个完成的https://diygod.me/obsidian/&lt;/p&gt;</summary>
     
     
     
@@ -163,7 +156,7 @@
     <link href="https://lifeodyssey.github.io/posts/d7f3beca.html"/>
     <id>https://lifeodyssey.github.io/posts/d7f3beca.html</id>
     <published>2022-07-02T07:15:14.000Z</published>
-    <updated>2022-07-09T16:27:00.778Z</updated>
+    <updated>2022-07-31T11:07:39.216Z</updated>
     
     
     <summary type="html">&lt;p&gt;今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。&lt;/p&gt;
