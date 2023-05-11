@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.0.0-rc1">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,16 +14,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  
-  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lifeodyssey.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="一些在读别人代码的时候发现自己还没有掌握的东西。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.16.0","exturl":true,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一些在读别人代码的时候发现自己还没有掌握的东西。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Basis for subplot2grid, ticker, enumerate, seaborn, plt&#x2F;ax&#x2F;fig">
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/bebb8f89.html">
@@ -37,37 +35,28 @@
 <meta property="og:image" content="http://matplotlib.org/_images/demo_gridspec05.png">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg">
 <meta property="article:published_time" content="2020-08-20T13:34:59.000Z">
-<meta property="article:modified_time" content="2021-06-05T13:35:14.000Z">
+<meta property="article:modified_time" content="2023-05-11T07:19:48.891Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Research">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://matplotlib.org/_images/demo_gridspec01.png">
 
+
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/bebb8f89.html">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
 
-  <title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig | 乔克叔叔的床边故事</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/bebb8f89.html","path":"posts/bebb8f89.html","title":"Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig | 乔克叔叔的床边故事</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
-    <script>
-      if (CONFIG.hostname === location.hostname) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-135697820-1');
-      }
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -75,52 +64,19 @@
 
 
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="乔克叔叔的床边故事" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <main class="main">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -131,13 +87,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">乔克叔叔的床边故事</h1>
+      <p class="site-title">乔克叔叔的床边故事</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -146,32 +102,7 @@
 
 
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -182,8 +113,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -192,12 +122,12 @@
            placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
     <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
@@ -205,15 +135,9 @@
     </div>
   </div>
 
-</div>
-          
+</header>
+        
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -226,35 +150,33 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#matplotlib.ticker"><span class="nav-number">1.</span> <span class="nav-text">matplotlib.ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.1.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tick-locating"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tick locating</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tick-formatting"><span class="nav-number">1.2.1.</span> <span class="nav-text">Tick formatting</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#enumerate"><span class="nav-number">2.</span> <span class="nav-text">enumerate</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">2.1.3.</span> <span class="nav-text">返回值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84-for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.2.1.</span> <span class="nav-text">普通的 for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8-enumerate"><span class="nav-number">2.2.2.</span> <span class="nav-text">for 循环使用 enumerate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#subplot2grid"><span class="nav-number">3.</span> <span class="nav-text">subplot2grid</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#subplot2grid%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">subplot2grid基本示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gridspec%E5%92%8Csubplotspec"><span class="nav-number">3.2.</span> <span class="nav-text">GridSpec和SubplotSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4-gridspec%E5%B8%83%E5%B1%80"><span class="nav-number">3.3.</span> <span class="nav-text">调整 GridSpec布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-subplotspec%E5%88%9B%E5%BB%BA-gridspec"><span class="nav-number">3.4.</span> <span class="nav-text">使用 SubplotSpec创建 GridSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8subplotspec%E5%88%9B%E5%BB%BA%E5%A4%8D%E6%9D%82%E5%B5%8C%E5%A5%97%E7%9A%84gridspec"><span class="nav-number">3.5.</span> <span class="nav-text">使用SubplotSpec创建复杂嵌套的GridSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E6%A0%BC%E5%B0%BA%E5%AF%B8%E5%8F%AF%E5%8F%98%E7%9A%84gridspec"><span class="nav-number">3.6.</span> <span class="nav-text">网格尺寸可变的GridSpec</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#seaborn"><span class="nav-number">4.</span> <span class="nav-text">seaborn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lineplot"><span class="nav-number">4.1.</span> <span class="nav-text">lineplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#heatmap"><span class="nav-number">4.2.</span> <span class="nav-text">heatmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implot"><span class="nav-number">4.3.</span> <span class="nav-text">implot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subplot_adjust"><span class="nav-number">4.4.</span> <span class="nav-text">subplot_adjust</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pltaxfig"><span class="nav-number">5.</span> <span class="nav-text">plt&#x2F;ax&#x2F;fig</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#matplotlib.ticker"><span class="nav-number">1.</span> <span class="nav-text">matplotlib.ticker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.1.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tick-locating"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tick locating</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tick-formatting"><span class="nav-number">1.2.1.</span> <span class="nav-text">Tick formatting</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#enumerate"><span class="nav-number">2.</span> <span class="nav-text">enumerate</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">2.1.3.</span> <span class="nav-text">返回值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%9A%84-for-%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.2.1.</span> <span class="nav-text">普通的 for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8-enumerate"><span class="nav-number">2.2.2.</span> <span class="nav-text">for 循环使用 enumerate</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#subplot2grid"><span class="nav-number">3.</span> <span class="nav-text">subplot2grid</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#subplot2grid%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">subplot2grid基本示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gridspec%E5%92%8Csubplotspec"><span class="nav-number">3.2.</span> <span class="nav-text">GridSpec和SubplotSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4-gridspec%E5%B8%83%E5%B1%80"><span class="nav-number">3.3.</span> <span class="nav-text">调整 GridSpec布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-subplotspec%E5%88%9B%E5%BB%BA-gridspec"><span class="nav-number">3.4.</span> <span class="nav-text">使用 SubplotSpec创建 GridSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8subplotspec%E5%88%9B%E5%BB%BA%E5%A4%8D%E6%9D%82%E5%B5%8C%E5%A5%97%E7%9A%84gridspec"><span class="nav-number">3.5.</span> <span class="nav-text">使用SubplotSpec创建复杂嵌套的GridSpec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E6%A0%BC%E5%B0%BA%E5%AF%B8%E5%8F%AF%E5%8F%98%E7%9A%84gridspec"><span class="nav-number">3.6.</span> <span class="nav-text">网格尺寸可变的GridSpec</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#seaborn"><span class="nav-number">4.</span> <span class="nav-text">seaborn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lineplot"><span class="nav-number">4.1.</span> <span class="nav-text">lineplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#heatmap"><span class="nav-number">4.2.</span> <span class="nav-text">heatmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implot"><span class="nav-number">4.3.</span> <span class="nav-text">implot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subplot_adjust"><span class="nav-number">4.4.</span> <span class="nav-text">subplot_adjust</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pltaxfig"><span class="nav-number">5.</span> <span class="nav-text">plt&#x2F;ax&#x2F;fig</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">周大侠</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="/categories/">
         <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">93</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
@@ -274,107 +196,99 @@
         <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luLyVFNiU4QyVBRiVFNCVCRCVCMy0lRTUlOTElQTgtODMyNmI0MTU1Lw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;%E6%8C%AF%E4%BD%B3-%E5%91%A8-8326b4155&#x2F;"><i class="fa fa-Linkedin fa-fw"></i>Linkedin</span>
       </span>
       <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="rss fa-fw"></i>RSS</a>
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="rss fa-fw"></i>RSS</a>
       </span>
   </div>
   <div class="cc-license animated" itemprop="license">
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
   </div>
 
-
-
-      </section>
+        </div>
+      </div>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </header>
-
-      
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
-
-<noscript>
-  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-      <div class="main-inner">
-        
-
-        <div class="content post posts-expand">
-          
 
     
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/bebb8f89.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="周大侠">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
     </span>
 
-    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-08-20 21:34:59" itemprop="dateCreated datePublished" datetime="2020-08-20T21:34:59+08:00">2020-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-05 21:35:14" itemprop="dateModified" datetime="2021-06-05T21:35:14+08:00">2021-06-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-                </span>
-            </span>
+      <time title="Created: 2020-08-20 21:34:59" itemprop="dateCreated datePublished" datetime="2020-08-20T21:34:59+08:00">2020-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-05-11 15:19:48" itemprop="dateModified" datetime="2023-05-11T15:19:48+08:00">2023-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
 
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>8.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>8 mins.</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -382,9 +296,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
-<a id="more"></a>
+    <div class="post-body" itemprop="articleBody"><p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
+<span id="more"></span>
 <h1 id="matplotlib.ticker">matplotlib.ticker</h1>
 <h2 id="定位">定位</h2>
 <h3 id="tick-locating">Tick locating</h3>
@@ -506,7 +419,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>,<span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
 <p>会创建：</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt><figcaption>img</figcaption>
 </figure>
 <h2 id="gridspec和subplotspec">GridSpec和SubplotSpec</h2>
 <p>你可以显式创建<code>GridSpec</code>并用它们创建子图。</p>
@@ -518,7 +431,7 @@
 <p>上面的例子会变成：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>,:-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>,-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt><figcaption>img</figcaption>
 </figure>
 <h2 id="调整-gridspec布局">调整 GridSpec布局</h2>
 <p>在显式使用<code>GridSpec</code>的时候，你可以调整子图的布局参数，子图由<code>gridspec</code>创建。</p>
@@ -528,24 +441,24 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br><span class="line">ax1 = plt.subplot(gs1[:-<span class="number">1</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs1[-<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs1[-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">gs2 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs2.update(left=<span class="number">0.55</span>, right=<span class="number">0.98</span>, hspace=<span class="number">0.05</span>)</span><br><span class="line">ax4 = plt.subplot(gs2[:, :-<span class="number">1</span>])</span><br><span class="line">ax5 = plt.subplot(gs2[:-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line">ax6 = plt.subplot(gs2[-<span class="number">1</span>, -<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <p>会产生</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt><figcaption>img</figcaption>
 </figure>
 <h2 id="使用-subplotspec创建-gridspec">使用 SubplotSpec创建 GridSpec</h2>
 <p>你可以从<code>SubplotSpec</code>创建<code>GridSpec</code>，其中它的布局参数设置为给定<code>SubplotSpec</code>的位置的布局参数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gs0 = gridspec.GridSpec(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">gs00 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">0</span>])</span><br><span class="line">gs01 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt><figcaption>img</figcaption>
 </figure>
 <h2 id="使用subplotspec创建复杂嵌套的gridspec">使用SubplotSpec创建复杂嵌套的GridSpec</h2>
 <p>这里有一个更复杂的嵌套<code>gridspec</code>的示例，我们通过在每个 3x3 内部网格中隐藏适当的脊线，在 4x4 外部网格的每个单元格周围放置一个框。</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt><figcaption>img</figcaption>
 </figure>
 <h2 id="网格尺寸可变的gridspec">网格尺寸可变的GridSpec</h2>
 <p>通常，<code>GridSpec</code>创建大小相等的网格。你可以调整行和列的相对高度和宽度，要注意绝对高度值是无意义的，有意义的只是它们的相对比值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>,</span><br><span class="line">                       width_ratios=[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">                       height_ratios=[<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">                       )</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt><figcaption>img</figcaption>
 </figure>
 <h1 id="seaborn">seaborn</h1>
 <p>seaborn是对matplotlib进一步的封装，简单点来说就是更简单了。</p>
@@ -566,7 +479,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.subplots_adjust(*args, **kwargs)</span><br><span class="line">subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># 子图(subplot)距画板(figure)左边的距离</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># 右边</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># 底部</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># 顶部</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># 子图水平间距</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># 子图垂直间距</span></span><br></pre></td></tr></table></figure>
 <h1 id="pltaxfig">plt/ax/fig</h1>
 <figure>
-<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt="img"><figcaption aria-hidden="true">img</figcaption>
+<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt><figcaption>img</figcaption>
 </figure>
 <p>尽量避免直接使用plt</p>
 <p>https://zhuanlan.zhihu.com/p/93423829</p>
@@ -576,25 +489,25 @@
     
     
     
-        
 
-<div>
-<ul class="post-copyright">
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
   <li class="post-copyright-author">
-    <strong>Post author:  </strong>周大侠
+      <strong>Post author:  </strong>周大侠
   </li>
   <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://lifeodyssey.github.io/posts/bebb8f89.html" title="Basis for subplot2grid, ticker, enumerate, seaborn, plt&#x2F;ax&#x2F;fig">https://lifeodyssey.github.io/posts/bebb8f89.html</a>
+      <strong>Post link: </strong>
+      <a href="https://lifeodyssey.github.io/posts/bebb8f89.html" title="Basis for subplot2grid, ticker, enumerate, seaborn, plt&#x2F;ax&#x2F;fig">https://lifeodyssey.github.io/posts/bebb8f89.html</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
   </li>
 </ul>
 </div>
 
-
-      <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Research/" rel="tag"># Research</a>
               <a href="/tags/python/" rel="tag"># python</a>
@@ -602,223 +515,110 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/b1ef4fab.html" rel="prev" title="assert">
-      <i class="fa fa-chevron-left"></i> assert
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/720e5580.html" rel="next" title="python绘图基础">
-      python绘图基础 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/b1ef4fab.html" rel="prev" title="assert">
+                  <i class="fa fa-chevron-left"></i> assert
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/720e5580.html" rel="next" title="python绘图基础">
+                  python绘图基础 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-        </div>
-        
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+</div>
+  </main>
 
-        
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
   &copy; 2016 – 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">周大侠</span>
-    <span class="post-meta-divider">|</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+      <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">1.3m</span>
-    <span class="post-meta-divider">|</span>
+    <span title="Word count total">248k</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">19:21</span>
+    <span title="Reading time total">15:01</span>
+  </span>
 </div>
-  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
   </div>
 
-        
+    </div>
+  </footer>
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  
-  <script src="/lib/anime.min.js"></script>
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-<script>
-document.querySelectorAll('.pdfobject-container').forEach(element => {
-  let url = element.dataset.target;
-  let pdfOpenParams = {
-    navpanes : 0,
-    toolbar  : 0,
-    statusbar: 0,
-    pagemode : 'thumbs',
-    view     : 'FitH'
-  };
-  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
-  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
-
-  if (NexT.utils.supportsPDFs()) {
-    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
-  } else {
-    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
-  }
-});
-</script>
-
-
-<script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.init({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    }, '.mermaid');
-  }, window.mermaid);
-}
-</script>
 
 
   
 
-  
-      
 
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      const script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
-    
 
   
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
 
 </body>
 </html>
