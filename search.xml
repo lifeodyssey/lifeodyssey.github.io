@@ -4178,6 +4178,214 @@ b_{bp}^*(\lambda)=\lambda^{S_{bp}}
       </tags>
   </entry>
   <entry>
+    <title>Scipy optimize</title>
+    <url>/posts/7decea87.html</url>
+    <content><![CDATA[<p>主要是几个常用的</p>
+<p>minimize</p>
+<p>Least_square</p>
+<p>nnls</p>
+<p>Lsq_linear</p>
+<p>Curve_fit</p>
+<p>另外附带一个numpy.linalg.lstsq</p>
+<p>另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好</p>
+<span id="more"></span>
+<h1 id="minimize">minimize</h1>
+<p>这个主要是用来代替matlab中的fminunc</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.minimize(fun, x0, args=(), method=<span class="literal">None</span>, jac=<span class="literal">None</span>, hess=<span class="literal">None</span>, hessp=<span class="literal">None</span>, bounds=<span class="literal">None</span>, constraints=(), tol=<span class="literal">None</span>, callback=<span class="literal">None</span>, options=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>fun就是要去最小化的cost func，对cost func的要求是</p>
+<blockquote>
+<p>fun:callable</p>
+<p>The objective function to be minimized.</p>
+<p>fun(x, *args) -&gt; float</p>
+<p>where x is an 1-D array with shape (n,) and args is a tuple of the fixed parameters needed to completely specify the function.</p>
+</blockquote>
+<p>x0是初始化的参数，也就是常说的initial guess. Array of real elements of size (n,), where ‘n’ is the number of independent variables.</p>
+<p>method：该参数代表采用的方式，默认是<code>BFGS</code>, <code>L-BFGS-B</code>, <code>SLSQP</code>中的一种，可选<code>TNC</code>,</p>
+<p>jac是用来计算梯度的方法，这个大多数时候可以忽略，也就是雅各比矩阵</p>
+<p>options：用来控制最大的迭代次数，以字典的形式来进行设置，例如：options={‘maxiter’:400}</p>
+<blockquote>
+<p><strong>bounds</strong>sequence or <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a>, optional</p>
+<p>Bounds on variables for L-BFGS-B, TNC, SLSQP, Powell, and trust-constr methods. There are two ways to specify the bounds:</p>
+<blockquote>
+<ol type="1">
+<li>Instance of <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a> class.</li>
+<li>Sequence of <code>(min, max)</code> pairs for each element in <em>x</em>. None is used to specify no bound.</li>
+</ol>
+</blockquote>
+<p><strong>constraints</strong>{Constraint, dict} or List of {Constraint, dict}, optional</p>
+<p>Constraints definition (only for COBYLA, SLSQP and trust-constr).</p>
+<p>Constraints for ‘trust-constr’ are defined as a single object or a list of objects specifying constraints to the optimization problem. Available constraints are:</p>
+<blockquote>
+<ul>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.LinearConstraint.html#scipy.optimize.LinearConstraint"><code>LinearConstraint</code></a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.NonlinearConstraint.html#scipy.optimize.NonlinearConstraint"><code>NonlinearConstraint</code></a></li>
+</ul>
+</blockquote>
+</blockquote>
+<p>bounds主要是用来控制上下界，constraions则是通过变量间的关系来缩小范围</p>
+<blockquote>
+<p><strong>tol</strong>: float, optional</p>
+<p>Tolerance for termination. For detailed control, use solver-specific options.</p>
+</blockquote>
+<p>Tol 是最小迭代值，就是迭代停止的条件</p>
+<p>Here is the example of <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvUm9zZW5icm9ja19mdW5jdGlvbg==">Rosenbrock function<i class="fa fa-external-link-alt"></i></span> <span class="math display">\[
+f(x)=\sum_{i=1}^{N-1}100(x_{x+1}-x_i^2)+(1-x_i)^2
+\]</span></p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/2560px-Rosenbrock_function.svg.png" alt><figcaption>2560px-Rosenbrock_function.svg</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> minimize</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rosen</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;The Rosenbrock function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="number">100.0</span>*(x[<span class="number">1</span>:]-x[:-<span class="number">1</span>]**<span class="number">2.0</span>)**<span class="number">2.0</span> + (<span class="number">1</span>-x[:-<span class="number">1</span>])**<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line">x0 = np.array([<span class="number">1.3</span>, <span class="number">0.7</span>, <span class="number">0.8</span>, <span class="number">1.9</span>, <span class="number">1.2</span>])</span><br><span class="line">res = minimize(rosen, x0, method=<span class="string">&#x27;nelder-mead&#x27;</span>,</span><br><span class="line">               options=&#123;<span class="string">&#x27;xatol&#x27;</span>: <span class="number">1e-8</span>, <span class="string">&#x27;disp&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">Optimization terminated successfully.</span><br><span class="line">         Current function value: <span class="number">0.000000</span></span><br><span class="line">         Iterations: <span class="number">339</span></span><br><span class="line">         Function evaluations: <span class="number">571</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="built_in">print</span>(res.x)</span><br><span class="line">[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
+<p>More often, we need to use the boudnarrays or constrains. Here I show the boundary</p>
+<h1 id="least_square">Least_square</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.least_squares(fun, x0, jac=<span class="string">&#x27;2-point&#x27;</span>, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, ftol=<span class="number">1e-08</span>, xtol=<span class="number">1e-08</span>, gtol=<span class="number">1e-08</span>, x_scale=<span class="number">1.0</span>, loss=<span class="string">&#x27;linear&#x27;</span>, f_scale=<span class="number">1.0</span>, diff_step=<span class="literal">None</span>, tr_solver=<span class="literal">None</span>, tr_options=&#123;&#125;, jac_sparsity=<span class="literal">None</span>, max_nfev=<span class="literal">None</span>, verbose=<span class="number">0</span>, args=(), kwargs=&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个与上一个几乎一样</p>
+<h1 id="nnls">nnls</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.nnls(A, b, maxiter=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p>Solve <code>argmin_x || Ax - b ||_2</code> for <code>x&gt;=0</code>.</p>
+<p>Parameters</p>
+<ul>
+<li><p><strong>A </strong>ndarray</p>
+<p>Matrix <code>A</code> as shown above.</p></li>
+<li><p><strong>b </strong> ndarray</p>
+<p>Right-hand side vector.</p></li>
+<li><p><strong>maxiter: int, optional</strong></p>
+<p>Maximum number of iterations, optional. Default is <code>3 * A.shape[1]</code>.</p></li>
+</ul>
+<p>Returns</p>
+<ul>
+<li><p><strong>x </strong> ndarray</p>
+<p>Solution vector.</p></li>
+<li><p>**rnorm: float</p>
+<p>The residual, <code>|| Ax-b ||_2</code>.</p></li>
+</ul>
+<h1 id="lsq_linear">lsq_linear</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.lsq_linear(A, b, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, tol=<span class="number">1e-10</span>, lsq_solver=<span class="literal">None</span>, lsmr_tol=<span class="literal">None</span>, max_iter=<span class="literal">None</span>, verbose=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>Solve a linear least-squares problem with bounds on the variables.</p>
+<p>Given a m-by-n design matrix A and a target vector b with m elements, <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.lsq_linear.html#scipy.optimize.lsq_linear"><code>lsq_linear</code></a> solves the following optimization problem:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">minimize <span class="number">0.5</span> * ||A x - b||**<span class="number">2</span></span><br><span class="line">subject to lb &lt;= x &lt;= ub</span><br></pre></td></tr></table></figure>
+<h1 id="curve_fit">curve_fit</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.curve_fit(f, xdata, ydata, p0=<span class="literal">None</span>, sigma=<span class="literal">None</span>, absolute_sigma=<span class="literal">False</span>, check_finite=<span class="literal">True</span>, bounds=- inf, inf, method=<span class="literal">None</span>, jac=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
+<p>这个其实是最常用的一个函数</p>
+<p>需要注意 这里的f并不是cost func,而是model func，例如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f_1</span>(<span class="params">x, A, B</span>):</span><br><span class="line">    <span class="keyword">return</span> A * x + B</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>xdata array_like or object </strong>The independent variable where the data is measured. Should usually be an M-length sequence or an (k,M)-shaped array for functions with k predictors, but can actually be any object.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的自变量数组</li>
+<li><strong>ydata array_like </strong>The dependent data, a length M array - nominally<code>f(xdata,...)</code>.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的因变量的值</li>
+<li><strong>p0 array_like , optional</strong>Initial guess for the parameters (length N). If None, then the initial values will all be 1 (if the number of parameters for the function can be determined using introspection, otherwise a ValueError is raised).[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 就是给你的函数的参数确定一个初始值来减少计算机的计算量</li>
+<li>Method to use for optimization. See <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html#scipy.optimize.least_squares"><code>least_squares</code></a> for more details. Default is ‘lm’ for unconstrained problems and ‘trf’ if <em>bounds</em> are provided. The method ‘lm’ won’t work when the number of observations is less than the number of variables, use ‘trf’ or ‘dogbox’ in this case.</li>
+</ul>
+<p>这里放一下官方例子</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">x, a, b, c</span>):</span><br><span class="line">    <span class="keyword">return</span> a * np.exp(-b * x) + c</span><br></pre></td></tr></table></figure>
+<p>Define the data to be fit with some noise:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">xdata = np.linspace(<span class="number">0</span>, <span class="number">4</span>, <span class="number">50</span>)</span><br><span class="line">y = func(xdata, <span class="number">2.5</span>, <span class="number">1.3</span>, <span class="number">0.5</span>)</span><br><span class="line">np.random.seed(<span class="number">1729</span>)</span><br><span class="line">y_noise = <span class="number">0.2</span> * np.random.normal(size=xdata.size)</span><br><span class="line">ydata = y + y_noise</span><br><span class="line">plt.plot(xdata, ydata, <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;data&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>it for the parameters a, b, c of the function <em>func</em>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">popt, pcov = curve_fit(func, xdata, ydata)</span><br><span class="line">popt</span><br><span class="line"></span><br><span class="line">plt.plot(xdata, func(xdata, *popt), <span class="string">&#x27;r-&#x27;</span>,</span><br><span class="line">         label=<span class="string">&#x27;fit: a=%5.3f, b=%5.3f, c=%5.3f&#x27;</span> % <span class="built_in">tuple</span>(popt))</span><br></pre></td></tr></table></figure>
+<p>Constrain the optimization to the region of <code>0 &lt;= a &lt;= 3</code>, <code>0 &lt;= b &lt;= 1</code> and <code>0 &lt;= c &lt;= 0.5</code>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">popt, pcov = curve_fit(func, xdata, ydata, bounds=(<span class="number">0</span>, [<span class="number">3.</span>, <span class="number">1.</span>, <span class="number">0.5</span>]))</span><br><span class="line">popt</span><br><span class="line"></span><br><span class="line">plt.plot(xdata, func(xdata, *popt), <span class="string">&#x27;g--&#x27;</span>,</span><br><span class="line">         label=<span class="string">&#x27;fit: a=%5.3f, b=%5.3f, c=%5.3f&#x27;</span> % <span class="built_in">tuple</span>(popt))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/scipy-optimize-curve_fit-1.png" alt><figcaption>scipy-optimize-curve_fit-1</figcaption>
+</figure>
+<p>但是这里有个问题，如果我想固定a的值，或者我想得到一串的函数每个函数都有固定的a的值，该怎么办呢？</p>
+<p>这种时候其实就需要把a不视为变量，再次建立一个函数 把a传进去，例如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>利用lambda建立了小的匿名函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.optimize </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gaussian</span>(<span class="params">x, mu, sigma</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> / sigma / np.sqrt(<span class="number">2</span> * np.pi) * np.exp(-(x - mu)**<span class="number">2</span> / <span class="number">2</span> / sigma**<span class="number">2</span>)</span><br><span class="line"><span class="comment"># This is the original, full parameter gaussion function</span></span><br><span class="line"><span class="comment"># Create sample data</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">200</span>)</span><br><span class="line">y = gaussian(x, <span class="number">1</span>, <span class="number">0.1</span>) + np.random.rand(*x.shape) - <span class="number">0.5</span></span><br><span class="line">plt.plot(x, y, label=<span class="string">&quot;sample data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with original fit function</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(gaussian, x, y)</span><br><span class="line">plt.plot(x, gaussian(x, *popt), label=<span class="string">&quot;gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with custom fit function with fixed `sigma`</span></span><br><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br><span class="line"><span class="comment"># this is the customed gaussion function that we want to fuit</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(custom_gaussian, x, y)</span><br><span class="line">plt.plot(x, custom_gaussian(x, *popt), label=<span class="string">&quot;custom_gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/fiwXS.png" alt><figcaption>fiwXS</figcaption>
+</figure>
+<h1 id="numpy.linalg.lstsq">numpy.linalg.lstsq</h1>
+<p>这个是numpy自带的the least-squares solution to a linear matrix equation.</p>
+<p>这里需要回忆一下线性方程组的问题 $$ <span class="math display">\[\begin{equation}
+\left\{ 
+
+a_{1,1}x_1+a_{1,2}x_2+\cdots+a_{1,n}=b_1,\\
+a_{2,1}x_1+a_{2,2}x_2+\cdots+a_{1,n}=b_2, \\
+\vdots \\
+a_{m,1}x_1+a_{m,2}x_2+...+a_{m,n}=b_m,
+\right.
+\end{equation}\]</span> $$ 这个大括号的排版是不是有点问题</p>
+<p>其中的<span class="math inline">\({\displaystyle a_{1,1},\,a_{1,2}}\)</span>以及<span class="math inline">\({\displaystyle b_{1},\,b_{2}}\)</span>等等是已知的常数，而<span class="math inline">\({\displaystyle x_{1},\,x_{2}}\)</span>等等则是要求的未知数。</p>
+<p>如果用线性代数的概念来表达，线性方程组则可以写成 <span class="math display">\[
+Ax=b
+\]</span></p>
+<p><span class="math display">\[
+A=
+\begin{bmatrix}
+a_{1,1}&amp;\ a_{1,2}&amp;\ \cdots&amp;\ a_{1,n}\\
+a_{2,1}&amp;\ a_{2,2}&amp;\ \cdots&amp;\ a_{2,n}\\
+\vdots&amp;\ \vdots&amp;\ \ddots&amp;\ \vdots \\
+a_{m,1}&amp;\ a_{m,2}&amp;\ \cdots&amp;\ a_{m,n}
+\end{bmatrix}
+, 
+\
+x=
+\begin{bmatrix}
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_n
+\end{bmatrix}
+,
+b=
+\begin{bmatrix}
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_m
+\end{bmatrix}
+\]</span></p>
+<p>这里的<em>A</em>是<em>m</em>×<em>n</em> <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55+p6Zmj">矩阵<i class="fa fa-external-link-alt"></i></span>，<strong>x</strong>是含有<em>n</em>个元素<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5ZCR6YeP">列向量<i class="fa fa-external-link-alt"></i></span>，<strong>b</strong>是含有<em>m</em> 个元素列向量。</p>
+<p>如果有一组数<strong>x</strong>1、<strong>x</strong>2、……<strong>x</strong>n使得方程组的等号都成立，那么这组数就叫做方程组的解。一个线性方程组的所有的解的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv6ZuG5ZCI">集合<i class="fa fa-external-link-alt"></i></span>会被简称为<strong>解集</strong>。根据解的存在情况，线性方程组可以分为三类：</p>
+<ul>
+<li><p>有唯一解的恰定方程组，</p></li>
+<li><p>解不存在的超定方程组，</p></li>
+<li><p>有无穷多解的欠定方程组（也被通俗地称为不定方程组）。</p>
+<p>线性代数基本就是讲了怎判断有没有解和怎么求解这两件事</p>
+<p>想复习线性方程组可以看<span class="exturl" data-url="aHR0cHM6Ly9tYXRoLmZ1ZGFuLmVkdS5jbi9nZHN4L0pJQU9BTi8lRTclQkElQkYlRTYlODAlQTclRTYlOTYlQjklRTclQTglOEIlRTclQkIlODQucGRm">/Users/zhenjia/hexoblog/source/_posts/Scipy-optimize/线性方程组.pdf<i class="fa fa-external-link-alt"></i></span></p></li>
+</ul>
+<p>不严格地说，当m&gt;n的时候一般没有解，成为超定方程组，但是这种时候可以把问题转化为优化问题，即求一组x使得<span class="math inline">\(|Ax-b|^2\)</span>最小，这就是个最小二乘问题</p>
+<p>Parameters</p>
+<ul>
+<li><p><strong>a</strong>(M, N) array_like</p>
+<p>“Coefficient” matrix.</p></li>
+<li><p><strong>b</strong>{(M,), (M, K)} array_like</p>
+<p>Ordinate or “dependent variable” values. If <em>b</em> is two-dimensional, the least-squares solution is calculated for each of the <em>K</em> columns of <em>b</em>.</p></li>
+<li><p><strong>rcond</strong>float, optional</p>
+<p>Cut-off ratio for small singular values of <em>a</em>. For the purposes of rank determination, singular values are treated as zero if they are smaller than <em>rcond</em> times the largest singular value of <em>a</em>.<em>Changed in version 1.14.0:</em> If not set, a FutureWarning is given. The previous default of <code>-1</code> will use the machine precision as <em>rcond</em> parameter, the new default will use the machine precision times <em>max(M, N)</em>. To silence the warning and use the new default, use <code>rcond=None</code>, to keep using the old behavior, use <code>rcond=-1</code>.</p></li>
+</ul>
+<p>Returns</p>
+<ul>
+<li><p><strong>x</strong>{(N,), (N, K)} ndarray</p>
+<p>Least-squares solution. If <em>b</em> is two-dimensional, the solutions are in the <em>K</em> columns of <em>x</em>.</p></li>
+<li><p><strong>residuals</strong>{(1,), (K,), (0,)} ndarray</p>
+<p>Sums of residuals; squared Euclidean 2-norm for each column in <code>b - a*x</code>. If the rank of <em>a</em> is &lt; N or M &lt;= N, this is an empty array. If <em>b</em> is 1-dimensional, this is a (1,) shape array. Otherwise the shape is (K,).</p></li>
+<li><p><strong>rank</strong>int</p>
+<p>Rank of matrix <em>a</em>.</p></li>
+<li><p><strong>s</strong>(min(M, N),) ndarray</p>
+<p>Singular values of <em>a</em>.</p>
+<p>Examples fot <span class="math inline">\(y=mx+c\)</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y = np.array([-<span class="number">1</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">2.1</span>])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>By examining the coefficients, we see that the line should have a gradient of roughly 1 and cut the y-axis at, more or less, -1.</p>
+<p>We can rewrite the line equation as <code>y = Ap</code>, where <code>A = [[x 1]]</code> and <code>p = [[m], [c]]</code>. Now use <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq"><code>lstsq</code></a> to solve for <em>p</em>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.vstack([x, np.ones(<span class="built_in">len</span>(x))]).T</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">2.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">3.</span>,  <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m, c = np.linalg.lstsq(A, y, rcond=<span class="literal">None</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m, c</span><br><span class="line">(<span class="number">1.0</span> -<span class="number">0.95</span>) <span class="comment"># may vary</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>, markersize=<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, m*x + c, <span class="string">&#x27;r&#x27;</span>, label=<span class="string">&#x27;Fitted line&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.legend()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/numpy-linalg-lstsq-1.png" alt><figcaption>numpy-linalg-lstsq-1</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Research</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SeaDAS OCSSW及大气矫正 2022年使用指北</title>
     <url>/posts/182a5f48.html</url>
     <content><![CDATA[<p>最近越来越多小伙伴顺着<a href="https://lifeodyssey.github.io/posts/ce08f3a2.html">这个</a>来找到我，特此更新一篇。</p>
@@ -4802,211 +5010,65 @@ a_{ph}(\lambda)=a_{p}(\lambda)-a_{nap}(\lambda)
       </tags>
   </entry>
   <entry>
-    <title>Scipy optimize</title>
-    <url>/posts/7decea87.html</url>
-    <content><![CDATA[<p>主要是几个常用的</p>
-<p>minimize</p>
-<p>Least_square</p>
-<p>nnls</p>
-<p>Lsq_linear</p>
-<p>Curve_fit</p>
-<p>另外附带一个numpy.linalg.lstsq</p>
-<p>另外我发现了一个非常及乖的东西，一般都得x作为func的第一个参数才能拟合好</p>
-<span id="more"></span>
-<h1 id="minimize">minimize</h1>
-<p>这个主要是用来代替matlab中的fminunc</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.minimize(fun, x0, args=(), method=<span class="literal">None</span>, jac=<span class="literal">None</span>, hess=<span class="literal">None</span>, hessp=<span class="literal">None</span>, bounds=<span class="literal">None</span>, constraints=(), tol=<span class="literal">None</span>, callback=<span class="literal">None</span>, options=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p>fun就是要去最小化的cost func，对cost func的要求是</p>
-<blockquote>
-<p>fun:callable</p>
-<p>The objective function to be minimized.</p>
-<p>fun(x, *args) -&gt; float</p>
-<p>where x is an 1-D array with shape (n,) and args is a tuple of the fixed parameters needed to completely specify the function.</p>
-</blockquote>
-<p>x0是初始化的参数，也就是常说的initial guess. Array of real elements of size (n,), where ‘n’ is the number of independent variables.</p>
-<p>method：该参数代表采用的方式，默认是<code>BFGS</code>, <code>L-BFGS-B</code>, <code>SLSQP</code>中的一种，可选<code>TNC</code>,</p>
-<p>jac是用来计算梯度的方法，这个大多数时候可以忽略，也就是雅各比矩阵</p>
-<p>options：用来控制最大的迭代次数，以字典的形式来进行设置，例如：options={‘maxiter’:400}</p>
-<blockquote>
-<p><strong>bounds</strong>sequence or <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a>, optional</p>
-<p>Bounds on variables for L-BFGS-B, TNC, SLSQP, Powell, and trust-constr methods. There are two ways to specify the bounds:</p>
-<blockquote>
-<ol type="1">
-<li>Instance of <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.Bounds.html#scipy.optimize.Bounds"><code>Bounds</code></a> class.</li>
-<li>Sequence of <code>(min, max)</code> pairs for each element in <em>x</em>. None is used to specify no bound.</li>
-</ol>
-</blockquote>
-<p><strong>constraints</strong>{Constraint, dict} or List of {Constraint, dict}, optional</p>
-<p>Constraints definition (only for COBYLA, SLSQP and trust-constr).</p>
-<p>Constraints for ‘trust-constr’ are defined as a single object or a list of objects specifying constraints to the optimization problem. Available constraints are:</p>
-<blockquote>
-<ul>
-<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.LinearConstraint.html#scipy.optimize.LinearConstraint"><code>LinearConstraint</code></a></li>
-<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.NonlinearConstraint.html#scipy.optimize.NonlinearConstraint"><code>NonlinearConstraint</code></a></li>
-</ul>
-</blockquote>
-</blockquote>
-<p>bounds主要是用来控制上下界，constraions则是通过变量间的关系来缩小范围</p>
-<blockquote>
-<p><strong>tol</strong>: float, optional</p>
-<p>Tolerance for termination. For detailed control, use solver-specific options.</p>
-</blockquote>
-<p>Tol 是最小迭代值，就是迭代停止的条件</p>
-<p>Here is the example of <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvUm9zZW5icm9ja19mdW5jdGlvbg==">Rosenbrock function<i class="fa fa-external-link-alt"></i></span> <span class="math display">\[
-f(x)=\sum_{i=1}^{N-1}100(x_{x+1}-x_i^2)+(1-x_i)^2
-\]</span></p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/2560px-Rosenbrock_function.svg.png" alt><figcaption>2560px-Rosenbrock_function.svg</figcaption>
-</figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> minimize</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rosen</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;The Rosenbrock function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(<span class="number">100.0</span>*(x[<span class="number">1</span>:]-x[:-<span class="number">1</span>]**<span class="number">2.0</span>)**<span class="number">2.0</span> + (<span class="number">1</span>-x[:-<span class="number">1</span>])**<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line">x0 = np.array([<span class="number">1.3</span>, <span class="number">0.7</span>, <span class="number">0.8</span>, <span class="number">1.9</span>, <span class="number">1.2</span>])</span><br><span class="line">res = minimize(rosen, x0, method=<span class="string">&#x27;nelder-mead&#x27;</span>,</span><br><span class="line">               options=&#123;<span class="string">&#x27;xatol&#x27;</span>: <span class="number">1e-8</span>, <span class="string">&#x27;disp&#x27;</span>: <span class="literal">True</span>&#125;)</span><br><span class="line">Optimization terminated successfully.</span><br><span class="line">         Current function value: <span class="number">0.000000</span></span><br><span class="line">         Iterations: <span class="number">339</span></span><br><span class="line">         Function evaluations: <span class="number">571</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="built_in">print</span>(res.x)</span><br><span class="line">[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
-<p>More often, we need to use the boudnarrays or constrains. Here I show the boundary</p>
-<h1 id="least_square">Least_square</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.least_squares(fun, x0, jac=<span class="string">&#x27;2-point&#x27;</span>, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, ftol=<span class="number">1e-08</span>, xtol=<span class="number">1e-08</span>, gtol=<span class="number">1e-08</span>, x_scale=<span class="number">1.0</span>, loss=<span class="string">&#x27;linear&#x27;</span>, f_scale=<span class="number">1.0</span>, diff_step=<span class="literal">None</span>, tr_solver=<span class="literal">None</span>, tr_options=&#123;&#125;, jac_sparsity=<span class="literal">None</span>, max_nfev=<span class="literal">None</span>, verbose=<span class="number">0</span>, args=(), kwargs=&#123;&#125;)</span><br></pre></td></tr></table></figure>
-<p>这个与上一个几乎一样</p>
-<h1 id="nnls">nnls</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.nnls(A, b, maxiter=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p>Solve <code>argmin_x || Ax - b ||_2</code> for <code>x&gt;=0</code>.</p>
-<p>Parameters</p>
-<ul>
-<li><p><strong>A </strong>ndarray</p>
-<p>Matrix <code>A</code> as shown above.</p></li>
-<li><p><strong>b </strong> ndarray</p>
-<p>Right-hand side vector.</p></li>
-<li><p><strong>maxiter: int, optional</strong></p>
-<p>Maximum number of iterations, optional. Default is <code>3 * A.shape[1]</code>.</p></li>
-</ul>
-<p>Returns</p>
-<ul>
-<li><p><strong>x </strong> ndarray</p>
-<p>Solution vector.</p></li>
-<li><p>**rnorm: float</p>
-<p>The residual, <code>|| Ax-b ||_2</code>.</p></li>
-</ul>
-<h1 id="lsq_linear">lsq_linear</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.lsq_linear(A, b, bounds=- inf, inf, method=<span class="string">&#x27;trf&#x27;</span>, tol=<span class="number">1e-10</span>, lsq_solver=<span class="literal">None</span>, lsmr_tol=<span class="literal">None</span>, max_iter=<span class="literal">None</span>, verbose=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<p>Solve a linear least-squares problem with bounds on the variables.</p>
-<p>Given a m-by-n design matrix A and a target vector b with m elements, <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.lsq_linear.html#scipy.optimize.lsq_linear"><code>lsq_linear</code></a> solves the following optimization problem:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">minimize <span class="number">0.5</span> * ||A x - b||**<span class="number">2</span></span><br><span class="line">subject to lb &lt;= x &lt;= ub</span><br></pre></td></tr></table></figure>
-<h1 id="curve_fit">curve_fit</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scipy.optimize.curve_fit(f, xdata, ydata, p0=<span class="literal">None</span>, sigma=<span class="literal">None</span>, absolute_sigma=<span class="literal">False</span>, check_finite=<span class="literal">True</span>, bounds=- inf, inf, method=<span class="literal">None</span>, jac=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure>
-<p>这个其实是最常用的一个函数</p>
-<p>需要注意 这里的f并不是cost func,而是model func，例如</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f_1</span>(<span class="params">x, A, B</span>):</span><br><span class="line">    <span class="keyword">return</span> A * x + B</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>xdata array_like or object </strong>The independent variable where the data is measured. Should usually be an M-length sequence or an (k,M)-shaped array for functions with k predictors, but can actually be any object.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的自变量数组</li>
-<li><strong>ydata array_like </strong>The dependent data, a length M array - nominally<code>f(xdata,...)</code>.[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 简单说就是要拟合的因变量的值</li>
-<li><strong>p0 array_like , optional</strong>Initial guess for the parameters (length N). If None, then the initial values will all be 1 (if the number of parameters for the function can be determined using introspection, otherwise a ValueError is raised).[<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xNDQzNTMxMjYjcmVmXzE=">1]<i class="fa fa-external-link-alt"></i></span> 就是给你的函数的参数确定一个初始值来减少计算机的计算量</li>
-<li>Method to use for optimization. See <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html#scipy.optimize.least_squares"><code>least_squares</code></a> for more details. Default is ‘lm’ for unconstrained problems and ‘trf’ if <em>bounds</em> are provided. The method ‘lm’ won’t work when the number of observations is less than the number of variables, use ‘trf’ or ‘dogbox’ in this case.</li>
-</ul>
-<p>这里放一下官方例子</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">x, a, b, c</span>):</span><br><span class="line">    <span class="keyword">return</span> a * np.exp(-b * x) + c</span><br></pre></td></tr></table></figure>
-<p>Define the data to be fit with some noise:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">xdata = np.linspace(<span class="number">0</span>, <span class="number">4</span>, <span class="number">50</span>)</span><br><span class="line">y = func(xdata, <span class="number">2.5</span>, <span class="number">1.3</span>, <span class="number">0.5</span>)</span><br><span class="line">np.random.seed(<span class="number">1729</span>)</span><br><span class="line">y_noise = <span class="number">0.2</span> * np.random.normal(size=xdata.size)</span><br><span class="line">ydata = y + y_noise</span><br><span class="line">plt.plot(xdata, ydata, <span class="string">&#x27;b-&#x27;</span>, label=<span class="string">&#x27;data&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>it for the parameters a, b, c of the function <em>func</em>:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">popt, pcov = curve_fit(func, xdata, ydata)</span><br><span class="line">popt</span><br><span class="line"></span><br><span class="line">plt.plot(xdata, func(xdata, *popt), <span class="string">&#x27;r-&#x27;</span>,</span><br><span class="line">         label=<span class="string">&#x27;fit: a=%5.3f, b=%5.3f, c=%5.3f&#x27;</span> % <span class="built_in">tuple</span>(popt))</span><br></pre></td></tr></table></figure>
-<p>Constrain the optimization to the region of <code>0 &lt;= a &lt;= 3</code>, <code>0 &lt;= b &lt;= 1</code> and <code>0 &lt;= c &lt;= 0.5</code>:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">popt, pcov = curve_fit(func, xdata, ydata, bounds=(<span class="number">0</span>, [<span class="number">3.</span>, <span class="number">1.</span>, <span class="number">0.5</span>]))</span><br><span class="line">popt</span><br><span class="line"></span><br><span class="line">plt.plot(xdata, func(xdata, *popt), <span class="string">&#x27;g--&#x27;</span>,</span><br><span class="line">         label=<span class="string">&#x27;fit: a=%5.3f, b=%5.3f, c=%5.3f&#x27;</span> % <span class="built_in">tuple</span>(popt))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/scipy-optimize-curve_fit-1.png" alt><figcaption>scipy-optimize-curve_fit-1</figcaption>
-</figure>
-<p>但是这里有个问题，如果我想固定a的值，或者我想得到一串的函数每个函数都有固定的a的值，该怎么办呢？</p>
-<p>这种时候其实就需要把a不视为变量，再次建立一个函数 把a传进去，例如</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
-<p>利用lambda建立了小的匿名函数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.optimize </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gaussian</span>(<span class="params">x, mu, sigma</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> / sigma / np.sqrt(<span class="number">2</span> * np.pi) * np.exp(-(x - mu)**<span class="number">2</span> / <span class="number">2</span> / sigma**<span class="number">2</span>)</span><br><span class="line"><span class="comment"># This is the original, full parameter gaussion function</span></span><br><span class="line"><span class="comment"># Create sample data</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">200</span>)</span><br><span class="line">y = gaussian(x, <span class="number">1</span>, <span class="number">0.1</span>) + np.random.rand(*x.shape) - <span class="number">0.5</span></span><br><span class="line">plt.plot(x, y, label=<span class="string">&quot;sample data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with original fit function</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(gaussian, x, y)</span><br><span class="line">plt.plot(x, gaussian(x, *popt), label=<span class="string">&quot;gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fit with custom fit function with fixed `sigma`</span></span><br><span class="line">custom_gaussian = <span class="keyword">lambda</span> x, mu: gaussian(x, mu, <span class="number">0.05</span>)</span><br><span class="line"><span class="comment"># this is the customed gaussion function that we want to fuit</span></span><br><span class="line">popt, _ = scipy.optimize.curve_fit(custom_gaussian, x, y)</span><br><span class="line">plt.plot(x, custom_gaussian(x, *popt), label=<span class="string">&quot;custom_gaussian&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/fiwXS.png" alt><figcaption>fiwXS</figcaption>
-</figure>
-<h1 id="numpy.linalg.lstsq">numpy.linalg.lstsq</h1>
-<p>这个是numpy自带的the least-squares solution to a linear matrix equation.</p>
-<p>这里需要回忆一下线性方程组的问题 $$ <span class="math display">\[\begin{equation}
-\left\{ 
-
-a_{1,1}x_1+a_{1,2}x_2+\cdots+a_{1,n}=b_1,\\
-a_{2,1}x_1+a_{2,2}x_2+\cdots+a_{1,n}=b_2, \\
-\vdots \\
-a_{m,1}x_1+a_{m,2}x_2+...+a_{m,n}=b_m,
-\right.
-\end{equation}\]</span> $$ 这个大括号的排版是不是有点问题</p>
-<p>其中的<span class="math inline">\({\displaystyle a_{1,1},\,a_{1,2}}\)</span>以及<span class="math inline">\({\displaystyle b_{1},\,b_{2}}\)</span>等等是已知的常数，而<span class="math inline">\({\displaystyle x_{1},\,x_{2}}\)</span>等等则是要求的未知数。</p>
-<p>如果用线性代数的概念来表达，线性方程组则可以写成 <span class="math display">\[
-Ax=b
-\]</span></p>
-<p><span class="math display">\[
-A=
-\begin{bmatrix}
-a_{1,1}&amp;\ a_{1,2}&amp;\ \cdots&amp;\ a_{1,n}\\
-a_{2,1}&amp;\ a_{2,2}&amp;\ \cdots&amp;\ a_{2,n}\\
-\vdots&amp;\ \vdots&amp;\ \ddots&amp;\ \vdots \\
-a_{m,1}&amp;\ a_{m,2}&amp;\ \cdots&amp;\ a_{m,n}
-\end{bmatrix}
-, 
-\
-x=
-\begin{bmatrix}
-x_{1}\\
-x_{2}\\
-\vdots\\
-x_n
-\end{bmatrix}
-,
-b=
-\begin{bmatrix}
-b_{1}\\
-b_{2}\\
-\vdots\\
-b_m
-\end{bmatrix}
-\]</span></p>
-<p>这里的<em>A</em>是<em>m</em>×<em>n</em> <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55+p6Zmj">矩阵<i class="fa fa-external-link-alt"></i></span>，<strong>x</strong>是含有<em>n</em>个元素<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5ZCR6YeP">列向量<i class="fa fa-external-link-alt"></i></span>，<strong>b</strong>是含有<em>m</em> 个元素列向量。</p>
-<p>如果有一组数<strong>x</strong>1、<strong>x</strong>2、……<strong>x</strong>n使得方程组的等号都成立，那么这组数就叫做方程组的解。一个线性方程组的所有的解的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv6ZuG5ZCI">集合<i class="fa fa-external-link-alt"></i></span>会被简称为<strong>解集</strong>。根据解的存在情况，线性方程组可以分为三类：</p>
-<ul>
-<li><p>有唯一解的恰定方程组，</p></li>
-<li><p>解不存在的超定方程组，</p></li>
-<li><p>有无穷多解的欠定方程组（也被通俗地称为不定方程组）。</p>
-<p>线性代数基本就是讲了怎判断有没有解和怎么求解这两件事</p>
-<p>想复习线性方程组可以看<span class="exturl" data-url="aHR0cHM6Ly9tYXRoLmZ1ZGFuLmVkdS5jbi9nZHN4L0pJQU9BTi8lRTclQkElQkYlRTYlODAlQTclRTYlOTYlQjklRTclQTglOEIlRTclQkIlODQucGRm">/Users/zhenjia/hexoblog/source/_posts/Scipy-optimize/线性方程组.pdf<i class="fa fa-external-link-alt"></i></span></p></li>
-</ul>
-<p>不严格地说，当m&gt;n的时候一般没有解，成为超定方程组，但是这种时候可以把问题转化为优化问题，即求一组x使得<span class="math inline">\(|Ax-b|^2\)</span>最小，这就是个最小二乘问题</p>
-<p>Parameters</p>
-<ul>
-<li><p><strong>a</strong>(M, N) array_like</p>
-<p>“Coefficient” matrix.</p></li>
-<li><p><strong>b</strong>{(M,), (M, K)} array_like</p>
-<p>Ordinate or “dependent variable” values. If <em>b</em> is two-dimensional, the least-squares solution is calculated for each of the <em>K</em> columns of <em>b</em>.</p></li>
-<li><p><strong>rcond</strong>float, optional</p>
-<p>Cut-off ratio for small singular values of <em>a</em>. For the purposes of rank determination, singular values are treated as zero if they are smaller than <em>rcond</em> times the largest singular value of <em>a</em>.<em>Changed in version 1.14.0:</em> If not set, a FutureWarning is given. The previous default of <code>-1</code> will use the machine precision as <em>rcond</em> parameter, the new default will use the machine precision times <em>max(M, N)</em>. To silence the warning and use the new default, use <code>rcond=None</code>, to keep using the old behavior, use <code>rcond=-1</code>.</p></li>
-</ul>
-<p>Returns</p>
-<ul>
-<li><p><strong>x</strong>{(N,), (N, K)} ndarray</p>
-<p>Least-squares solution. If <em>b</em> is two-dimensional, the solutions are in the <em>K</em> columns of <em>x</em>.</p></li>
-<li><p><strong>residuals</strong>{(1,), (K,), (0,)} ndarray</p>
-<p>Sums of residuals; squared Euclidean 2-norm for each column in <code>b - a*x</code>. If the rank of <em>a</em> is &lt; N or M &lt;= N, this is an empty array. If <em>b</em> is 1-dimensional, this is a (1,) shape array. Otherwise the shape is (K,).</p></li>
-<li><p><strong>rank</strong>int</p>
-<p>Rank of matrix <em>a</em>.</p></li>
-<li><p><strong>s</strong>(min(M, N),) ndarray</p>
-<p>Singular values of <em>a</em>.</p>
-<p>Examples fot <span class="math inline">\(y=mx+c\)</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">y = np.array([-<span class="number">1</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">2.1</span>])</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>By examining the coefficients, we see that the line should have a gradient of roughly 1 and cut the y-axis at, more or less, -1.</p>
-<p>We can rewrite the line equation as <code>y = Ap</code>, where <code>A = [[x 1]]</code> and <code>p = [[m], [c]]</code>. Now use <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq"><code>lstsq</code></a> to solve for <em>p</em>:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = np.vstack([x, np.ones(<span class="built_in">len</span>(x))]).T</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A</span><br><span class="line">array([[ <span class="number">0.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">2.</span>,  <span class="number">1.</span>],</span><br><span class="line">       [ <span class="number">3.</span>,  <span class="number">1.</span>]])</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m, c = np.linalg.lstsq(A, y, rcond=<span class="literal">None</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m, c</span><br><span class="line">(<span class="number">1.0</span> -<span class="number">0.95</span>) <span class="comment"># may vary</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, y, <span class="string">&#x27;o&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>, markersize=<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.plot(x, m*x + c, <span class="string">&#x27;r&#x27;</span>, label=<span class="string">&#x27;Fitted line&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_ = plt.legend()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/numpy-linalg-lstsq-1.png" alt><figcaption>numpy-linalg-lstsq-1</figcaption>
-</figure>
+    <title>book reading note 4</title>
+    <url>/posts/5ab69b8e.html</url>
+    <content><![CDATA[<p>Chapter 10.1.-10.2 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
+<h1 id="introduction">Introduction</h1>
+<p>From this week we will start a new chapter, the oceans and global climate change: physical and biological aspects. Today I will talk about the introduction and physical part</p>
+<p>The physical aspects contains the greenhouse effect and climate change</p>
+<p>The oceans have a deep circulation, the thermohaline circulation. Water is heated in equatorial regions, and then moves poleward in major currents, giving off heat to the atmosphere. In subarctic regions cooling and ice formation cause water to become more dense. The water then sinks to form the “deep water.” This sinking is the beginning of a long journey close to the ocean floor. Some of the deep water travels south in the Atlantic basin, moves across to the Pacific basin, and there moves slowly northward in a journey that may take a thousand years.</p>
+<p>The exchange mechanism contains two part, the physical part is related to the thermohaline circulation. At the regions of deep-water formation large quantities of carbon dioxide dissolved in the water sink to great depth and are removed from contact with the atmosphere. Conversely, at regions of upwelling, especially the large upwellings at the tropical divergence, heating of the cold upwelled water causes it to give off billions of tons of carbon dioxide. The exchange amount of CO2 is approximately balanced in the physical mechanism. But some biological process could also remove cp2 from atmosphere to the deep ocean. Over 99% of the carbon dioxide added to the earth’s atmosphere throughout its history has been taken up by phytoplankton and sedimented to the sea floor to form the calcareous rocks and the fossil fuels. This biological mechanism is known as the biological pump.</p>
+<p>In the past 150 years, the co2 concentration in the atmosphere is absolutely rising, so here an important problem is that How much excess CO2 can be absorbed by ocean?</p>
+<p>In order to answer this question, this chapter will talk about the the mechanism of global warming and the present-day global carbon cycle first. Then explore the relative importance of oceanic sources and sinks compared with industrial activities and terrestrial biota. Finally, consider what changes might be expected to occur in physical and biological mechanisms for circulating carbon in the ocean if the expected rise in global atmospheric temperature occurs</p>
+<h1 id="physical-aspects">Physical aspects</h1>
+<h2 id="the-greenhouse-effect">The greenhouse effect</h2>
+<h3 id="the-process">The process</h3>
+<p>So here we come to our first part, about the physical aspects. First lets talk about the process of greenhouse effect.</p>
+<p>The average surface temperature of earth surface is about 15 Celsius degree. If there were no water vapor, carbon dioxide, or methane in the atmosphere, the surface temperature would be below freezing by ~18 °C and all the rivers, lakes, and oceans would be frozen solid. The reason for the higher, more habitable temperature is the fact that these greenhouse gases delay heat from leaving the earth by trapping it in the lower atmosphere.</p>
+<p>all the heat received on the earth comes originally from the sun’s surface via electromagnetic radiation with wavelengths between 0.2 and 2.4 Micrometre, often called the short-wave radiation. approximately 31% of this incoming radiation is reflected back into space, ~20% is absorbed by the ozone, water vapor, clouds, and dust in the atmosphere, and ~49% is absorbed by the land and water at the earth’s surface.</p>
+<p>All these absorbers in turn radiate heat in the form of electromagnetic radiation. The back radiation is at wavelengths between 5 and 100 Micrometre: long-wave radiation according to Planck’s radiation law. As I talked before, the radiation from the sun, the short-wave radiation, only 20% of them is absorbed by atmosphere. But here 90% long-wave radiation is absorbed by greenhouse gases inside atmosphere. The amount of heat trapped and the resulting temperature of the atmosphere clearly vary directly with the concentrations of these gases. If the gases are very concentrated, as on the planet Venus, the temperature is very high (+400 Celsius degree) and if they are low, as on Mars, the temperature is very low (−50 Celsius degree)</p>
+<p>The greenhouse gases in the atmosphere. ranged from naturally occurred to human-produced, are carbon dioxide, water vapor, methane,ozone, nitrous oxide, chlorofluorocarbon.</p>
+<p>The warming effect of each of these gases is different because their concentrations are different and because they absorb radiation with different efficiencies at different wavelengths. Under clear-sky conditions, Kiehl and Trenberth (1997) estimate that 60% of the warming effect is due to water vapor, 26% to carbon dioxide, 8% to ozone, and 6% to methane and nitrous oxide. The other gases, such as chlorofluorocarbons, contribute ~1% or less to the total warming effect. For life in the oceans, the most important element in these gases is the carbon (C) in the carbon dioxide (CO2).</p>
+<h3 id="the-carbon-cycle">The carbon cycle</h3>
+<p>Estimations of the magnitudes of the carbon reservoirs and fluxes in the global carbon cycle are constantly being updated. Here is an estimation conducted by Sarmiento and Gruber in 2002. The value here shows carbon flux. value without underline is pre-industrial value and with underline is anthropogenic value. In the atmosphere, for example, there were ~590 Petagram of carbon in the pre-industrial era but today the value is ~161 Petagram higher for an increase of ~30%.</p>
+<p>For the carbon between ocean and atmosphere, we can see that 90.6 Pg carbon come from ocean to the atmosphere while 91.9 Pg come back, which result in net increase in the ocean 1.3 Pg C y^-1</p>
+<p>When the co2 dissolve in the ocean, only 1% dissolved carbon retains CO2 structure that participate in the exchange with the atmosphere.</p>
+<p>The Dissolved Inorganic Cabon(DIC) is also called total CO2.Here are two examples of vertical distributions of total CO2. In the surface layer the total co2 is low and increase until 1000m, then stay roughly constant until the bottom. On obvious result is that higher concentration in the deeper water. Also evident in this figure is the greater concentration below 1000 m in the North Pacific than in the North Atlantic. Such difference is thought to reflect the greater length of time since the deep Pacific has been in contact with the atmosphere and thus the greater length of time it has had to accumulate carbon from sinking plant and animal detritus.</p>
+<h2 id="climate-change">Climate change</h2>
+<h3 id="carbon-dioxide">Carbon dioxide</h3>
+<p>The increasing greenhouse gases will absolutely increase the greenhouse effect. Here shows the atmosphere carbon dioxide concentration since 900. Before 1985, the concentration was obtained by analyzing air trapped in glaciers. And after 1985, the concentration was measured directly at Mauna Loa, Hawaii.</p>
+<p>We can see that from 900 to 2850, the concentration is about 280 Parts Per Million (ppm).In 2001, the concentration is about 37Parts Per Million, about 30% increase in 150 years. And this might be the highest concentration in the past 420 000 years.</p>
+<p>In the rising co2, about two thirds of them is anthropogenic co2 from burning of coal, oil and gas. Remaining thirds are from the release of co2 from deforestation.</p>
+<p>The co2 is responsible for about 60% percent of greenhouse effect since 1850, while methane and nitrous , trace gases takes the rest 40%.</p>
+<p>Such rising concentration give use two questions:</p>
+<p>What effects are these increases having on the world’s temperature, precipitation, sea level, ice cover, and biological processes?</p>
+<p>What about the future if the greenhouse effect continues to increase?</p>
+<p>These two question will be discussed later in this chapter.</p>
+<p>Here is another figure shows The annual flux of carbon dioxide into the atmosphere from fossil fuel emissions and the annual increase in carbon dioxide observed in the atmosphere, 1958–2000.</p>
+<p>One interesting thing is that about half the amount of CO2 estimated to have been put into the atmosphere by human activities.</p>
+<p>Before 1950, about 2.5 pg y-1 emission but only 1.5 increase. Recently about 7 emission but only 4 pg in the atmosphere. The missing part of emission is now known to be dissolving in the oceans or being incorporated into the terrestrial biomass</p>
+<p>For the missing part in the ocean, now it is possible to identify the source of co2 in the ocean , because the 13C/12C ratio is lower in fossil-fuel CO2. And they found that the anthropogenic co2 most are limited in Upper few hundred meters of the ocean. In the deep ocean, the anthropogenic co2 was only found in the deep North Atlantic, where the co2 was renewed by contacting with atmosphere</p>
+<p>Another interesting thing here, the peak of annual accumulation coincide with El Niño events. Here the red bar shows the time of ei nino events. The only one exception is 1992-3,minimum accumulation rate. which is the minimum accumulation rate. The exception might because Eruption of Mount Pinatubo in the early 1990s cooled the atmosphere.</p>
+<p>But the peak coincidence remain controversial. One possible reason is that the warmer water in the equatorial Pacific during El Niño events would lead to an increased flux of CO2 into the atmosphere. Observations however indicate the flux is probably decreased during El Niños in the equatorial region because of the decrease in upwelling along the equator of water with higher CO2 content.</p>
+<p>Another reason might be the response of terrestrial biosphere. But this is still poorly understood.</p>
+<h3 id="temperature">Temperature</h3>
+<p>Temperature is the key variable to monitor effect of greenhouse gases.</p>
+<p>Here this figure shows the Surface temperature of the earth, including land and marine data.</p>
+<p>we can see that the temperature fluctuated about a constant level between 1860 and 1910, and then rise 0.3℃ by 1940s, but it is still stable until 1970s. After 1970 the temperature increase quickly. 1998 is the warmest year. The Total increase in past 150 years is about 0.6 ± 0.2 °C.</p>
+<p>But the warming is not the same everywhere and in a few locations surface temperature actually decreased while other regions experienced strong increases.</p>
+<p>Also in this figure, the grey band shows temperature range by model simulation</p>
+<p>We can see that the model result have good agreement with past observed temperature. And base on the prediction of these model, the temperature will Increase from 1.5℃ to 5.5℃ over the next 100 years, in average is about 3.</p>
+<p>Here this figure shows a longer time series of surface temperature in the northern hemisphere. The time series was constructed from instrumental record(Jones et al., 2001) and proxy data from variation in tree rings, corals, and ice cores.</p>
+<p>We can see that 1000-1900: the temperature decrease about 0.02℃→earth’s orbit and rotation.</p>
+<p>But Over the past century, there have been significant temperature anomalies due to the growth of co2</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Research</tag>
-        <tag>python</tag>
+        <tag>Oceanography</tag>
+        <tag>Book Reading</tag>
+        <tag>Seminar</tag>
       </tags>
   </entry>
   <entry>
@@ -12402,68 +12464,6 @@ k\le (\frac{R}{\gamma})^2
       </categories>
       <tags>
         <tag>日常记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>book reading note 4</title>
-    <url>/posts/5ab69b8e.html</url>
-    <content><![CDATA[<p>Chapter 10.1.-10.2 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
-<h1 id="introduction">Introduction</h1>
-<p>From this week we will start a new chapter, the oceans and global climate change: physical and biological aspects. Today I will talk about the introduction and physical part</p>
-<p>The physical aspects contains the greenhouse effect and climate change</p>
-<p>The oceans have a deep circulation, the thermohaline circulation. Water is heated in equatorial regions, and then moves poleward in major currents, giving off heat to the atmosphere. In subarctic regions cooling and ice formation cause water to become more dense. The water then sinks to form the “deep water.” This sinking is the beginning of a long journey close to the ocean floor. Some of the deep water travels south in the Atlantic basin, moves across to the Pacific basin, and there moves slowly northward in a journey that may take a thousand years.</p>
-<p>The exchange mechanism contains two part, the physical part is related to the thermohaline circulation. At the regions of deep-water formation large quantities of carbon dioxide dissolved in the water sink to great depth and are removed from contact with the atmosphere. Conversely, at regions of upwelling, especially the large upwellings at the tropical divergence, heating of the cold upwelled water causes it to give off billions of tons of carbon dioxide. The exchange amount of CO2 is approximately balanced in the physical mechanism. But some biological process could also remove cp2 from atmosphere to the deep ocean. Over 99% of the carbon dioxide added to the earth’s atmosphere throughout its history has been taken up by phytoplankton and sedimented to the sea floor to form the calcareous rocks and the fossil fuels. This biological mechanism is known as the biological pump.</p>
-<p>In the past 150 years, the co2 concentration in the atmosphere is absolutely rising, so here an important problem is that How much excess CO2 can be absorbed by ocean?</p>
-<p>In order to answer this question, this chapter will talk about the the mechanism of global warming and the present-day global carbon cycle first. Then explore the relative importance of oceanic sources and sinks compared with industrial activities and terrestrial biota. Finally, consider what changes might be expected to occur in physical and biological mechanisms for circulating carbon in the ocean if the expected rise in global atmospheric temperature occurs</p>
-<h1 id="physical-aspects">Physical aspects</h1>
-<h2 id="the-greenhouse-effect">The greenhouse effect</h2>
-<h3 id="the-process">The process</h3>
-<p>So here we come to our first part, about the physical aspects. First lets talk about the process of greenhouse effect.</p>
-<p>The average surface temperature of earth surface is about 15 Celsius degree. If there were no water vapor, carbon dioxide, or methane in the atmosphere, the surface temperature would be below freezing by ~18 °C and all the rivers, lakes, and oceans would be frozen solid. The reason for the higher, more habitable temperature is the fact that these greenhouse gases delay heat from leaving the earth by trapping it in the lower atmosphere.</p>
-<p>all the heat received on the earth comes originally from the sun’s surface via electromagnetic radiation with wavelengths between 0.2 and 2.4 Micrometre, often called the short-wave radiation. approximately 31% of this incoming radiation is reflected back into space, ~20% is absorbed by the ozone, water vapor, clouds, and dust in the atmosphere, and ~49% is absorbed by the land and water at the earth’s surface.</p>
-<p>All these absorbers in turn radiate heat in the form of electromagnetic radiation. The back radiation is at wavelengths between 5 and 100 Micrometre: long-wave radiation according to Planck’s radiation law. As I talked before, the radiation from the sun, the short-wave radiation, only 20% of them is absorbed by atmosphere. But here 90% long-wave radiation is absorbed by greenhouse gases inside atmosphere. The amount of heat trapped and the resulting temperature of the atmosphere clearly vary directly with the concentrations of these gases. If the gases are very concentrated, as on the planet Venus, the temperature is very high (+400 Celsius degree) and if they are low, as on Mars, the temperature is very low (−50 Celsius degree)</p>
-<p>The greenhouse gases in the atmosphere. ranged from naturally occurred to human-produced, are carbon dioxide, water vapor, methane,ozone, nitrous oxide, chlorofluorocarbon.</p>
-<p>The warming effect of each of these gases is different because their concentrations are different and because they absorb radiation with different efficiencies at different wavelengths. Under clear-sky conditions, Kiehl and Trenberth (1997) estimate that 60% of the warming effect is due to water vapor, 26% to carbon dioxide, 8% to ozone, and 6% to methane and nitrous oxide. The other gases, such as chlorofluorocarbons, contribute ~1% or less to the total warming effect. For life in the oceans, the most important element in these gases is the carbon (C) in the carbon dioxide (CO2).</p>
-<h3 id="the-carbon-cycle">The carbon cycle</h3>
-<p>Estimations of the magnitudes of the carbon reservoirs and fluxes in the global carbon cycle are constantly being updated. Here is an estimation conducted by Sarmiento and Gruber in 2002. The value here shows carbon flux. value without underline is pre-industrial value and with underline is anthropogenic value. In the atmosphere, for example, there were ~590 Petagram of carbon in the pre-industrial era but today the value is ~161 Petagram higher for an increase of ~30%.</p>
-<p>For the carbon between ocean and atmosphere, we can see that 90.6 Pg carbon come from ocean to the atmosphere while 91.9 Pg come back, which result in net increase in the ocean 1.3 Pg C y^-1</p>
-<p>When the co2 dissolve in the ocean, only 1% dissolved carbon retains CO2 structure that participate in the exchange with the atmosphere.</p>
-<p>The Dissolved Inorganic Cabon(DIC) is also called total CO2.Here are two examples of vertical distributions of total CO2. In the surface layer the total co2 is low and increase until 1000m, then stay roughly constant until the bottom. On obvious result is that higher concentration in the deeper water. Also evident in this figure is the greater concentration below 1000 m in the North Pacific than in the North Atlantic. Such difference is thought to reflect the greater length of time since the deep Pacific has been in contact with the atmosphere and thus the greater length of time it has had to accumulate carbon from sinking plant and animal detritus.</p>
-<h2 id="climate-change">Climate change</h2>
-<h3 id="carbon-dioxide">Carbon dioxide</h3>
-<p>The increasing greenhouse gases will absolutely increase the greenhouse effect. Here shows the atmosphere carbon dioxide concentration since 900. Before 1985, the concentration was obtained by analyzing air trapped in glaciers. And after 1985, the concentration was measured directly at Mauna Loa, Hawaii.</p>
-<p>We can see that from 900 to 2850, the concentration is about 280 Parts Per Million (ppm).In 2001, the concentration is about 37Parts Per Million, about 30% increase in 150 years. And this might be the highest concentration in the past 420 000 years.</p>
-<p>In the rising co2, about two thirds of them is anthropogenic co2 from burning of coal, oil and gas. Remaining thirds are from the release of co2 from deforestation.</p>
-<p>The co2 is responsible for about 60% percent of greenhouse effect since 1850, while methane and nitrous , trace gases takes the rest 40%.</p>
-<p>Such rising concentration give use two questions:</p>
-<p>What effects are these increases having on the world’s temperature, precipitation, sea level, ice cover, and biological processes?</p>
-<p>What about the future if the greenhouse effect continues to increase?</p>
-<p>These two question will be discussed later in this chapter.</p>
-<p>Here is another figure shows The annual flux of carbon dioxide into the atmosphere from fossil fuel emissions and the annual increase in carbon dioxide observed in the atmosphere, 1958–2000.</p>
-<p>One interesting thing is that about half the amount of CO2 estimated to have been put into the atmosphere by human activities.</p>
-<p>Before 1950, about 2.5 pg y-1 emission but only 1.5 increase. Recently about 7 emission but only 4 pg in the atmosphere. The missing part of emission is now known to be dissolving in the oceans or being incorporated into the terrestrial biomass</p>
-<p>For the missing part in the ocean, now it is possible to identify the source of co2 in the ocean , because the 13C/12C ratio is lower in fossil-fuel CO2. And they found that the anthropogenic co2 most are limited in Upper few hundred meters of the ocean. In the deep ocean, the anthropogenic co2 was only found in the deep North Atlantic, where the co2 was renewed by contacting with atmosphere</p>
-<p>Another interesting thing here, the peak of annual accumulation coincide with El Niño events. Here the red bar shows the time of ei nino events. The only one exception is 1992-3,minimum accumulation rate. which is the minimum accumulation rate. The exception might because Eruption of Mount Pinatubo in the early 1990s cooled the atmosphere.</p>
-<p>But the peak coincidence remain controversial. One possible reason is that the warmer water in the equatorial Pacific during El Niño events would lead to an increased flux of CO2 into the atmosphere. Observations however indicate the flux is probably decreased during El Niños in the equatorial region because of the decrease in upwelling along the equator of water with higher CO2 content.</p>
-<p>Another reason might be the response of terrestrial biosphere. But this is still poorly understood.</p>
-<h3 id="temperature">Temperature</h3>
-<p>Temperature is the key variable to monitor effect of greenhouse gases.</p>
-<p>Here this figure shows the Surface temperature of the earth, including land and marine data.</p>
-<p>we can see that the temperature fluctuated about a constant level between 1860 and 1910, and then rise 0.3℃ by 1940s, but it is still stable until 1970s. After 1970 the temperature increase quickly. 1998 is the warmest year. The Total increase in past 150 years is about 0.6 ± 0.2 °C.</p>
-<p>But the warming is not the same everywhere and in a few locations surface temperature actually decreased while other regions experienced strong increases.</p>
-<p>Also in this figure, the grey band shows temperature range by model simulation</p>
-<p>We can see that the model result have good agreement with past observed temperature. And base on the prediction of these model, the temperature will Increase from 1.5℃ to 5.5℃ over the next 100 years, in average is about 3.</p>
-<p>Here this figure shows a longer time series of surface temperature in the northern hemisphere. The time series was constructed from instrumental record(Jones et al., 2001) and proxy data from variation in tree rings, corals, and ice cores.</p>
-<p>We can see that 1000-1900: the temperature decrease about 0.02℃→earth’s orbit and rotation.</p>
-<p>But Over the past century, there have been significant temperature anomalies due to the growth of co2</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Oceanography</tag>
-        <tag>Book Reading</tag>
-        <tag>Seminar</tag>
       </tags>
   </entry>
 </search>
