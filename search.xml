@@ -3410,6 +3410,88 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
       </tags>
   </entry>
   <entry>
+    <title>Ocean color Environment on Server</title>
+    <url>/posts/eff06e8d.html</url>
+    <content><![CDATA[<p>Python, SeaDAS&amp;OCSSW, SNAP</p>
+<span id="more"></span>
+<h1 id="python">Python</h1>
+<p>刚开始不小心在base上装了一些，可以删，尽量在pysoc里跑。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p miniconda</span><br><span class="line">$ <span class="built_in">cd</span> miniconda</span><br><span class="line">$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">$ bash Miniconda.... .sh</span><br><span class="line">$ conda create --name pysoc python=3.7</span><br><span class="line">$ conda activate pysoc</span><br><span class="line">$ conda install -c conda-forge py6s</span><br><span class="line">$ conda install seaborn</span><br><span class="line">$ conda install -c conda-forge xarray dask netCDF4 bottleneck</span><br><span class="line">$ conda install -c conda-forge cartopy</span><br><span class="line">$ conda install -c conda-forge pyresample</span><br><span class="line">$ conda install -c anaconda basemap</span><br><span class="line">$ conda install -c conda-forge basemap-data-hires</span><br><span class="line"><span class="variable">$conda</span> install opencv-python</span><br></pre></td></tr></table></figure>
+<p>装好之后有必要测试一下py6s</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>SixS.test()</span><br><span class="line">6S wrapper script by Robin Wilson</span><br><span class="line">Using 6S located at &lt;PATH_TO_SIXS_EXE&gt;</span><br><span class="line">Running 6S using a <span class="built_in">set</span> of test parameters</span><br><span class="line">The results are:</span><br><span class="line">Expected result: <span class="number">619.158000</span></span><br><span class="line">Actual result: <span class="number">619.158000</span></span><br><span class="line"><span class="comment">#### Results agree, Py6S is working correctly</span></span><br></pre></td></tr></table></figure>
+<p>这样的话就是正确的</p>
+<h2 id="jupyter">Jupyter</h2>
+<p>为了方便我自己写程序装了jupyter</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ conda install -c conda-forge nb_conda_kernels</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br></pre></td></tr></table></figure>
+<p>因为这个是在远程服务器 需要一定的配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jupyter lab --port=8888 --no-browser --allow-root</span><br></pre></td></tr></table></figure>
+<p>在自己电脑上</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -N -f -L 8880:localhost:8888 root@123435</span><br></pre></td></tr></table></figure>
+<p>最后在浏览器里把服务器那里显示的网址加上就行了</p>
+<p>记得让程序员大哥开防火墙</p>
+<h1 id="seadas">SeaDAS</h1>
+<h2 id="基础环境">基础环境</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install gcc</span><br><span class="line">$ sudo yum -y install git</span><br><span class="line">$ sudo yum -y install curl</span><br><span class="line">$ sudo yum -y install wget</span><br></pre></td></tr></table></figure>
+<p>因为是redhat， 没有apt-get。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y-repository ppa:webupd8team/java</span><br><span class="line">$ sudo yum -y update</span><br><span class="line">$ sudo yum -y install oracle-java8-installer</span><br><span class="line">$ sudo yum -y install oracle-java8-set-default</span><br><span class="line">$ java -version</span><br></pre></td></tr></table></figure>
+<p>显示</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java version <span class="string">&quot;1.8.0_311&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_311-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.311-b11, mixed mode)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://oceandata.sci.gsfc.nasa.gov/SeaDAS/installer/7.3.1/seadas_7.3_linux64_installer.sh</span><br><span class="line"></span><br><span class="line">$ bash seadas...sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这个是最后一个不需要装GUI的版本，怪不得看那么多论文一直都在用7.3.</p>
+<p>Where should SeaDAS be installed? [/opt/seadas-7.3]</p>
+<blockquote>
+<p>一个奇怪的地方</p>
+<p>我第一次发现linux的路径居然是这样的</p>
+<p>就是cd /进入的才是根目录</p>
+<p>这个目录是所有用户共享的目录</p>
+<p>而cd ~进入的是我自己的目录</p>
+<p>学习了</p>
+</blockquote>
+<h2 id="ocssw">OCSSW</h2>
+<p>最重要的部分</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$　wget https://oceandata.sci.gsfc.nasa.gov/ocssw/install_ocssw.py</span><br><span class="line">$ <span class="built_in">chmod</span> +x install_ocssw.py</span><br><span class="line">$ ./install_ocssw.py --install-dir=/root/SeaDAS/seadas-7.3/ocssw --aqua --seawifs --goci</span><br><span class="line">$ <span class="built_in">mv</span> /opt/seadas-7.3 ~/SeaDAS</span><br><span class="line">$ vim ~ .bashrc</span><br></pre></td></tr></table></figure>
+<p>输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SEADASPATH=/root/SeaDAS/seadas-7.3</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SEADASPATH</span>/bin</span><br></pre></td></tr></table></figure>
+<p>where: <code>[SeaDAS_install_dir]</code> is the directory where you installed SeaDAS.</p>
+<p>搞完之后保存就行</p>
+<p>到这之后我忽然发现我在OCSSW路径下找不到那几个装好的文件，搜了一下果然是给装到/而不是~，自己上面那个下载地方能改路径但是自己忘了改</p>
+<p>只能重新移动过来</p>
+<p>测试命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> .../OCSSW_bash.<span class="built_in">env</span></span><br><span class="line">$ <span class="built_in">which</span> l2gen</span><br></pre></td></tr></table></figure>
+<p>显示</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/root/SeaDAS/seadas-7.3/ocssw/bin/l2gen</span><br></pre></td></tr></table></figure>
+<p>就是搞定了</p>
+<p>然后加了个更全一点的东西放在bashrc里</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SEADASPATH=~/SeaDAS/seadas-7.3</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SEADASPATH</span>/bin</span><br><span class="line"><span class="built_in">export</span> PYTHON_PROGRAMS=/root/miniconda3/bin/python </span><br><span class="line"><span class="built_in">export</span> PYTHONPATH=<span class="variable">$PYTHONPATH</span>:<span class="variable">$PYTHON_PROGRAMS</span>:<span class="variable">$PYTHON_PROGRAMS</span>/utilities</span><br><span class="line"><span class="built_in">export</span> LOCAL_RESOURCES=<span class="variable">$PYTHON_PROGRAMS</span>/local_procesing_resources</span><br><span class="line"><span class="built_in">export</span> OCSSWROOT=<span class="variable">$SEADASPATH</span>/ocssw</span><br><span class="line"><span class="built_in">export</span> OCSSW_DEBUG=0 <span class="comment"># set to 1 for debugging</span></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$OCSSWROOT</span>/OCSSW_bash.<span class="built_in">env</span></span><br></pre></td></tr></table></figure>
+<h2 id="文件传输">文件传输</h2>
+<p>之前都是直接用Putty或者filezelia直接弄，问了下公司程序员说要用SCP</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp SourceFile user@server:directory/TargetFile</span><br></pre></td></tr></table></figure>
+<p>再传回来就是</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp user@server:directory/SourceFile TargetFile</span><br></pre></td></tr></table></figure>
+<h2 id="大气校正">大气校正</h2>
+<p>因为NASA数据格式的更新，和之前的那个脚本稍微有些不一样</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Example script to process L1A files up to L2, put in same directory as </span></span><br><span class="line"><span class="comment"># your L1A files</span></span><br><span class="line"><span class="comment"># Run script by typing on Terminal Command Line: </span></span><br><span class="line"><span class="comment"># bash l1a_to_l2.sh input.txt</span></span><br><span class="line"><span class="comment"># input.txt contains list of files [ create by: ls -1 *L1A_LAC* &gt; input.txt ]</span></span><br><span class="line"></span><br><span class="line">LIST=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$LIST</span>&quot;</span> ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;No input file list supplied&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! -a <span class="variable">$LIST</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$LIST</span> does not exist!&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="keyword">done</span></span><br><span class="line"><span class="built_in">mkdir</span> -p l2_lac</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> FILE <span class="keyword">in</span> $(<span class="built_in">cat</span> <span class="variable">$LIST</span>);</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Working on <span class="variable">$FILE</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">    <span class="comment"># get file basename (no file extension)</span></span><br><span class="line">    BASE=`<span class="built_in">basename</span> <span class="variable">$FILE</span> .L1A_LAC`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;BASE&#125;</span></span><br><span class="line">    GEOFILE=<span class="variable">$&#123;BASE&#125;</span>.GEO</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;GEOFILE&#125;</span></span><br><span class="line">    L1BFILE=<span class="variable">$&#123;BASE&#125;</span>.L1B_LAC</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L1BFILE&#125;</span></span><br><span class="line">    L2FILE=<span class="variable">$&#123;BASE&#125;</span>.L2_LAC.x.hdf</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L2FILE&#125;</span></span><br><span class="line">    ancfile=<span class="variable">$&#123;BASE&#125;</span>.L1A_LAC.x.hdf.anc</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating GEOFILE <span class="variable">$GEOFILE</span>&quot;</span></span><br><span class="line">    modis_GEO.py -v <span class="variable">$FILE</span> -o <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating L1B file&quot;</span></span><br><span class="line">    modis_L1B.py -v <span class="variable">$FILE</span> <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating anc file&quot;</span></span><br><span class="line">    getanc.py -v <span class="variable">$FILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Create L2 file&quot;</span></span><br><span class="line">    l2gen ifile=<span class="variable">$L1BFILE</span> geofile=<span class="variable">$GEOFILE</span> ofile=<span class="variable">$L2FILE</span> par=<span class="variable">$ancfile</span> l2prod=<span class="string">&quot;Kd_490 Rrs_nnn angstrom aot_869 chlor_a ipar nLw_nnn nflh par pic poc rhos_nnn&quot;</span> aer_opt=-2</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Cleaning up&quot;</span></span><br><span class="line">    <span class="built_in">rm</span> -v <span class="variable">$&#123;BASE&#125;</span>.L1B* <span class="variable">$GEOFILE</span> <span class="variable">$ancfile</span></span><br><span class="line">    <span class="comment">#mv -v $FILE done/</span></span><br><span class="line">    <span class="built_in">mv</span> -v <span class="variable">$L2FILE</span> l2_lac/</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="车了个又翻">车了个又翻</h3>
+<p>跑了个测试数据之后发现跑不出来</p>
+<p>只能重装</p>
+<p>然后这个网吧 又不稳定</p>
+<figure>
+<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211209155834683.png" alt><figcaption>image-20211209155834683</figcaption>
+</figure>
+<p>经典404</p>
+<p>查了查发现是他们官网维护</p>
+<p>##　车了个再翻回来</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bzip2 -d *.bz2</span><br><span class="line">$ <span class="built_in">ls</span> -1 *L1A_LAC* &gt; input.txt</span><br><span class="line">$ bash l1_to_l2.sh inupt.txt</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Ocean Color</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Passion &amp; Motivation</title>
     <url>/posts/49d62bf8.html</url>
     <content><![CDATA[<blockquote>
@@ -5555,88 +5637,6 @@ tags: [标签1,标签2,标签3]
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ocean color Environment on Server</title>
-    <url>/posts/eff06e8d.html</url>
-    <content><![CDATA[<p>Python, SeaDAS&amp;OCSSW, SNAP</p>
-<span id="more"></span>
-<h1 id="python">Python</h1>
-<p>刚开始不小心在base上装了一些，可以删，尽量在pysoc里跑。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p miniconda</span><br><span class="line">$ <span class="built_in">cd</span> miniconda</span><br><span class="line">$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">$ bash Miniconda.... .sh</span><br><span class="line">$ conda create --name pysoc python=3.7</span><br><span class="line">$ conda activate pysoc</span><br><span class="line">$ conda install -c conda-forge py6s</span><br><span class="line">$ conda install seaborn</span><br><span class="line">$ conda install -c conda-forge xarray dask netCDF4 bottleneck</span><br><span class="line">$ conda install -c conda-forge cartopy</span><br><span class="line">$ conda install -c conda-forge pyresample</span><br><span class="line">$ conda install -c anaconda basemap</span><br><span class="line">$ conda install -c conda-forge basemap-data-hires</span><br><span class="line"><span class="variable">$conda</span> install opencv-python</span><br></pre></td></tr></table></figure>
-<p>装好之后有必要测试一下py6s</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>SixS.test()</span><br><span class="line">6S wrapper script by Robin Wilson</span><br><span class="line">Using 6S located at &lt;PATH_TO_SIXS_EXE&gt;</span><br><span class="line">Running 6S using a <span class="built_in">set</span> of test parameters</span><br><span class="line">The results are:</span><br><span class="line">Expected result: <span class="number">619.158000</span></span><br><span class="line">Actual result: <span class="number">619.158000</span></span><br><span class="line"><span class="comment">#### Results agree, Py6S is working correctly</span></span><br></pre></td></tr></table></figure>
-<p>这样的话就是正确的</p>
-<h2 id="jupyter">Jupyter</h2>
-<p>为了方便我自己写程序装了jupyter</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pip install jupyterlab</span><br><span class="line">$ conda install -c conda-forge nodejs</span><br><span class="line">$ conda install -c conda-forge python-lsp-server r-languageserver</span><br><span class="line">$ jupyter labextension install @jupyterlab/toc</span><br><span class="line">$ conda install -c conda-forge jupyterlab-drawio</span><br><span class="line">$ pip install jupyterlab_latex</span><br><span class="line">$ pip install lckr-jupyterlab-variableinspector</span><br><span class="line">$ conda install -c conda-forge jupyterlab_execute_time</span><br><span class="line">$ conda install -c conda-forge nb_conda_kernels</span><br><span class="line">$ jupyter lab build</span><br><span class="line">$ jupyter labextension <span class="built_in">enable</span> all</span><br></pre></td></tr></table></figure>
-<p>因为这个是在远程服务器 需要一定的配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ jupyter lab --port=8888 --no-browser --allow-root</span><br></pre></td></tr></table></figure>
-<p>在自己电脑上</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -N -f -L 8880:localhost:8888 root@123435</span><br></pre></td></tr></table></figure>
-<p>最后在浏览器里把服务器那里显示的网址加上就行了</p>
-<p>记得让程序员大哥开防火墙</p>
-<h1 id="seadas">SeaDAS</h1>
-<h2 id="基础环境">基础环境</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y install gcc</span><br><span class="line">$ sudo yum -y install git</span><br><span class="line">$ sudo yum -y install curl</span><br><span class="line">$ sudo yum -y install wget</span><br></pre></td></tr></table></figure>
-<p>因为是redhat， 没有apt-get。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum -y-repository ppa:webupd8team/java</span><br><span class="line">$ sudo yum -y update</span><br><span class="line">$ sudo yum -y install oracle-java8-installer</span><br><span class="line">$ sudo yum -y install oracle-java8-set-default</span><br><span class="line">$ java -version</span><br></pre></td></tr></table></figure>
-<p>显示</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java version <span class="string">&quot;1.8.0_311&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_311-b11)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.311-b11, mixed mode)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ wget https://oceandata.sci.gsfc.nasa.gov/SeaDAS/installer/7.3.1/seadas_7.3_linux64_installer.sh</span><br><span class="line"></span><br><span class="line">$ bash seadas...sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这个是最后一个不需要装GUI的版本，怪不得看那么多论文一直都在用7.3.</p>
-<p>Where should SeaDAS be installed? [/opt/seadas-7.3]</p>
-<blockquote>
-<p>一个奇怪的地方</p>
-<p>我第一次发现linux的路径居然是这样的</p>
-<p>就是cd /进入的才是根目录</p>
-<p>这个目录是所有用户共享的目录</p>
-<p>而cd ~进入的是我自己的目录</p>
-<p>学习了</p>
-</blockquote>
-<h2 id="ocssw">OCSSW</h2>
-<p>最重要的部分</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$　wget https://oceandata.sci.gsfc.nasa.gov/ocssw/install_ocssw.py</span><br><span class="line">$ <span class="built_in">chmod</span> +x install_ocssw.py</span><br><span class="line">$ ./install_ocssw.py --install-dir=/root/SeaDAS/seadas-7.3/ocssw --aqua --seawifs --goci</span><br><span class="line">$ <span class="built_in">mv</span> /opt/seadas-7.3 ~/SeaDAS</span><br><span class="line">$ vim ~ .bashrc</span><br></pre></td></tr></table></figure>
-<p>输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SEADASPATH=/root/SeaDAS/seadas-7.3</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SEADASPATH</span>/bin</span><br></pre></td></tr></table></figure>
-<p>where: <code>[SeaDAS_install_dir]</code> is the directory where you installed SeaDAS.</p>
-<p>搞完之后保存就行</p>
-<p>到这之后我忽然发现我在OCSSW路径下找不到那几个装好的文件，搜了一下果然是给装到/而不是~，自己上面那个下载地方能改路径但是自己忘了改</p>
-<p>只能重新移动过来</p>
-<p>测试命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">source</span> .../OCSSW_bash.<span class="built_in">env</span></span><br><span class="line">$ <span class="built_in">which</span> l2gen</span><br></pre></td></tr></table></figure>
-<p>显示</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/root/SeaDAS/seadas-7.3/ocssw/bin/l2gen</span><br></pre></td></tr></table></figure>
-<p>就是搞定了</p>
-<p>然后加了个更全一点的东西放在bashrc里</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> SEADASPATH=~/SeaDAS/seadas-7.3</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$SEADASPATH</span>/bin</span><br><span class="line"><span class="built_in">export</span> PYTHON_PROGRAMS=/root/miniconda3/bin/python </span><br><span class="line"><span class="built_in">export</span> PYTHONPATH=<span class="variable">$PYTHONPATH</span>:<span class="variable">$PYTHON_PROGRAMS</span>:<span class="variable">$PYTHON_PROGRAMS</span>/utilities</span><br><span class="line"><span class="built_in">export</span> LOCAL_RESOURCES=<span class="variable">$PYTHON_PROGRAMS</span>/local_procesing_resources</span><br><span class="line"><span class="built_in">export</span> OCSSWROOT=<span class="variable">$SEADASPATH</span>/ocssw</span><br><span class="line"><span class="built_in">export</span> OCSSW_DEBUG=0 <span class="comment"># set to 1 for debugging</span></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$OCSSWROOT</span>/OCSSW_bash.<span class="built_in">env</span></span><br></pre></td></tr></table></figure>
-<h2 id="文件传输">文件传输</h2>
-<p>之前都是直接用Putty或者filezelia直接弄，问了下公司程序员说要用SCP</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp SourceFile user@server:directory/TargetFile</span><br></pre></td></tr></table></figure>
-<p>再传回来就是</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ scp user@server:directory/SourceFile TargetFile</span><br></pre></td></tr></table></figure>
-<h2 id="大气校正">大气校正</h2>
-<p>因为NASA数据格式的更新，和之前的那个脚本稍微有些不一样</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Example script to process L1A files up to L2, put in same directory as </span></span><br><span class="line"><span class="comment"># your L1A files</span></span><br><span class="line"><span class="comment"># Run script by typing on Terminal Command Line: </span></span><br><span class="line"><span class="comment"># bash l1a_to_l2.sh input.txt</span></span><br><span class="line"><span class="comment"># input.txt contains list of files [ create by: ls -1 *L1A_LAC* &gt; input.txt ]</span></span><br><span class="line"></span><br><span class="line">LIST=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$LIST</span>&quot;</span> ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;No input file list supplied&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! -a <span class="variable">$LIST</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$LIST</span> does not exist!&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="keyword">done</span></span><br><span class="line"><span class="built_in">mkdir</span> -p l2_lac</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> FILE <span class="keyword">in</span> $(<span class="built_in">cat</span> <span class="variable">$LIST</span>);</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Working on <span class="variable">$FILE</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">    <span class="comment"># get file basename (no file extension)</span></span><br><span class="line">    BASE=`<span class="built_in">basename</span> <span class="variable">$FILE</span> .L1A_LAC`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;BASE&#125;</span></span><br><span class="line">    GEOFILE=<span class="variable">$&#123;BASE&#125;</span>.GEO</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;GEOFILE&#125;</span></span><br><span class="line">    L1BFILE=<span class="variable">$&#123;BASE&#125;</span>.L1B_LAC</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L1BFILE&#125;</span></span><br><span class="line">    L2FILE=<span class="variable">$&#123;BASE&#125;</span>.L2_LAC.x.hdf</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L2FILE&#125;</span></span><br><span class="line">    ancfile=<span class="variable">$&#123;BASE&#125;</span>.L1A_LAC.x.hdf.anc</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating GEOFILE <span class="variable">$GEOFILE</span>&quot;</span></span><br><span class="line">    modis_GEO.py -v <span class="variable">$FILE</span> -o <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating L1B file&quot;</span></span><br><span class="line">    modis_L1B.py -v <span class="variable">$FILE</span> <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating anc file&quot;</span></span><br><span class="line">    getanc.py -v <span class="variable">$FILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Create L2 file&quot;</span></span><br><span class="line">    l2gen ifile=<span class="variable">$L1BFILE</span> geofile=<span class="variable">$GEOFILE</span> ofile=<span class="variable">$L2FILE</span> par=<span class="variable">$ancfile</span> l2prod=<span class="string">&quot;Kd_490 Rrs_nnn angstrom aot_869 chlor_a ipar nLw_nnn nflh par pic poc rhos_nnn&quot;</span> aer_opt=-2</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Cleaning up&quot;</span></span><br><span class="line">    <span class="built_in">rm</span> -v <span class="variable">$&#123;BASE&#125;</span>.L1B* <span class="variable">$GEOFILE</span> <span class="variable">$ancfile</span></span><br><span class="line">    <span class="comment">#mv -v $FILE done/</span></span><br><span class="line">    <span class="built_in">mv</span> -v <span class="variable">$L2FILE</span> l2_lac/</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="车了个又翻">车了个又翻</h3>
-<p>跑了个测试数据之后发现跑不出来</p>
-<p>只能重装</p>
-<p>然后这个网吧 又不稳定</p>
-<figure>
-<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211209155834683.png" alt><figcaption>image-20211209155834683</figcaption>
-</figure>
-<p>经典404</p>
-<p>查了查发现是他们官网维护</p>
-<p>##　车了个再翻回来</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bzip2 -d *.bz2</span><br><span class="line">$ <span class="built_in">ls</span> -1 *L1A_LAC* &gt; input.txt</span><br><span class="line">$ bash l1_to_l2.sh inupt.txt</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Ocean Color</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -8871,12 +8871,6 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/posts/0.html</url>
-    <content><![CDATA[
-]]></content>
-  </entry>
-  <entry>
     <title>二周目</title>
     <url>/posts/a41520c0.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -11481,6 +11475,60 @@ k\le (\frac{R}{\gamma})^2
       </tags>
   </entry>
   <entry>
+    <title>树莓派nas-nextcloudpi</title>
+    <url>/posts/d7f3beca.html</url>
+    <content><![CDATA[<p>今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。</p>
+<p>我对于树莓派应该会有以下的几个需求</p>
+<ul>
+<li>NAS 用来存放相机和手机的照片，方便P图整理备份</li>
+<li>自动下载电影和番剧</li>
+<li>电子图书馆</li>
+<li>homekit</li>
+</ul>
+<p>这里先写第一个，希望能赶紧解决吧哈哈</p>
+<span id="more"></span>
+<h1 id="系统烧录与设置">系统烧录与设置</h1>
+<p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
+<p>不过注意这个只是一个还没测试过的版本，具体有啥坑俺也不知道</p>
+<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/ 除此之外参考的文档在这https://nextcloudpi-documentation.readthedocs.io/en/latest/</p>
+<p>安装完之后只有命令行。</p>
+<p>用lsb_release -a看了下 是Debian GNU/Linux 11(bullseye)</p>
+<p>ip address show看了下ip</p>
+<p>sudo service ssh start 启动ssh服务</p>
+<p>输入 sudo ncp-config 并在提示更新时选择是。 在下一个菜单中，选择 CONFIG 并使用向下箭头滚动到列表底部。 在这里，选择 nc-webui，然后删除 no 并输入 yes。 按 Enter，然后按任意键。 选择 Back and Finish 退出配置工具。</p>
+<p>除此之外为了方便我用ssh 我在network里还开启了config，这里需要 ssh-keyscan -t rsa server_ip　</p>
+<p>在另一台计算机上的网络浏览器中，输入地址 https://[您的 Pi 的 IP 地址]:4443</p>
+<p>如果您看到您的连接不私密或不安全的警告，请选择忽略它（通过在 Chrome 或 Firefox 中选择高级）并继续访问该站点。</p>
+<p>系统会提示您登录。默认用户名是 ncp，密码是 ownyourbits。</p>
+<p>NextCloudPi 激活屏幕显示两个密码，您需要将其复制并粘贴到文档中以安全保存。 第一个是 NextCloudPi Web 面板的密码，可让您配置服务器设置。 第二个是 Nextcloud Web 界面本身。 如果需要，您可以稍后更改这些密码。</p>
+<p>记下这些密码后，选择激活。 几秒钟后，系统将提示您登录 NextCloudPi 网络面板。 在这里可以对nextcloudpi进行一些设置 点击右上角一个魔法棒可以很方便的进行修改。</p>
+<p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp 和您记下的第二个密码登录。</p>
+<p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4 云服务器！</p>
+<h1 id="修改pi设置">修改pi设置</h1>
+<p>这一步甚至简单到不需要命令行。</p>
+<p>fdisk -l看了眼硬盘</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png" alt><figcaption>image-20220706113025038</figcaption>
+</figure>
+<p>https://support.huaweicloud.com/evs_faq/evs_faq_0022.html</p>
+<p>nc-automount</p>
+<p>https://zhuanlan.zhihu.com/p/258913077</p>
+<p>https://oscarcx.com/tech/raspberrypi-nas.html</p>
+<p>https://cloud.tencent.com/developer/article/1857115</p>
+<p>https://blog.csdn.net/qq_35566365/article/details/122536163</p>
+<p>https://cloud-atlas.readthedocs.io/zh_CN/latest/arm/raspberry_pi/startup/pi_os.html</p>
+<p>https://www.openmediavault.org/</p>
+]]></content>
+      <categories>
+        <category>自己动手</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+        <tag>NAS</tag>
+        <tag>摄影处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>樱花和桂花</title>
     <url>/posts/6fbb792.html</url>
     <content><![CDATA[<p>临走之前对日本这两年的一些总结。</p>
@@ -11738,60 +11786,6 @@ k\le (\frac{R}{\gamma})^2
       <tags>
         <tag>总结</tag>
         <tag>随便写写</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>树莓派nas-nextcloudpi</title>
-    <url>/posts/d7f3beca.html</url>
-    <content><![CDATA[<p>今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。</p>
-<p>我对于树莓派应该会有以下的几个需求</p>
-<ul>
-<li>NAS 用来存放相机和手机的照片，方便P图整理备份</li>
-<li>自动下载电影和番剧</li>
-<li>电子图书馆</li>
-<li>homekit</li>
-</ul>
-<p>这里先写第一个，希望能赶紧解决吧哈哈</p>
-<span id="more"></span>
-<h1 id="系统烧录与设置">系统烧录与设置</h1>
-<p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
-<p>不过注意这个只是一个还没测试过的版本，具体有啥坑俺也不知道</p>
-<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/ 除此之外参考的文档在这https://nextcloudpi-documentation.readthedocs.io/en/latest/</p>
-<p>安装完之后只有命令行。</p>
-<p>用lsb_release -a看了下 是Debian GNU/Linux 11(bullseye)</p>
-<p>ip address show看了下ip</p>
-<p>sudo service ssh start 启动ssh服务</p>
-<p>输入 sudo ncp-config 并在提示更新时选择是。 在下一个菜单中，选择 CONFIG 并使用向下箭头滚动到列表底部。 在这里，选择 nc-webui，然后删除 no 并输入 yes。 按 Enter，然后按任意键。 选择 Back and Finish 退出配置工具。</p>
-<p>除此之外为了方便我用ssh 我在network里还开启了config，这里需要 ssh-keyscan -t rsa server_ip　</p>
-<p>在另一台计算机上的网络浏览器中，输入地址 https://[您的 Pi 的 IP 地址]:4443</p>
-<p>如果您看到您的连接不私密或不安全的警告，请选择忽略它（通过在 Chrome 或 Firefox 中选择高级）并继续访问该站点。</p>
-<p>系统会提示您登录。默认用户名是 ncp，密码是 ownyourbits。</p>
-<p>NextCloudPi 激活屏幕显示两个密码，您需要将其复制并粘贴到文档中以安全保存。 第一个是 NextCloudPi Web 面板的密码，可让您配置服务器设置。 第二个是 Nextcloud Web 界面本身。 如果需要，您可以稍后更改这些密码。</p>
-<p>记下这些密码后，选择激活。 几秒钟后，系统将提示您登录 NextCloudPi 网络面板。 在这里可以对nextcloudpi进行一些设置 点击右上角一个魔法棒可以很方便的进行修改。</p>
-<p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp 和您记下的第二个密码登录。</p>
-<p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4 云服务器！</p>
-<h1 id="修改pi设置">修改pi设置</h1>
-<p>这一步甚至简单到不需要命令行。</p>
-<p>fdisk -l看了眼硬盘</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png" alt><figcaption>image-20220706113025038</figcaption>
-</figure>
-<p>https://support.huaweicloud.com/evs_faq/evs_faq_0022.html</p>
-<p>nc-automount</p>
-<p>https://zhuanlan.zhihu.com/p/258913077</p>
-<p>https://oscarcx.com/tech/raspberrypi-nas.html</p>
-<p>https://cloud.tencent.com/developer/article/1857115</p>
-<p>https://blog.csdn.net/qq_35566365/article/details/122536163</p>
-<p>https://cloud-atlas.readthedocs.io/zh_CN/latest/arm/raspberry_pi/startup/pi_os.html</p>
-<p>https://www.openmediavault.org/</p>
-]]></content>
-      <categories>
-        <category>自己动手</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-        <tag>NAS</tag>
-        <tag>摄影处理</tag>
       </tags>
   </entry>
   <entry>
