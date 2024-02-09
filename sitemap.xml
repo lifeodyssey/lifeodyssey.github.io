@@ -2,69 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/726664aa.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/2c9001a2.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/bc9381.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/d7f3beca.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/6fbb792.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/6c4d8823.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/307feb93.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lifeodyssey.github.io/posts/bcb6c0dc.html</loc>
     
     <lastmod>2024-02-09</lastmod>
@@ -192,42 +129,6 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/tags/index.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/c17fab82.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/3593fd75.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/3a8fa843.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/361a6d0d.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -380,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/947599bf.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/726664aa.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -389,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/ed08fed2.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/2c9001a2.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -398,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/20963e2f.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/bc9381.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -407,7 +308,34 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/7f1ae6d2.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/d7f3beca.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/6fbb792.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/6c4d8823.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/307feb93.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -776,6 +704,42 @@
   </url>
   
   <url>
+    <loc>https://lifeodyssey.github.io/posts/c17fab82.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/3593fd75.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/3a8fa843.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/361a6d0d.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lifeodyssey.github.io/posts/182a5f48.html</loc>
     
     <lastmod>2024-02-09</lastmod>
@@ -938,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/ce08f3a2.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/947599bf.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -947,7 +911,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/8bb8e4ec.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/ed08fed2.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -956,7 +920,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/b6e8cccb.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/20963e2f.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -965,52 +929,7 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/fbd0b1b0.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/4dfc84d2.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/3da0aceb.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/f36cc8b7.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/b58cbef5.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/eff06e8d.html</loc>
+    <loc>https://lifeodyssey.github.io/posts/7f1ae6d2.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -1173,6 +1092,87 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/posts/8636bca2.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/ce08f3a2.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/8bb8e4ec.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/b6e8cccb.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/fbd0b1b0.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/4dfc84d2.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/3da0aceb.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/f36cc8b7.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/b58cbef5.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/eff06e8d.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
@@ -1370,24 +1370,6 @@
   </url>
   
   <url>
-    <loc>https://lifeodyssey.github.io/posts/94a46e7b.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lifeodyssey.github.io/posts/61b56df3.html</loc>
-    
-    <lastmod>2024-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lifeodyssey.github.io/posts/a23e5172.html</loc>
     
     <lastmod>2024-02-09</lastmod>
@@ -1425,6 +1407,24 @@
   
   <url>
     <loc>https://lifeodyssey.github.io/posts/3d8d27aa.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/94a46e7b.html</loc>
+    
+    <lastmod>2024-02-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lifeodyssey.github.io/posts/61b56df3.html</loc>
     
     <lastmod>2024-02-09</lastmod>
     
