@@ -5072,89 +5072,6 @@ a_{ph}(\lambda)=a_{p}(\lambda)-a_{nap}(\lambda)
       </tags>
   </entry>
   <entry>
-    <title>book-reading-note2</title>
-    <url>/posts/44f3f721.html</url>
-    <content><![CDATA[<p>Chapter 7.1-7.2.4 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
-<h1 id="tides-tidal-mixing-and-internal-waves">Tides, tidal mixing, and internal waves</h1>
-<h2 id="introduction">Introduction</h2>
-<p>This chapter focus on the tides, tidal mixing and internal waves and today I will talk from the introduction to the physics of tidal currents.</p>
-<p>Tides are created by the gravitational pull of the moon and the sun. The changing water level leads to interesting patterns of intertidal organisms( place a figure of intertidal zone ) but it is not the emphases of this chapter.</p>
-<p>Besides the intertidal zone, the tides also generate currents in the water that interact with the bottom to produce turbulence. And if the currents are sufficiently strong, the turbulence could prevent any stratification , thus the wholes area may be permanently tidally mixed. There are some researches shows that a great number of stocks only live in such strong tidal mixing area. In this chapter we will explore the possible significance of this observation.</p>
-<p>And if the tidal mixing is not so strong, the water column becomes stratified, the interaction of the tidal currents with the bottom topography could lead to the formation of internal waves. Internal waves could cause vertical mixing and redistribution of nutrients, which is important effects on phytoplankton production. Some times as the internal wave decays, they produce solitary waves and bores,which could have a strong influence of on the distribution of zooplankton and larval fishes.</p>
-<p>Around the shallow bank, the interaction between tidal currents and bottom topography could generate unidirectional currents that form gyres. The combination of tidally mixed water over the top of a bank and a gyre around its periphery is thought to provide conditions particularly suitable for the eggs and larvae of fish. In this chapter we shall explore some of these interesting consequences of tidally induced water movement.</p>
-<p>(Needs some more figures and references to tell the story)</p>
-<h2 id="the-physics-of-tides">The physics of tides</h2>
-<h3 id="tide-generating-forces-and-the-equilibrium-tide.">Tide-generating forces and the equilibrium tide.</h3>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200207160250.png"></p>
-<p>First part is the physics of tides. Lets start from the most simple occasion. Here the earth and the moon are seen from above the north pole of the earth</p>
-<ol type="1">
-<li>The water on the earth only receive the gravitational pull of the moon, remove the sun and the centripetal force from earth.</li>
-<li>The earth and moon are assumed to be stationary except for the earth’s rotation.</li>
-<li>The earth doesn’t have continents and is covered with a uniform layer of water.</li>
-<li>Without the Coriolis force and friction force.</li>
-</ol>
-<p>Our observer is located in O. It is clear that the , the highest tide will always under the moon and the lowest tide will be on the opposite side to the moon as a result of gravitational pull of moon and centripetal force from earth. With the earth rotate, our observer will see one high tide and one low tide a day.</p>
-<p>This elementary model could produce a tide but it is not a very good model because most places on the earth usually have two high and two low tides during the day.</p>
-<p>One thing that need to consider is the rotation of the earth moon pair, about 29.5 day once. Because the earth’s mass is roughly 80 times that of the moon the common center of rotation is inside the earth about 1600 km below the surface along a line from the moon to the earth. The the common center of rotation is inside the earth about 1600 km below the surface along a line from the moon to the earth. And in order to make the earth and moon rotate around the center of mass, both of them will receive a centripetal force from the center of mass. This force is supplied by the gravity between earth and moon. But for us, the earth is stationary, that mean we choose our earth as reference system. So in order to make our earth stationary, we need add a fictitious force or inertial force. As a result, the water in our earth now receive two force, one is the gravity from moon, another is inertial force which backwards the center of mass.</p>
-<p>Therefore, the shape of water on our earth likes a rugby.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200207212741.png"></p>
-<p>And this bulge is called tide bulge.</p>
-<p>This model could help us describe two things. One is that we can observe two high tides and two low tides every day. Another is that why the tides do not occur at the same time every day. The earth and moon rotate around one another in a lunar month that is roughly 29.5 days. As our observer at O rotates through exactly one day back to O the moon has moved about 12° further around in its orbit to the position marked “tomorrow”.The high tide that is under the moon will still be under the moon tomorrow, but it will be observed later in the observer’s day.. Since the earth spins on its axis at about 4 minutes per degree the tides will appear about 50 minutes later each day.</p>
-<p>The next refinement is. If we observe both from the side, not the pole, moon is not directly over the equator. The moon can be found at various angles to the north and south of the equator up to a maximum of 35° depending on the season and the time of the lunar month. So the tide bulge is no longer on the equator. No our observer in O could observe two high tide and two low tides every day. But the high tides are unequal height, as are the low tides. This difference is called the diurnal (daily) inequality.</p>
-<p>This model only consider the effect of moon,without continents Coriolis force and friction force. Such tide is called equilibrium tide and this theory is called The Equilibrium Theory of Tides or “static” theory of tides.</p>
-<p>It cannot predict It cannot predict the tide at any particular location but it does explain some of the main features of the tide such as</p>
-<ol type="1">
-<li>diurnal variation</li>
-<li>diurnal inequality in the height</li>
-<li>daily delay</li>
-</ol>
-<p>The next improvement of equilibrium theory of tide is considering the effects of the earth-sun system on top of the effects of the earth–moon system.</p>
-<p>The mass of the sun is 27 × 106 times the mass of the moon but its distance from the earth is 400 times that of the moon. Because of this great distance, the gravitational attraction on a particle of water on the earth due to the sun is about one-half that due to the moon. So we can construct diagrams like those shown in Figs. 7.03 and 7.04 for the tide due to the sun, but the height of the tide will be only half that due to the moon. The important effect of the tide due to the sun arises because its tidal bulge moves relative to the moon’s tidal bulge through- out the lunar month.</p>
-<p>When the two tidal bulges coincide they add together to create the extra high tides called the spring tides. When the tidal bulges are opposed their effects tend to cancel one another, creating the neap tides. Thus, the equilibrium tide model can also qualitatively explain the fortnightly inequality in addition to the other effects.</p>
-<h3 id="tides-in-the-real-ocean">Tides in the real ocean</h3>
-<p>The next development of tide theory is dynamic theory of tide. It considered the continents, topography, Coriolis force and friction force, etc.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208170201.png"></p>
-<p>This is the <strong>Laplace's tidal equations</strong>. But it is hard to solve. For prediction, one solution is that we can decompose the tide. We can think the real tide in our ocean is composed by a lot of tide constituents . Each tide constituents induced by each an imaginary planets. There are three main categories of constituents (Pond and Pickard 1983):</p>
-<ol type="1">
-<li>semi-diurnal, period about 12 hours</li>
-<li>diurnal, period about 24 hours</li>
-<li>long period, greater than 24 hours.</li>
-</ol>
-<p>The four most important constituents are:</p>
-<ol type="1">
-<li>The lunar semi-diurnal ,M2, Period=12.42h</li>
-<li>The solar semi-diurnal, S2, Period=12.00h</li>
-<li>The lunisolar diurnal, K1, Period=23.93h</li>
-<li>The principal lunar diurnal, O1, period=25.82h</li>
-</ol>
-<p>The M2 constituent is roughly twice the amplitude of the other three.</p>
-<p>In different location around the word, the relative importance of constituents is quite different. So we have different patterns of tides. The four main classifications of the form of the tides are illustrated in the next figure.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208172014.png"></p>
-<p>The first one has two high tides and two low tides every day and Both the highs are about the same height and both the lows are about the same height. Such a tide is called a semi-diurnal in form because there are two per day and both are about the same height.In this case the semi-diurnal constituents dominate the diurnal ones. This fact is often quantified with the ratio F = (K1+O1)/(M2 + S2 ), where each letter stands for the amplitude of the constituent. If F is small (0.11), as in the upper record, the sum of the amplitudes of the diurnal constituents (K1+O1 ) is small relative to the sum of the semi-diurnal ones (M2+S2 ).</p>
-<p>The four records in Fig. 7.05 show a marked decrease from top to bottom in the amplitude of the semi-diurnal tidal oscillation relative to the diurnal oscillation, which is confirmed by the increase in F from 0.11 to ~19. At San Francisco there are always two tides per day but they are usually of unequal amplitude. At Manila there are two tides per day during the neap tides but only one rise and fall per day during spring tides. At Do-Son there is only one rise and fall of the tide per day throughout the month, which is a purely diurnal form of tidal oscillation. This occurrence is the rarest form of tide. The changing form of the tide between locations is due partly to the shape of the ocean basin in which the tidal wave is contained and partly to the latitude (Hendershott 1981).</p>
-<h3 id="moving-the-tidal-bulge-over-the-earth-kelvin-waves">Moving the tidal bulge over the earth: Kelvin waves</h3>
-<p>The former one is more focus on the coast, if we focus on a more large scale, the water depth is almost the same and the friction from the topography could be ignored. More idealized, if we assume the coast line is straight, we could get One solution of former dynamic tide equation set is that the velocity of tide is</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208202646.png"></p>
-<p>here g is Gravitational acceleration and k is the depth of the water. and the Kelvin wave is a reasonable approximation for tidal waves in the vicinity of a straight coastline.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208204932.png"></p>
-<p>And here the Coriolis force is an important feature of the motion.</p>
-<p>. The effect of the Coriolis force is to push the water to the right in the northern hemisphere</p>
-<p>The Coriolis effect causes the amplitude of the wave to increase toward the shore and leads to the expression that the wave is “trapped” against the shore. Such a trapped Kelvin wave causes the water particles to move back and forth parallel to the coast as the wave goes by</p>
-<p>The horizontal scale of the wave, or the approximate distance from the coast to where the sea level is undisturbed by the wave, is estimated by the Rossby radius.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208205203.png"></p>
-<p>For the Kelvin wave in Fig. 7.06 we put g = 10 m s−2 , h = 4000 m, and f= 10−4 s−1 to get Re = 2000 km. This value is commonly called the external Rossby radius, or deformation scale</p>
-<h3 id="tidal-currents">Tidal currents</h3>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Oceanography</tag>
-        <tag>Book Reading</tag>
-        <tag>Seminar</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>book reading note 1</title>
     <url>/posts/2adc6f01.html</url>
     <content><![CDATA[<p>Chapter 5.4-5.5 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
@@ -5306,6 +5223,89 @@ a_{ph}(\lambda)=a_{p}(\lambda)-a_{nap}(\lambda)
       </tags>
   </entry>
   <entry>
+    <title>book-reading-note2</title>
+    <url>/posts/44f3f721.html</url>
+    <content><![CDATA[<p>Chapter 7.1-7.2.4 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
+<h1 id="tides-tidal-mixing-and-internal-waves">Tides, tidal mixing, and internal waves</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This chapter focus on the tides, tidal mixing and internal waves and today I will talk from the introduction to the physics of tidal currents.</p>
+<p>Tides are created by the gravitational pull of the moon and the sun. The changing water level leads to interesting patterns of intertidal organisms( place a figure of intertidal zone ) but it is not the emphases of this chapter.</p>
+<p>Besides the intertidal zone, the tides also generate currents in the water that interact with the bottom to produce turbulence. And if the currents are sufficiently strong, the turbulence could prevent any stratification , thus the wholes area may be permanently tidally mixed. There are some researches shows that a great number of stocks only live in such strong tidal mixing area. In this chapter we will explore the possible significance of this observation.</p>
+<p>And if the tidal mixing is not so strong, the water column becomes stratified, the interaction of the tidal currents with the bottom topography could lead to the formation of internal waves. Internal waves could cause vertical mixing and redistribution of nutrients, which is important effects on phytoplankton production. Some times as the internal wave decays, they produce solitary waves and bores,which could have a strong influence of on the distribution of zooplankton and larval fishes.</p>
+<p>Around the shallow bank, the interaction between tidal currents and bottom topography could generate unidirectional currents that form gyres. The combination of tidally mixed water over the top of a bank and a gyre around its periphery is thought to provide conditions particularly suitable for the eggs and larvae of fish. In this chapter we shall explore some of these interesting consequences of tidally induced water movement.</p>
+<p>(Needs some more figures and references to tell the story)</p>
+<h2 id="the-physics-of-tides">The physics of tides</h2>
+<h3 id="tide-generating-forces-and-the-equilibrium-tide.">Tide-generating forces and the equilibrium tide.</h3>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200207160250.png"></p>
+<p>First part is the physics of tides. Lets start from the most simple occasion. Here the earth and the moon are seen from above the north pole of the earth</p>
+<ol type="1">
+<li>The water on the earth only receive the gravitational pull of the moon, remove the sun and the centripetal force from earth.</li>
+<li>The earth and moon are assumed to be stationary except for the earth’s rotation.</li>
+<li>The earth doesn’t have continents and is covered with a uniform layer of water.</li>
+<li>Without the Coriolis force and friction force.</li>
+</ol>
+<p>Our observer is located in O. It is clear that the , the highest tide will always under the moon and the lowest tide will be on the opposite side to the moon as a result of gravitational pull of moon and centripetal force from earth. With the earth rotate, our observer will see one high tide and one low tide a day.</p>
+<p>This elementary model could produce a tide but it is not a very good model because most places on the earth usually have two high and two low tides during the day.</p>
+<p>One thing that need to consider is the rotation of the earth moon pair, about 29.5 day once. Because the earth’s mass is roughly 80 times that of the moon the common center of rotation is inside the earth about 1600 km below the surface along a line from the moon to the earth. The the common center of rotation is inside the earth about 1600 km below the surface along a line from the moon to the earth. And in order to make the earth and moon rotate around the center of mass, both of them will receive a centripetal force from the center of mass. This force is supplied by the gravity between earth and moon. But for us, the earth is stationary, that mean we choose our earth as reference system. So in order to make our earth stationary, we need add a fictitious force or inertial force. As a result, the water in our earth now receive two force, one is the gravity from moon, another is inertial force which backwards the center of mass.</p>
+<p>Therefore, the shape of water on our earth likes a rugby.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200207212741.png"></p>
+<p>And this bulge is called tide bulge.</p>
+<p>This model could help us describe two things. One is that we can observe two high tides and two low tides every day. Another is that why the tides do not occur at the same time every day. The earth and moon rotate around one another in a lunar month that is roughly 29.5 days. As our observer at O rotates through exactly one day back to O the moon has moved about 12° further around in its orbit to the position marked “tomorrow”.The high tide that is under the moon will still be under the moon tomorrow, but it will be observed later in the observer’s day.. Since the earth spins on its axis at about 4 minutes per degree the tides will appear about 50 minutes later each day.</p>
+<p>The next refinement is. If we observe both from the side, not the pole, moon is not directly over the equator. The moon can be found at various angles to the north and south of the equator up to a maximum of 35° depending on the season and the time of the lunar month. So the tide bulge is no longer on the equator. No our observer in O could observe two high tide and two low tides every day. But the high tides are unequal height, as are the low tides. This difference is called the diurnal (daily) inequality.</p>
+<p>This model only consider the effect of moon,without continents Coriolis force and friction force. Such tide is called equilibrium tide and this theory is called The Equilibrium Theory of Tides or “static” theory of tides.</p>
+<p>It cannot predict It cannot predict the tide at any particular location but it does explain some of the main features of the tide such as</p>
+<ol type="1">
+<li>diurnal variation</li>
+<li>diurnal inequality in the height</li>
+<li>daily delay</li>
+</ol>
+<p>The next improvement of equilibrium theory of tide is considering the effects of the earth-sun system on top of the effects of the earth–moon system.</p>
+<p>The mass of the sun is 27 × 106 times the mass of the moon but its distance from the earth is 400 times that of the moon. Because of this great distance, the gravitational attraction on a particle of water on the earth due to the sun is about one-half that due to the moon. So we can construct diagrams like those shown in Figs. 7.03 and 7.04 for the tide due to the sun, but the height of the tide will be only half that due to the moon. The important effect of the tide due to the sun arises because its tidal bulge moves relative to the moon’s tidal bulge through- out the lunar month.</p>
+<p>When the two tidal bulges coincide they add together to create the extra high tides called the spring tides. When the tidal bulges are opposed their effects tend to cancel one another, creating the neap tides. Thus, the equilibrium tide model can also qualitatively explain the fortnightly inequality in addition to the other effects.</p>
+<h3 id="tides-in-the-real-ocean">Tides in the real ocean</h3>
+<p>The next development of tide theory is dynamic theory of tide. It considered the continents, topography, Coriolis force and friction force, etc.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208170201.png"></p>
+<p>This is the <strong>Laplace's tidal equations</strong>. But it is hard to solve. For prediction, one solution is that we can decompose the tide. We can think the real tide in our ocean is composed by a lot of tide constituents . Each tide constituents induced by each an imaginary planets. There are three main categories of constituents (Pond and Pickard 1983):</p>
+<ol type="1">
+<li>semi-diurnal, period about 12 hours</li>
+<li>diurnal, period about 24 hours</li>
+<li>long period, greater than 24 hours.</li>
+</ol>
+<p>The four most important constituents are:</p>
+<ol type="1">
+<li>The lunar semi-diurnal ,M2, Period=12.42h</li>
+<li>The solar semi-diurnal, S2, Period=12.00h</li>
+<li>The lunisolar diurnal, K1, Period=23.93h</li>
+<li>The principal lunar diurnal, O1, period=25.82h</li>
+</ol>
+<p>The M2 constituent is roughly twice the amplitude of the other three.</p>
+<p>In different location around the word, the relative importance of constituents is quite different. So we have different patterns of tides. The four main classifications of the form of the tides are illustrated in the next figure.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208172014.png"></p>
+<p>The first one has two high tides and two low tides every day and Both the highs are about the same height and both the lows are about the same height. Such a tide is called a semi-diurnal in form because there are two per day and both are about the same height.In this case the semi-diurnal constituents dominate the diurnal ones. This fact is often quantified with the ratio F = (K1+O1)/(M2 + S2 ), where each letter stands for the amplitude of the constituent. If F is small (0.11), as in the upper record, the sum of the amplitudes of the diurnal constituents (K1+O1 ) is small relative to the sum of the semi-diurnal ones (M2+S2 ).</p>
+<p>The four records in Fig. 7.05 show a marked decrease from top to bottom in the amplitude of the semi-diurnal tidal oscillation relative to the diurnal oscillation, which is confirmed by the increase in F from 0.11 to ~19. At San Francisco there are always two tides per day but they are usually of unequal amplitude. At Manila there are two tides per day during the neap tides but only one rise and fall per day during spring tides. At Do-Son there is only one rise and fall of the tide per day throughout the month, which is a purely diurnal form of tidal oscillation. This occurrence is the rarest form of tide. The changing form of the tide between locations is due partly to the shape of the ocean basin in which the tidal wave is contained and partly to the latitude (Hendershott 1981).</p>
+<h3 id="moving-the-tidal-bulge-over-the-earth-kelvin-waves">Moving the tidal bulge over the earth: Kelvin waves</h3>
+<p>The former one is more focus on the coast, if we focus on a more large scale, the water depth is almost the same and the friction from the topography could be ignored. More idealized, if we assume the coast line is straight, we could get One solution of former dynamic tide equation set is that the velocity of tide is</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208202646.png"></p>
+<p>here g is Gravitational acceleration and k is the depth of the water. and the Kelvin wave is a reasonable approximation for tidal waves in the vicinity of a straight coastline.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208204932.png"></p>
+<p>And here the Coriolis force is an important feature of the motion.</p>
+<p>. The effect of the Coriolis force is to push the water to the right in the northern hemisphere</p>
+<p>The Coriolis effect causes the amplitude of the wave to increase toward the shore and leads to the expression that the wave is “trapped” against the shore. Such a trapped Kelvin wave causes the water particles to move back and forth parallel to the coast as the wave goes by</p>
+<p>The horizontal scale of the wave, or the approximate distance from the coast to where the sea level is undisturbed by the wave, is estimated by the Rossby radius.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20200208205203.png"></p>
+<p>For the Kelvin wave in Fig. 7.06 we put g = 10 m s−2 , h = 4000 m, and f= 10−4 s−1 to get Re = 2000 km. This value is commonly called the external Rossby radius, or deformation scale</p>
+<h3 id="tidal-currents">Tidal currents</h3>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Oceanography</tag>
+        <tag>Book Reading</tag>
+        <tag>Seminar</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>book-reading-note3</title>
     <url>/posts/33f4c7b7.html</url>
     <content><![CDATA[<p>Chapter 8.3.2.-8.4.4 of book 《Dynamics of Marine Ecosystems: Biological-Physical Interactions in the Oceans》 <span id="more"></span></p>
@@ -5414,28 +5414,6 @@ a_{ph}(\lambda)=a_{p}(\lambda)-a_{nap}(\lambda)
       </tags>
   </entry>
   <entry>
-    <title>cartopy</title>
-    <url>/posts/c6b8edee.html</url>
-    <content><![CDATA[<p>Basemap在2020年底停止维护，取而代之的是cartopy，在这里写一下一些学习笔记。</p>
-<p>先说结论，截止到2020年8月1日,0.18版本仍然不能完全取代basemap，尤其是近岸数据分辨率的问题，但是已经展现出优势了，自己要在之后多多尝试使用。</p>
-<span id="more"></span>
-<h1 id="代码范例">代码范例</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> netCDF4 <span class="keyword">as</span> nc</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"><span class="keyword">import</span> cartopy.crs <span class="keyword">as</span> ccrs</span><br><span class="line"><span class="keyword">import</span> cartopy.feature <span class="keyword">as</span> cfeature</span><br><span class="line"><span class="keyword">from</span> cartopy.mpl.gridliner <span class="keyword">import</span> LONGITUDE_FORMATTER, LATITUDE_FORMATTER</span><br><span class="line">file=<span class="string">r&#x27;I:\Nagoya University\Project\Seto\MODIS\20100608T04.nc&#x27;</span></span><br><span class="line">nc=nc.Dataset(file,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">lon=nc.groups[<span class="string">&#x27;navigation_data&#x27;</span>].variables[<span class="string">&#x27;longitude&#x27;</span>][:]</span><br><span class="line">lat=nc.groups[<span class="string">&#x27;navigation_data&#x27;</span>].variables[<span class="string">&#x27;latitude&#x27;</span>][:]</span><br><span class="line">variables=nc.groups[<span class="string">&#x27;geophysical_data&#x27;</span>].variables</span><br><span class="line">chl=variables[<span class="string">&#x27;chlor_a&#x27;</span>]</span><br><span class="line">minlat = <span class="number">32.5</span></span><br><span class="line">minlon = <span class="number">130.5</span></span><br><span class="line">maxlat = <span class="number">35</span></span><br><span class="line">maxlon = <span class="number">136</span></span><br><span class="line">f = plt.figure(figsize=(<span class="number">20</span>, <span class="number">20</span>), dpi=<span class="number">300</span>)</span><br><span class="line">m = plt.axes(projection=ccrs.PlateCarree(central_longitude=<span class="number">0.0</span>))</span><br><span class="line">f = plt.pcolormesh(lon, lat,chl, shading=<span class="string">&#x27;flat&#x27;</span>, vmin=np.log10(<span class="number">0.01</span>), vmax=np.log10(<span class="number">50</span>), cmap=plt.cm.viridis)</span><br><span class="line">m.coastlines(resolution=<span class="string">&#x27;10m&#x27;</span>, color=<span class="string">&#x27;black&#x27;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">extent=[<span class="number">130.5</span>,<span class="number">136</span>,<span class="number">32</span>,<span class="number">35</span>]</span><br><span class="line">m.set_extent(extent)</span><br><span class="line">m.add_feature(cfeature.RIVERS)</span><br><span class="line">m.add_feature(cfeature.COASTLINE.with_scale(<span class="string">&#x27;10m&#x27;</span>))</span><br><span class="line">m.add_feature(cfeature.LAND.with_scale(<span class="string">&#x27;10m&#x27;</span>), facecolor=<span class="string">&#x27;0.75&#x27;</span>)</span><br><span class="line"></span><br><span class="line">g1 = m.gridlines(draw_labels = <span class="literal">True</span>)</span><br><span class="line">g1.xlabels_top = <span class="literal">False</span></span><br><span class="line">g1.xlabel_style = &#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">16</span>, <span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;gray&#x27;</span>&#125;</span><br><span class="line">g1.ylabel_style = &#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">16</span>, <span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;gray&#x27;</span>&#125;</span><br><span class="line">g1.xformatter = LONGITUDE_FORMATTER</span><br><span class="line">g1.yformatter = LATITUDE_FORMATTER</span><br><span class="line">cbar = plt.colorbar(f, orientation=<span class="string">&quot;horizontal&quot;</span>, fraction=<span class="number">0.05</span>, pad=<span class="number">0.07</span>, ticks=[np.log10(<span class="number">0.01</span>), np.log10(<span class="number">0.1</span>),np.log10(<span class="number">0.5</span>), np.log10(<span class="number">1</span>),np.log10(<span class="number">3</span>),np.log10(<span class="number">10</span>),np.log10(<span class="number">50</span>)]) </span><br><span class="line">cbar.ax.set_xticklabels([<span class="string">&#x27;0.01&#x27;</span>,<span class="string">&#x27;0.1&#x27;</span>,<span class="string">&#x27;0.5&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;10&#x27;</span>,<span class="string">&#x27;50&#x27;</span>], fontsize=<span class="number">20</span>) </span><br><span class="line">cbar.set_label(<span class="string">&#x27;Chlorophyll, mg m$^&#123;-3&#125;$&#x27;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;MODIS [Chl a] mg m$^&#123;-3&#125;$&#x27;</span>, fontsize=<span class="number">20</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>相比basemap这个方便很多，但是分辨率还是有一点问题。</p>
-<h1 id="一些参考资料">一些参考资料</h1>
-<p>https://zhajiman.github.io/post/cartopy_introduction/</p>
-<p>https://scitools.org.uk/cartopy/docs/latest/index.html</p>
-<p>https://www.net-analysis.com/blog/cartopylayout.html</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Research</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>gdal</title>
     <url>/posts/f08904cf.html</url>
     <content><![CDATA[<p>之前就想了各种各样的方法来跳过GDAL，没想到最后工作了还是要用这个</p>
@@ -5464,6 +5442,28 @@ a_{ph}(\lambda)=a_{p}(\lambda)-a_{nap}(\lambda)
         <tag>gdal</tag>
         <tag>remote sensing</tag>
         <tag>image processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cartopy</title>
+    <url>/posts/c6b8edee.html</url>
+    <content><![CDATA[<p>Basemap在2020年底停止维护，取而代之的是cartopy，在这里写一下一些学习笔记。</p>
+<p>先说结论，截止到2020年8月1日,0.18版本仍然不能完全取代basemap，尤其是近岸数据分辨率的问题，但是已经展现出优势了，自己要在之后多多尝试使用。</p>
+<span id="more"></span>
+<h1 id="代码范例">代码范例</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> netCDF4 <span class="keyword">as</span> nc</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"><span class="keyword">import</span> cartopy.crs <span class="keyword">as</span> ccrs</span><br><span class="line"><span class="keyword">import</span> cartopy.feature <span class="keyword">as</span> cfeature</span><br><span class="line"><span class="keyword">from</span> cartopy.mpl.gridliner <span class="keyword">import</span> LONGITUDE_FORMATTER, LATITUDE_FORMATTER</span><br><span class="line">file=<span class="string">r&#x27;I:\Nagoya University\Project\Seto\MODIS\20100608T04.nc&#x27;</span></span><br><span class="line">nc=nc.Dataset(file,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">lon=nc.groups[<span class="string">&#x27;navigation_data&#x27;</span>].variables[<span class="string">&#x27;longitude&#x27;</span>][:]</span><br><span class="line">lat=nc.groups[<span class="string">&#x27;navigation_data&#x27;</span>].variables[<span class="string">&#x27;latitude&#x27;</span>][:]</span><br><span class="line">variables=nc.groups[<span class="string">&#x27;geophysical_data&#x27;</span>].variables</span><br><span class="line">chl=variables[<span class="string">&#x27;chlor_a&#x27;</span>]</span><br><span class="line">minlat = <span class="number">32.5</span></span><br><span class="line">minlon = <span class="number">130.5</span></span><br><span class="line">maxlat = <span class="number">35</span></span><br><span class="line">maxlon = <span class="number">136</span></span><br><span class="line">f = plt.figure(figsize=(<span class="number">20</span>, <span class="number">20</span>), dpi=<span class="number">300</span>)</span><br><span class="line">m = plt.axes(projection=ccrs.PlateCarree(central_longitude=<span class="number">0.0</span>))</span><br><span class="line">f = plt.pcolormesh(lon, lat,chl, shading=<span class="string">&#x27;flat&#x27;</span>, vmin=np.log10(<span class="number">0.01</span>), vmax=np.log10(<span class="number">50</span>), cmap=plt.cm.viridis)</span><br><span class="line">m.coastlines(resolution=<span class="string">&#x27;10m&#x27;</span>, color=<span class="string">&#x27;black&#x27;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">extent=[<span class="number">130.5</span>,<span class="number">136</span>,<span class="number">32</span>,<span class="number">35</span>]</span><br><span class="line">m.set_extent(extent)</span><br><span class="line">m.add_feature(cfeature.RIVERS)</span><br><span class="line">m.add_feature(cfeature.COASTLINE.with_scale(<span class="string">&#x27;10m&#x27;</span>))</span><br><span class="line">m.add_feature(cfeature.LAND.with_scale(<span class="string">&#x27;10m&#x27;</span>), facecolor=<span class="string">&#x27;0.75&#x27;</span>)</span><br><span class="line"></span><br><span class="line">g1 = m.gridlines(draw_labels = <span class="literal">True</span>)</span><br><span class="line">g1.xlabels_top = <span class="literal">False</span></span><br><span class="line">g1.xlabel_style = &#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">16</span>, <span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;gray&#x27;</span>&#125;</span><br><span class="line">g1.ylabel_style = &#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">16</span>, <span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;gray&#x27;</span>&#125;</span><br><span class="line">g1.xformatter = LONGITUDE_FORMATTER</span><br><span class="line">g1.yformatter = LATITUDE_FORMATTER</span><br><span class="line">cbar = plt.colorbar(f, orientation=<span class="string">&quot;horizontal&quot;</span>, fraction=<span class="number">0.05</span>, pad=<span class="number">0.07</span>, ticks=[np.log10(<span class="number">0.01</span>), np.log10(<span class="number">0.1</span>),np.log10(<span class="number">0.5</span>), np.log10(<span class="number">1</span>),np.log10(<span class="number">3</span>),np.log10(<span class="number">10</span>),np.log10(<span class="number">50</span>)]) </span><br><span class="line">cbar.ax.set_xticklabels([<span class="string">&#x27;0.01&#x27;</span>,<span class="string">&#x27;0.1&#x27;</span>,<span class="string">&#x27;0.5&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;10&#x27;</span>,<span class="string">&#x27;50&#x27;</span>], fontsize=<span class="number">20</span>) </span><br><span class="line">cbar.set_label(<span class="string">&#x27;Chlorophyll, mg m$^&#123;-3&#125;$&#x27;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;MODIS [Chl a] mg m$^&#123;-3&#125;$&#x27;</span>, fontsize=<span class="number">20</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>相比basemap这个方便很多，但是分辨率还是有一点问题。</p>
+<h1 id="一些参考资料">一些参考资料</h1>
+<p>https://zhajiman.github.io/post/cartopy_introduction/</p>
+<p>https://scitools.org.uk/cartopy/docs/latest/index.html</p>
+<p>https://www.net-analysis.com/blog/cartopylayout.html</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Research</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -6782,205 +6782,6 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
       </tags>
   </entry>
   <entry>
-    <title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig</title>
-    <url>/posts/bebb8f89.html</url>
-    <content><![CDATA[<p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
-<span id="more"></span>
-<h1 id="matplotlib.ticker">matplotlib.ticker</h1>
-<h2 id="定位">定位</h2>
-<h3 id="tick-locating">Tick locating</h3>
-<p>The Locator class is the base class for all tick locators. The locators handle autoscaling of the view limits based on the data limits, and the choosing of tick locations. A useful semi-automatic tick locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a>. It is initialized with a base, e.g., 10, and it picks axis limits and ticks that are multiples of that base.</p>
-<p>The Locator subclasses defined here are</p>
-<ul>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoLocator"><code>AutoLocator</code></a></p>
-<p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a> with simple defaults. This is the default tick locator for most plotting.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a></p>
-<p>Finds up to a max number of intervals with ticks at nice locations.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LinearLocator"><code>LinearLocator</code></a></p>
-<p>Space ticks evenly from min to max.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a></p>
-<p>Space ticks logarithmically from min to max.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a></p>
-<p>Ticks and range are a multiple of base; either integer or float.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedLocator"><code>FixedLocator</code></a></p>
-<p>Tick locations are fixed.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexLocator"><code>IndexLocator</code></a></p>
-<p>Locator for index plots (e.g., where <code>x = range(len(y))</code>).</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a></p>
-<p>No ticks.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.SymmetricalLogLocator"><code>SymmetricalLogLocator</code></a></p>
-<p>Locator for use with with the symlog norm; works like <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a> for the part outside of the threshold and adds 0 if inside the limits.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitLocator"><code>LogitLocator</code></a></p>
-<p>Locator for logit scaling.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.OldAutoLocator"><code>OldAutoLocator</code></a></p>
-<p>Choose a <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a> and dynamically reassign it for intelligent ticking during navigation.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoMinorLocator"><code>AutoMinorLocator</code></a></p>
-<p>Locator for minor ticks when the axis is linear and the major ticks are uniformly spaced. Subdivides the major tick interval into a specified number of minor intervals, defaulting to 4 or 5 depending on the major interval.</p></li>
-</ul>
-<p>There are a number of locators specialized for date locations - see the <code>dates</code> module.</p>
-<p>You can define your own locator by deriving from Locator. You must override the <code>__call__</code> method, which returns a sequence of locations, and you will probably want to override the autoscale method to set the view limits from the data limits.</p>
-<p>If you want to override the default locator, use one of the above or a custom locator and pass it to the x or y axis instance. The relevant methods are:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(xmajor_locator)</span><br><span class="line">ax.xaxis.set_minor_locator(xminor_locator)</span><br><span class="line">ax.yaxis.set_major_locator(ymajor_locator)</span><br><span class="line">ax.yaxis.set_minor_locator(yminor_locator)</span><br></pre></td></tr></table></figure>
-<p>The default minor locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a>, i.e., no minor ticks on by default.</p>
-<h2 id="格式">格式</h2>
-<h3 id="tick-formatting">Tick formatting</h3>
-<p>Tick formatting is controlled by classes derived from Formatter. The formatter operates on a single tick value and returns a string to the axis.</p>
-<ul>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullFormatter"><code>NullFormatter</code></a></p>
-<p>No labels on the ticks.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexFormatter"><code>IndexFormatter</code></a></p>
-<p>Set the strings from a list of labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedFormatter"><code>FixedFormatter</code></a></p>
-<p>Set the strings manually for the labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FuncFormatter"><code>FuncFormatter</code></a></p>
-<p>User defined function sets the labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.StrMethodFormatter"><code>StrMethodFormatter</code></a></p>
-<p>Use string <a href="https://docs.python.org/3/library/functions.html#format"><code>format</code></a> method.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter"><code>FormatStrFormatter</code></a></p>
-<p>Use an old-style sprintf format string.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.ScalarFormatter"><code>ScalarFormatter</code></a></p>
-<p>Default formatter for scalars: autopick the format string.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatter"><code>LogFormatter</code></a></p>
-<p>Formatter for log axes.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterExponent"><code>LogFormatterExponent</code></a></p>
-<p>Format values for log axis using <code>exponent = log_base(value)</code>.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterMathtext"><code>LogFormatterMathtext</code></a></p>
-<p>Format values for log axis using <code>exponent = log_base(value)</code> using Math text.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterSciNotation"><code>LogFormatterSciNotation</code></a></p>
-<p>Format values for log axis using scientific notation.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitFormatter"><code>LogitFormatter</code></a></p>
-<p>Probability formatter.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.EngFormatter"><code>EngFormatter</code></a></p>
-<p>Format labels in engineering notation</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.PercentFormatter"><code>PercentFormatter</code></a></p>
-<p>Format labels as a percentage</p></li>
-</ul>
-<p>You can derive your own formatter from the Formatter base class by simply overriding the <code>__call__</code> method. The formatter class has access to the axis view and data limits.</p>
-<p>To control the major and minor tick label formats, use one of the following methods:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_formatter(xmajor_formatter)</span><br><span class="line">ax.xaxis.set_minor_formatter(xminor_formatter)</span><br><span class="line">ax.yaxis.set_major_formatter(ymajor_formatter)</span><br><span class="line">ax.yaxis.set_minor_formatter(yminor_formatter)</span><br></pre></td></tr></table></figure>
-<p>See <span class="exturl" data-url="aHR0cHM6Ly9tYXRwbG90bGliLm9yZy8zLjEuMS9nYWxsZXJ5L3RpY2tzX2FuZF9zcGluZXMvbWFqb3JfbWlub3JfZGVtby5odG1s">Major and minor ticks<i class="fa fa-external-link-alt"></i></span> for an example of setting major and minor ticks. See the <a href="https://matplotlib.org/3.1.1/api/dates_api.html#module-matplotlib.dates"><code>matplotlib.dates</code></a> module for more information and examples of using date locators and formatters.</p>
-<p>参考</p>
-<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
-<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
-<h1 id="enumerate">enumerate</h1>
-<h2 id="描述">描述</h2>
-<p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
-<p>Python 2.3. 以上版本可用，2.6 添加 start 参数。</p>
-<h3 id="语法">语法</h3>
-<p>以下是 enumerate() 方法的语法:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enumerate</span>(sequence, [start=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="参数">参数</h3>
-<ul>
-<li>sequence -- 一个序列、迭代器或其他支持迭代对象。</li>
-<li>start -- 下标起始位置。</li>
-</ul>
-<h3 id="返回值">返回值</h3>
-<p>返回 enumerate(枚举) 对象。</p>
-<hr>
-<h2 id="实例">实例</h2>
-<p>以下展示了使用 enumerate() 方法的实例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons, start=<span class="number">1</span>))       <span class="comment"># 下标从 1 开始</span></span><br><span class="line">[(<span class="number">1</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">4</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure>
-<h3 id="普通的-for-循环">普通的 for 循环</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;i = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> element <span class="keyword">in</span> seq:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, seq[i]</span><br><span class="line"><span class="meta">... </span>    i +=<span class="number">1</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
-<h3 id="for-循环使用-enumerate">for 循环使用 enumerate</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, element</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one参考</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<p>https://www.runoob.com/python/python-func-enumerate.html</p>
-<h1 id="subplot2grid">subplot2grid</h1>
-<p>这个可以自定义子图的位置，并且可以跨越原来大小。</p>
-<p>原文https://wizardforcel.gitbooks.io/matplotlib-user-guide/content/3.3.html</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">GridSpec</span><br></pre></td></tr></table></figure>
-<p>指定子图将放置的网格的几何位置。 需要设置网格的行数和列数。 子图布局参数（例如，左，右等）可以选择性调整。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SubplotSpec</span><br></pre></td></tr></table></figure>
-<p>指定在给定<code>GridSpec</code>中的子图位置。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">subplot2grid</span><br></pre></td></tr></table></figure>
-<p>一个辅助函数，类似于<code>pyplot.subplot</code>，但是使用基于 0 的索引，并可使子图跨越多个格子。</p>
-<h2 id="subplot2grid基本示例">subplot2grid基本示例</h2>
-<p>要使用subplot2grid，你需要提供网格的几何形状和网格中子图的位置。 对于简单的单网格子图：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>等价于：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">       nRow=<span class="number">2</span>, nCol=<span class="number">2</span></span><br><span class="line">(<span class="number">0</span>,<span class="number">0</span>) +-------+-------+</span><br><span class="line">      |   <span class="number">1</span>   |       |</span><br><span class="line">      +-------+-------+</span><br><span class="line">      |       |       |</span><br><span class="line">      +-------+-------+</span><br></pre></td></tr></table></figure>
-<p>要注意不像<code>subplot</code>，<code>gridspec</code>中的下标从 0 开始。</p>
-<p>为了创建跨越多个格子的子图，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>例如，下列命令：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>,<span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<p>会创建：</p>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="gridspec和subplotspec">GridSpec和SubplotSpec</h2>
-<p>你可以显式创建<code>GridSpec</code>并用它们创建子图。</p>
-<p>例如，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>等价于：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax = plt.subplot(gs[<span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p><code>gridspec</code>示例提供类似数组（一维或二维）的索引，并返回<code>SubplotSpec</code>实例。例如，使用切片来返回跨越多个格子的<code>SubplotSpec</code>实例。</p>
-<p>上面的例子会变成：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>,:-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>,-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="调整-gridspec布局">调整 GridSpec布局</h2>
-<p>在显式使用<code>GridSpec</code>的时候，你可以调整子图的布局参数，子图由<code>gridspec</code>创建。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
-<p>这类似于<code>subplots_adjust</code>，但是他只影响从给定<code>GridSpec</code>创建的子图。</p>
-<p>下面的代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br><span class="line">ax1 = plt.subplot(gs1[:-<span class="number">1</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs1[-<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs1[-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">gs2 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs2.update(left=<span class="number">0.55</span>, right=<span class="number">0.98</span>, hspace=<span class="number">0.05</span>)</span><br><span class="line">ax4 = plt.subplot(gs2[:, :-<span class="number">1</span>])</span><br><span class="line">ax5 = plt.subplot(gs2[:-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line">ax6 = plt.subplot(gs2[-<span class="number">1</span>, -<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<p>会产生</p>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="使用-subplotspec创建-gridspec">使用 SubplotSpec创建 GridSpec</h2>
-<p>你可以从<code>SubplotSpec</code>创建<code>GridSpec</code>，其中它的布局参数设置为给定<code>SubplotSpec</code>的位置的布局参数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs0 = gridspec.GridSpec(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">gs00 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">0</span>])</span><br><span class="line">gs01 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="使用subplotspec创建复杂嵌套的gridspec">使用SubplotSpec创建复杂嵌套的GridSpec</h2>
-<p>这里有一个更复杂的嵌套<code>gridspec</code>的示例，我们通过在每个 3x3 内部网格中隐藏适当的脊线，在 4x4 外部网格的每个单元格周围放置一个框。</p>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="网格尺寸可变的gridspec">网格尺寸可变的GridSpec</h2>
-<p>通常，<code>GridSpec</code>创建大小相等的网格。你可以调整行和列的相对高度和宽度，要注意绝对高度值是无意义的，有意义的只是它们的相对比值。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>,</span><br><span class="line">                       width_ratios=[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">                       height_ratios=[<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">                       )</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt><figcaption>img</figcaption>
-</figure>
-<h1 id="seaborn">seaborn</h1>
-<p>seaborn是对matplotlib进一步的封装，简单点来说就是更简单了。</p>
-<p>官网https://seaborn.pydata.org/</p>
-<p>我这里放几个我感觉用得上的代码。</p>
-<h2 id="lineplot">lineplot</h2>
-<p>seaborn.lineplot(x=None, y=None, hue=None, size=None, style=None, data=None, palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None, dashes=True, markers=None, style_order=None, units=None, estimator='mean', ci=95, n_boot=1000, seed=None, sort=True, err_style='band', err_kws=None, legend='brief', ax=None, **kwargs)</p>
-<p>https://seaborn.pydata.org/generated/seaborn.lineplot.html</p>
-<h2 id="heatmap">heatmap</h2>
-<p>seaborn.heatmap(data, vmin=None, vmax=None, cmap=None, center=None, robust=False, annot=None, fmt='.2g', annot_kws=None, linewidths=0, linecolor='white', cbar=True, cbar_kws=None, cbar_ax=None, square=False, xticklabels='auto', yticklabels='auto', mask=None, ax=None, **kwargs)</p>
-<p>https://zhuanlan.zhihu.com/p/35494575</p>
-<h2 id="implot">implot</h2>
-<p>eaborn.lmplot(<em>x</em>, <em>y</em>, <em>data</em>, <em>hue=None</em>, <em>col=None</em>, <em>row=None</em>, <em>palette=None</em>, <em>col_wrap=None</em>, <em>size=5</em>, <em>aspect=1</em>, <em>markers='o'</em>, <em>sharex=True</em>, <em>sharey=True</em>, <em>hue_order=None</em>, <em>col_order=None</em>, <em>row_order=None</em>, <em>legend=True</em>, <em>legend_out=True</em>, <em>x_estimator=None</em>, <em>x_bins=None</em>, <em>x_ci='ci'</em>, <em>scatter=True</em>, <em>fit_reg=True</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>units=None</em>, <em>order=1</em>, <em>logistic=False</em>, <em>lowess=False</em>, <em>robust=False</em>, <em>logx=False</em>, <em>x_partial=None</em>, <em>y_partial=None</em>, <em>truncate=False</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>scatter_kws=None</em>, <em>line_kws=None</em>)</p>
-<p>https://zhuanlan.zhihu.com/p/25909753</p>
-<p>常见统计图片基本都可以在这里面看到</p>
-<p>https://seaborn.pydata.org/examples/index.html</p>
-<h2 id="subplot_adjust">subplot_adjust</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">matplotlib.pyplot.subplots_adjust(*args, **kwargs)</span><br><span class="line">subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># 子图(subplot)距画板(figure)左边的距离</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># 右边</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># 底部</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># 顶部</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># 子图水平间距</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># 子图垂直间距</span></span><br></pre></td></tr></table></figure>
-<h1 id="pltaxfig">plt/ax/fig</h1>
-<figure>
-<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt><figcaption>img</figcaption>
-</figure>
-<p>尽量避免直接使用plt</p>
-<p>https://zhuanlan.zhihu.com/p/93423829</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Research</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>particle backscattering</title>
     <url>/posts/78604782.html</url>
     <content><![CDATA[<p>Spectral variations of light scattering by marine particles in coastal waters, from visible to near infrared</p>
@@ -7185,6 +6986,205 @@ f(\lambda)=f_{550}(\frac{\lambda}{550})^{\gamma}
         <tag>Ocean Color</tag>
         <tag>Inversion</tag>
         <tag>particle backscattering</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig</title>
+    <url>/posts/bebb8f89.html</url>
+    <content><![CDATA[<p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
+<span id="more"></span>
+<h1 id="matplotlib.ticker">matplotlib.ticker</h1>
+<h2 id="定位">定位</h2>
+<h3 id="tick-locating">Tick locating</h3>
+<p>The Locator class is the base class for all tick locators. The locators handle autoscaling of the view limits based on the data limits, and the choosing of tick locations. A useful semi-automatic tick locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a>. It is initialized with a base, e.g., 10, and it picks axis limits and ticks that are multiples of that base.</p>
+<p>The Locator subclasses defined here are</p>
+<ul>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoLocator"><code>AutoLocator</code></a></p>
+<p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a> with simple defaults. This is the default tick locator for most plotting.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a></p>
+<p>Finds up to a max number of intervals with ticks at nice locations.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LinearLocator"><code>LinearLocator</code></a></p>
+<p>Space ticks evenly from min to max.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a></p>
+<p>Space ticks logarithmically from min to max.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a></p>
+<p>Ticks and range are a multiple of base; either integer or float.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedLocator"><code>FixedLocator</code></a></p>
+<p>Tick locations are fixed.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexLocator"><code>IndexLocator</code></a></p>
+<p>Locator for index plots (e.g., where <code>x = range(len(y))</code>).</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a></p>
+<p>No ticks.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.SymmetricalLogLocator"><code>SymmetricalLogLocator</code></a></p>
+<p>Locator for use with with the symlog norm; works like <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a> for the part outside of the threshold and adds 0 if inside the limits.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitLocator"><code>LogitLocator</code></a></p>
+<p>Locator for logit scaling.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.OldAutoLocator"><code>OldAutoLocator</code></a></p>
+<p>Choose a <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a> and dynamically reassign it for intelligent ticking during navigation.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoMinorLocator"><code>AutoMinorLocator</code></a></p>
+<p>Locator for minor ticks when the axis is linear and the major ticks are uniformly spaced. Subdivides the major tick interval into a specified number of minor intervals, defaulting to 4 or 5 depending on the major interval.</p></li>
+</ul>
+<p>There are a number of locators specialized for date locations - see the <code>dates</code> module.</p>
+<p>You can define your own locator by deriving from Locator. You must override the <code>__call__</code> method, which returns a sequence of locations, and you will probably want to override the autoscale method to set the view limits from the data limits.</p>
+<p>If you want to override the default locator, use one of the above or a custom locator and pass it to the x or y axis instance. The relevant methods are:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(xmajor_locator)</span><br><span class="line">ax.xaxis.set_minor_locator(xminor_locator)</span><br><span class="line">ax.yaxis.set_major_locator(ymajor_locator)</span><br><span class="line">ax.yaxis.set_minor_locator(yminor_locator)</span><br></pre></td></tr></table></figure>
+<p>The default minor locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a>, i.e., no minor ticks on by default.</p>
+<h2 id="格式">格式</h2>
+<h3 id="tick-formatting">Tick formatting</h3>
+<p>Tick formatting is controlled by classes derived from Formatter. The formatter operates on a single tick value and returns a string to the axis.</p>
+<ul>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullFormatter"><code>NullFormatter</code></a></p>
+<p>No labels on the ticks.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexFormatter"><code>IndexFormatter</code></a></p>
+<p>Set the strings from a list of labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedFormatter"><code>FixedFormatter</code></a></p>
+<p>Set the strings manually for the labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FuncFormatter"><code>FuncFormatter</code></a></p>
+<p>User defined function sets the labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.StrMethodFormatter"><code>StrMethodFormatter</code></a></p>
+<p>Use string <a href="https://docs.python.org/3/library/functions.html#format"><code>format</code></a> method.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter"><code>FormatStrFormatter</code></a></p>
+<p>Use an old-style sprintf format string.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.ScalarFormatter"><code>ScalarFormatter</code></a></p>
+<p>Default formatter for scalars: autopick the format string.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatter"><code>LogFormatter</code></a></p>
+<p>Formatter for log axes.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterExponent"><code>LogFormatterExponent</code></a></p>
+<p>Format values for log axis using <code>exponent = log_base(value)</code>.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterMathtext"><code>LogFormatterMathtext</code></a></p>
+<p>Format values for log axis using <code>exponent = log_base(value)</code> using Math text.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterSciNotation"><code>LogFormatterSciNotation</code></a></p>
+<p>Format values for log axis using scientific notation.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitFormatter"><code>LogitFormatter</code></a></p>
+<p>Probability formatter.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.EngFormatter"><code>EngFormatter</code></a></p>
+<p>Format labels in engineering notation</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.PercentFormatter"><code>PercentFormatter</code></a></p>
+<p>Format labels as a percentage</p></li>
+</ul>
+<p>You can derive your own formatter from the Formatter base class by simply overriding the <code>__call__</code> method. The formatter class has access to the axis view and data limits.</p>
+<p>To control the major and minor tick label formats, use one of the following methods:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_formatter(xmajor_formatter)</span><br><span class="line">ax.xaxis.set_minor_formatter(xminor_formatter)</span><br><span class="line">ax.yaxis.set_major_formatter(ymajor_formatter)</span><br><span class="line">ax.yaxis.set_minor_formatter(yminor_formatter)</span><br></pre></td></tr></table></figure>
+<p>See <span class="exturl" data-url="aHR0cHM6Ly9tYXRwbG90bGliLm9yZy8zLjEuMS9nYWxsZXJ5L3RpY2tzX2FuZF9zcGluZXMvbWFqb3JfbWlub3JfZGVtby5odG1s">Major and minor ticks<i class="fa fa-external-link-alt"></i></span> for an example of setting major and minor ticks. See the <a href="https://matplotlib.org/3.1.1/api/dates_api.html#module-matplotlib.dates"><code>matplotlib.dates</code></a> module for more information and examples of using date locators and formatters.</p>
+<p>参考</p>
+<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
+<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
+<h1 id="enumerate">enumerate</h1>
+<h2 id="描述">描述</h2>
+<p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
+<p>Python 2.3. 以上版本可用，2.6 添加 start 参数。</p>
+<h3 id="语法">语法</h3>
+<p>以下是 enumerate() 方法的语法:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enumerate</span>(sequence, [start=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="参数">参数</h3>
+<ul>
+<li>sequence -- 一个序列、迭代器或其他支持迭代对象。</li>
+<li>start -- 下标起始位置。</li>
+</ul>
+<h3 id="返回值">返回值</h3>
+<p>返回 enumerate(枚举) 对象。</p>
+<hr>
+<h2 id="实例">实例</h2>
+<p>以下展示了使用 enumerate() 方法的实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons, start=<span class="number">1</span>))       <span class="comment"># 下标从 1 开始</span></span><br><span class="line">[(<span class="number">1</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">4</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+<h3 id="普通的-for-循环">普通的 for 循环</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;i = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> element <span class="keyword">in</span> seq:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, seq[i]</span><br><span class="line"><span class="meta">... </span>    i +=<span class="number">1</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<h3 id="for-循环使用-enumerate">for 循环使用 enumerate</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, element</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one参考</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<p>https://www.runoob.com/python/python-func-enumerate.html</p>
+<h1 id="subplot2grid">subplot2grid</h1>
+<p>这个可以自定义子图的位置，并且可以跨越原来大小。</p>
+<p>原文https://wizardforcel.gitbooks.io/matplotlib-user-guide/content/3.3.html</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">GridSpec</span><br></pre></td></tr></table></figure>
+<p>指定子图将放置的网格的几何位置。 需要设置网格的行数和列数。 子图布局参数（例如，左，右等）可以选择性调整。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SubplotSpec</span><br></pre></td></tr></table></figure>
+<p>指定在给定<code>GridSpec</code>中的子图位置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">subplot2grid</span><br></pre></td></tr></table></figure>
+<p>一个辅助函数，类似于<code>pyplot.subplot</code>，但是使用基于 0 的索引，并可使子图跨越多个格子。</p>
+<h2 id="subplot2grid基本示例">subplot2grid基本示例</h2>
+<p>要使用subplot2grid，你需要提供网格的几何形状和网格中子图的位置。 对于简单的单网格子图：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">       nRow=<span class="number">2</span>, nCol=<span class="number">2</span></span><br><span class="line">(<span class="number">0</span>,<span class="number">0</span>) +-------+-------+</span><br><span class="line">      |   <span class="number">1</span>   |       |</span><br><span class="line">      +-------+-------+</span><br><span class="line">      |       |       |</span><br><span class="line">      +-------+-------+</span><br></pre></td></tr></table></figure>
+<p>要注意不像<code>subplot</code>，<code>gridspec</code>中的下标从 0 开始。</p>
+<p>为了创建跨越多个格子的子图，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>例如，下列命令：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>,<span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>会创建：</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="gridspec和subplotspec">GridSpec和SubplotSpec</h2>
+<p>你可以显式创建<code>GridSpec</code>并用它们创建子图。</p>
+<p>例如，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax = plt.subplot(gs[<span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p><code>gridspec</code>示例提供类似数组（一维或二维）的索引，并返回<code>SubplotSpec</code>实例。例如，使用切片来返回跨越多个格子的<code>SubplotSpec</code>实例。</p>
+<p>上面的例子会变成：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>,:-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>,-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="调整-gridspec布局">调整 GridSpec布局</h2>
+<p>在显式使用<code>GridSpec</code>的时候，你可以调整子图的布局参数，子图由<code>gridspec</code>创建。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>这类似于<code>subplots_adjust</code>，但是他只影响从给定<code>GridSpec</code>创建的子图。</p>
+<p>下面的代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br><span class="line">ax1 = plt.subplot(gs1[:-<span class="number">1</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs1[-<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs1[-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">gs2 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs2.update(left=<span class="number">0.55</span>, right=<span class="number">0.98</span>, hspace=<span class="number">0.05</span>)</span><br><span class="line">ax4 = plt.subplot(gs2[:, :-<span class="number">1</span>])</span><br><span class="line">ax5 = plt.subplot(gs2[:-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line">ax6 = plt.subplot(gs2[-<span class="number">1</span>, -<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>会产生</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="使用-subplotspec创建-gridspec">使用 SubplotSpec创建 GridSpec</h2>
+<p>你可以从<code>SubplotSpec</code>创建<code>GridSpec</code>，其中它的布局参数设置为给定<code>SubplotSpec</code>的位置的布局参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs0 = gridspec.GridSpec(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">gs00 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">0</span>])</span><br><span class="line">gs01 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="使用subplotspec创建复杂嵌套的gridspec">使用SubplotSpec创建复杂嵌套的GridSpec</h2>
+<p>这里有一个更复杂的嵌套<code>gridspec</code>的示例，我们通过在每个 3x3 内部网格中隐藏适当的脊线，在 4x4 外部网格的每个单元格周围放置一个框。</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="网格尺寸可变的gridspec">网格尺寸可变的GridSpec</h2>
+<p>通常，<code>GridSpec</code>创建大小相等的网格。你可以调整行和列的相对高度和宽度，要注意绝对高度值是无意义的，有意义的只是它们的相对比值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>,</span><br><span class="line">                       width_ratios=[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">                       height_ratios=[<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">                       )</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt><figcaption>img</figcaption>
+</figure>
+<h1 id="seaborn">seaborn</h1>
+<p>seaborn是对matplotlib进一步的封装，简单点来说就是更简单了。</p>
+<p>官网https://seaborn.pydata.org/</p>
+<p>我这里放几个我感觉用得上的代码。</p>
+<h2 id="lineplot">lineplot</h2>
+<p>seaborn.lineplot(x=None, y=None, hue=None, size=None, style=None, data=None, palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None, dashes=True, markers=None, style_order=None, units=None, estimator='mean', ci=95, n_boot=1000, seed=None, sort=True, err_style='band', err_kws=None, legend='brief', ax=None, **kwargs)</p>
+<p>https://seaborn.pydata.org/generated/seaborn.lineplot.html</p>
+<h2 id="heatmap">heatmap</h2>
+<p>seaborn.heatmap(data, vmin=None, vmax=None, cmap=None, center=None, robust=False, annot=None, fmt='.2g', annot_kws=None, linewidths=0, linecolor='white', cbar=True, cbar_kws=None, cbar_ax=None, square=False, xticklabels='auto', yticklabels='auto', mask=None, ax=None, **kwargs)</p>
+<p>https://zhuanlan.zhihu.com/p/35494575</p>
+<h2 id="implot">implot</h2>
+<p>eaborn.lmplot(<em>x</em>, <em>y</em>, <em>data</em>, <em>hue=None</em>, <em>col=None</em>, <em>row=None</em>, <em>palette=None</em>, <em>col_wrap=None</em>, <em>size=5</em>, <em>aspect=1</em>, <em>markers='o'</em>, <em>sharex=True</em>, <em>sharey=True</em>, <em>hue_order=None</em>, <em>col_order=None</em>, <em>row_order=None</em>, <em>legend=True</em>, <em>legend_out=True</em>, <em>x_estimator=None</em>, <em>x_bins=None</em>, <em>x_ci='ci'</em>, <em>scatter=True</em>, <em>fit_reg=True</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>units=None</em>, <em>order=1</em>, <em>logistic=False</em>, <em>lowess=False</em>, <em>robust=False</em>, <em>logx=False</em>, <em>x_partial=None</em>, <em>y_partial=None</em>, <em>truncate=False</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>scatter_kws=None</em>, <em>line_kws=None</em>)</p>
+<p>https://zhuanlan.zhihu.com/p/25909753</p>
+<p>常见统计图片基本都可以在这里面看到</p>
+<p>https://seaborn.pydata.org/examples/index.html</p>
+<h2 id="subplot_adjust">subplot_adjust</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">matplotlib.pyplot.subplots_adjust(*args, **kwargs)</span><br><span class="line">subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># 子图(subplot)距画板(figure)左边的距离</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># 右边</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># 底部</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># 顶部</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># 子图水平间距</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># 子图垂直间距</span></span><br></pre></td></tr></table></figure>
+<h1 id="pltaxfig">plt/ax/fig</h1>
+<figure>
+<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt><figcaption>img</figcaption>
+</figure>
+<p>尽量避免直接使用plt</p>
+<p>https://zhuanlan.zhihu.com/p/93423829</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Research</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -10641,6 +10641,69 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 ]]></content>
       <categories>
         <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新的春天</title>
+    <url>/posts/6ef15720.html</url>
+    <content><![CDATA[<p>总感觉每一年的春天才是新的一年的开始。</p>
+<span id="more"></span>
+<h1 id="遗憾">遗憾</h1>
+<p>放弃了抢到的周杰伦的票，放弃了去看我老板的毕业仪式，这个时候又看到了软软冰新发的<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMThGNG0xNTcxcA==">这个视频<i class="fa fa-external-link-alt"></i></span>。 大晚上的人又开始悲伤起来了，想起了我在这里[[Mac Blog/_posts/樱花和桂花|樱花和桂花]]写过的东西，之前错过的是akb的咖啡馆，现在水水的圣地也关停了。</p>
+<p>而我也很成功的，变成了，那个无聊的大人，过去一年的二次元浓度急剧降低，没有看番，没有打游戏。</p>
+<p>时间最无情，他不会按照你的想法，等你“怎么了”，错过的就只能错过。人能做的只有快速从悲伤中走出来，去追下一个时间节点。"悟已往之不谏，知来者之可追；实迷途其未远，觉今是而昨非。"</p>
+<p>那我过去一年过的比之前要开心吗？</p>
+<p>倒也不是，我过去一年最大的变化可能就是在人际关系上吧，过年期间和菌子一起去了泰国，这是我长这么大第一次单独和女生进行长途旅行。</p>
+<p>泰国的海，真的好漂亮。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303003701.png" alt><figcaption>用一段感情换一个朋友</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303003743.png" alt><figcaption>每一句再见割一道伤口</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303003757.png" alt><figcaption>紧抱一个醉生梦死的枕头</figcaption>
+</figure>
+<p>在芭提雅做完马杀鸡回来的路上，听到了曾经的网红葡萄妹妹唱的未闻花名而驻足，用英语要了她的ins，葡萄妹妹当天扎了个双马尾，穿了一个碎花吊带裙，很可爱，我一开始还以为是日本混血。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303004138.png" alt><figcaption>青春是段跌跌撞撞的旅行</figcaption>
+</figure>
+<p>在那里听了一个半小时，我很想听葡萄妹妹唱一些日语的歌，特别是<キセキ>，但是我不太敢上去讲话，于是菌子老师拿着我的手机上去给了500泰铢的小费，并且给葡萄妹妹看了这首歌。葡萄妹妹表示她不会唱，而且很大方的下来直接用中文问我想听什么，小幸运可以吗，要不要上去一起合唱。</キセキ></p>
+<p>大晚上我的脸一下子就红了，慌忙摆手示意说不要。</p>
+<p>于是她上去给我们两个人唱了<a href="https://music.youtube.com/watch?v=YD9r_tTtlaA&amp;si=rMRfD77PIWJPTOZX"><小幸运></小幸运></a></p>
+<p>她拿着我的手机冲上去的瞬间，可能我真的有心动吧。</p>
+<p>你看，我在人际关系方面是不是进步很大。这么算下来，23年我老树开了两次花。</p>
+<p>果然听多了沿海公路的出口，在海边的感情就不会有什么好结果。</p>
+<p>而且我现在还记得那个场景，那个她拿着我的手机冲上去的瞬间。</p>
+<h1 id="未来">未来</h1>
+<p>珍惜眼前人，珍惜手边事，把每一天当成最后一天来过。</p>
+<p>想要得到之前没有的东西，就要做之前没做过的事情。</p>
+<p>承认自己的局限，做不了的事情是可以放弃的。</p>
+<p>任务分解，阶段总结与反馈，把大的目标划定到每一个月，每一个星期，每一天。</p>
+<p>只有输出才是最好的学习，才能向别人证明自己，行胜于言，发布一个作品远比说我学了什么要好用的多。</p>
+<p>这大概是我过去一年多，甚至可以说是从2021年下半年开始，到现在，最珍贵的几条经验了。</p>
+<p>四年一次的2月29号，我发了我在大理拍的照片，终于修出来了</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303010855.png" alt><figcaption>陌上人如玉</figcaption>
+</figure>
+<p>我在朋友圈写道</p>
+<blockquote>
+<p>​ 19岁成想为的样子，到现在花八了年 ​ 四前年的我还在心担硕士毕博业士毕业，天天在实室验里怀疑人生精焦神虑，没想到四年居后然成为了社畜</p>
+<p>下一个2.29就不知道自己是啥子样了 ​ 那希是望我喜欢的样子</p>
+</blockquote>
+<p>我终于又能把“青衫磊落险峰行”挂出来了。</p>
+<p>从2020年 到2024年，这四年，我终于从我的人生低谷走出来了。</p>
+<p>接下来的每一天都要比之前过的要好。</p>
+<p>希望这是我最后一次用“梦里真真语真幻”来写东西。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240303011444.png" alt><figcaption>在四医院回来的路上拍到的樱桃花，新的春天，又开始了</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>梦里真真语真幻</category>
       </categories>
       <tags>
         <tag>随便写写</tag>
