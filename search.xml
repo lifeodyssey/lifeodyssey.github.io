@@ -1845,129 +1845,6 @@ P(\lambda,R)=P_0*\frac{c\tau}{2}*\beta(\lambda,R)*\frac{A_r}{R^2}*exp(-2\int_0^R
       </tags>
   </entry>
   <entry>
-    <title>Clean Code, Refactoring and Test-Driven Development</title>
-    <url>/posts/5ffd7c75.html</url>
-    <content><![CDATA[<p>I would like to summarize some of the basic principles and habits of coding that I learned while working at ThoughtWorks. These are some 'metaphysical' guidelines, and later I plan to use Kotlin to write some design patterns to practice the 'physical' aspects.</p>
-<p>In a context where GPT can help us write most of the code, these principles become even more important.</p>
-<p>私はThoughtWorksでの勤務中に学んだコーディングの基本原則と習慣をまとめたいと思います。これらはいくつかの「形而上」のガイドラインで、後でKotlinを使用してデザインパターンを書き、その「形而下」の部分を実践する予定です。</p>
-<p>GPTがほとんどのコードを書く手助けをする状況では、これらの原則はさらに重要になります。 <span id="more"></span></p>
-<h1 id="clean-code-refactoring-and-test-driven-development">Clean Code, Refactoring and Test-Driven Development</h1>
-<p>Reference: - <strong>Refactoring: Improving the Design of Existing Code</strong> - <strong>Clean Code: A Handbook of Agile Software Craftsmanship</strong></p>
-<p>## Clean Code</p>
-<p>The problem that <strong>Clean Code</strong> want to solve is raised &gt; Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand. &gt; Code is primarily written for people to read, and only incidentally for machines to execute. &gt; The time spent reading code far exceeds the time spent writing code by a factor of 10x. &gt; Good design is obvious with no issues, while bad design has no obvious issues.</p>
-<p>So the things that we values should be - <strong>Readability! </strong> - <strong>Maintainability!</strong></p>
-<p>Code should be a <strong>Problem Solver</strong>, not a *Trouble Maker** .</p>
-<p>A <strong>Clean Code</strong> should be a code that achieve the beforehand mentioned functions and values.</p>
-<p>My basic rules of Clean Code are</p>
-<ul>
-<li><strong>1-10-50 Rule</strong> (exceptions allowed in rare cases)
-<ul>
-<li>Each method should not have more than one level of indentation.
-<ul>
-<li>Exceptions for try-catch and JavaScript callbacks.</li>
-</ul></li>
-<li>Each method should not exceed 10 lines.
-<ul>
-<li>Excluding braces and the name itself.</li>
-<li>Exceptions for try-catch and fetching APIs.</li>
-<li>Do not force multiple lines into a single line.</li>
-</ul></li>
-<li>Each class should not exceed 50 lines.
-<ul>
-<li>Import statements do not count.</li>
-</ul></li>
-</ul></li>
-<li>Reasonable naming: variables, constants, methods, classes, enum values, files, etc.</li>
-<li>Formatting
-<ul>
-<li>Variable
-<ul>
-<li>Variable declarations should be as close as possible to their point of use</li>
-<li>Local variables should appear at the top of the function</li>
-<li>Variable declarations within loops should always occur inside the loop</li>
-<li>Entity variables should be declared at the top of the class.</li>
-</ul></li>
-<li>Method order: if one function calls another, should be placed together, and the caller should be placed above the callee</li>
-</ul></li>
-<li>"No" Comments.</li>
-<li>"No" Else.
-<ul>
-<li>Favor the Return Early pattern.</li>
-</ul></li>
-</ul>
-<h2 id="refactoring">Refactoring</h2>
-<p>Refactoring is the way to achieve clean code. ### Code Smell Reference :<span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3NtZWxscw==">Code Smells<i class="fa fa-external-link-alt"></i></span></p>
-<ol type="1">
-<li>Duplicate Code</li>
-<li>Long Method</li>
-<li>Large Class</li>
-<li>Long Parameter List</li>
-<li>Primitive Obsession</li>
-<li>Data Clumps</li>
-<li>Switch Statements</li>
-<li>Feature Envy</li>
-<li>Comments</li>
-</ol>
-<p>example for 5-9 using Kotlin</p>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Primitive Obsession</span></span><br><span class="line"><span class="keyword">val</span> price: <span class="built_in">Double</span> = <span class="number">19.99</span></span><br><span class="line"><span class="keyword">val</span> currency: String = <span class="string">&quot;USD&quot;</span>  <span class="comment">// Using string instead of a currency type</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach</span></span><br><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Price</span>(<span class="keyword">val</span> amount: <span class="built_in">Double</span>, <span class="keyword">val</span> currency: Currency)</span><br><span class="line"><span class="keyword">enum</span> <span class="keyword">class</span> <span class="title class_">Currency</span> &#123;</span><br><span class="line">    USD, EUR, JPY</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Data Clumps</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">processUser</span><span class="params">(firstName: <span class="type">String</span>, lastName: <span class="type">String</span>, address: <span class="type">String</span>, city: <span class="type">String</span>, zipCode: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Processing code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach</span></span><br><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">User</span>(<span class="keyword">val</span> firstName: String, <span class="keyword">val</span> lastName: String, <span class="keyword">val</span> address: Address)</span><br><span class="line"><span class="keyword">data</span> <span class="keyword">class</span> <span class="title class_">Address</span>(<span class="keyword">val</span> streetAddress: String, <span class="keyword">val</span> city: String, <span class="keyword">val</span> zipCode: String)</span><br></pre></td></tr></table></figure>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Switch Statements</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calculateTax</span><span class="params">(productType: <span class="type">String</span>, price: <span class="type">Double</span>)</span></span>: <span class="built_in">Double</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">when</span> (productType) &#123;</span><br><span class="line">        <span class="string">&quot;book&quot;</span> -&gt; price * <span class="number">0.05</span></span><br><span class="line">        <span class="string">&quot;food&quot;</span> -&gt; price * <span class="number">0.08</span></span><br><span class="line">        <span class="string">&quot;electronics&quot;</span> -&gt; price * <span class="number">0.15</span></span><br><span class="line">        <span class="keyword">else</span> -&gt; price * <span class="number">0.20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach using polymorphism</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">calculateTax</span><span class="params">()</span></span>: <span class="built_in">Double</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Book</span>(<span class="keyword">private</span> <span class="keyword">val</span> price: <span class="built_in">Double</span>) : Product &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">calculateTax</span><span class="params">()</span></span> = price * <span class="number">0.05</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Food</span>(<span class="keyword">private</span> <span class="keyword">val</span> price: <span class="built_in">Double</span>) : Product &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">calculateTax</span><span class="params">()</span></span> = price * <span class="number">0.08</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Electronics</span>(<span class="keyword">private</span> <span class="keyword">val</span> price: <span class="built_in">Double</span>) : Product &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">calculateTax</span><span class="params">()</span></span> = price * <span class="number">0.15</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Feature Envy</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">totalPrice</span><span class="params">()</span></span> = <span class="number">20.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Payment</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">(order: <span class="type">Order</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> price = order.totalPrice()</span><br><span class="line">        <span class="comment">// Processing payment based on order&#x27;s data</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach: moving the processPayment method to the Order class</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">totalPrice</span><span class="params">()</span></span> = <span class="number">20.0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> price = totalPrice()</span><br><span class="line">        <span class="comment">// Processing payment</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Bad practice with comments</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calculate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Check if the user is logged in and the session is valid</span></span><br><span class="line">    <span class="keyword">if</span> (user.isLoggedIn &amp;&amp; session.isValid) &#123;</span><br><span class="line">        <span class="comment">// If valid, perform the calculation based on the user type</span></span><br><span class="line">        <span class="comment">// If the user type is admin, apply a 10% increase</span></span><br><span class="line">        <span class="keyword">if</span> (user.type == <span class="string">&quot;admin&quot;</span>) &#123;</span><br><span class="line">            performCalculation() * <span class="number">1.10</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            performCalculation()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach: self-explanatory code without comments</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calculate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (isValidSession()) &#123;</span><br><span class="line">        performUserSpecificCalculation()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">isValidSession</span><span class="params">()</span></span> = user.isLoggedIn &amp;&amp; session.isValid</span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">performUserSpecificCalculation</span><span class="params">()</span></span> = <span class="keyword">when</span> (user.type) &#123;</span><br><span class="line">    <span class="string">&quot;admin&quot;</span> -&gt; performCalculation() * <span class="number">1.10</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; performCalculation()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="refactoring-techniques">Refactoring Techniques</h3>
-<p>Reference : <span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3RlY2huaXF1ZXM=">Refactoring Techniques<i class="fa fa-external-link-alt"></i></span> 1. Extract Variable 2. Inline Temp 3. Extract Method 4. Inline Method</p>
-<h3 id="when-is-refactoring-needed">When is refactoring needed?</h3>
-<ul>
-<li><strong>Code Review</strong>: Detect bad smells during code reviews and politely suggest improvements.</li>
-<li><strong>Every Commit</strong>: Each commit you make should leave the code cleaner than it was before.</li>
-<li><strong>When Taking Over a Difficult-to-Read Project</strong>: Convince the project team to treat refactoring as a necessary task.</li>
-<li><strong>When Iteration Efficiency Is Below Expectations</strong>: Treat refactoring as a specific task, and if necessary, pause to iterate on requirements.</li>
-</ul>
-<h3 id="rules-of-refactoring">Rules of Refactoring</h3>
-<ul>
-<li><p>Use keyboard shortcuts.</p></li>
-<li><p><strong>Refactoring should not break the functionality of the code; it should always be able to compile and run.</strong></p></li>
-<li><p><strong>Avoid starting to write new code while in the middle of refactoring.</strong></p>
-<h2 id="test-driven-development">Test-Driven-Development</h2></li>
-</ul>
-<p>To ensure that <strong>refactoring does not break the functionality of the code</strong>, we require a reliable method to verify its integrity. This is where Test-Driven Development (TDD) proves invaluable. By integrating TDD, we establish a safety net of tests that confirm the code continues to perform as expected throughout the refactoring process.</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/TDD%20cycle.png" alt><figcaption>TDD cycle</figcaption>
-</figure>
-<h3 id="the-3-laws-of-tdd">The 3 Laws of TDD</h3>
-<ol type="1">
-<li>You are not allowed to write any production code unless it is to make a failed pass</li>
-<li>You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures</li>
-<li>You are not allowed to write any more production code than is sufficient to pass on failing unit test .</li>
-</ol>
-<h3 id="test-double-and-test-structure">Test Double and Test Structure</h3>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">CreditCardProcessor</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">chargeCard</span><span class="params">(cardInfo: <span class="type">String</span>, amount: <span class="type">Double</span>)</span></span>: <span class="built_in">Boolean</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TransactionLog</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">logTransaction</span><span class="params">(status: <span class="type">String</span>)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentService</span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> processor: CreditCardProcessor,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> transactionLog: TransactionLog</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">(cardInfo: <span class="type">String</span>, amount: <span class="type">Double</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> success = processor.chargeCard(cardInfo, amount)</span><br><span class="line">        <span class="keyword">if</span> (success) &#123;</span><br><span class="line">            transactionLog.logTransaction(<span class="string">&quot;Success&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            transactionLog.logTransaction(<span class="string">&quot;Failure&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> success</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> io.mockk.every</span><br><span class="line"><span class="keyword">import</span> io.mockk.mockk</span><br><span class="line"><span class="keyword">import</span> io.mockk.verify</span><br><span class="line"><span class="keyword">import</span> org.junit.Test</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentServiceTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> `Given credit card <span class="keyword">is</span> valid, When processing payment, Then log success`<span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// Arrange (Given)</span></span><br><span class="line">        <span class="keyword">val</span> mockProcessor = mockk&lt;CreditCardProcessor&gt;()</span><br><span class="line">        <span class="keyword">val</span> mockTransactionLog = mockk&lt;TransactionLog&gt;(relaxed = <span class="literal">true</span>)</span><br><span class="line">        </span><br><span class="line">        every &#123; mockProcessor.chargeCard(any(), any()) &#125; returns <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">val</span> paymentService = PaymentService(mockProcessor, mockTransactionLog)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Act (When)</span></span><br><span class="line">        <span class="keyword">val</span> paymentResult = paymentService.processPayment(<span class="string">&quot;1234567890&quot;</span>, <span class="number">100.0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Assert (Then)</span></span><br><span class="line">        assert(paymentResult)</span><br><span class="line">        verify &#123; mockTransactionLog.logTransaction(<span class="string">&quot;Success&quot;</span>) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>Stub</strong>: In the test above, <code>mockProcessor</code> is used as a stub. It is configured to return a specific response (<code>true</code> in this case) when its <code>chargeCard</code> method is called. Stubs are used to provide predetermined responses to method calls during tests.</p></li>
-<li><p><strong>Mock</strong>: <code>mockTransactionLog</code> is used as a mock. While it could also be seen as a stub because it is providing predefined behavior (due to <code>relaxed = true</code>), the key aspect here is that we're verifying its behavior post-factum. We are checking whether the <code>logTransaction</code> method was called with the correct argument ("Success"). This is typical mocking behavior, where the emphasis is on verifying that certain methods are called correctly.</p>
-<p>More detailed ( Reference: <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9hcnRpY2xlcy9tb2Nrc0FyZW50U3R1YnMuaHRtbA==">Mocks Aren't Stubs<i class="fa fa-external-link-alt"></i></span>)</p></li>
-<li><p><strong>Dummy</strong> objects are passed around but never actually used. Usually they are just used to fill parameter lists.</p></li>
-<li><p><strong>Fake</strong> objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9ibGlraS9Jbk1lbW9yeVRlc3REYXRhYmFzZS5odG1s">in memory database<i class="fa fa-external-link-alt"></i></span> is a good example).</p></li>
-<li><p><strong>Stubs</strong> provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.</p></li>
-<li><p><strong>Spies</strong> are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.</p></li>
-<li><p><strong>Mocks</strong> are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive. ### Test Pyramid</p></li>
-</ul>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215559.png" alt><figcaption>Example of a web application</figcaption>
-</figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215639.png" alt><figcaption>Test Pyramid</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Software Engineering</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cousera机器学习基石第一周笔记 Machine Learning Foundation Week 1 Note in Cousera</title>
     <url>/posts/bc80cb40.html</url>
     <content><![CDATA[<p>An introduction for Machine learning</p>
@@ -2672,8 +2549,8 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Software Engineering</tag>
         <tag>Java</tag>
+        <tag>Software Engineering</tag>
       </tags>
   </entry>
   <entry>
@@ -5719,8 +5596,8 @@ tags: [标签1,标签2,标签3]
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Software Engineering</tag>
         <tag>Java</tag>
+        <tag>Software Engineering</tag>
       </tags>
   </entry>
   <entry>
@@ -5781,8 +5658,8 @@ tags: [标签1,标签2,标签3]
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Software Engineering</tag>
         <tag>Java</tag>
+        <tag>Software Engineering</tag>
       </tags>
   </entry>
   <entry>
@@ -8025,8 +7902,8 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Software Engineering</tag>
         <tag>Java</tag>
+        <tag>Software Engineering</tag>
       </tags>
   </entry>
   <entry>
@@ -10118,6 +9995,74 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
       </tags>
   </entry>
   <entry>
+    <title>怎么写研究计划书</title>
+    <url>/posts/f43786f7.html</url>
+    <content><![CDATA[<p>第四弹在我修士快毕业的时候终于出来了。</p>
+<p>有咨询日本理工科硕士博士留学或者研究计划书写作的可以联系我哦，邮箱zhouthepassion@outlook.com。</p>
+<p>为了证明这个方法的可行性，我随机选了一个我完全不熟悉的工科。我接触过海洋/环境/计算机/信息/生物等方向，这个老师做金属材料的。</p>
+<span id="more"></span>
+<h1 id="寻找合适的老师">寻找合适的老师</h1>
+<p>相比于之前介绍过的在学校主页或者论文里找老师，这里提供其他另外几个更好的地方。</p>
+<p>https://kaken.nii.ac.jp/en/index/</p>
+<p>https://research-er.jp/</p>
+<p>这两个可以直接搜到老师的项目，并且一口气是全日本的，直接用关键词就行，但是要注意的是第二个只能用日语搜索。</p>
+<p>因为我已经随机找完了这个老师，接下来进行到下一步。</p>
+<h1 id="看懂老师当前的项目">看懂老师当前的项目</h1>
+<p>这里是用第二个网站查出来的结果，这个老师项目还挺多。</p>
+<p>项目多的老师一般比较推荐申请hhh，如果他不push的话。在这个网站上查不出来有正在进行的项目的老师一般不建议申请。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523172730033.png" alt><figcaption>image-00030523172730033</figcaption>
+</figure>
+<p>在这里面找出来他负责的项目，这里这四个都是。就是在项目的前面有代表两个字的。</p>
+<p>我这里选了第一个项目，因为那些东西我都不知道是啥。</p>
+<p>点开之后有个这个</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173022754.png" alt><figcaption>image-00030523173022754</figcaption>
+</figure>
+<p>那里有个关连link，点开可以进入到这个项目的详细情况。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173124945.png" alt><figcaption>image-00030523173124945</figcaption>
+</figure>
+<p>看到那个Outline了没，我们这一步最终目的就是把这个Outline搞明白。有的进行很多年的项目会在这里有一个Progress Report，那个也要读懂。</p>
+<blockquote>
+<p>COVID-19の世界的な流行は、個人防護具(PPE)の増産と性能改善を早急に行う必要性を浮き彫りにした。現状の最大の課題は、エアロゾル化されたウイルスはほとんどの種類のマスクを簡単に通過できることである。したがって、マスクを着用する場合、他人への拡散を防ぐことには一定の効果があるが、自分への拡散を防ぐことには効果が薄い。迅速な対応を必要とされ ている現在、既存のPPEの改善に焦点を当てた研究が必要である。<strong>そこで本研究では申請者がこれまでに開発してきたポリフェノール性コーティングをサージカルマスクやその他の市販マスクへと適用し、ウイルスや粒子状物質の透過性に対する影響について研究する</strong> 。</p>
+</blockquote>
+<p>（吐槽一句，那几个Katakana还真就是关键字）</p>
+<p>读懂了之后找出关键字，基本都在Objective那句话里。</p>
+<p>这里这个基本就是要改善口罩涂层，研究病毒和颗粒渗透性的影响。</p>
+<h1 id="读懂-至少一篇相关论文">读懂 至少一篇相关论文</h1>
+<p>这里要先提一下，如果你在上一个页面里有找到Progress Report的话，大概率会有论文发表和会议发表，这时候直接读那一篇就好了，如果没有的话，打开谷歌学术。输入关键词。像我这里的关键词就是polyphenolic coating, surgical masks, permeability of viruses and particulate matter</p>
+<p>把时间线调到最近三四年以内的文章</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173817074.png" alt><figcaption>image-00030523173817074</figcaption>
+</figure>
+<p>如果你清楚这个领域什么期刊比较好的话，就选那个顶刊。像我，不知道的话，就是Review优先。所以我就选了第一个。</p>
+<p>注意，这里要看的重点，是Intro和Discussion，Material&amp;Methods部分只要看懂每一步的目的是什么就可以了，具体的细节可以先不去了解。</p>
+<h1 id="完成命题作文">完成命题作文</h1>
+<p>这时候回到最开始的那个</p>
+<blockquote>
+<p><strong>そこで本研究では申請者がこれまでに開発してきたポリフェノール性コーティングをサージカルマスクやその他の市販マスクへと適用し、ウイルスや粒子状物質の透過性に対する影響について研究する</strong> 。</p>
+</blockquote>
+<p>这个时候就是你的命题作文了，需要你自己提出方案设计实验（或者复制粘贴别人的）来给出一个解答。</p>
+<p>不要担心写的不好，只要你将Intro部分写的好一点，说明以下几点</p>
+<ol type="1">
+<li>题干里的这几个关键词都是什么意思</li>
+<li>你要研究的目的（就是这个题干）和为什么做这个研究</li>
+<li>这个研究的历史是什么，你提出的（复制的）实验方案和别人有什么不同</li>
+</ol>
+<p>基本就是一个老师会回复你的研究计划书了。</p>
+<p>然后老板如果想要你的话，大概率会帮助你改实验方案的部分，因为这是他自己的项目，他永远比你懂这个该怎么做。</p>
+<p>以上部分对于申请Research student基本够用了。至于考修士博士用的，还得自身努力，或者欢迎私信细聊哈哈哈。</p>
+]]></content>
+      <categories>
+        <category>留学生活</category>
+      </categories>
+      <tags>
+        <tag>留学</tag>
+        <tag>日本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>广义加性模型</title>
     <url>/posts/17683e80.html</url>
     <content><![CDATA[<h1 id="广义加性模型">广义加性模型</h1>
@@ -10425,74 +10370,6 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
         <tag>R</tag>
         <tag>广义加性模型</tag>
         <tag>统计分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>怎么写研究计划书</title>
-    <url>/posts/f43786f7.html</url>
-    <content><![CDATA[<p>第四弹在我修士快毕业的时候终于出来了。</p>
-<p>有咨询日本理工科硕士博士留学或者研究计划书写作的可以联系我哦，邮箱zhouthepassion@outlook.com。</p>
-<p>为了证明这个方法的可行性，我随机选了一个我完全不熟悉的工科。我接触过海洋/环境/计算机/信息/生物等方向，这个老师做金属材料的。</p>
-<span id="more"></span>
-<h1 id="寻找合适的老师">寻找合适的老师</h1>
-<p>相比于之前介绍过的在学校主页或者论文里找老师，这里提供其他另外几个更好的地方。</p>
-<p>https://kaken.nii.ac.jp/en/index/</p>
-<p>https://research-er.jp/</p>
-<p>这两个可以直接搜到老师的项目，并且一口气是全日本的，直接用关键词就行，但是要注意的是第二个只能用日语搜索。</p>
-<p>因为我已经随机找完了这个老师，接下来进行到下一步。</p>
-<h1 id="看懂老师当前的项目">看懂老师当前的项目</h1>
-<p>这里是用第二个网站查出来的结果，这个老师项目还挺多。</p>
-<p>项目多的老师一般比较推荐申请hhh，如果他不push的话。在这个网站上查不出来有正在进行的项目的老师一般不建议申请。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523172730033.png" alt><figcaption>image-00030523172730033</figcaption>
-</figure>
-<p>在这里面找出来他负责的项目，这里这四个都是。就是在项目的前面有代表两个字的。</p>
-<p>我这里选了第一个项目，因为那些东西我都不知道是啥。</p>
-<p>点开之后有个这个</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173022754.png" alt><figcaption>image-00030523173022754</figcaption>
-</figure>
-<p>那里有个关连link，点开可以进入到这个项目的详细情况。</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173124945.png" alt><figcaption>image-00030523173124945</figcaption>
-</figure>
-<p>看到那个Outline了没，我们这一步最终目的就是把这个Outline搞明白。有的进行很多年的项目会在这里有一个Progress Report，那个也要读懂。</p>
-<blockquote>
-<p>COVID-19の世界的な流行は、個人防護具(PPE)の増産と性能改善を早急に行う必要性を浮き彫りにした。現状の最大の課題は、エアロゾル化されたウイルスはほとんどの種類のマスクを簡単に通過できることである。したがって、マスクを着用する場合、他人への拡散を防ぐことには一定の効果があるが、自分への拡散を防ぐことには効果が薄い。迅速な対応を必要とされ ている現在、既存のPPEの改善に焦点を当てた研究が必要である。<strong>そこで本研究では申請者がこれまでに開発してきたポリフェノール性コーティングをサージカルマスクやその他の市販マスクへと適用し、ウイルスや粒子状物質の透過性に対する影響について研究する</strong> 。</p>
-</blockquote>
-<p>（吐槽一句，那几个Katakana还真就是关键字）</p>
-<p>读懂了之后找出关键字，基本都在Objective那句话里。</p>
-<p>这里这个基本就是要改善口罩涂层，研究病毒和颗粒渗透性的影响。</p>
-<h1 id="读懂-至少一篇相关论文">读懂 至少一篇相关论文</h1>
-<p>这里要先提一下，如果你在上一个页面里有找到Progress Report的话，大概率会有论文发表和会议发表，这时候直接读那一篇就好了，如果没有的话，打开谷歌学术。输入关键词。像我这里的关键词就是polyphenolic coating, surgical masks, permeability of viruses and particulate matter</p>
-<p>把时间线调到最近三四年以内的文章</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030523173817074.png" alt><figcaption>image-00030523173817074</figcaption>
-</figure>
-<p>如果你清楚这个领域什么期刊比较好的话，就选那个顶刊。像我，不知道的话，就是Review优先。所以我就选了第一个。</p>
-<p>注意，这里要看的重点，是Intro和Discussion，Material&amp;Methods部分只要看懂每一步的目的是什么就可以了，具体的细节可以先不去了解。</p>
-<h1 id="完成命题作文">完成命题作文</h1>
-<p>这时候回到最开始的那个</p>
-<blockquote>
-<p><strong>そこで本研究では申請者がこれまでに開発してきたポリフェノール性コーティングをサージカルマスクやその他の市販マスクへと適用し、ウイルスや粒子状物質の透過性に対する影響について研究する</strong> 。</p>
-</blockquote>
-<p>这个时候就是你的命题作文了，需要你自己提出方案设计实验（或者复制粘贴别人的）来给出一个解答。</p>
-<p>不要担心写的不好，只要你将Intro部分写的好一点，说明以下几点</p>
-<ol type="1">
-<li>题干里的这几个关键词都是什么意思</li>
-<li>你要研究的目的（就是这个题干）和为什么做这个研究</li>
-<li>这个研究的历史是什么，你提出的（复制的）实验方案和别人有什么不同</li>
-</ol>
-<p>基本就是一个老师会回复你的研究计划书了。</p>
-<p>然后老板如果想要你的话，大概率会帮助你改实验方案的部分，因为这是他自己的项目，他永远比你懂这个该怎么做。</p>
-<p>以上部分对于申请Research student基本够用了。至于考修士博士用的，还得自身努力，或者欢迎私信细聊哈哈哈。</p>
-]]></content>
-      <categories>
-        <category>留学生活</category>
-      </categories>
-      <tags>
-        <tag>留学</tag>
-        <tag>日本</tag>
       </tags>
   </entry>
   <entry>
