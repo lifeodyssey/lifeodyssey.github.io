@@ -2706,26 +2706,34 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 </ul>
 <h1 id="summary">Summary</h1>
 <p>Now we can answer the four questions:</p>
-<h3 id="what-is-react.component-why-is-it-extends-and-why-is-it-export">1. What is React.Component? Why is it <code>extends</code> and why is it <code>export</code>?</h3>
+<ol type="1">
+<li>What is React.Component? Why is it <code>extends</code> and why is it <code>export</code>?</li>
+</ol>
 <ul>
 <li><p><strong>React.Component</strong>: This is a base class from the React library from which your components inherit. By extending <code>React.Component</code>, your component gains access to React's lifecycle methods and state management capabilities, allowing it to respond to changes and re-render as needed.</p></li>
 <li><p><strong><code>extends</code></strong>: This keyword is used in class declarations to create a class as a child of another class. In the context of React, it means your component is a specialized type of React component, inheriting functionality from <code>React.Component</code>.</p></li>
 <li><p><strong><code>export</code></strong>: This is used to make components or functions available for import into other files within your project or in other projects. <code>export</code> makes the class public, allowing other components to instantiate and use it.</p></li>
 </ul>
-<h3 id="what-is-state-similarly-what-is-useeffect-and-hooks">2. What is state (similarly, what is useEffect and hooks)?</h3>
+<ol start="2" type="1">
+<li>What is state (similarly, what is useEffect and hooks)?</li>
+</ol>
 <ul>
 <li><p><strong>State</strong>: In React, state refers to data or properties that need to be tracked in your application. State changes can trigger a re-render of the component. State in a React component can be considered as the local data that the component itself manages.</p></li>
 <li><p><strong>Hooks</strong>: Introduced in React 16.8, hooks allow you to use state and other React features without writing a class. <code>useState</code> is a hook that lets you add React state to function components.</p></li>
 <li><p><strong>useEffect</strong>: This is another hook that manages side effects in function components. It serves the same purpose as <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> in React classes, allowing you to perform side effects like data fetching,</p>
 <p>subscriptions, or manually changing the DOM from React components.</p></li>
 </ul>
-<h3 id="what-is-render-why-does-it-follow-and-return-a-part-of-html">3. What is <code>render()</code>, why does it follow <code>&#123;&#125;</code> and return a part of HTML?</h3>
+<ol start="3" type="1">
+<li>What is <code>render()</code>, why does it follow <code>&#123;&#125;</code> and return a part of HTML?</li>
+</ol>
 <ul>
 <li><p><strong><code>render()</code></strong>: This is a lifecycle method in React class components that specifies what should be displayed on the screen. It needs to be pure, meaning it must return the same output given the same input and should not modify component state.</p></li>
 <li><p><strong><code>&#123;&#125;</code></strong>: These braces are used in JSX to embed JavaScript expressions. React and JSX use curly braces to evaluate variables and expressions inside JSX code.</p></li>
 <li><p><strong>Returns HTML</strong>: Technically, <code>render()</code> returns JSX, not HTML. JSX is a syntax extension that looks like HTML and is ultimately transpiled to JavaScript calls that create React elements. These elements are then used by React to construct the DOM.</p></li>
 </ul>
-<h3 id="who-uses-the-returned-html-and-how-is-it-composed-into-html">4. Who uses the returned HTML, and how is it composed into HTML?</h3>
+<ol start="4" type="1">
+<li>Who uses the returned HTML, and how is it composed into HTML?</li>
+</ol>
 <ul>
 <li><p><strong>Who uses it?</strong>: The JSX returned from <code>render()</code> is used by React. React takes this JSX and converts it into actual DOM elements to be mounted in the browser's DOM tree.</p></li>
 <li><p><strong>Composition into HTML</strong>: Under the hood, React transforms JSX into <code>React.createElement()</code> calls. These calls return objects that React uses to keep track of the tree's structure and to ultimately construct and update the DOM efficiently. React handles the creation and update lifecycle of these DOM elements in response to state and props changes.</p></li>
