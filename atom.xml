@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2024-06-19T06:41:49.640Z</updated>
+  <updated>2024-06-20T06:29:10.561Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://lifeodyssey.github.io/posts/0.html"/>
+    <id>https://lifeodyssey.github.io/posts/0.html</id>
+    <published>2024-06-20T06:29:10.561Z</published>
+    <updated>2024-06-20T06:29:10.561Z</updated>
+    
+    
+    <summary type="html">&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;title:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;How&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Understand&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;React&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Backend&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Developer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;tags:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;Software Engineering&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;bullet&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;Frontend Development&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;categories:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;学习笔记&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;mathjax:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;abbrlink:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;date:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2024-06-19 22:34:45&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;copyright:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;In the past, I found it quite hard to understand React code as a backend developer. But recently, I gained some insights from my daily development work, and I want to share them with you.&lt;/p&gt;
+&lt;p&gt;過去に、&lt;ruby&gt;バックエンド&lt;rt class=&quot;katakana-terminator-rt&quot;&gt;&lt;/rt&gt;&lt;/ruby&gt;開発者としてReactの&lt;ruby&gt;コード&lt;rt class=&quot;katakana-terminator-rt&quot;&gt;&lt;/rt&gt;&lt;/ruby&gt;を理解するのがとても難しいと感じました。しかし最近、日々の開発作業からいくつかの洞察を得ることができたので、それを皆さんと共有したいと思います。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Clean Code, Refactoring and Test-Driven Development</title>
     <link href="https://lifeodyssey.github.io/posts/5ffd7c75.html"/>
     <id>https://lifeodyssey.github.io/posts/5ffd7c75.html</id>
     <published>2024-06-15T14:34:45.000Z</published>
-    <updated>2024-06-19T06:41:49.640Z</updated>
+    <updated>2024-06-20T06:29:10.549Z</updated>
     
     
     <summary type="html">&lt;p&gt;I would like to summarize some of the basic principles and habits of coding that I learned while working at ThoughtWorks. These are some &#39;metaphysical&#39; guidelines, and later I plan to use Kotlin to write some design patterns to practice the &#39;physical&#39; aspects.&lt;/p&gt;
@@ -45,7 +62,7 @@
     <link href="https://lifeodyssey.github.io/posts/6ef15720.html"/>
     <id>https://lifeodyssey.github.io/posts/6ef15720.html</id>
     <published>2024-03-03T10:34:45.000Z</published>
-    <updated>2024-06-19T06:41:49.668Z</updated>
+    <updated>2024-06-20T06:29:10.581Z</updated>
     
     
     <summary type="html">&lt;p&gt;总感觉每一年的春天才是新的一年的开始。&lt;/p&gt;</summary>
@@ -64,7 +81,7 @@
     <link href="https://lifeodyssey.github.io/posts/8c33e681.html"/>
     <id>https://lifeodyssey.github.io/posts/8c33e681.html</id>
     <published>2024-02-09T08:36:49.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.577Z</updated>
     
     
     <summary type="html">&lt;p&gt;谢谢大家！！！！&lt;/p&gt;
@@ -87,7 +104,7 @@
     <link href="https://lifeodyssey.github.io/posts/b30efee3.html"/>
     <id>https://lifeodyssey.github.io/posts/b30efee3.html</id>
     <published>2023-08-27T10:03:54.000Z</published>
-    <updated>2024-06-19T06:41:49.668Z</updated>
+    <updated>2024-06-20T06:29:10.581Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前总结的东西 放一下出来 一直记不住的东西之一&lt;/p&gt;</summary>
@@ -106,7 +123,7 @@
     <link href="https://lifeodyssey.github.io/posts/a41520c0.html"/>
     <id>https://lifeodyssey.github.io/posts/a41520c0.html</id>
     <published>2023-08-20T17:37:35.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.577Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -136,7 +153,7 @@
     <link href="https://lifeodyssey.github.io/posts/b25cb4c7.html"/>
     <id>https://lifeodyssey.github.io/posts/b25cb4c7.html</id>
     <published>2023-01-08T13:37:35.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.577Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -163,7 +180,7 @@
     <link href="https://lifeodyssey.github.io/posts/8bf3d056.html"/>
     <id>https://lifeodyssey.github.io/posts/8bf3d056.html</id>
     <published>2022-12-03T13:37:35.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.577Z</updated>
     
     
     <summary type="html">&lt;p&gt;这个bug卡了我好久了&lt;/p&gt;</summary>
@@ -182,7 +199,7 @@
     <link href="https://lifeodyssey.github.io/posts/8cacdaad.html"/>
     <id>https://lifeodyssey.github.io/posts/8cacdaad.html</id>
     <published>2022-09-20T13:37:35.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.577Z</updated>
     
     
     <summary type="html">&lt;p&gt;日子过的真的好快啊，又忍不住来写点东西&lt;/p&gt;</summary>
@@ -201,7 +218,7 @@
     <link href="https://lifeodyssey.github.io/posts/f36cc8b7.html"/>
     <id>https://lifeodyssey.github.io/posts/f36cc8b7.html</id>
     <published>2022-07-23T15:36:22.000Z</published>
-    <updated>2024-06-19T06:41:49.652Z</updated>
+    <updated>2024-06-20T06:29:10.565Z</updated>
     
     
     <summary type="html">&lt;p&gt;这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html 先写一下手上这套方案的缺陷 - 只能做日常记录，没有做到Personal Knowledge Management (PKM) - 因为没有购买obsidian的付费服务，依赖于git进行同步，无法做到全平台同步，只能在桌面端使用，移动端还是依赖于便签app - 对任务清单的支持不好，这部分还是用Microsoft ToDo解决的&lt;/p&gt;
@@ -221,7 +238,7 @@
     <link href="https://lifeodyssey.github.io/posts/73362798.html"/>
     <id>https://lifeodyssey.github.io/posts/73362798.html</id>
     <published>2022-07-22T14:56:18.000Z</published>
-    <updated>2024-06-19T06:41:49.660Z</updated>
+    <updated>2024-06-20T06:29:10.573Z</updated>
     
     
     <summary type="html">&lt;p&gt;公司用的是Kotlin，这次用的是公开资料，就可以不加密了hhh https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html 看的这一本&lt;/p&gt;
@@ -241,7 +258,7 @@
     <link href="https://lifeodyssey.github.io/posts/715050f6.html"/>
     <id>https://lifeodyssey.github.io/posts/715050f6.html</id>
     <published>2022-07-18T08:22:18.000Z</published>
-    <updated>2024-06-19T06:41:49.656Z</updated>
+    <updated>2024-06-20T06:29:10.569Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -260,7 +277,7 @@
     <link href="https://lifeodyssey.github.io/posts/d7f3beca.html"/>
     <id>https://lifeodyssey.github.io/posts/d7f3beca.html</id>
     <published>2022-07-02T07:15:14.000Z</published>
-    <updated>2024-06-19T06:41:49.668Z</updated>
+    <updated>2024-06-20T06:29:10.581Z</updated>
     
     
     <summary type="html">&lt;p&gt;今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。&lt;/p&gt;
@@ -291,7 +308,7 @@
     <link href="https://lifeodyssey.github.io/posts/2cb8508a.html"/>
     <id>https://lifeodyssey.github.io/posts/2cb8508a.html</id>
     <published>2022-07-01T00:13:10.000Z</published>
-    <updated>2024-06-19T06:41:49.668Z</updated>
+    <updated>2024-06-20T06:29:10.581Z</updated>
     
     
     <summary type="html">&lt;p&gt;8.2号就答辩了。&lt;/p&gt;
@@ -314,7 +331,7 @@
     <link href="https://lifeodyssey.github.io/posts/84ea90f7.html"/>
     <id>https://lifeodyssey.github.io/posts/84ea90f7.html</id>
     <published>2022-06-27T07:45:10.000Z</published>
-    <updated>2024-06-19T06:41:49.660Z</updated>
+    <updated>2024-06-20T06:29:10.573Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -335,7 +352,7 @@
     <link href="https://lifeodyssey.github.io/posts/6c4d8823.html"/>
     <id>https://lifeodyssey.github.io/posts/6c4d8823.html</id>
     <published>2022-06-14T11:29:29.000Z</published>
-    <updated>2024-06-19T06:41:49.668Z</updated>
+    <updated>2024-06-20T06:29:10.581Z</updated>
     
     
     <summary type="html">&lt;p&gt;看到标题是不是觉得很奇怪，没错，我也觉得很奇怪，但没办法，这是客户的要求。&lt;/p&gt;</summary>
@@ -356,7 +373,7 @@
     <link href="https://lifeodyssey.github.io/posts/947599bf.html"/>
     <id>https://lifeodyssey.github.io/posts/947599bf.html</id>
     <published>2022-06-13T08:44:10.000Z</published>
-    <updated>2024-06-19T06:41:49.660Z</updated>
+    <updated>2024-06-20T06:29:10.573Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -377,7 +394,7 @@
     <link href="https://lifeodyssey.github.io/posts/dbd66adf.html"/>
     <id>https://lifeodyssey.github.io/posts/dbd66adf.html</id>
     <published>2022-06-04T10:34:45.000Z</published>
-    <updated>2024-06-19T06:41:49.664Z</updated>
+    <updated>2024-06-20T06:29:10.573Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -398,7 +415,7 @@
     <link href="https://lifeodyssey.github.io/posts/7f4ddd0d.html"/>
     <id>https://lifeodyssey.github.io/posts/7f4ddd0d.html</id>
     <published>2022-05-30T18:06:18.000Z</published>
-    <updated>2024-06-19T06:41:49.652Z</updated>
+    <updated>2024-06-20T06:29:10.565Z</updated>
     
     
     <summary type="html">&lt;p&gt;别太焦虑 大家最后都是要死的&lt;/p&gt;</summary>
@@ -417,7 +434,7 @@
     <link href="https://lifeodyssey.github.io/posts/984bc8b6.html"/>
     <id>https://lifeodyssey.github.io/posts/984bc8b6.html</id>
     <published>2022-05-12T15:12:22.000Z</published>
-    <updated>2024-06-19T06:41:49.652Z</updated>
+    <updated>2024-06-20T06:29:10.561Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -430,29 +447,6 @@
     <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
     
     <category term="Java" scheme="https://lifeodyssey.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Passion &amp; Motivation</title>
-    <link href="https://lifeodyssey.github.io/posts/49d62bf8.html"/>
-    <id>https://lifeodyssey.github.io/posts/49d62bf8.html</id>
-    <published>2022-04-20T13:00:47.000Z</published>
-    <updated>2024-06-19T06:41:49.652Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;&quot;对于读博这件事，你什么都有了，却没有了Passion&quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我朋友说的很对。&lt;/p&gt;
-&lt;p&gt;跟朋友圈的各位讲一下我最近发生的事情。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="人生得意须尽欢" scheme="https://lifeodyssey.github.io/categories/%E4%BA%BA%E7%94%9F%E5%BE%97%E6%84%8F%E9%A1%BB%E5%B0%BD%E6%AC%A2/"/>
-    
-    
-    <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
     
   </entry>
   
