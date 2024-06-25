@@ -2672,8 +2672,8 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><p><strong>Batching</strong>: React batches multiple updates to the Virtual DOM. Instead of applying each state change to the DOM as it occurs, React holds these changes in memory and updates the Virtual DOM in one go. This reduces the workload on the real DOM by avoiding continuous re-render cycles for each change.</p></li>
 <li><p><strong>Diffing</strong>: Once React updates the Virtual DOM, it needs to update the real DOM to reflect these changes. This is done through a process called reconciliation. React compares the current Virtual DOM with the previous snapshot of the Virtual DOM (before the updates). This comparison is optimized with a diffing algorithm that identifies exactly which parts of the DOM need to be updated.</p></li>
 </ul>
-<p>This is the most important thing that made me feel uncomfortable and made me feel like React is a **black box</p>
-<p>**. I'm not working on the real HTML object, but I'm working on the abstraction provided by React.</p>
+<p>This is the most important thing that made me feel uncomfortable and made me feel like React is a <strong>black box. </strong></p>
+<p><strong>I'm not working on the real HTML object, but I'm working on the abstraction provided by React. </strong></p>
 <p>To compare with this, in backend development, when I'm working on an instance, I'm working on a real object that even I can trace the life of data using the address and pointer—even it's an address provided by the operating system, not a physical location, but at least I can. In the frontend, it is quite different. I'm not working on a real DOM object. The Virtual DOM was not created by React, but React made it simpler and open-source.</p>
 <h3 id="components">Components</h3>
 <p>The way that React could find where it is updated is by building a webpage with blocks. Such a block is called a Component. Each component manages its own state and has its own lifecycle methods that allow it to react to changes over time. Components can be composed together to build complex UIs.</p>
