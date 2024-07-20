@@ -7062,6 +7062,205 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
       </tags>
   </entry>
   <entry>
+    <title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig</title>
+    <url>/posts/bebb8f89.html</url>
+    <content><![CDATA[<p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
+<span id="more"></span>
+<h1 id="matplotlib.ticker">matplotlib.ticker</h1>
+<h2 id="定位">定位</h2>
+<h3 id="tick-locating">Tick locating</h3>
+<p>The Locator class is the base class for all tick locators. The locators handle autoscaling of the view limits based on the data limits, and the choosing of tick locations. A useful semi-automatic tick locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a>. It is initialized with a base, e.g., 10, and it picks axis limits and ticks that are multiples of that base.</p>
+<p>The Locator subclasses defined here are</p>
+<ul>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoLocator"><code>AutoLocator</code></a></p>
+<p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a> with simple defaults. This is the default tick locator for most plotting.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a></p>
+<p>Finds up to a max number of intervals with ticks at nice locations.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LinearLocator"><code>LinearLocator</code></a></p>
+<p>Space ticks evenly from min to max.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a></p>
+<p>Space ticks logarithmically from min to max.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a></p>
+<p>Ticks and range are a multiple of base; either integer or float.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedLocator"><code>FixedLocator</code></a></p>
+<p>Tick locations are fixed.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexLocator"><code>IndexLocator</code></a></p>
+<p>Locator for index plots (e.g., where <code>x = range(len(y))</code>).</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a></p>
+<p>No ticks.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.SymmetricalLogLocator"><code>SymmetricalLogLocator</code></a></p>
+<p>Locator for use with with the symlog norm; works like <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a> for the part outside of the threshold and adds 0 if inside the limits.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitLocator"><code>LogitLocator</code></a></p>
+<p>Locator for logit scaling.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.OldAutoLocator"><code>OldAutoLocator</code></a></p>
+<p>Choose a <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a> and dynamically reassign it for intelligent ticking during navigation.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoMinorLocator"><code>AutoMinorLocator</code></a></p>
+<p>Locator for minor ticks when the axis is linear and the major ticks are uniformly spaced. Subdivides the major tick interval into a specified number of minor intervals, defaulting to 4 or 5 depending on the major interval.</p></li>
+</ul>
+<p>There are a number of locators specialized for date locations - see the <code>dates</code> module.</p>
+<p>You can define your own locator by deriving from Locator. You must override the <code>__call__</code> method, which returns a sequence of locations, and you will probably want to override the autoscale method to set the view limits from the data limits.</p>
+<p>If you want to override the default locator, use one of the above or a custom locator and pass it to the x or y axis instance. The relevant methods are:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(xmajor_locator)</span><br><span class="line">ax.xaxis.set_minor_locator(xminor_locator)</span><br><span class="line">ax.yaxis.set_major_locator(ymajor_locator)</span><br><span class="line">ax.yaxis.set_minor_locator(yminor_locator)</span><br></pre></td></tr></table></figure>
+<p>The default minor locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a>, i.e., no minor ticks on by default.</p>
+<h2 id="格式">格式</h2>
+<h3 id="tick-formatting">Tick formatting</h3>
+<p>Tick formatting is controlled by classes derived from Formatter. The formatter operates on a single tick value and returns a string to the axis.</p>
+<ul>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullFormatter"><code>NullFormatter</code></a></p>
+<p>No labels on the ticks.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexFormatter"><code>IndexFormatter</code></a></p>
+<p>Set the strings from a list of labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedFormatter"><code>FixedFormatter</code></a></p>
+<p>Set the strings manually for the labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FuncFormatter"><code>FuncFormatter</code></a></p>
+<p>User defined function sets the labels.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.StrMethodFormatter"><code>StrMethodFormatter</code></a></p>
+<p>Use string <a href="https://docs.python.org/3/library/functions.html#format"><code>format</code></a> method.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter"><code>FormatStrFormatter</code></a></p>
+<p>Use an old-style sprintf format string.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.ScalarFormatter"><code>ScalarFormatter</code></a></p>
+<p>Default formatter for scalars: autopick the format string.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatter"><code>LogFormatter</code></a></p>
+<p>Formatter for log axes.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterExponent"><code>LogFormatterExponent</code></a></p>
+<p>Format values for log axis using <code>exponent = log_base(value)</code>.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterMathtext"><code>LogFormatterMathtext</code></a></p>
+<p>Format values for log axis using <code>exponent = log_base(value)</code> using Math text.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterSciNotation"><code>LogFormatterSciNotation</code></a></p>
+<p>Format values for log axis using scientific notation.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitFormatter"><code>LogitFormatter</code></a></p>
+<p>Probability formatter.</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.EngFormatter"><code>EngFormatter</code></a></p>
+<p>Format labels in engineering notation</p></li>
+<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.PercentFormatter"><code>PercentFormatter</code></a></p>
+<p>Format labels as a percentage</p></li>
+</ul>
+<p>You can derive your own formatter from the Formatter base class by simply overriding the <code>__call__</code> method. The formatter class has access to the axis view and data limits.</p>
+<p>To control the major and minor tick label formats, use one of the following methods:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_formatter(xmajor_formatter)</span><br><span class="line">ax.xaxis.set_minor_formatter(xminor_formatter)</span><br><span class="line">ax.yaxis.set_major_formatter(ymajor_formatter)</span><br><span class="line">ax.yaxis.set_minor_formatter(yminor_formatter)</span><br></pre></td></tr></table></figure>
+<p>See <span class="exturl" data-url="aHR0cHM6Ly9tYXRwbG90bGliLm9yZy8zLjEuMS9nYWxsZXJ5L3RpY2tzX2FuZF9zcGluZXMvbWFqb3JfbWlub3JfZGVtby5odG1s">Major and minor ticks<i class="fa fa-external-link-alt"></i></span> for an example of setting major and minor ticks. See the <a href="https://matplotlib.org/3.1.1/api/dates_api.html#module-matplotlib.dates"><code>matplotlib.dates</code></a> module for more information and examples of using date locators and formatters.</p>
+<p>参考</p>
+<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
+<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
+<h1 id="enumerate">enumerate</h1>
+<h2 id="描述">描述</h2>
+<p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
+<p>Python 2.3. 以上版本可用，2.6 添加 start 参数。</p>
+<h3 id="语法">语法</h3>
+<p>以下是 enumerate() 方法的语法:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enumerate</span>(sequence, [start=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="参数">参数</h3>
+<ul>
+<li>sequence -- 一个序列、迭代器或其他支持迭代对象。</li>
+<li>start -- 下标起始位置。</li>
+</ul>
+<h3 id="返回值">返回值</h3>
+<p>返回 enumerate(枚举) 对象。</p>
+<hr>
+<h2 id="实例">实例</h2>
+<p>以下展示了使用 enumerate() 方法的实例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons, start=<span class="number">1</span>))       <span class="comment"># 下标从 1 开始</span></span><br><span class="line">[(<span class="number">1</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">4</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+<h3 id="普通的-for-循环">普通的 for 循环</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;i = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> element <span class="keyword">in</span> seq:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, seq[i]</span><br><span class="line"><span class="meta">... </span>    i +=<span class="number">1</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<h3 id="for-循环使用-enumerate">for 循环使用 enumerate</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, element</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one参考</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
+<p>参考</p>
+<p>https://www.runoob.com/python/python-func-enumerate.html</p>
+<h1 id="subplot2grid">subplot2grid</h1>
+<p>这个可以自定义子图的位置，并且可以跨越原来大小。</p>
+<p>原文https://wizardforcel.gitbooks.io/matplotlib-user-guide/content/3.3.html</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">GridSpec</span><br></pre></td></tr></table></figure>
+<p>指定子图将放置的网格的几何位置。 需要设置网格的行数和列数。 子图布局参数（例如，左，右等）可以选择性调整。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SubplotSpec</span><br></pre></td></tr></table></figure>
+<p>指定在给定<code>GridSpec</code>中的子图位置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">subplot2grid</span><br></pre></td></tr></table></figure>
+<p>一个辅助函数，类似于<code>pyplot.subplot</code>，但是使用基于 0 的索引，并可使子图跨越多个格子。</p>
+<h2 id="subplot2grid基本示例">subplot2grid基本示例</h2>
+<p>要使用subplot2grid，你需要提供网格的几何形状和网格中子图的位置。 对于简单的单网格子图：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">       nRow=<span class="number">2</span>, nCol=<span class="number">2</span></span><br><span class="line">(<span class="number">0</span>,<span class="number">0</span>) +-------+-------+</span><br><span class="line">      |   <span class="number">1</span>   |       |</span><br><span class="line">      +-------+-------+</span><br><span class="line">      |       |       |</span><br><span class="line">      +-------+-------+</span><br></pre></td></tr></table></figure>
+<p>要注意不像<code>subplot</code>，<code>gridspec</code>中的下标从 0 开始。</p>
+<p>为了创建跨越多个格子的子图，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>例如，下列命令：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>,<span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<p>会创建：</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="gridspec和subplotspec">GridSpec和SubplotSpec</h2>
+<p>你可以显式创建<code>GridSpec</code>并用它们创建子图。</p>
+<p>例如，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax = plt.subplot(gs[<span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p><code>gridspec</code>示例提供类似数组（一维或二维）的索引，并返回<code>SubplotSpec</code>实例。例如，使用切片来返回跨越多个格子的<code>SubplotSpec</code>实例。</p>
+<p>上面的例子会变成：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>,:-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>,-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="调整-gridspec布局">调整 GridSpec布局</h2>
+<p>在显式使用<code>GridSpec</code>的时候，你可以调整子图的布局参数，子图由<code>gridspec</code>创建。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>这类似于<code>subplots_adjust</code>，但是他只影响从给定<code>GridSpec</code>创建的子图。</p>
+<p>下面的代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br><span class="line">ax1 = plt.subplot(gs1[:-<span class="number">1</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs1[-<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs1[-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">gs2 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs2.update(left=<span class="number">0.55</span>, right=<span class="number">0.98</span>, hspace=<span class="number">0.05</span>)</span><br><span class="line">ax4 = plt.subplot(gs2[:, :-<span class="number">1</span>])</span><br><span class="line">ax5 = plt.subplot(gs2[:-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line">ax6 = plt.subplot(gs2[-<span class="number">1</span>, -<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>会产生</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="使用-subplotspec创建-gridspec">使用 SubplotSpec创建 GridSpec</h2>
+<p>你可以从<code>SubplotSpec</code>创建<code>GridSpec</code>，其中它的布局参数设置为给定<code>SubplotSpec</code>的位置的布局参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs0 = gridspec.GridSpec(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">gs00 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">0</span>])</span><br><span class="line">gs01 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="使用subplotspec创建复杂嵌套的gridspec">使用SubplotSpec创建复杂嵌套的GridSpec</h2>
+<p>这里有一个更复杂的嵌套<code>gridspec</code>的示例，我们通过在每个 3x3 内部网格中隐藏适当的脊线，在 4x4 外部网格的每个单元格周围放置一个框。</p>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt><figcaption>img</figcaption>
+</figure>
+<h2 id="网格尺寸可变的gridspec">网格尺寸可变的GridSpec</h2>
+<p>通常，<code>GridSpec</code>创建大小相等的网格。你可以调整行和列的相对高度和宽度，要注意绝对高度值是无意义的，有意义的只是它们的相对比值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>,</span><br><span class="line">                       width_ratios=[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">                       height_ratios=[<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">                       )</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt><figcaption>img</figcaption>
+</figure>
+<h1 id="seaborn">seaborn</h1>
+<p>seaborn是对matplotlib进一步的封装，简单点来说就是更简单了。</p>
+<p>官网https://seaborn.pydata.org/</p>
+<p>我这里放几个我感觉用得上的代码。</p>
+<h2 id="lineplot">lineplot</h2>
+<p>seaborn.lineplot(x=None, y=None, hue=None, size=None, style=None, data=None, palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None, dashes=True, markers=None, style_order=None, units=None, estimator='mean', ci=95, n_boot=1000, seed=None, sort=True, err_style='band', err_kws=None, legend='brief', ax=None, **kwargs)</p>
+<p>https://seaborn.pydata.org/generated/seaborn.lineplot.html</p>
+<h2 id="heatmap">heatmap</h2>
+<p>seaborn.heatmap(data, vmin=None, vmax=None, cmap=None, center=None, robust=False, annot=None, fmt='.2g', annot_kws=None, linewidths=0, linecolor='white', cbar=True, cbar_kws=None, cbar_ax=None, square=False, xticklabels='auto', yticklabels='auto', mask=None, ax=None, **kwargs)</p>
+<p>https://zhuanlan.zhihu.com/p/35494575</p>
+<h2 id="implot">implot</h2>
+<p>eaborn.lmplot(<em>x</em>, <em>y</em>, <em>data</em>, <em>hue=None</em>, <em>col=None</em>, <em>row=None</em>, <em>palette=None</em>, <em>col_wrap=None</em>, <em>size=5</em>, <em>aspect=1</em>, <em>markers='o'</em>, <em>sharex=True</em>, <em>sharey=True</em>, <em>hue_order=None</em>, <em>col_order=None</em>, <em>row_order=None</em>, <em>legend=True</em>, <em>legend_out=True</em>, <em>x_estimator=None</em>, <em>x_bins=None</em>, <em>x_ci='ci'</em>, <em>scatter=True</em>, <em>fit_reg=True</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>units=None</em>, <em>order=1</em>, <em>logistic=False</em>, <em>lowess=False</em>, <em>robust=False</em>, <em>logx=False</em>, <em>x_partial=None</em>, <em>y_partial=None</em>, <em>truncate=False</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>scatter_kws=None</em>, <em>line_kws=None</em>)</p>
+<p>https://zhuanlan.zhihu.com/p/25909753</p>
+<p>常见统计图片基本都可以在这里面看到</p>
+<p>https://seaborn.pydata.org/examples/index.html</p>
+<h2 id="subplot_adjust">subplot_adjust</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">matplotlib.pyplot.subplots_adjust(*args, **kwargs)</span><br><span class="line">subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># 子图(subplot)距画板(figure)左边的距离</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># 右边</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># 底部</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># 顶部</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># 子图水平间距</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># 子图垂直间距</span></span><br></pre></td></tr></table></figure>
+<h1 id="pltaxfig">plt/ax/fig</h1>
+<figure>
+<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt><figcaption>img</figcaption>
+</figure>
+<p>尽量避免直接使用plt</p>
+<p>https://zhuanlan.zhihu.com/p/93423829</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Research</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>particle backscattering</title>
     <url>/posts/78604782.html</url>
     <content><![CDATA[<p>Spectral variations of light scattering by marine particles in coastal waters, from visible to near infrared</p>
@@ -7269,202 +7468,88 @@ f(\lambda)=f_{550}(\frac{\lambda}{550})^{\gamma}
       </tags>
   </entry>
   <entry>
-    <title>Basis for subplot2grid, ticker, enumerate, seaborn, plt/ax/fig</title>
-    <url>/posts/bebb8f89.html</url>
-    <content><![CDATA[<p>一些在读别人代码的时候发现自己还没有掌握的东西。</p>
+    <title>py6s</title>
+    <url>/posts/514b9dac.html</url>
+    <content><![CDATA[<p>之前一直想方设法跨过去的事情今天终于要开始搞了</p>
 <span id="more"></span>
-<h1 id="matplotlib.ticker">matplotlib.ticker</h1>
-<h2 id="定位">定位</h2>
-<h3 id="tick-locating">Tick locating</h3>
-<p>The Locator class is the base class for all tick locators. The locators handle autoscaling of the view limits based on the data limits, and the choosing of tick locations. A useful semi-automatic tick locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a>. It is initialized with a base, e.g., 10, and it picks axis limits and ticks that are multiples of that base.</p>
-<p>The Locator subclasses defined here are</p>
-<ul>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoLocator"><code>AutoLocator</code></a></p>
-<p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a> with simple defaults. This is the default tick locator for most plotting.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MaxNLocator"><code>MaxNLocator</code></a></p>
-<p>Finds up to a max number of intervals with ticks at nice locations.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LinearLocator"><code>LinearLocator</code></a></p>
-<p>Space ticks evenly from min to max.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a></p>
-<p>Space ticks logarithmically from min to max.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a></p>
-<p>Ticks and range are a multiple of base; either integer or float.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedLocator"><code>FixedLocator</code></a></p>
-<p>Tick locations are fixed.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexLocator"><code>IndexLocator</code></a></p>
-<p>Locator for index plots (e.g., where <code>x = range(len(y))</code>).</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a></p>
-<p>No ticks.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.SymmetricalLogLocator"><code>SymmetricalLogLocator</code></a></p>
-<p>Locator for use with with the symlog norm; works like <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogLocator"><code>LogLocator</code></a> for the part outside of the threshold and adds 0 if inside the limits.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitLocator"><code>LogitLocator</code></a></p>
-<p>Locator for logit scaling.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.OldAutoLocator"><code>OldAutoLocator</code></a></p>
-<p>Choose a <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.MultipleLocator"><code>MultipleLocator</code></a> and dynamically reassign it for intelligent ticking during navigation.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.AutoMinorLocator"><code>AutoMinorLocator</code></a></p>
-<p>Locator for minor ticks when the axis is linear and the major ticks are uniformly spaced. Subdivides the major tick interval into a specified number of minor intervals, defaulting to 4 or 5 depending on the major interval.</p></li>
-</ul>
-<p>There are a number of locators specialized for date locations - see the <code>dates</code> module.</p>
-<p>You can define your own locator by deriving from Locator. You must override the <code>__call__</code> method, which returns a sequence of locations, and you will probably want to override the autoscale method to set the view limits from the data limits.</p>
-<p>If you want to override the default locator, use one of the above or a custom locator and pass it to the x or y axis instance. The relevant methods are:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_locator(xmajor_locator)</span><br><span class="line">ax.xaxis.set_minor_locator(xminor_locator)</span><br><span class="line">ax.yaxis.set_major_locator(ymajor_locator)</span><br><span class="line">ax.yaxis.set_minor_locator(yminor_locator)</span><br></pre></td></tr></table></figure>
-<p>The default minor locator is <a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullLocator"><code>NullLocator</code></a>, i.e., no minor ticks on by default.</p>
-<h2 id="格式">格式</h2>
-<h3 id="tick-formatting">Tick formatting</h3>
-<p>Tick formatting is controlled by classes derived from Formatter. The formatter operates on a single tick value and returns a string to the axis.</p>
-<ul>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.NullFormatter"><code>NullFormatter</code></a></p>
-<p>No labels on the ticks.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.IndexFormatter"><code>IndexFormatter</code></a></p>
-<p>Set the strings from a list of labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FixedFormatter"><code>FixedFormatter</code></a></p>
-<p>Set the strings manually for the labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FuncFormatter"><code>FuncFormatter</code></a></p>
-<p>User defined function sets the labels.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.StrMethodFormatter"><code>StrMethodFormatter</code></a></p>
-<p>Use string <a href="https://docs.python.org/3/library/functions.html#format"><code>format</code></a> method.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter"><code>FormatStrFormatter</code></a></p>
-<p>Use an old-style sprintf format string.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.ScalarFormatter"><code>ScalarFormatter</code></a></p>
-<p>Default formatter for scalars: autopick the format string.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatter"><code>LogFormatter</code></a></p>
-<p>Formatter for log axes.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterExponent"><code>LogFormatterExponent</code></a></p>
-<p>Format values for log axis using <code>exponent = log_base(value)</code>.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterMathtext"><code>LogFormatterMathtext</code></a></p>
-<p>Format values for log axis using <code>exponent = log_base(value)</code> using Math text.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogFormatterSciNotation"><code>LogFormatterSciNotation</code></a></p>
-<p>Format values for log axis using scientific notation.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.LogitFormatter"><code>LogitFormatter</code></a></p>
-<p>Probability formatter.</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.EngFormatter"><code>EngFormatter</code></a></p>
-<p>Format labels in engineering notation</p></li>
-<li><p><a href="https://matplotlib.org/3.1.1/api/ticker_api.html#matplotlib.ticker.PercentFormatter"><code>PercentFormatter</code></a></p>
-<p>Format labels as a percentage</p></li>
-</ul>
-<p>You can derive your own formatter from the Formatter base class by simply overriding the <code>__call__</code> method. The formatter class has access to the axis view and data limits.</p>
-<p>To control the major and minor tick label formats, use one of the following methods:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax.xaxis.set_major_formatter(xmajor_formatter)</span><br><span class="line">ax.xaxis.set_minor_formatter(xminor_formatter)</span><br><span class="line">ax.yaxis.set_major_formatter(ymajor_formatter)</span><br><span class="line">ax.yaxis.set_minor_formatter(yminor_formatter)</span><br></pre></td></tr></table></figure>
-<p>See <span class="exturl" data-url="aHR0cHM6Ly9tYXRwbG90bGliLm9yZy8zLjEuMS9nYWxsZXJ5L3RpY2tzX2FuZF9zcGluZXMvbWFqb3JfbWlub3JfZGVtby5odG1s">Major and minor ticks<i class="fa fa-external-link-alt"></i></span> for an example of setting major and minor ticks. See the <a href="https://matplotlib.org/3.1.1/api/dates_api.html#module-matplotlib.dates"><code>matplotlib.dates</code></a> module for more information and examples of using date locators and formatters.</p>
-<p>参考</p>
-<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
-<p>https://matplotlib.org/3.1.1/api/ticker_api.html</p>
-<h1 id="enumerate">enumerate</h1>
-<h2 id="描述">描述</h2>
-<p>enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
-<p>Python 2.3. 以上版本可用，2.6 添加 start 参数。</p>
-<h3 id="语法">语法</h3>
-<p>以下是 enumerate() 方法的语法:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">enumerate</span>(sequence, [start=<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="参数">参数</h3>
-<ul>
-<li>sequence -- 一个序列、迭代器或其他支持迭代对象。</li>
-<li>start -- 下标起始位置。</li>
-</ul>
-<h3 id="返回值">返回值</h3>
-<p>返回 enumerate(枚举) 对象。</p>
-<hr>
-<h2 id="实例">实例</h2>
-<p>以下展示了使用 enumerate() 方法的实例：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seasons = [<span class="string">&#x27;Spring&#x27;</span>, <span class="string">&#x27;Summer&#x27;</span>, <span class="string">&#x27;Fall&#x27;</span>, <span class="string">&#x27;Winter&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons))</span><br><span class="line">[(<span class="number">0</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">1</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(<span class="built_in">enumerate</span>(seasons, start=<span class="number">1</span>))       <span class="comment"># 下标从 1 开始</span></span><br><span class="line">[(<span class="number">1</span>, <span class="string">&#x27;Spring&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;Summer&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;Fall&#x27;</span>), (<span class="number">4</span>, <span class="string">&#x27;Winter&#x27;</span>)]</span><br></pre></td></tr></table></figure>
-<h3 id="普通的-for-循环">普通的 for 循环</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;i = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> element <span class="keyword">in</span> seq:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, seq[i]</span><br><span class="line"><span class="meta">... </span>    i +=<span class="number">1</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
-<h3 id="for-循环使用-enumerate">for 循环使用 enumerate</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;seq = [<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(seq):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span> i, element</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="number">0</span> one参考</span><br><span class="line"><span class="number">1</span> two</span><br><span class="line"><span class="number">2</span> three</span><br></pre></td></tr></table></figure>
-<p>参考</p>
-<p>https://www.runoob.com/python/python-func-enumerate.html</p>
-<h1 id="subplot2grid">subplot2grid</h1>
-<p>这个可以自定义子图的位置，并且可以跨越原来大小。</p>
-<p>原文https://wizardforcel.gitbooks.io/matplotlib-user-guide/content/3.3.html</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">GridSpec</span><br></pre></td></tr></table></figure>
-<p>指定子图将放置的网格的几何位置。 需要设置网格的行数和列数。 子图布局参数（例如，左，右等）可以选择性调整。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SubplotSpec</span><br></pre></td></tr></table></figure>
-<p>指定在给定<code>GridSpec</code>中的子图位置。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">subplot2grid</span><br></pre></td></tr></table></figure>
-<p>一个辅助函数，类似于<code>pyplot.subplot</code>，但是使用基于 0 的索引，并可使子图跨越多个格子。</p>
-<h2 id="subplot2grid基本示例">subplot2grid基本示例</h2>
-<p>要使用subplot2grid，你需要提供网格的几何形状和网格中子图的位置。 对于简单的单网格子图：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>等价于：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">       nRow=<span class="number">2</span>, nCol=<span class="number">2</span></span><br><span class="line">(<span class="number">0</span>,<span class="number">0</span>) +-------+-------+</span><br><span class="line">      |   <span class="number">1</span>   |       |</span><br><span class="line">      +-------+-------+</span><br><span class="line">      |       |       |</span><br><span class="line">      +-------+-------+</span><br></pre></td></tr></table></figure>
-<p>要注意不像<code>subplot</code>，<code>gridspec</code>中的下标从 0 开始。</p>
-<p>为了创建跨越多个格子的子图，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>例如，下列命令：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">0</span>,<span class="number">0</span>), colspan=<span class="number">3</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>,<span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>,<span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<p>会创建：</p>
+<h1 id="s介绍">6S介绍</h1>
+<p>我今天终于才弄明白6到底是怎么做大气校正的</p>
+<p>6S的全名是Second Simulation of a Satellite Signal in the Solar Spectrum vector code，所以他不是通过输入的遥感影像来算出来的，而是在选定一个大气环境下，通过辐射传输模拟算出来辐亮度值，然后把观测得到的辐亮度值减去这个算出来的。</p>
+<p>而不是像水色里的步骤一样，通过各种假设和经验计算出来辐亮度，再减去辐亮度</p>
+<p>然后再来搞清楚一下我要弄的东西</p>
+<p>我这里要复现的是High-frequency observation of floating algae from AHI on Himawari-8这篇文章</p>
+<blockquote>
+<p>The calibration parameters were applied to raw counts to produce the top-of-atmosphere radiance (<span class="math inline">\(L_{TOA}\)</span>) and reflectance (<span class="math inline">\(R_{TOA}\)</span>), and then (<span class="math inline">\(R_{TOA}\)</span>) was converted to Rayleigh-corrected reflectance(<span class="math inline">\(R_{rc}\)</span>) following Hu et al. (2004): <span class="math display">\[
+R_{TOA}=\pi L_{TOA}/(F_0cos(\theta_0))\\
+R_{rc}=R_{TOA}-R_r
+\]</span> where <span class="math inline">\(F_0\)</span> is the extraterrestrial solar irradiance, <span class="math inline">\(θ_0\)</span> is sun zenith angle; <span class="math inline">\(R_r\)</span> is Rayleigh reflectance estimated with the 6S model (Vermote et al.,1997) modified for AHI. The modification was simply to apply the spectral response function of all bands of AHI into the original 6S model. The required inputs to the 6S model, for example, barometric pressure, were obtained from ECMWF (https://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/).</p>
+</blockquote>
+<p>一个个来</p>
+<p>首先是从0级数据到TOA.</p>
+<p>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuZW9yYy5qYXhhLmpwL3B0cmVlL3VzZXJndWlkZS5odG1s">这个<i class="fa fa-external-link-alt"></i></span>页面看到从1级数据开始就是albedo了，所以还是要从0级数据开始</p>
+<p>问题是转换公式是什么呢。</p>
+<p>于是我又去看了看他提到的那篇hu2004，但是没找到</p>
+<p>回头又看了眼他前面说的那句</p>
+<blockquote>
+<p>containing all the necessary metadata for calibration and projection parameters in the header section, with the raw binary data stored in the main HSD block.</p>
+</blockquote>
+<p>哦那就不用管了，为了确认我打开<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YS5qbWEuZ28uanAvbXNjd2ViL2VuL2hpbWF3YXJpODkvc3BhY2Vfc2VnbWVudC9oc2Rfc2FtcGxlL0hTX0RfdXNlcnNfZ3VpZGVfZW5fdjEzLnBkZg==">这个页面<i class="fa fa-external-link-alt"></i></span>看了眼</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec01.png" alt><figcaption>img</figcaption>
+<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211216174336134.png" alt><figcaption>image-20211216174336134</figcaption>
 </figure>
-<h2 id="gridspec和subplotspec">GridSpec和SubplotSpec</h2>
-<p>你可以显式创建<code>GridSpec</code>并用它们创建子图。</p>
-<p>例如，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = plt.subplot2grid((<span class="number">2</span>,<span class="number">2</span>),(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-<p>等价于：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax = plt.subplot(gs[<span class="number">0</span>, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p><code>gridspec</code>示例提供类似数组（一维或二维）的索引，并返回<code>SubplotSpec</code>实例。例如，使用切片来返回跨越多个格子的<code>SubplotSpec</code>实例。</p>
-<p>上面的例子会变成：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>,:-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, -<span class="number">1</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>,<span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>,-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p>然后还有一个这个</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec02.png" alt><figcaption>img</figcaption>
+<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211217174759219.png" alt><figcaption>image-20211217174759219</figcaption>
 </figure>
-<h2 id="调整-gridspec布局">调整 GridSpec布局</h2>
-<p>在显式使用<code>GridSpec</code>的时候，你可以调整子图的布局参数，子图由<code>gridspec</code>创建。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
-<p>这类似于<code>subplots_adjust</code>，但是他只影响从给定<code>GridSpec</code>创建的子图。</p>
-<p>下面的代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs1 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs1.update(left=<span class="number">0.05</span>, right=<span class="number">0.48</span>, wspace=<span class="number">0.05</span>)</span><br><span class="line">ax1 = plt.subplot(gs1[:-<span class="number">1</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs1[-<span class="number">1</span>, :-<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs1[-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">gs2 = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">gs2.update(left=<span class="number">0.55</span>, right=<span class="number">0.98</span>, hspace=<span class="number">0.05</span>)</span><br><span class="line">ax4 = plt.subplot(gs2[:, :-<span class="number">1</span>])</span><br><span class="line">ax5 = plt.subplot(gs2[:-<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line">ax6 = plt.subplot(gs2[-<span class="number">1</span>, -<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<p>会产生</p>
+<p>问题来了，这一步算出来的是albedo，但是我要用的是reflectance，这俩一样吗？</p>
+<p>我查了<span class="exturl" data-url="aHR0cHM6Ly9naXMuc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzM2NzI2L2RpZmZlcmVuY2UtYmV0d2Vlbi1hbGJlZG8tYW5kLXN1cmZhY2UtcmVmbGVjdGFuY2U=">这个<i class="fa fa-external-link-alt"></i></span>回答，没看懂，后来想想，去查单位呗</p>
+<p>Radiance的单位是<span class="math inline">\(Wm^{-2}\mu m^{-1}sr^{-1}\)</span>,pi和那个cos都是没有单位的</p>
+<p>翻到了一篇<span class="exturl" data-url="aHR0cHM6Ly9hc2xvcHVicy5vbmxpbmVsaWJyYXJ5LndpbGV5LmNvbS9kb2kvcGRmLzEwLjQzMTkvbG8uMTk5MC4zNS44LjE2NTc=">古老的文献<i class="fa fa-external-link-alt"></i></span>，里面给出的单位是</p>
+<p><span class="math inline">\(W m^{-2} nm^{-1}\)</span></p>
+<p>因为是band averaged（spectral mean）所以有个nm-1正常，和irradiance的单位就差了个这个</p>
+<p>所以那个最终的单位是 <span class="math display">\[
+\frac{Wm^{-2}\mu m^{-1}sr^{-1}}{W m^{-2} nm^{-1}} \\
+=sr^{-1}
+\]</span> 对我来说差一个角度值，这个角度值只能是Cos(theta0)来的</p>
+<p>我就很费解，这个cos(theta0)是从哪儿提供的角度呢</p>
+<p>所以这个肯定是不一样。</p>
+<p>最后在发邮件问了他们的工作人员之后，终于得到了这个数值。</p>
+<p>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YS5qbWEuZ28uanAvbXNjd2ViL2RhdGEvbW9uaXRvcmluZy9nc2ljcy92aXMvdGVjaGluZm9fdmlzdmljYWwuaHRtbA==">这个<i class="fa fa-external-link-alt"></i></span>页面，算出来的单位也是对的</p>
+<p>##　6s</p>
+<blockquote>
+<p>Rr is Rayleigh reflectance estimated with the 6S mode</p>
+</blockquote>
+<p>在用咕咕噜搜了半天之后，终于找到作者本人写的怎么算的文章了，在<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnJ0d2lsc29uLmNvbS9jYWxjdWxhdGluZy1yYXlsZWlnaC1yZWZsZWN0YW5jZS11c2luZy1weTZzLw==">这里<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>（百度和bing完全搜不到这篇文章，国内还把bing给禁了，那不就是拿百度给民众喂屎）</p>
+<p>以下是对原文的翻译+自我理解</p>
+<p>首先我们要理解，什么是瑞利反射。</p>
+<p>瑞利反射是单独由大其中的分子造成的反射，而6s并不能单独计算这一项，她能计算的是所有的反射率，是地表+气溶胶+各种分子。</p>
+<p>所以想计算瑞利反射，我们需要取消掉其他所有的计算，这意味着我们得到的反射率只包含瑞利反射。</p>
+<p>代码是这样的</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">s = SixS()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Standard altitude settings for the sensor</span></span><br><span class="line"><span class="comment"># and target</span></span><br><span class="line">s.altitudes.set_sensor_satellite_level()</span><br><span class="line">s.altitudes.set_target_sea_level()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Wavelength of 0.5nm</span></span><br><span class="line">s.wavelength = Wavelength(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># turn off the ground reflectance</span></span><br><span class="line">s.ground_reflectance = GroundReflectance.HomogeneousLambertian(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># turn off the aerosol scattering</span></span><br><span class="line"></span><br><span class="line">s.aero_profile = AeroProfile.PredefinedType(AeroProfile.NoAerosols)</span><br><span class="line"><span class="comment"># turn off the atmospheric absorption by gases</span></span><br><span class="line">s.atmos_profile = AtmosProfile.PredefinedType(AtmosProfile.NoGaseousAbsorption)</span><br><span class="line"><span class="comment"># then run the simulation and look the output</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.outputs.fulltext)</span><br><span class="line"></span><br><span class="line">Rc= s.outputs.apparent_reflectance</span><br></pre></td></tr></table></figure>
+<p>这样，虽然最后计算出来的东西叫apparent reflectance，但是因为我们把瑞利反射外所有的反射都去掉了，所以这个apparent reflectance就是最终的Rayleigh reflectance。</p>
+<p>除此之外，还有一些有意思的东西。</p>
+<p>第一，我们其实不需要把地面的反射率设为0，如果我们把地面反射率设为其他的东西，比如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.ground_reflectance = GroundReflectance.HomogeneousLambertian(GroundReflectance.GreenVegetation)</span><br></pre></td></tr></table></figure>
+<p>将会得到一些不一样的数值，这个数值叫做atmospheric intrinsic reflectance，这是直接来自大气的反射率（在本例中只是来自瑞利散射，但在正常情况下，这也包括气溶胶散射）。这可以作为s.output.urgeric_intrinsic_reflectance进行访问。</p>
+<p>还有一件事，只是为了表明Py6S中的瑞利反射率的行为方式与我们所了解的物理学知识相一致......我们可以编写一点代码，提取不同波长的瑞利反射率并绘制成图--我们希望有一条指数递减的曲线，显示低波长的高瑞利反射率，反之亦然。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">s = SixS()</span><br><span class="line"></span><br><span class="line">s.altitudes.set_sensor_satellite_level()</span><br><span class="line">s.altitudes.set_target_sea_level()</span><br><span class="line">s.aero_profile = AeroProfile.PredefinedType(AeroProfile.NoAerosols)</span><br><span class="line">s.atmos_profile = AtmosProfile.PredefinedType(AtmosProfile.NoGaseousAbsorption)</span><br><span class="line"></span><br><span class="line">wavelengths = np.arange(<span class="number">0.3</span>, <span class="number">1.0</span>, <span class="number">0.05</span>)</span><br><span class="line">results = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> wv <span class="keyword">in</span> wavelengths:</span><br><span class="line">    s.wavelength = Wavelength(wv)</span><br><span class="line">    s.run()</span><br><span class="line"></span><br><span class="line">    results.append(&#123;<span class="string">&#x27;wavelength&#x27;</span>: wv,</span><br><span class="line">                   <span class="string">&#x27;rayleigh_refl&#x27;</span>: s.outputs.atmospheric_intrinsic_reflectance&#125;)</span><br><span class="line"></span><br><span class="line">results = pd.DataFrame(results)</span><br><span class="line"></span><br><span class="line">results.plot(x=<span class="string">&#x27;wavelength&#x27;</span>, y=<span class="string">&#x27;rayleigh_refl&#x27;</span>, style=<span class="string">&#x27;x-&#x27;</span>, label=<span class="string">&#x27;Rayleigh Reflectance&#x27;</span>, grid=<span class="literal">True</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Wavelength ($\mu m$)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Rayleigh Reflectance (no units)&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>这个图是</p>
 <figure>
-<img src="http://matplotlib.org/_images/demo_gridspec03.png" alt><figcaption>img</figcaption>
+<img src="https://blog.rtwilson.com/wp-content/uploads/2019/09/image-1569879583877.png" alt><figcaption>file</figcaption>
 </figure>
-<h2 id="使用-subplotspec创建-gridspec">使用 SubplotSpec创建 GridSpec</h2>
-<p>你可以从<code>SubplotSpec</code>创建<code>GridSpec</code>，其中它的布局参数设置为给定<code>SubplotSpec</code>的位置的布局参数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs0 = gridspec.GridSpec(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">gs00 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">0</span>])</span><br><span class="line">gs01 = gridspec.GridSpecFromSubplotSpec(<span class="number">3</span>, <span class="number">3</span>, subplot_spec=gs0[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec04.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="使用subplotspec创建复杂嵌套的gridspec">使用SubplotSpec创建复杂嵌套的GridSpec</h2>
-<p>这里有一个更复杂的嵌套<code>gridspec</code>的示例，我们通过在每个 3x3 内部网格中隐藏适当的脊线，在 4x4 外部网格的每个单元格周围放置一个框。</p>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec06.png" alt><figcaption>img</figcaption>
-</figure>
-<h2 id="网格尺寸可变的gridspec">网格尺寸可变的GridSpec</h2>
-<p>通常，<code>GridSpec</code>创建大小相等的网格。你可以调整行和列的相对高度和宽度，要注意绝对高度值是无意义的，有意义的只是它们的相对比值。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>,</span><br><span class="line">                       width_ratios=[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">                       height_ratios=[<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">                       )</span><br><span class="line"></span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="http://matplotlib.org/_images/demo_gridspec05.png" alt><figcaption>img</figcaption>
-</figure>
-<h1 id="seaborn">seaborn</h1>
-<p>seaborn是对matplotlib进一步的封装，简单点来说就是更简单了。</p>
-<p>官网https://seaborn.pydata.org/</p>
-<p>我这里放几个我感觉用得上的代码。</p>
-<h2 id="lineplot">lineplot</h2>
-<p>seaborn.lineplot(x=None, y=None, hue=None, size=None, style=None, data=None, palette=None, hue_order=None, hue_norm=None, sizes=None, size_order=None, size_norm=None, dashes=True, markers=None, style_order=None, units=None, estimator='mean', ci=95, n_boot=1000, seed=None, sort=True, err_style='band', err_kws=None, legend='brief', ax=None, **kwargs)</p>
-<p>https://seaborn.pydata.org/generated/seaborn.lineplot.html</p>
-<h2 id="heatmap">heatmap</h2>
-<p>seaborn.heatmap(data, vmin=None, vmax=None, cmap=None, center=None, robust=False, annot=None, fmt='.2g', annot_kws=None, linewidths=0, linecolor='white', cbar=True, cbar_kws=None, cbar_ax=None, square=False, xticklabels='auto', yticklabels='auto', mask=None, ax=None, **kwargs)</p>
-<p>https://zhuanlan.zhihu.com/p/35494575</p>
-<h2 id="implot">implot</h2>
-<p>eaborn.lmplot(<em>x</em>, <em>y</em>, <em>data</em>, <em>hue=None</em>, <em>col=None</em>, <em>row=None</em>, <em>palette=None</em>, <em>col_wrap=None</em>, <em>size=5</em>, <em>aspect=1</em>, <em>markers='o'</em>, <em>sharex=True</em>, <em>sharey=True</em>, <em>hue_order=None</em>, <em>col_order=None</em>, <em>row_order=None</em>, <em>legend=True</em>, <em>legend_out=True</em>, <em>x_estimator=None</em>, <em>x_bins=None</em>, <em>x_ci='ci'</em>, <em>scatter=True</em>, <em>fit_reg=True</em>, <em>ci=95</em>, <em>n_boot=1000</em>, <em>units=None</em>, <em>order=1</em>, <em>logistic=False</em>, <em>lowess=False</em>, <em>robust=False</em>, <em>logx=False</em>, <em>x_partial=None</em>, <em>y_partial=None</em>, <em>truncate=False</em>, <em>x_jitter=None</em>, <em>y_jitter=None</em>, <em>scatter_kws=None</em>, <em>line_kws=None</em>)</p>
-<p>https://zhuanlan.zhihu.com/p/25909753</p>
-<p>常见统计图片基本都可以在这里面看到</p>
-<p>https://seaborn.pydata.org/examples/index.html</p>
-<h2 id="subplot_adjust">subplot_adjust</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">matplotlib.pyplot.subplots_adjust(*args, **kwargs)</span><br><span class="line">subplots_adjust(left=<span class="literal">None</span>, bottom=<span class="literal">None</span>, right=<span class="literal">None</span>, top=<span class="literal">None</span>,wspace=<span class="literal">None</span>, hspace=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">left  = <span class="number">0.125</span>  <span class="comment"># 子图(subplot)距画板(figure)左边的距离</span></span><br><span class="line">right = <span class="number">0.9</span>    <span class="comment"># 右边</span></span><br><span class="line">bottom = <span class="number">0.1</span>   <span class="comment"># 底部</span></span><br><span class="line">top = <span class="number">0.9</span>      <span class="comment"># 顶部</span></span><br><span class="line">wspace = <span class="number">0.2</span>   <span class="comment"># 子图水平间距</span></span><br><span class="line">hspace = <span class="number">0.2</span>   <span class="comment"># 子图垂直间距</span></span><br></pre></td></tr></table></figure>
-<h1 id="pltaxfig">plt/ax/fig</h1>
-<figure>
-<img src="https://pic2.zhimg.com/80/v2-6e4429872eeb8a155433c0ee7c75b6ea_720w.jpg" alt><figcaption>img</figcaption>
-</figure>
-<p>尽量避免直接使用plt</p>
-<p>https://zhuanlan.zhihu.com/p/93423829</p>
+<p>在这一大块代码中没有什么特别革命性的东西--我们只是结合了我之前演示的代码，然后在各种波长中循环，为每个波长运行模型。</p>
+<p>我们存储模型结果的方式值得简单解释一下，因为这是我经常使用的一种模式。每次运行模型，都会有一个新的dict被添加到一个列表中--这个dict有我们感兴趣的各种参数（在这里只是波长）和我们感兴趣的各种结果（在这里只是Rayleigh反射率）的条目。循环结束后，我们可以简单地将这个dict列表传递给pd.DataFrame()，然后得到一个漂亮的pandas DataFrame - 准备好显示、绘制或进一步分析。</p>
+<p>其他的一些设置</p>
+<p>瑞利反射率将根据视角和太阳角的不同而变化。你可以通过s.geometry = Geometry.User()手动设置，然后设置s.geometry.solar_z, solar_a等。或者你可以通过使用Geometry.User.from_time_and_location()来半自动地设置，它将根据位置和时间自动设置太阳角，并允许你手动设置视图角度。</p>
+<p>至于大气压力等等，它实际上是作为设置海拔高度的一部分而配置的。你可以在高度方面设置高度，也可以在压力方面设置高度--见https://py6s.readthedocs.io/en/latest/params.html#Py6S.Altitudes.set_target_pressure，如果你有任何进一步的问题，请随时询问。</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Research</tag>
-        <tag>python</tag>
+        <tag>Remote Sensing</tag>
+        <tag>大气校正</tag>
       </tags>
   </entry>
   <entry>
@@ -7580,91 +7665,6 @@ L(\theta|x)=f(x|\theta)
         <tag>Inversion</tag>
         <tag>Deep Learning</tag>
         <tag>tensorflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>py6s</title>
-    <url>/posts/514b9dac.html</url>
-    <content><![CDATA[<p>之前一直想方设法跨过去的事情今天终于要开始搞了</p>
-<span id="more"></span>
-<h1 id="s介绍">6S介绍</h1>
-<p>我今天终于才弄明白6到底是怎么做大气校正的</p>
-<p>6S的全名是Second Simulation of a Satellite Signal in the Solar Spectrum vector code，所以他不是通过输入的遥感影像来算出来的，而是在选定一个大气环境下，通过辐射传输模拟算出来辐亮度值，然后把观测得到的辐亮度值减去这个算出来的。</p>
-<p>而不是像水色里的步骤一样，通过各种假设和经验计算出来辐亮度，再减去辐亮度</p>
-<p>然后再来搞清楚一下我要弄的东西</p>
-<p>我这里要复现的是High-frequency observation of floating algae from AHI on Himawari-8这篇文章</p>
-<blockquote>
-<p>The calibration parameters were applied to raw counts to produce the top-of-atmosphere radiance (<span class="math inline">\(L_{TOA}\)</span>) and reflectance (<span class="math inline">\(R_{TOA}\)</span>), and then (<span class="math inline">\(R_{TOA}\)</span>) was converted to Rayleigh-corrected reflectance(<span class="math inline">\(R_{rc}\)</span>) following Hu et al. (2004): <span class="math display">\[
-R_{TOA}=\pi L_{TOA}/(F_0cos(\theta_0))\\
-R_{rc}=R_{TOA}-R_r
-\]</span> where <span class="math inline">\(F_0\)</span> is the extraterrestrial solar irradiance, <span class="math inline">\(θ_0\)</span> is sun zenith angle; <span class="math inline">\(R_r\)</span> is Rayleigh reflectance estimated with the 6S model (Vermote et al.,1997) modified for AHI. The modification was simply to apply the spectral response function of all bands of AHI into the original 6S model. The required inputs to the 6S model, for example, barometric pressure, were obtained from ECMWF (https://apps.ecmwf.int/datasets/data/interim-full-daily/levtype=sfc/).</p>
-</blockquote>
-<p>一个个来</p>
-<p>首先是从0级数据到TOA.</p>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuZW9yYy5qYXhhLmpwL3B0cmVlL3VzZXJndWlkZS5odG1s">这个<i class="fa fa-external-link-alt"></i></span>页面看到从1级数据开始就是albedo了，所以还是要从0级数据开始</p>
-<p>问题是转换公式是什么呢。</p>
-<p>于是我又去看了看他提到的那篇hu2004，但是没找到</p>
-<p>回头又看了眼他前面说的那句</p>
-<blockquote>
-<p>containing all the necessary metadata for calibration and projection parameters in the header section, with the raw binary data stored in the main HSD block.</p>
-</blockquote>
-<p>哦那就不用管了，为了确认我打开<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YS5qbWEuZ28uanAvbXNjd2ViL2VuL2hpbWF3YXJpODkvc3BhY2Vfc2VnbWVudC9oc2Rfc2FtcGxlL0hTX0RfdXNlcnNfZ3VpZGVfZW5fdjEzLnBkZg==">这个页面<i class="fa fa-external-link-alt"></i></span>看了眼</p>
-<figure>
-<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211216174336134.png" alt><figcaption>image-20211216174336134</figcaption>
-</figure>
-<p>然后还有一个这个</p>
-<figure>
-<img src="/posts/Users/zhenjia/AppData/Roaming/Typora/typora-user-images/image-20211217174759219.png" alt><figcaption>image-20211217174759219</figcaption>
-</figure>
-<p>问题来了，这一步算出来的是albedo，但是我要用的是reflectance，这俩一样吗？</p>
-<p>我查了<span class="exturl" data-url="aHR0cHM6Ly9naXMuc3RhY2tleGNoYW5nZS5jb20vcXVlc3Rpb25zLzM2NzI2L2RpZmZlcmVuY2UtYmV0d2Vlbi1hbGJlZG8tYW5kLXN1cmZhY2UtcmVmbGVjdGFuY2U=">这个<i class="fa fa-external-link-alt"></i></span>回答，没看懂，后来想想，去查单位呗</p>
-<p>Radiance的单位是<span class="math inline">\(Wm^{-2}\mu m^{-1}sr^{-1}\)</span>,pi和那个cos都是没有单位的</p>
-<p>翻到了一篇<span class="exturl" data-url="aHR0cHM6Ly9hc2xvcHVicy5vbmxpbmVsaWJyYXJ5LndpbGV5LmNvbS9kb2kvcGRmLzEwLjQzMTkvbG8uMTk5MC4zNS44LjE2NTc=">古老的文献<i class="fa fa-external-link-alt"></i></span>，里面给出的单位是</p>
-<p><span class="math inline">\(W m^{-2} nm^{-1}\)</span></p>
-<p>因为是band averaged（spectral mean）所以有个nm-1正常，和irradiance的单位就差了个这个</p>
-<p>所以那个最终的单位是 <span class="math display">\[
-\frac{Wm^{-2}\mu m^{-1}sr^{-1}}{W m^{-2} nm^{-1}} \\
-=sr^{-1}
-\]</span> 对我来说差一个角度值，这个角度值只能是Cos(theta0)来的</p>
-<p>我就很费解，这个cos(theta0)是从哪儿提供的角度呢</p>
-<p>所以这个肯定是不一样。</p>
-<p>最后在发邮件问了他们的工作人员之后，终于得到了这个数值。</p>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YS5qbWEuZ28uanAvbXNjd2ViL2RhdGEvbW9uaXRvcmluZy9nc2ljcy92aXMvdGVjaGluZm9fdmlzdmljYWwuaHRtbA==">这个<i class="fa fa-external-link-alt"></i></span>页面，算出来的单位也是对的</p>
-<p>##　6s</p>
-<blockquote>
-<p>Rr is Rayleigh reflectance estimated with the 6S mode</p>
-</blockquote>
-<p>在用咕咕噜搜了半天之后，终于找到作者本人写的怎么算的文章了，在<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnJ0d2lsc29uLmNvbS9jYWxjdWxhdGluZy1yYXlsZWlnaC1yZWZsZWN0YW5jZS11c2luZy1weTZzLw==">这里<i class="fa fa-external-link-alt"></i></span>。</p>
-<p>（百度和bing完全搜不到这篇文章，国内还把bing给禁了，那不就是拿百度给民众喂屎）</p>
-<p>以下是对原文的翻译+自我理解</p>
-<p>首先我们要理解，什么是瑞利反射。</p>
-<p>瑞利反射是单独由大其中的分子造成的反射，而6s并不能单独计算这一项，她能计算的是所有的反射率，是地表+气溶胶+各种分子。</p>
-<p>所以想计算瑞利反射，我们需要取消掉其他所有的计算，这意味着我们得到的反射率只包含瑞利反射。</p>
-<p>代码是这样的</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">s = SixS()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Standard altitude settings for the sensor</span></span><br><span class="line"><span class="comment"># and target</span></span><br><span class="line">s.altitudes.set_sensor_satellite_level()</span><br><span class="line">s.altitudes.set_target_sea_level()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Wavelength of 0.5nm</span></span><br><span class="line">s.wavelength = Wavelength(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># turn off the ground reflectance</span></span><br><span class="line">s.ground_reflectance = GroundReflectance.HomogeneousLambertian(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># turn off the aerosol scattering</span></span><br><span class="line"></span><br><span class="line">s.aero_profile = AeroProfile.PredefinedType(AeroProfile.NoAerosols)</span><br><span class="line"><span class="comment"># turn off the atmospheric absorption by gases</span></span><br><span class="line">s.atmos_profile = AtmosProfile.PredefinedType(AtmosProfile.NoGaseousAbsorption)</span><br><span class="line"><span class="comment"># then run the simulation and look the output</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s.outputs.fulltext)</span><br><span class="line"></span><br><span class="line">Rc= s.outputs.apparent_reflectance</span><br></pre></td></tr></table></figure>
-<p>这样，虽然最后计算出来的东西叫apparent reflectance，但是因为我们把瑞利反射外所有的反射都去掉了，所以这个apparent reflectance就是最终的Rayleigh reflectance。</p>
-<p>除此之外，还有一些有意思的东西。</p>
-<p>第一，我们其实不需要把地面的反射率设为0，如果我们把地面反射率设为其他的东西，比如</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s.ground_reflectance = GroundReflectance.HomogeneousLambertian(GroundReflectance.GreenVegetation)</span><br></pre></td></tr></table></figure>
-<p>将会得到一些不一样的数值，这个数值叫做atmospheric intrinsic reflectance，这是直接来自大气的反射率（在本例中只是来自瑞利散射，但在正常情况下，这也包括气溶胶散射）。这可以作为s.output.urgeric_intrinsic_reflectance进行访问。</p>
-<p>还有一件事，只是为了表明Py6S中的瑞利反射率的行为方式与我们所了解的物理学知识相一致......我们可以编写一点代码，提取不同波长的瑞利反射率并绘制成图--我们希望有一条指数递减的曲线，显示低波长的高瑞利反射率，反之亦然。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Py6S <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">s = SixS()</span><br><span class="line"></span><br><span class="line">s.altitudes.set_sensor_satellite_level()</span><br><span class="line">s.altitudes.set_target_sea_level()</span><br><span class="line">s.aero_profile = AeroProfile.PredefinedType(AeroProfile.NoAerosols)</span><br><span class="line">s.atmos_profile = AtmosProfile.PredefinedType(AtmosProfile.NoGaseousAbsorption)</span><br><span class="line"></span><br><span class="line">wavelengths = np.arange(<span class="number">0.3</span>, <span class="number">1.0</span>, <span class="number">0.05</span>)</span><br><span class="line">results = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> wv <span class="keyword">in</span> wavelengths:</span><br><span class="line">    s.wavelength = Wavelength(wv)</span><br><span class="line">    s.run()</span><br><span class="line"></span><br><span class="line">    results.append(&#123;<span class="string">&#x27;wavelength&#x27;</span>: wv,</span><br><span class="line">                   <span class="string">&#x27;rayleigh_refl&#x27;</span>: s.outputs.atmospheric_intrinsic_reflectance&#125;)</span><br><span class="line"></span><br><span class="line">results = pd.DataFrame(results)</span><br><span class="line"></span><br><span class="line">results.plot(x=<span class="string">&#x27;wavelength&#x27;</span>, y=<span class="string">&#x27;rayleigh_refl&#x27;</span>, style=<span class="string">&#x27;x-&#x27;</span>, label=<span class="string">&#x27;Rayleigh Reflectance&#x27;</span>, grid=<span class="literal">True</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Wavelength ($\mu m$)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Rayleigh Reflectance (no units)&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>这个图是</p>
-<figure>
-<img src="https://blog.rtwilson.com/wp-content/uploads/2019/09/image-1569879583877.png" alt><figcaption>file</figcaption>
-</figure>
-<p>在这一大块代码中没有什么特别革命性的东西--我们只是结合了我之前演示的代码，然后在各种波长中循环，为每个波长运行模型。</p>
-<p>我们存储模型结果的方式值得简单解释一下，因为这是我经常使用的一种模式。每次运行模型，都会有一个新的dict被添加到一个列表中--这个dict有我们感兴趣的各种参数（在这里只是波长）和我们感兴趣的各种结果（在这里只是Rayleigh反射率）的条目。循环结束后，我们可以简单地将这个dict列表传递给pd.DataFrame()，然后得到一个漂亮的pandas DataFrame - 准备好显示、绘制或进一步分析。</p>
-<p>其他的一些设置</p>
-<p>瑞利反射率将根据视角和太阳角的不同而变化。你可以通过s.geometry = Geometry.User()手动设置，然后设置s.geometry.solar_z, solar_a等。或者你可以通过使用Geometry.User.from_time_and_location()来半自动地设置，它将根据位置和时间自动设置太阳角，并允许你手动设置视图角度。</p>
-<p>至于大气压力等等，它实际上是作为设置海拔高度的一部分而配置的。你可以在高度方面设置高度，也可以在压力方面设置高度--见https://py6s.readthedocs.io/en/latest/params.html#Py6S.Altitudes.set_target_pressure，如果你有任何进一步的问题，请随时询问。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Remote Sensing</tag>
-        <tag>大气校正</tag>
       </tags>
   </entry>
   <entry>
@@ -10325,8 +10325,15 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 </ul></li>
 </ul>
 <h1 id="参考资料">参考资料</h1>
-<p><span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9nYXBpcy5tb25leS9ibG9ncy9nZXQtYS1vdmVyc2VhLXNpbQ==">如何拥有一张海外卡，用于注册Claude和Twitter | 信息差——独立开发者出海周刊<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFpemltaS5jb20vb3ZlcnNlYS9vdmVyc2VhLXRlbC1naWZmZ2FmZi8/dXRtX3NvdXJjZT1nYXBpcy5tb25leQ==">英国卡Giffgaff的6块人民币保号卡-手把手教你购买、激活、充值、保号最低保号成本境外电话卡全教程 - 麦子米<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9tLm9ramlrZS5jb20vb3JpZ2luYWxQb3N0cy82NjJmYTg4N2E5MjJhYTI4ZDA0M2YwZGM/cz1leUoxSWpvaUlpd2laQ0k2TVgwJTNE">⭕️ 数字游民，先搞定国外手机号 五一打算去香港，研究境外 - 即刻App<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwMy8=">5ber可以使用的esim[不定期更新] | Zhu's Blog<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwNS8=">5ber eSIM手机卡购买和使用教程 | Zhu's Blog<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly94dW5paGFvLm5ldC83NTkxLmh0bWw=">2023年全网首发:能在中国大陆和香港漫游收短信、流量上网的日本乐天rakuten电话卡实测-虚拟号<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cudXNjYXJkZm9ydW0uY29tL3QvdG9waWMvMTEwNjcwLzM2">可以在美国申请一张日本的电话卡吗？Esim？要订tablelog - 败家 / 手机卡 - 美卡论坛<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cudjJleC5jb20vdC8xMDA4MjEy">各位大佬，求指教如何在国内办理可以正常接收短信的日本 eSIM 卡 - V2EX<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9nYXBpcy5tb25leS9ibG9ncy9nZXQtYS1vdmVyc2VhLXNpbQ==">如何拥有一张海外卡，用于注册Claude和Twitter | 信息差——独立开发者出海周刊<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWFpemltaS5jb20vb3ZlcnNlYS9vdmVyc2VhLXRlbC1naWZmZ2FmZi8/dXRtX3NvdXJjZT1nYXBpcy5tb25leQ==">英国卡Giffgaff的6块人民币保号卡-手把手教你购买、激活、充值、保号最低保号成本境外电话卡全教程 - 麦子米<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tLm9ramlrZS5jb20vb3JpZ2luYWxQb3N0cy82NjJmYTg4N2E5MjJhYTI4ZDA0M2YwZGM/cz1leUoxSWpvaUlpd2laQ0k2TVgwJTNE">⭕️ 数字游民，先搞定国外手机号 五一打算去香港，研究境外 - 即刻App<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwMy8=">5ber可以使用的esim[不定期更新] | Zhu's Blog<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwNS8=">5ber eSIM手机卡购买和使用教程 | Zhu's Blog<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly94dW5paGFvLm5ldC83NTkxLmh0bWw=">2023年全网首发:能在中国大陆和香港漫游收短信、流量上网的日本乐天rakuten电话卡实测-虚拟号<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudXNjYXJkZm9ydW0uY29tL3QvdG9waWMvMTEwNjcwLzM2">可以在美国申请一张日本的电话卡吗？Esim？要订tablelog - 败家 / 手机卡 - 美卡论坛<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudjJleC5jb20vdC8xMDA4MjEy">各位大佬，求指教如何在国内办理可以正常接收短信的日本 eSIM 卡 - V2EX<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>实用工具</category>
