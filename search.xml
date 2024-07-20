@@ -8285,6 +8285,29 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
       </tags>
   </entry>
   <entry>
+    <title>two pointers</title>
+    <url>/posts/8f8ed91a.html</url>
+    <content><![CDATA[<p>双指针</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题如果用双指针怎么写呢。</p>
+<p>归并排序？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
+</figure>
+<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
+<p>记得要新创建一个vector</p>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tensorflow基础</title>
     <url>/posts/fd169b9d.html</url>
     <content><![CDATA[<p>开始炼丹的第二天</p>
@@ -8504,29 +8527,6 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
         <tag>Inversion</tag>
         <tag>Deep Learning</tag>
         <tag>tensorflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>two pointers</title>
-    <url>/posts/8f8ed91a.html</url>
-    <content><![CDATA[<p>双指针</p>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<p>这题如果用双指针怎么写呢。</p>
-<p>归并排序？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
-</figure>
-<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
-<p>记得要新创建一个vector</p>
-]]></content>
-      <categories>
-        <category>刷题找工作</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -10272,6 +10272,106 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
       <tags>
         <tag>留学</tag>
         <tag>日本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在国内拥有一个能够接受境外短信的手机号</title>
+    <url>/posts/49e48baa.html</url>
+    <content><![CDATA[<p>为了解决在国内使用claude的问题，进行了一番研究</p>
+<span id="more"></span>
+<p>我给出的解决方案是<span class="exturl" data-url="aHR0cHM6Ly9lc2ltLjViZXIuY29tLw==">5ber<i class="fa fa-external-link-alt"></i></span>+<span class="exturl" data-url="aHR0cHM6Ly9lc2ltMmZseS5jb20v">sim2fly<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="prerequisite">prerequisite</h1>
+<ol type="1">
+<li>你需要一台能够使用esim的安卓手机，这个可以在这里看到<span class="exturl" data-url="aHR0cHM6Ly9lc2ltLjViZXIuY29tL3N1cHBvcnRkZXZpY2U/bGFuZ3VhZ2U9emgtQ04=">Supported Devices - 5ber eSIM<i class="fa fa-external-link-alt"></i></span></li>
+<li>你需要一个科学上网方式</li>
+</ol>
+<p>至于境外支付的方式？不需要，支付宝和微信就行</p>
+<h1 id="我为什么选择这个方式">我为什么选择这个方式</h1>
+<p>我要解决的第一个问题是，我本人并没有在国外的合法居留方式，因此日本和美国被我排除了。</p>
+<p>（其实我一开始最想找的是日本的，因为方便接受日本的一堆fan club抽选之类的，但是日本的限制太多了，目前查下来如果在日本没有合法居留方式，最快捷的方式是去日本旅游的时候在当地买esim进行激活；第二种方式是买已经注册好的日本当地手机卡，但是好贵...）。</p>
+<p>其次，由于港澳在一些时候也被划分为“不能提供服务”的区域，于是也把港澳的卡给排除了。</p>
+<p>在这个前提下，筛选了一下能够进行空中发卡的厂商，我的要求是</p>
+<ol type="1">
+<li>便宜</li>
+<li>能够境外接受短信</li>
+<li>有效期长 最后只剩下两家,一个是Giffgaff，一个是<span class="exturl" data-url="aHR0cHM6Ly9lc2ltMmZseS5jb20v">ESIM2Fly Shop Home | ESIM2Fly.com<i class="fa fa-external-link-alt"></i></span>。</li>
+</ol>
+<p>第二个问题，使用esim还是实体sim卡。</p>
+<p>我的回答是使用esim卡，因为实体sim卡需要从海外发货，比较麻烦。</p>
+<p>第三个问题，国内基本没有手机支持esim，所以我购买了<span class="exturl" data-url="aHR0cHM6Ly9lc2ltLjViZXIuY29tLw==">5ber<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="这个方式的缺点">这个方式的缺点</h1>
+<ol type="1">
+<li>5ber卡必须把卡插进去才能接受短信，并不是完全的esim。</li>
+<li>esim需要单独购买和付费，5ber并不自带。</li>
+<li>一张手机卡只能下载两张esim。</li>
+<li>要保号的话，需要固定去充值保号。</li>
+<li>由于流量少且昂贵，不适合去旅游的用户。</li>
+</ol>
+<h1 id="具体流程">具体流程</h1>
+<ol type="1">
+<li><p>在这个<span class="exturl" data-url="aHR0cHM6Ly9lc2ltLjViZXIuY29tL29yZGVyP2xhbmd1YWdlPXpoLUNO">页面<i class="fa fa-external-link-alt"></i></span>购买，可以直接填国内的收货地址，利用支付宝和微信支付付款，我选择的是普通版本。可以用我的邀请码<code>W3L9A9</code>来获得一部分优惠。 <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240720232501.png" alt="image.png"></p></li>
+<li><p>大概5天左右就可以收到sim卡，接下来像使用国内的sim卡一样把它插到手机卡里，下载这个app <span class="exturl" data-url="aHR0cHM6Ly9hcGtwdXJlLmNvbS81YmVyLWVzaW0vY29tLmlmcmVlZ3JvdXAubW9lc2lt">5ber.eSIM APK for Android Download<i class="fa fa-external-link-alt"></i></span></p></li>
+<li><p>在打开这个app登陆之后，他会检测你的手机能否使用5ber卡，一切顺利的话是这个界面。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240720232912.png" alt><figcaption>image.png</figcaption>
+</figure></li>
+<li><p>这个时候就需要你去找一张esim的卡来扫描了，来到<span class="exturl" data-url="aHR0cHM6Ly9lc2ltMmZseS5jb20v">sim2fly<i class="fa fa-external-link-alt"></i></span>这个网站，我买的是红框里的套餐，正常购买支付宝或者微信付款就好</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240720233128.png" alt><figcaption>image.png</figcaption>
+</figure></li>
+<li><p>接下来你的邮箱会收到一个二维码以及你的手机号，那个esim code就是你的手机号。 <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240721002235.png" alt="image.png"></p></li>
+</ol>
+<p>拿你的5ber app去扫码即可</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240720233610.png" alt><figcaption>image.png</figcaption>
+</figure>
+<p>接下来就可以拿它去注册claude了，不过第一次接受短信延迟会比较久。</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240720233654.png" alt><figcaption>image.png</figcaption>
+</figure>
+<h1 id="问题">问题</h1>
+<ul>
+<li><p>Q：如何保号？</p></li>
+<li><p>A：可以下载<span class="exturl" data-url="aHR0cHM6Ly9hcGtwdXJlLmNvbS9teWFpcy9jb20uYWlzLm1pbW8uZXNlcnZpY2U=">my ais<i class="fa fa-external-link-alt"></i></span>进行充值。 6个月之后充值一次可以保号一个月。</p></li>
+<li><p>Q：如何查找其他合适的esim卡？</p></li>
+<li><p>A：可以直接谷歌搜索对应的国家+esim或者咸鱼碰碰运气，注意要使用你想要的国家的语言。也可以在下面几个网站搜一下：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tb2JpbWF0dGVyLmNvbS8=">Buy travel eSIMs for your next trip | MobiMatter<i class="fa fa-external-link-alt"></i></span><br>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0cGFjZ2xvYmFsLmNvbS91cy8=">Jetpac | Travel eSIM<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lc2ltZGIuY29tL3JlZ2lvbi9hc2lh">Compare eSIM for Asia - Find the best prepaid data plans for travelers<i class="fa fa-external-link-alt"></i></span></li>
+</ul></li>
+<li><p>Q: 除了claude ，我还可以用来干嘛</p></li>
+<li><p>A：可以用来注册line和whats app，我也尝试了yahoo japan id，但是目前看来yahoo japan id还是只支持日本境内的手机号。</p></li>
+<li><p>Q: claude真的比gpt4好用吗</p></li>
+<li><p>A：我问了同一个问题，可以参考一下</p></li>
+</ul>
+<p>问题</p>
+<p><strong><em>I want to remove file 20240720233343.png in the github both local and remotely permanently, no body can see it in the git history, can you give me a one line git command to do it</em></strong></p>
+<p>gpt 4</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --force --index-filter <span class="string">&quot;git rm --cached --ignore-unmatch 20240720233343.png&quot;</span> --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all &amp;&amp; git push origin --force --all &amp;&amp; git push origin --force --tags</span><br></pre></td></tr></table></figure>
+<p>gpt 4o</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path 20240720233343.png --invert-paths --force</span><br></pre></td></tr></table></figure>
+<p>gpt 4o mini</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path 20240720233343.png --invert-paths</span><br></pre></td></tr></table></figure>
+<p>claude 3.5 sonnet</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --force --index-filter <span class="string">&#x27;git rm --cached --ignore-unmatch 20240720233343.png&#x27;</span> --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all &amp;&amp; git push origin --force --all</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料">参考资料</h1>
+<p><span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9nYXBpcy5tb25leS9ibG9ncy9nZXQtYS1vdmVyc2VhLXNpbQ==">如何拥有一张海外卡，用于注册Claude和Twitter | 信息差——独立开发者出海周刊<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWFpemltaS5jb20vb3ZlcnNlYS9vdmVyc2VhLXRlbC1naWZmZ2FmZi8/dXRtX3NvdXJjZT1nYXBpcy5tb25leQ==">英国卡Giffgaff的6块人民币保号卡-手把手教你购买、激活、充值、保号最低保号成本境外电话卡全教程 - 麦子米<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tLm9ramlrZS5jb20vb3JpZ2luYWxQb3N0cy82NjJmYTg4N2E5MjJhYTI4ZDA0M2YwZGM/cz1leUoxSWpvaUlpd2laQ0k2TVgwJTNE">⭕️ 数字游民，先搞定国外手机号 五一打算去香港，研究境外 - 即刻App<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwMy8=">5ber可以使用的esim[不定期更新] | Zhu's Blog<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hemh1LnNpdGUvcG9zdHMvMTAwNS8=">5ber eSIM手机卡购买和使用教程 | Zhu's Blog<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly94dW5paGFvLm5ldC83NTkxLmh0bWw=">2023年全网首发:能在中国大陆和香港漫游收短信、流量上网的日本乐天rakuten电话卡实测-虚拟号<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudXNjYXJkZm9ydW0uY29tL3QvdG9waWMvMTEwNjcwLzM2">可以在美国申请一张日本的电话卡吗？Esim？要订tablelog - 败家 / 手机卡 - 美卡论坛<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudjJleC5jb20vdC8xMDA4MjEy">各位大佬，求指教如何在国内办理可以正常接收短信的日本 eSIM 卡 - V2EX<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
       </tags>
   </entry>
   <entry>
@@ -13025,6 +13125,59 @@ k\le (\frac{R}{\gamma})^2
       </tags>
   </entry>
   <entry>
+    <title>我也成了精致的利己主义者</title>
+    <url>/posts/b5654816.html</url>
+    <content><![CDATA[<p>难的来写一些最近对自己的剖析</p>
+<span id="more"></span>
+<h1 id="精致的利己主义者">精致的利己主义者</h1>
+<p>第一次看到这个词，应该是15还是16年，当时的我对这段话并没有什么感觉。</p>
+<blockquote>
+<p>我们的一些大学，包括北京大学，正在培养一些‘精致的利己主义者’，他们高智商，世俗，老道，善于表演，懂得配合，更善于利用体制达到自己的目的。这种人一旦掌握权力，比一般的贪官污吏危害更大。</p>
+</blockquote>
+<p>当时的我其实并不能理解这段话到底是什么意思，相比于这段话，其实另一篇文章更让我感受深刻，那就是《我奋斗了十年才能和你坐在一起喝咖啡》。</p>
+<p>我第一次思考这件事情，大概是在我刚到日本半年的时候。</p>
+<p>那个时候我大致了解了我将要研究的领域的国内外发展，然后呢，当时的我发现，国内在我这个领域，已经是无孔不入了，具体可以看看<a href="https://lifeodyssey.github.io/posts/a5da9b38.html">这个</a>，一点都不夸张。</p>
+<p>然后当时的我就开始怀疑了，那我出国是来学的什么呢？</p>
+<p>已经不是那个国外比国内领先很多的时候了。</p>
+<p>有一部分思考也出现在<a href="https://lifeodyssey.github.io/posts/94a46e7b.html">这里</a></p>
+<p>这个问题的答案直到我修士毕业才想出来。</p>
+<p>我出国并不是为了别人，而是为了自己。</p>
+<p>现在一个普普通通的留学生已经和国家的宏大叙事没有什么关系了。</p>
+<p>我并不能改变什么。</p>
+<p>大家也都不能。</p>
+<p>一百年前，青年的力量是中国宏大叙事的最主要的力量。</p>
+<p>他们的一场五四运动，就可以直接推动中国工人运动的发展，那个时候大家都有一种使命感，都知道自己这一辈子的意义。</p>
+<p>"有心杀贼，无力回天，死得其所，快哉快哉"</p>
+<p>再往后，我其实觉得到2012年，大家都是很有使命感的。</p>
+<p>那个时候中国大地上到处都是机会。</p>
+<p>而后，随着独生子女这一代长大，大家都在逐渐变的自私了。</p>
+<p>自己能够掌控的东西越来越少。</p>
+<p>个人的意义感被时代的大势逐渐消解。</p>
+<p>以前人很容易在时代的大潮中找到自己的意义，但是随着这种时代的变化，更具体一点，大部分地盘都已经被过去的人瓜分完毕，又没有多少新的地盘放出来，个人的能力越来越不能在这个时代决定什么事情，人自然很难在这种社会中找到什么意义。</p>
+<p>甚至，现在的主流思潮都是，国家一定会越来越好，而我却不一定，我只是国家发展的柴火。</p>
+<p>过去的青年可能也是国家发展的柴火，但是青年可以从国家发展中收益，自然能得到个人的意义。</p>
+<p>但是现在，既得利益者不愿意放弃自己的利益，这就是一个脑子和屁股的问题。</p>
+<p>现在的青年很难从国家发展中获取自己的利益。</p>
+<p>个人的利益诉求和国家的利益诉求差别越来越大，个人也自然越来越成为了"精致的利己主义者"</p>
+<p>不是为了别人，不是为了国家，而是为了自己去做一个个选择。</p>
+<p>比如，选调，公务员，入党。</p>
+<p>有多少人是真的抱着为人民服务去做这些事情的，又有多少共产党员能够深刻地讨论社会问题 哲学和政治经济学，背下来共产党宣言。</p>
+<p>大家都是精致的利己主义者罢了。</p>
+<p>我也是。</p>
+<p>读研，读博，工作，出国，甚至最近甚嚣尘上的润学。</p>
+<p>大家似乎都已经忘了 精致的利己主义者这个问题，其实大家每个人都是。</p>
+<p>而房间里的大象，大家都知道他在那，就是没有人敢去说罢了。</p>
+<p>只有单纯的孩子在那里说</p>
+<p>"可是那个皇帝，就是没有穿衣服呀"</p>
+]]></content>
+      <categories>
+        <category>人生得意须尽欢</category>
+      </categories>
+      <tags>
+        <tag>随便写写</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>经验贴（三）申请流程及准备</title>
     <url>/posts/751458a5.html</url>
     <content><![CDATA[<p>拖更了这么久主要是不知道下一步该说什么，索性以我去年的整个申请节点来写。这里以2020年申请的为例，方便对照。另外我这里给出的只是一个理想情况，实际可以根据自身情况调整。</p>
@@ -13165,59 +13318,6 @@ k\le (\frac{R}{\gamma})^2
       </categories>
       <tags>
         <tag>日常记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我也成了精致的利己主义者</title>
-    <url>/posts/b5654816.html</url>
-    <content><![CDATA[<p>难的来写一些最近对自己的剖析</p>
-<span id="more"></span>
-<h1 id="精致的利己主义者">精致的利己主义者</h1>
-<p>第一次看到这个词，应该是15还是16年，当时的我对这段话并没有什么感觉。</p>
-<blockquote>
-<p>我们的一些大学，包括北京大学，正在培养一些‘精致的利己主义者’，他们高智商，世俗，老道，善于表演，懂得配合，更善于利用体制达到自己的目的。这种人一旦掌握权力，比一般的贪官污吏危害更大。</p>
-</blockquote>
-<p>当时的我其实并不能理解这段话到底是什么意思，相比于这段话，其实另一篇文章更让我感受深刻，那就是《我奋斗了十年才能和你坐在一起喝咖啡》。</p>
-<p>我第一次思考这件事情，大概是在我刚到日本半年的时候。</p>
-<p>那个时候我大致了解了我将要研究的领域的国内外发展，然后呢，当时的我发现，国内在我这个领域，已经是无孔不入了，具体可以看看<a href="https://lifeodyssey.github.io/posts/a5da9b38.html">这个</a>，一点都不夸张。</p>
-<p>然后当时的我就开始怀疑了，那我出国是来学的什么呢？</p>
-<p>已经不是那个国外比国内领先很多的时候了。</p>
-<p>有一部分思考也出现在<a href="https://lifeodyssey.github.io/posts/94a46e7b.html">这里</a></p>
-<p>这个问题的答案直到我修士毕业才想出来。</p>
-<p>我出国并不是为了别人，而是为了自己。</p>
-<p>现在一个普普通通的留学生已经和国家的宏大叙事没有什么关系了。</p>
-<p>我并不能改变什么。</p>
-<p>大家也都不能。</p>
-<p>一百年前，青年的力量是中国宏大叙事的最主要的力量。</p>
-<p>他们的一场五四运动，就可以直接推动中国工人运动的发展，那个时候大家都有一种使命感，都知道自己这一辈子的意义。</p>
-<p>"有心杀贼，无力回天，死得其所，快哉快哉"</p>
-<p>再往后，我其实觉得到2012年，大家都是很有使命感的。</p>
-<p>那个时候中国大地上到处都是机会。</p>
-<p>而后，随着独生子女这一代长大，大家都在逐渐变的自私了。</p>
-<p>自己能够掌控的东西越来越少。</p>
-<p>个人的意义感被时代的大势逐渐消解。</p>
-<p>以前人很容易在时代的大潮中找到自己的意义，但是随着这种时代的变化，更具体一点，大部分地盘都已经被过去的人瓜分完毕，又没有多少新的地盘放出来，个人的能力越来越不能在这个时代决定什么事情，人自然很难在这种社会中找到什么意义。</p>
-<p>甚至，现在的主流思潮都是，国家一定会越来越好，而我却不一定，我只是国家发展的柴火。</p>
-<p>过去的青年可能也是国家发展的柴火，但是青年可以从国家发展中收益，自然能得到个人的意义。</p>
-<p>但是现在，既得利益者不愿意放弃自己的利益，这就是一个脑子和屁股的问题。</p>
-<p>现在的青年很难从国家发展中获取自己的利益。</p>
-<p>个人的利益诉求和国家的利益诉求差别越来越大，个人也自然越来越成为了"精致的利己主义者"</p>
-<p>不是为了别人，不是为了国家，而是为了自己去做一个个选择。</p>
-<p>比如，选调，公务员，入党。</p>
-<p>有多少人是真的抱着为人民服务去做这些事情的，又有多少共产党员能够深刻地讨论社会问题 哲学和政治经济学，背下来共产党宣言。</p>
-<p>大家都是精致的利己主义者罢了。</p>
-<p>我也是。</p>
-<p>读研，读博，工作，出国，甚至最近甚嚣尘上的润学。</p>
-<p>大家似乎都已经忘了 精致的利己主义者这个问题，其实大家每个人都是。</p>
-<p>而房间里的大象，大家都知道他在那，就是没有人敢去说罢了。</p>
-<p>只有单纯的孩子在那里说</p>
-<p>"可是那个皇帝，就是没有穿衣服呀"</p>
-]]></content>
-      <categories>
-        <category>人生得意须尽欢</category>
-      </categories>
-      <tags>
-        <tag>随便写写</tag>
       </tags>
   </entry>
 </search>
