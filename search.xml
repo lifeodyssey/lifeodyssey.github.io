@@ -8285,29 +8285,6 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
       </tags>
   </entry>
   <entry>
-    <title>two pointers</title>
-    <url>/posts/8f8ed91a.html</url>
-    <content><![CDATA[<p>双指针</p>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<p>这题如果用双指针怎么写呢。</p>
-<p>归并排序？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
-</figure>
-<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
-<p>记得要新创建一个vector</p>
-]]></content>
-      <categories>
-        <category>刷题找工作</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>tensorflow基础</title>
     <url>/posts/fd169b9d.html</url>
     <content><![CDATA[<p>开始炼丹的第二天</p>
@@ -8527,6 +8504,29 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
         <tag>Inversion</tag>
         <tag>Deep Learning</tag>
         <tag>tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>two pointers</title>
+    <url>/posts/8f8ed91a.html</url>
+    <content><![CDATA[<p>双指针</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题如果用双指针怎么写呢。</p>
+<p>归并排序？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
+</figure>
+<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
+<p>记得要新创建一个vector</p>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -10344,7 +10344,7 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 <li><p>Q: 除了claude ，我还可以用来干嘛</p></li>
 <li><p>A：可以用来注册line和whats app，我也尝试了yahoo japan id，但是目前看来yahoo japan id还是只支持日本境内的手机号。</p></li>
 <li><p>Q: claude真的比gpt4好用吗</p></li>
-<li><p>A：我问了同一个问题，可以参考一下</p></li>
+<li><p>A：我问了同一个问题，可以参考一下，个人感觉和gpt4集本是同一水平</p></li>
 </ul>
 <p>问题</p>
 <p><strong><em>I want to remove file 20240720233343.png in the github both local and remotely permanently, no body can see it in the git history, can you give me a one line git command to do it</em></strong></p>
