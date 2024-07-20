@@ -10344,7 +10344,7 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 <li><p>Q: 除了claude ，我还可以用来干嘛</p></li>
 <li><p>A：可以用来注册line和whats app，我也尝试了yahoo japan id，但是目前看来yahoo japan id还是只支持日本境内的手机号。</p></li>
 <li><p>Q: claude真的比gpt4好用吗</p></li>
-<li><p>A：我问了同一个问题，可以参考一下，个人感觉和gpt4集本是同一水平</p></li>
+<li><p>A：我问了同一个问题，可以参考一下，个人感觉和gpt4基本是同一水平</p></li>
 </ul>
 <p>问题</p>
 <p><strong><em>I want to remove file 20240720233343.png in the github both local and remotely permanently, no body can see it in the git history, can you give me a one line git command to do it</em></strong></p>
