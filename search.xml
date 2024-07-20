@@ -8285,6 +8285,116 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
       </tags>
   </entry>
   <entry>
+    <title>two pointers</title>
+    <url>/posts/8f8ed91a.html</url>
+    <content><![CDATA[<p>双指针</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题如果用双指针怎么写呢。</p>
+<p>归并排序？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
+</figure>
+<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
+<p>记得要新创建一个vector</p>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Correlation metrics</title>
+    <url>/posts/e45539ea.html</url>
+    <content><![CDATA[<p>本科毕设就没搞懂的两个r现在终于弄明白了</p>
+<p>大部分内容来自于维基百科</p>
+<p>主要讲Brewin 2015里面用到的metrics</p>
+<span id="more"></span>
+<h1 id="pearsons-r">Pearson's r</h1>
+<p>在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中，<strong>皮尔逊积矩相关系数</strong>（英语：Pearson product-moment correlation coefficient，又称作 <strong>PPMCC</strong>或<strong>PCCs</strong>[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55qu5bCU6YCK56ev55+p55u45YWz57O75pWwI2NpdGVfbm90ZS0x">1]<i class="fa fa-external-link-alt"></i></span>, 文章中常用r或Pearson's r表示）用于度量两个变量X和Y之间的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz">相关<i class="fa fa-external-link-alt"></i></span>程度（线性相关），其值介于-1与1之间。</p>
+<h2 id="定义">定义</h2>
+<p>两个变量之间的皮尔逊相关系数定义为两个变量的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Y2P5pa55beu">协方差<i class="fa fa-external-link-alt"></i></span>除以它们<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5qCH5YeG5beu">标准差<i class="fa fa-external-link-alt"></i></span>的乘积： <span class="math display">\[
+\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X\sigma_Y}=\frac{E[(X-\mu_x)(Y-\mu_Y)]}{\sigma_{X}\sigma{Y}}
+\]</span></p>
+<p>这个是总体相关系数，对于我们抽样的样本，我们可以得到样本相关系数 <span class="math display">\[
+r=\frac{\sum_{i=1}^{n}(X_i-X)\sum_{i=1}^{n}(Y_i-Y)}{\sqrt{\sum_{n=1}^{n}}(X_i-\bar{X})^2\sqrt{\sum_{n=1}^{n}}(Y_i-\bar{Y})^2}
+\]</span></p>
+<p>其中<span class="math inline">\(\bar{X}\)</span>代表样本平均值</p>
+<h2 id="数学特性">数学特性</h2>
+<p>总体和样本皮尔逊系数的绝对值小于或等于1。如果样本数据点精确的落在直线上（计算样本皮尔逊系数的情况），或者双变量分布完全在直线上（计算总体皮尔逊系数的情况），则相关系数等于1或-1。皮尔逊系数是对称的：corr(X,Y) = corr(Y,X)。</p>
+<p>皮尔逊相关系数有一个重要的数学特性是，因两个变量的位置和尺度的变化并不会引起该系数的改变，即它该变化的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5LiN5Y+Y6YeP">不变量<i class="fa fa-external-link-alt"></i></span> (由符号确定)。也就是说，我们如果把X移动到a + bX和把Y移动到c + dY，其中a、b、c和d是常数，并不会改变两个变量的相关系数（该结论在总体和样本皮尔逊相关系数中都成立）</p>
+<h2 id="与相关系数">与相关系数</h2>
+<p>这个是最容易混淆的，首先明确<span class="math inline">\(R^2\not=r^2\)</span>并不一直成立，最简单的可以从计算方式来看。</p>
+<p><strong>决定系数</strong>（英语：coefficient of determination，记为<em>R</em>2或<em>r</em>2）在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5qih5Z6L">统计模型<i class="fa fa-external-link-alt"></i></span>的解释力。</p>
+<p>对于简单<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57ea5oCn5Zue5q24">线性回归<i class="fa fa-external-link-alt"></i></span>而言，决定系数为样本<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz57O75pWw">相关系数<i class="fa fa-external-link-alt"></i></span>的平方。[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Yaz5a6a57O75pWwI2NpdGVfbm90ZS1EZXZvcmUtNA==">4]<i class="fa fa-external-link-alt"></i></span>当加入其他回归自变量后，决定系数相应地变为多重相关系数的平方。</p>
+<p>假设一数据集包括<span class="math inline">\(y_1,...,y_n\)</span><em>共</em>n<em>个观察值，相对应的模型预测值分别为</em><span class="math inline">\(f_1,...,f_n\)</span>。定义<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPeaui+W3riZhY3Rpb249ZWRpdCZyZWRsaW5rPTE=">残差<i class="fa fa-external-link-alt"></i></span><span class="math inline">\(e_i = y_i − f_i\)</span>，平均观察值为 <span class="math display">\[
+\bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i,
+\]</span> 于是可以得到总平方和 <span class="math display">\[
+SS_{tot}=\sum_{i}(y_i-\bar{y})^2,
+\]</span> 回归平方和 <span class="math display">\[
+SS_{reg}=\sum_{i}(f_i-\bar{y})^2,
+\]</span> 残差平方和 <span class="math display">\[
+SS_{res}=\sum_{i}{(y_i-f_i})^2=\sum_ie_{i}^2,
+\]</span> 由此，决定系数可以定义为 <span class="math display">\[
+R^2=1-\frac{SS_{res}}{SS_{tot}}
+\]</span> 简单点说r计算是在xy之间，R^2计算是在y y_fit之间。</p>
+<p>所以R^2的理论范围是<span class="math inline">\((-\infty,1]\)</span>，并不是<span class="math inline">\([0,1]\)</span></p>
+<p>只有对于线性回归的最小二乘拟合才有<span class="math inline">\(\rho(x,y)=\pm\sqrt{R^2}\)</span></p>
+<p>证明如下 <span class="math display">\[
+\rho(x,y)=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}
+\]</span></p>
+<p><span class="math display">\[
+\rho(\hat{y},y)=\frac{\sum_{i=1}^{n}(\hat{y}_i-\bar{y})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(\hat{y}_i-\bar{y})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
+=\frac{\beta_1\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\beta_1\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\beta_1\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
+=sgn(\beta_1)\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
+=sgn(\beta_1)\rho(x,y)
+\]</span></p>
+<p>在特殊情况下，<strong>带有截距项的线性最小二乘多元回归中</strong>，<img src="https://www.zhihu.com/equation?tex=R%5E2" alt="[公式]">等于实测值<img src="https://www.zhihu.com/equation?tex=y" alt="[公式]">和拟合值<img src="https://www.zhihu.com/equation?tex=%5Chat%7By%7D" alt="[公式]">的相关系数的平方。</p>
+<p>另一个特殊情况是，<strong>带有截距项的线性最小二乘简单回归中</strong>，<img src="https://www.zhihu.com/equation?tex=R%5E2" alt="[公式]">等于自变量<img src="https://www.zhihu.com/equation?tex=x" alt="[公式]">和因变量<img src="https://www.zhihu.com/equation?tex=y" alt="[公式]">的相关系数的平方</p>
+<p>主要来自https://www.zhihu.com/question/32021302</p>
+<p>scikit-learn里的r2是R2</p>
+<h1 id="rmsebias-urmse">RMSE,Bias, uRMSE</h1>
+<p>这几个都是y和y_fit，很简单，直接上截图吧懒得写</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221344982.png" alt><figcaption>image-00021216221344982</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221433256.png" alt><figcaption>image-00021216221433256</figcaption>
+</figure>
+<p>Bias有时也用Relative bias或者MAPE</p>
+<h1 id="slope-and-intercept">Slope and Intercept</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png" alt><figcaption>image-00021216221526273</figcaption>
+</figure>
+<p>Type-2用的是这个包https://github.com/OceanOptics/pylr2</p>
+<p>我觉得没啥问题 一看就很专业</p>
+<h1 id="log-transfermation">Log transfermation</h1>
+<p>主要是要搞明白这个</p>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png" alt><figcaption>image-00030609133319132</figcaption>
+</figure>
+<p>图里两条虚线分别是Y=2X和Y=X/2。</p>
+<p>X轴每一个大tick代表的是log10(in situ Chla), Y轴代表的是log10(Chla OC3M)，标注的数字是in situ Chla和Chla OC3M</p>
+<p>这也是为啥 那条Regression line是Log(y)=a*log(x)+b。</p>
+<p>调换一下 就是 y=x10^a + 10^b。</p>
+<p>虽然X轴和Y轴标注的数字就是那个In situ Chla，但是实际上每一格对应的数字是1,2,3,4，标注的对应的是10^1, 10^2, 10^3, 10^4，这也是那个Minor tick会先大间隔后小间隔的原因。</p>
+<p>但是y=2x和y=x/2这两条线代表的还是Chla OC3M=2 in situ Chla这种的情况</p>
+<p>但是在Linear的里面这仨不是平行线，在这里平行了</p>
+<p>是因为实质上 画的这两条线是log chla oc3m=log2 +login situ Chla</p>
+<p>log2大概是0.3，对应的就是10</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Statistics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tensorflow基础</title>
     <url>/posts/fd169b9d.html</url>
     <content><![CDATA[<p>开始炼丹的第二天</p>
@@ -8504,116 +8614,6 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
         <tag>Inversion</tag>
         <tag>Deep Learning</tag>
         <tag>tensorflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>two pointers</title>
-    <url>/posts/8f8ed91a.html</url>
-    <content><![CDATA[<p>双指针</p>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<p>这题如果用双指针怎么写呢。</p>
-<p>归并排序？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
-</figure>
-<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
-<p>记得要新创建一个vector</p>
-]]></content>
-      <categories>
-        <category>刷题找工作</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Correlation metrics</title>
-    <url>/posts/e45539ea.html</url>
-    <content><![CDATA[<p>本科毕设就没搞懂的两个r现在终于弄明白了</p>
-<p>大部分内容来自于维基百科</p>
-<p>主要讲Brewin 2015里面用到的metrics</p>
-<span id="more"></span>
-<h1 id="pearsons-r">Pearson's r</h1>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中，<strong>皮尔逊积矩相关系数</strong>（英语：Pearson product-moment correlation coefficient，又称作 <strong>PPMCC</strong>或<strong>PCCs</strong>[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55qu5bCU6YCK56ev55+p55u45YWz57O75pWwI2NpdGVfbm90ZS0x">1]<i class="fa fa-external-link-alt"></i></span>, 文章中常用r或Pearson's r表示）用于度量两个变量X和Y之间的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz">相关<i class="fa fa-external-link-alt"></i></span>程度（线性相关），其值介于-1与1之间。</p>
-<h2 id="定义">定义</h2>
-<p>两个变量之间的皮尔逊相关系数定义为两个变量的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Y2P5pa55beu">协方差<i class="fa fa-external-link-alt"></i></span>除以它们<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5qCH5YeG5beu">标准差<i class="fa fa-external-link-alt"></i></span>的乘积： <span class="math display">\[
-\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X\sigma_Y}=\frac{E[(X-\mu_x)(Y-\mu_Y)]}{\sigma_{X}\sigma{Y}}
-\]</span></p>
-<p>这个是总体相关系数，对于我们抽样的样本，我们可以得到样本相关系数 <span class="math display">\[
-r=\frac{\sum_{i=1}^{n}(X_i-X)\sum_{i=1}^{n}(Y_i-Y)}{\sqrt{\sum_{n=1}^{n}}(X_i-\bar{X})^2\sqrt{\sum_{n=1}^{n}}(Y_i-\bar{Y})^2}
-\]</span></p>
-<p>其中<span class="math inline">\(\bar{X}\)</span>代表样本平均值</p>
-<h2 id="数学特性">数学特性</h2>
-<p>总体和样本皮尔逊系数的绝对值小于或等于1。如果样本数据点精确的落在直线上（计算样本皮尔逊系数的情况），或者双变量分布完全在直线上（计算总体皮尔逊系数的情况），则相关系数等于1或-1。皮尔逊系数是对称的：corr(X,Y) = corr(Y,X)。</p>
-<p>皮尔逊相关系数有一个重要的数学特性是，因两个变量的位置和尺度的变化并不会引起该系数的改变，即它该变化的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5LiN5Y+Y6YeP">不变量<i class="fa fa-external-link-alt"></i></span> (由符号确定)。也就是说，我们如果把X移动到a + bX和把Y移动到c + dY，其中a、b、c和d是常数，并不会改变两个变量的相关系数（该结论在总体和样本皮尔逊相关系数中都成立）</p>
-<h2 id="与相关系数">与相关系数</h2>
-<p>这个是最容易混淆的，首先明确<span class="math inline">\(R^2\not=r^2\)</span>并不一直成立，最简单的可以从计算方式来看。</p>
-<p><strong>决定系数</strong>（英语：coefficient of determination，记为<em>R</em>2或<em>r</em>2）在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5qih5Z6L">统计模型<i class="fa fa-external-link-alt"></i></span>的解释力。</p>
-<p>对于简单<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57ea5oCn5Zue5q24">线性回归<i class="fa fa-external-link-alt"></i></span>而言，决定系数为样本<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz57O75pWw">相关系数<i class="fa fa-external-link-alt"></i></span>的平方。[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Yaz5a6a57O75pWwI2NpdGVfbm90ZS1EZXZvcmUtNA==">4]<i class="fa fa-external-link-alt"></i></span>当加入其他回归自变量后，决定系数相应地变为多重相关系数的平方。</p>
-<p>假设一数据集包括<span class="math inline">\(y_1,...,y_n\)</span><em>共</em>n<em>个观察值，相对应的模型预测值分别为</em><span class="math inline">\(f_1,...,f_n\)</span>。定义<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPeaui+W3riZhY3Rpb249ZWRpdCZyZWRsaW5rPTE=">残差<i class="fa fa-external-link-alt"></i></span><span class="math inline">\(e_i = y_i − f_i\)</span>，平均观察值为 <span class="math display">\[
-\bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i,
-\]</span> 于是可以得到总平方和 <span class="math display">\[
-SS_{tot}=\sum_{i}(y_i-\bar{y})^2,
-\]</span> 回归平方和 <span class="math display">\[
-SS_{reg}=\sum_{i}(f_i-\bar{y})^2,
-\]</span> 残差平方和 <span class="math display">\[
-SS_{res}=\sum_{i}{(y_i-f_i})^2=\sum_ie_{i}^2,
-\]</span> 由此，决定系数可以定义为 <span class="math display">\[
-R^2=1-\frac{SS_{res}}{SS_{tot}}
-\]</span> 简单点说r计算是在xy之间，R^2计算是在y y_fit之间。</p>
-<p>所以R^2的理论范围是<span class="math inline">\((-\infty,1]\)</span>，并不是<span class="math inline">\([0,1]\)</span></p>
-<p>只有对于线性回归的最小二乘拟合才有<span class="math inline">\(\rho(x,y)=\pm\sqrt{R^2}\)</span></p>
-<p>证明如下 <span class="math display">\[
-\rho(x,y)=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}
-\]</span></p>
-<p><span class="math display">\[
-\rho(\hat{y},y)=\frac{\sum_{i=1}^{n}(\hat{y}_i-\bar{y})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(\hat{y}_i-\bar{y})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=\frac{\beta_1\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\beta_1\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\beta_1\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=sgn(\beta_1)\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=sgn(\beta_1)\rho(x,y)
-\]</span></p>
-<p>在特殊情况下，<strong>带有截距项的线性最小二乘多元回归中</strong>，<img src="https://www.zhihu.com/equation?tex=R%5E2" alt="[公式]">等于实测值<img src="https://www.zhihu.com/equation?tex=y" alt="[公式]">和拟合值<img src="https://www.zhihu.com/equation?tex=%5Chat%7By%7D" alt="[公式]">的相关系数的平方。</p>
-<p>另一个特殊情况是，<strong>带有截距项的线性最小二乘简单回归中</strong>，<img src="https://www.zhihu.com/equation?tex=R%5E2" alt="[公式]">等于自变量<img src="https://www.zhihu.com/equation?tex=x" alt="[公式]">和因变量<img src="https://www.zhihu.com/equation?tex=y" alt="[公式]">的相关系数的平方</p>
-<p>主要来自https://www.zhihu.com/question/32021302</p>
-<p>scikit-learn里的r2是R2</p>
-<h1 id="rmsebias-urmse">RMSE,Bias, uRMSE</h1>
-<p>这几个都是y和y_fit，很简单，直接上截图吧懒得写</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221344982.png" alt><figcaption>image-00021216221344982</figcaption>
-</figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221433256.png" alt><figcaption>image-00021216221433256</figcaption>
-</figure>
-<p>Bias有时也用Relative bias或者MAPE</p>
-<h1 id="slope-and-intercept">Slope and Intercept</h1>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png" alt><figcaption>image-00021216221526273</figcaption>
-</figure>
-<p>Type-2用的是这个包https://github.com/OceanOptics/pylr2</p>
-<p>我觉得没啥问题 一看就很专业</p>
-<h1 id="log-transfermation">Log transfermation</h1>
-<p>主要是要搞明白这个</p>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png" alt><figcaption>image-00030609133319132</figcaption>
-</figure>
-<p>图里两条虚线分别是Y=2X和Y=X/2。</p>
-<p>X轴每一个大tick代表的是log10(in situ Chla), Y轴代表的是log10(Chla OC3M)，标注的数字是in situ Chla和Chla OC3M</p>
-<p>这也是为啥 那条Regression line是Log(y)=a*log(x)+b。</p>
-<p>调换一下 就是 y=x10^a + 10^b。</p>
-<p>虽然X轴和Y轴标注的数字就是那个In situ Chla，但是实际上每一格对应的数字是1,2,3,4，标注的对应的是10^1, 10^2, 10^3, 10^4，这也是那个Minor tick会先大间隔后小间隔的原因。</p>
-<p>但是y=2x和y=x/2这两条线代表的还是Chla OC3M=2 in situ Chla这种的情况</p>
-<p>但是在Linear的里面这仨不是平行线，在这里平行了</p>
-<p>是因为实质上 画的这两条线是log chla oc3m=log2 +login situ Chla</p>
-<p>log2大概是0.3，对应的就是10</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Statistics</tag>
       </tags>
   </entry>
   <entry>
@@ -10342,11 +10342,11 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 <li><p>A：我问了同一个问题，可以参考一下</p>
 <p>问题</p></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">I want to remove file 20240720233343.png in the github both local and remotely permanently, no body can see it in the git history, can you give me a one line git command to do it</span><br></pre></td></tr></table></figure>
+<p><strong><em>I want to remove file 20240720233343.png in the github both local and remotely permanently, no body can see it in the git history, can you give me a one line git command to do it</em></strong></p>
 <p>gpt 4 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --force --index-filter <span class="string">&quot;git rm --cached --ignore-unmatch 20240720233343.png&quot;</span> --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all &amp;&amp; git push origin --force --all &amp;&amp; git push origin --force --tags</span><br></pre></td></tr></table></figure></p>
 <p>gpt 4o <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path 20240720233343.png --invert-paths --force</span><br></pre></td></tr></table></figure></p>
 <p>gpt 4o mini <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path 20240720233343.png --invert-paths</span><br></pre></td></tr></table></figure></p>
-<p>claude</p>
+<p>claude 3.5 sonnet</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --force --index-filter <span class="string">&#x27;git rm --cached --ignore-unmatch 20240720233343.png&#x27;</span> --prune-empty --tag-name-filter <span class="built_in">cat</span> -- --all &amp;&amp; git push origin --force --all</span><br></pre></td></tr></table></figure>
 <h1 id="参考资料">参考资料</h1>
 <p><span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span></p>
