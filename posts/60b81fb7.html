@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205111723183.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinimage-20211205114045880.png">
 <meta property="article:published_time" content="2021-12-04T11:00:45.000Z">
-<meta property="article:modified_time" content="2024-06-25T13:24:08.813Z">
+<meta property="article:modified_time" content="2024-07-20T15:53:55.231Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Linux">
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -311,14 +311,14 @@
 <p>我想直接用reboot来重启，但是不行，显示</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ System has not been booted with systemd as init </span><br><span class="line">$ system (PID 1). Can<span class="string">&#x27;t operate.</span></span><br><span class="line"><span class="string">$ Failed to connect to bus: Host is down</span></span><br><span class="line"><span class="string">$ Failed to talk to init daemon.</span></span><br></pre></td></tr></table></figure>
 <p>查了一堆，虽然我没懂到底是啥问题，但是我最后是这么解决的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -s</span><br><span class="line">$ wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span><br><span class="line">$ sudo dpkg -i packages-microsoft-prod.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ apt search dotnet-sdk</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> -s</span><br><span class="line">$ wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb</span><br><span class="line">$ <span class="built_in">sudo</span> dpkg -i packages-microsoft-prod.deb</span><br><span class="line">$ <span class="built_in">sudo</span> apt-get update</span><br><span class="line">$ apt search dotnet-sdk</span><br></pre></td></tr></table></figure>
 <p>这里是为了解决直接安装dotnet-sdk出现的Unable to locate package dotnet-sdk这个错误</p>
 <p>然后接着</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install -y daemonize dbus dotnet-runtime-5.0 gawk libc6 libstdc++6 policykit-1 systemd systemd-container</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt install -y daemonize dbus dotnet-runtime-5.0 gawk libc6 libstdc++6 policykit-1 systemd systemd-container</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>装一些必要的module</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install apt-transport-https</span><br><span class="line"></span><br><span class="line">$ sudo wget -O /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg</span><br><span class="line"></span><br><span class="line">$ sudo <span class="built_in">chmod</span> a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg</span><br><span class="line"></span><br><span class="line">$ sudo <span class="built_in">cat</span> &lt;&lt; <span class="string">EOF &gt; /etc/apt/sources.list.d/wsl-transdebian.list</span></span><br><span class="line"><span class="string">deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main</span></span><br><span class="line"><span class="string">deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">$ sudo apt update</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt install apt-transport-https</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">sudo</span> wget -O /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">chmod</span> a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">sudo</span> <span class="built_in">cat</span> &lt;&lt; <span class="string">EOF &gt; /etc/apt/sources.list.d/wsl-transdebian.list</span></span><br><span class="line"><span class="string">deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main</span></span><br><span class="line"><span class="string">deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">sudo</span> apt update</span><br></pre></td></tr></table></figure>
 <p>设置wsl-transdebian的repo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install -y systemd-genie</span><br><span class="line">$ genie -i</span><br><span class="line">$ genie -s</span><br><span class="line">$ genie -l</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt install -y systemd-genie</span><br><span class="line">$ genie -i</span><br><span class="line">$ genie -s</span><br><span class="line">$ genie -l</span><br></pre></td></tr></table></figure>
 <p>装并且使用genie</p>
 <p>然后成功翻车了</p>
 <p>查了查原因是</p>
@@ -454,13 +454,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">256k</span>
+    <span title="Word count total">257k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:32</span>
+    <span title="Reading time total">15:36</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>

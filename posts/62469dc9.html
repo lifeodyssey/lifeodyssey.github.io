@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -64,7 +64,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=L(\theta+%7C+\textbf%7Bx%7D)+%3D+f(\textbf%7Bx%7D+%3B+\theta)">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=\theta">
 <meta property="article:published_time" content="2022-02-12T06:24:22.000Z">
-<meta property="article:modified_time" content="2024-06-25T13:24:08.817Z">
+<meta property="article:modified_time" content="2024-07-20T15:53:55.235Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -197,7 +197,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -325,11 +325,11 @@
 <p>在MDN的那篇里面主要使用的是tfp.distributions.MixtureSameFamily(prob, dist),</p>
 <p>mix.log_prob(y)</p>
 <p>MixtureSameFamily，一个categorical,</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">self, y, output</span>):</span><br><span class="line">    prior, mu, scale = self._parse_outputs(output) </span><br><span class="line">    <span class="comment">#获取输出结果的三个参数</span></span><br><span class="line">    dist  = <span class="built_in">getattr</span>(tfp.distributions, self.distribution)(mu, scale)</span><br><span class="line">    prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">    mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line">    likelihood = mix.log_prob(y)</span><br><span class="line">    <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + self.model.losses)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">self, y, output</span>):</span><br><span class="line">    prior, mu, scale = <span class="variable language_">self</span>._parse_outputs(output) </span><br><span class="line">    <span class="comment">#获取输出结果的三个参数</span></span><br><span class="line">    dist  = <span class="built_in">getattr</span>(tfp.distributions, <span class="variable language_">self</span>.distribution)(mu, scale)</span><br><span class="line">    prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">    mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line">    likelihood = mix.log_prob(y)</span><br><span class="line">    <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + <span class="variable language_">self</span>.model.losses)</span><br></pre></td></tr></table></figure>
 <p>就是这个函数</p>
 <p>来细致看里面调用的东西</p>
 <h1 id="第一句">第一句</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist  = <span class="built_in">getattr</span>(tfp.distributions, self.distribution)(mu, scale)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dist  = <span class="built_in">getattr</span>(tfp.distributions, <span class="variable language_">self</span>.distribution)(mu, scale)</span><br></pre></td></tr></table></figure>
 <p>getattr获得对象的属性值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">getattr</span>(<span class="built_in">object</span>, name[, default])</span><br></pre></td></tr></table></figure>
 <ul>
@@ -375,7 +375,7 @@
 <p>确实是1</p>
 <h1 id="下一句">下一句</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">likelihood = mix.log_prob(y)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">log_prob</span>(<span class="params">self, value, name=<span class="string">&#x27;log_prob&#x27;</span>, **kwargs</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Log probability density/mass function.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      value: `float` or `double` `Tensor`.</span></span><br><span class="line"><span class="string">      name: Python `str` prepended to names of ops created by this function.</span></span><br><span class="line"><span class="string">      **kwargs: Named arguments forwarded to subclass implementation.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      log_prob: a `Tensor` of shape `sample_shape(x) + self.batch_shape` with</span></span><br><span class="line"><span class="string">        values of type `self.dtype`.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> self._call_log_prob(value, name, **kwargs)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">log_prob</span>(<span class="params">self, value, name=<span class="string">&#x27;log_prob&#x27;</span>, **kwargs</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Log probability density/mass function.</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">      value: `float` or `double` `Tensor`.</span></span><br><span class="line"><span class="string">      name: Python `str` prepended to names of ops created by this function.</span></span><br><span class="line"><span class="string">      **kwargs: Named arguments forwarded to subclass implementation.</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">      log_prob: a `Tensor` of shape `sample_shape(x) + self.batch_shape` with</span></span><br><span class="line"><span class="string">        values of type `self.dtype`.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">self</span>._call_log_prob(value, name, **kwargs)</span><br></pre></td></tr></table></figure>
 <p>我又不懂了 为啥likelihood是logpdf呢，查了查<span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzU0MDgyMDAw">这个<i class="fa fa-external-link-alt"></i></span></p>
 <p>先看似然函数的定义，他是在给定联合样本值X下关于（未知）参数<span class="math inline">\(\theta\)</span>的函数: <span class="math display">\[
 L(\theta|x)=f(x|\theta)
@@ -402,7 +402,7 @@ L(\theta|x)=f(x|\theta)
 <p>https://lulaoshi.info/machine-learning/linear-model/maximum-likelihood-estimation</p>
 <p>https://zhangzhenhu.github.io/blog/glm/source/%E6%A6%82%E7%8E%87%E5%9F%BA%E7%A1%80/content.html#id17</p>
 <h1 id="最后一句">最后一句</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + self.model.losses)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + <span class="variable language_">self</span>.model.losses)</span><br></pre></td></tr></table></figure>
 <p>tf.reduce_mean是计算likelihood的平均值。</p>
 <p>tf.add_n([p1, p2, p3....])函数是实现一个列表的元素的相加。就是输入的对象是一个列表，列表里的元素可以是向量，矩阵，等</p>
 <p>self.model.losses 这个我就真的不是特别懂了，除了这里之外没找到有别的地方用过这个</p>
@@ -495,13 +495,13 @@ L(\theta|x)=f(x|\theta)
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">256k</span>
+    <span title="Word count total">257k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:32</span>
+    <span title="Reading time total">15:36</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
