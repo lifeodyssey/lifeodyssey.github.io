@@ -3180,6 +3180,35 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
       </tags>
   </entry>
   <entry>
+    <title>Mixture Density Network 3</title>
+    <url>/posts/b6e8cccb.html</url>
+    <content><![CDATA[<p>继续来看人家写代码的的一些技巧</p>
+<span id="more"></span>
+<h1 id="argparse">argparse</h1>
+<p><a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 模块可以让人轻松编写用户友好的命令行接口。程序定义它需要的参数，然后 <a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 将弄清如何从 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.argv"><code>sys.argv</code></a> 解析出那些参数。 <a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 模块还会自动生成帮助和使用手册，并在用户给程序传入无效参数时报出错误信息</p>
+<h2 id="示例">示例</h2>
+<p>以下代码是一个 Python 程序，它获取一个整数列表并计算总和或者最大值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;Process some integers.&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;integers&#x27;</span>, metavar=<span class="string">&#x27;N&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, nargs=<span class="string">&#x27;+&#x27;</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;an integer for the accumulator&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--sum&#x27;</span>, dest=<span class="string">&#x27;accumulate&#x27;</span>, action=<span class="string">&#x27;store_const&#x27;</span>,</span><br><span class="line">                    const=<span class="built_in">sum</span>, default=<span class="built_in">max</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;sum the integers (default: find the max)&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span>(args.accumulate(args.integers))</span><br></pre></td></tr></table></figure>
+<p>假设上面的 Python 代码保存在名为 <code>prog.py</code> 的文件中，它可以在命令行运行并提供有用的帮助信息：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py -h</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line"></span><br><span class="line">Process some integers.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line"> N           an integer <span class="keyword">for</span> the accumulator</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line"> -h, --<span class="built_in">help</span>  show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line"> --<span class="built_in">sum</span>       <span class="built_in">sum</span> the integers (default: find the <span class="built_in">max</span>)</span><br></pre></td></tr></table></figure>
+<p>当使用适当的参数运行时，它会输出命令行传入整数的总和或者最大值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> --<span class="built_in">sum</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>如果传入无效参数，则会报出错误：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py a b c</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line">prog.py: error: argument N: invalid <span class="built_in">int</span> value: <span class="string">&#x27;a&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>这个会自动创建对象</p>
+<p>我之前已经搞成了dict 这里重新改成object 我用的是这个</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Struct</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, **entries</span>):</span><br><span class="line">        <span class="variable language_">self</span>.__dict__.update(entries)</span><br><span class="line">       args = Struct(**param)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>Inversion</tag>
+        <tag>Deep Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mixture Density Network(2)</title>
     <url>/posts/8bb8e4ec.html</url>
     <content><![CDATA[<p>太长了，分P <span id="more"></span></p>
@@ -3282,35 +3311,6 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
 <p>mix这个类来自于tfp.distributions.MixtureSameFamily(prob, dist), prob和dist来自output</p>
 <p>tfp这个东西来自于tensorflow_probability</p>
 <p>接下来请见第三篇，tensorflow_probability</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>Inversion</tag>
-        <tag>Deep Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mixture Density Network 3</title>
-    <url>/posts/b6e8cccb.html</url>
-    <content><![CDATA[<p>继续来看人家写代码的的一些技巧</p>
-<span id="more"></span>
-<h1 id="argparse">argparse</h1>
-<p><a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 模块可以让人轻松编写用户友好的命令行接口。程序定义它需要的参数，然后 <a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 将弄清如何从 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.argv"><code>sys.argv</code></a> 解析出那些参数。 <a href="https://docs.python.org/zh-cn/3/library/argparse.html#module-argparse"><code>argparse</code></a> 模块还会自动生成帮助和使用手册，并在用户给程序传入无效参数时报出错误信息</p>
-<h2 id="示例">示例</h2>
-<p>以下代码是一个 Python 程序，它获取一个整数列表并计算总和或者最大值：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;Process some integers.&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;integers&#x27;</span>, metavar=<span class="string">&#x27;N&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, nargs=<span class="string">&#x27;+&#x27;</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;an integer for the accumulator&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--sum&#x27;</span>, dest=<span class="string">&#x27;accumulate&#x27;</span>, action=<span class="string">&#x27;store_const&#x27;</span>,</span><br><span class="line">                    const=<span class="built_in">sum</span>, default=<span class="built_in">max</span>,</span><br><span class="line">                    <span class="built_in">help</span>=<span class="string">&#x27;sum the integers (default: find the max)&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"><span class="built_in">print</span>(args.accumulate(args.integers))</span><br></pre></td></tr></table></figure>
-<p>假设上面的 Python 代码保存在名为 <code>prog.py</code> 的文件中，它可以在命令行运行并提供有用的帮助信息：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py -h</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line"></span><br><span class="line">Process some integers.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line"> N           an integer <span class="keyword">for</span> the accumulator</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line"> -h, --<span class="built_in">help</span>  show this <span class="built_in">help</span> message <span class="keyword">and</span> exit</span><br><span class="line"> --<span class="built_in">sum</span>       <span class="built_in">sum</span> the integers (default: find the <span class="built_in">max</span>)</span><br></pre></td></tr></table></figure>
-<p>当使用适当的参数运行时，它会输出命令行传入整数的总和或者最大值：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line">$ python prog.py <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> --<span class="built_in">sum</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>如果传入无效参数，则会报出错误：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ python prog.py a b c</span><br><span class="line">usage: prog.py [-h] [--<span class="built_in">sum</span>] N [N ...]</span><br><span class="line">prog.py: error: argument N: invalid <span class="built_in">int</span> value: <span class="string">&#x27;a&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>这个会自动创建对象</p>
-<p>我之前已经搞成了dict 这里重新改成object 我用的是这个</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Struct</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, **entries</span>):</span><br><span class="line">        <span class="variable language_">self</span>.__dict__.update(entries)</span><br><span class="line">       args = Struct(**param)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -10324,7 +10324,7 @@ C_{tot}=\frac{C(\lambda_1)+C(\lambda_2)+\ldots+C(\lambda_N)}{N}
 <li>A：可以直接谷歌搜索对应的国家+esim或者咸鱼碰碰运气，注意要使用你想要的国家的语言。也可以在下面几个网站搜一下：<span class="exturl" data-url="aHR0cHM6Ly9tb2JpbWF0dGVyLmNvbS8=">Buy travel eSIMs for your next trip | MobiMatter<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0cGFjZ2xvYmFsLmNvbS91cy8=">Jetpac | Travel eSIM<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9lc2ltZGIuY29tL3JlZ2lvbi9hc2lh">Compare eSIM for Asia - Find the best prepaid data plans for travelers<i class="fa fa-external-link-alt"></i></span></li>
 </ul></li>
 <li><p>Q: 除了claude ，我还可以用来干嘛</p></li>
-<li><p>A： # 参考资料 <span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span></p></li>
+<li><p>A：可以用来注册line和whats app，我也尝试了li # 参考资料 <span class="exturl" data-url="aHR0cHM6Ly8yaGN5LmNvbS9kZXRhaWwvNDMzOS5odG1s">荷兰Simyo英国GG等海外卡1分钟生成电子eSIM二维码，方便5ber用户也能用 - 比浪的二货创业之旅<i class="fa fa-external-link-alt"></i></span></p></li>
 </ul>
 <p><span class="exturl" data-url="aHR0cHM6Ly9nYXBpcy5tb25leS9ibG9ncy9nZXQtYS1vdmVyc2VhLXNpbQ==">如何拥有一张海外卡，用于注册Claude和Twitter | 信息差——独立开发者出海周刊<i class="fa fa-external-link-alt"></i></span></p>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cubWFpemltaS5jb20vb3ZlcnNlYS9vdmVyc2VhLXRlbC1naWZmZ2FmZi8/dXRtX3NvdXJjZT1nYXBpcy5tb25leQ==">英国卡Giffgaff的6块人民币保号卡-手把手教你购买、激活、充值、保号最低保号成本境外电话卡全教程 - 麦子米<i class="fa fa-external-link-alt"></i></span></p>
