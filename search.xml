@@ -1854,7 +1854,19 @@ P(\lambda,R)=P_0*\frac{c\tau}{2}*\beta(\lambda,R)*\frac{A_r}{R^2}*exp(-2\int_0^R
 <h1 id="clean-code-refactoring-and-test-driven-development">Clean Code, Refactoring and Test-Driven Development</h1>
 <p>Reference: - <strong>Refactoring: Improving the Design of Existing Code</strong> - <strong>Clean Code: A Handbook of Agile Software Craftsmanship</strong></p>
 <p>## Clean Code</p>
-<p>The problem that <strong>Clean Code</strong> want to solve is raised &gt; Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand. &gt; Code is primarily written for people to read, and only incidentally for machines to execute. &gt; The time spent reading code far exceeds the time spent writing code by a factor of 10x. &gt; Good design is obvious with no issues, while bad design has no obvious issues.</p>
+<h2 id="the-problem-that-clean-code-want-to-solve-is-raised">The problem that <strong>Clean Code</strong> want to solve is raised</h2>
+<blockquote>
+<p>Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand.</p>
+</blockquote>
+<blockquote>
+<p>Code is primarily written for people to read, and only incidentally for machines to execute.</p>
+</blockquote>
+<blockquote>
+<p>The time spent reading code far exceeds the time spent writing code by a factor of 10x.</p>
+</blockquote>
+<blockquote>
+<p>Good design is obvious with no issues, while bad design has no obvious issues.</p>
+</blockquote>
 <p>So the things that we values should be - <strong>Readability! </strong> - <strong>Maintainability!</strong></p>
 <p>Code should be a <strong>Problem Solver</strong>, not a *Trouble Maker** .</p>
 <p>A <strong>Clean Code</strong> should be a code that achieve the beforehand mentioned functions and values.</p>

@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215559.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215639.png">
 <meta property="article:published_time" content="2024-06-15T14:34:45.000Z">
-<meta property="article:modified_time" content="2024-07-28T07:56:25.290Z">
+<meta property="article:modified_time" content="2024-08-11T15:43:18.210Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Software Engineering">
 <meta property="article:tag" content="Software Design and Architecture">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clean-code-refactoring-and-test-driven-development"><span class="nav-number">1.</span> <span class="nav-text">Clean Code, Refactoring and Test-Driven Development</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#refactoring"><span class="nav-number">1.1.</span> <span class="nav-text">Refactoring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#refactoring-techniques"><span class="nav-number">1.1.1.</span> <span class="nav-text">Refactoring Techniques</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-is-refactoring-needed"><span class="nav-number">1.1.2.</span> <span class="nav-text">When is refactoring needed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-refactoring"><span class="nav-number">1.1.3.</span> <span class="nav-text">Rules of Refactoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-driven-development"><span class="nav-number">1.2.</span> <span class="nav-text">Test-Driven-Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-3-laws-of-tdd"><span class="nav-number">1.2.1.</span> <span class="nav-text">The 3 Laws of TDD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-double-and-test-structure"><span class="nav-number">1.2.2.</span> <span class="nav-text">Test Double and Test Structure</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clean-code-refactoring-and-test-driven-development"><span class="nav-number">1.</span> <span class="nav-text">Clean Code, Refactoring and Test-Driven Development</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-problem-that-clean-code-want-to-solve-is-raised"><span class="nav-number">1.1.</span> <span class="nav-text">The problem that Clean Code want to solve is raised</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refactoring"><span class="nav-number">1.2.</span> <span class="nav-text">Refactoring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#refactoring-techniques"><span class="nav-number">1.2.1.</span> <span class="nav-text">Refactoring Techniques</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-is-refactoring-needed"><span class="nav-number">1.2.2.</span> <span class="nav-text">When is refactoring needed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-refactoring"><span class="nav-number">1.2.3.</span> <span class="nav-text">Rules of Refactoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-driven-development"><span class="nav-number">1.3.</span> <span class="nav-text">Test-Driven-Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-3-laws-of-tdd"><span class="nav-number">1.3.1.</span> <span class="nav-text">The 3 Laws of TDD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-double-and-test-structure"><span class="nav-number">1.3.2.</span> <span class="nav-text">Test Double and Test Structure</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -292,7 +292,19 @@
 <h1 id="clean-code-refactoring-and-test-driven-development">Clean Code, Refactoring and Test-Driven Development</h1>
 <p>Reference: - <strong>Refactoring: Improving the Design of Existing Code</strong> - <strong>Clean Code: A Handbook of Agile Software Craftsmanship</strong></p>
 <p>## Clean Code</p>
-<p>The problem that <strong>Clean Code</strong> want to solve is raised &gt; Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand. &gt; Code is primarily written for people to read, and only incidentally for machines to execute. &gt; The time spent reading code far exceeds the time spent writing code by a factor of 10x. &gt; Good design is obvious with no issues, while bad design has no obvious issues.</p>
+<h2 id="the-problem-that-clean-code-want-to-solve-is-raised">The problem that <strong>Clean Code</strong> want to solve is raised</h2>
+<blockquote>
+<p>Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand.</p>
+</blockquote>
+<blockquote>
+<p>Code is primarily written for people to read, and only incidentally for machines to execute.</p>
+</blockquote>
+<blockquote>
+<p>The time spent reading code far exceeds the time spent writing code by a factor of 10x.</p>
+</blockquote>
+<blockquote>
+<p>Good design is obvious with no issues, while bad design has no obvious issues.</p>
+</blockquote>
 <p>So the things that we values should be - <strong>Readability! </strong> - <strong>Maintainability!</strong></p>
 <p>Code should be a <strong>Problem Solver</strong>, not a *Trouble Maker** .</p>
 <p>A <strong>Clean Code</strong> should be a code that achieve the beforehand mentioned functions and values.</p>
