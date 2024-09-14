@@ -2544,10 +2544,11 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
       </tags>
   </entry>
   <entry>
-    <title>Evaluating GPTo1-preview, and Claude 3.5 sonnet</title>
-    <url>/posts/7bc4cd3b.html</url>
+    <title>Evaluating ChatGPTo1-preview, and Claude 3.5 sonnet</title>
+    <url>/posts/aec625cb.html</url>
     <content><![CDATA[<p>Let's compare in two way, Algorithm and system design.</p>
-<p>TLDR: ChatGP o1-preview, excels in both algorithmic and system design. Therefore, I will cancel my Claude 3.5 Sonnet subscription and continue using ChatGPT. <span id="more"></span></p>
+<p>TLDR: ChatGP o1-preview, excels in both algorithmic and system design. Therefore, I will cancel my Claude 3.5 Sonnet subscription and continue using ChatGPT.</p>
+<span id="more"></span>
 <h1 id="algorithm">Algorithm</h1>
 <p>The question is <span class="exturl" data-url="aHR0cHM6Ly9hdGNvZGVyLmpwL2NvbnRlc3RzL3R5cGljYWw5MC90YXNrcy90eXBpY2FsOTBfYnk=">077 - Planes on a 2D Plane（★7）<i class="fa fa-external-link-alt"></i></span>)</p>
 <h2 id="first-round">First round</h2>
@@ -2610,7 +2611,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <p><strong>Designing a High-Performance Search Autocomplete System</strong></p>
 <p>Based on the details you've provided, I'll proceed to design a search autocomplete system that meets your requirements. Here's a comprehensive design plan:</p>
 <hr>
-<h3 id="requirements-summary"><strong>1. Requirements Summary</strong></h3>
+<h4 id="requirements-summary"><strong>1. Requirements Summary</strong></h4>
 <p><strong>Functional Requirements:</strong></p>
 <ul>
 <li><strong>Autocomplete Suggestions:</strong> Provide relevant suggestions as users type each character.</li>
@@ -2625,7 +2626,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><strong>High Availability:</strong> Aim for 99.9% uptime.</li>
 <li><strong>Data Freshness:</strong> New queries should be reflected in suggestions promptly.</li>
 </ul>
-<h3 id="high-level-architecture"><strong>2. High-Level Architecture</strong></h3>
+<h4 id="high-level-architecture"><strong>2. High-Level Architecture</strong></h4>
 <pre class="mermaid">flowchart TD
     subgraph User_Interaction
         A["Clients<br>(Web/Mobile Apps)"]
@@ -2657,7 +2658,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><strong>Monitoring &amp; Analytics Tools:</strong> Tracks system performance and user behavior.</li>
 </ol>
 <hr>
-<h3 id="data-modeling"><strong>3. Data Modeling</strong></h3>
+<h4 id="data-modeling"><strong>3. Data Modeling</strong></h4>
 <p><strong>Query Representation:</strong></p>
 <ul>
 <li><strong>Queries:</strong> Average of 20 bytes per query.</li>
@@ -2677,7 +2678,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><strong>User Engagement Metrics:</strong> Click-through rates if available.</li>
 </ul>
 <hr>
-<h3 id="autocomplete-logic"><strong>4. Autocomplete Logic</strong></h3>
+<h4 id="autocomplete-logic"><strong>4. Autocomplete Logic</strong></h4>
 <p><strong>Suggestion Retrieval:</strong></p>
 <ul>
 <li>As the user types, the client sends the current prefix to the server.</li>
@@ -2696,7 +2697,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Use <strong>probabilistic data structures</strong> like Bloom filters for quick typo detection.</li>
 </ul>
 <hr>
-<h3 id="scalability-and-performance"><strong>5. Scalability and Performance</strong></h3>
+<h4 id="scalability-and-performance"><strong>5. Scalability and Performance</strong></h4>
 <p><strong>Distributed Tries:</strong></p>
 <ul>
 <li><strong>Sharding:</strong> Split the trie across multiple servers based on hash of the prefix or first character(s).</li>
@@ -2713,7 +2714,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Use health checks and automatic failover mechanisms.</li>
 </ul>
 <hr>
-<h3 id="data-pipeline-for-updates"><strong>6. Data Pipeline for Updates</strong></h3>
+<h4 id="data-pipeline-for-updates"><strong>6. Data Pipeline for Updates</strong></h4>
 <p><strong>Real-Time Data Ingestion:</strong></p>
 <ul>
 <li>Use <strong>Apache Kafka</strong> to stream new queries as they happen.</li>
@@ -2730,7 +2731,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Use <strong>distributed locks</strong> or <strong>versioning</strong> to handle concurrent updates.</li>
 </ul>
 <hr>
-<h3 id="infrastructure-and-technology-stack"><strong>7. Infrastructure and Technology Stack</strong></h3>
+<h4 id="infrastructure-and-technology-stack"><strong>7. Infrastructure and Technology Stack</strong></h4>
 <p><strong>Servers:</strong></p>
 <ul>
 <li>Use <strong>stateless</strong> microservices for the autocomplete servers.</li>
@@ -2757,7 +2758,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><strong>Kubernetes</strong> or <strong>Docker Swarm</strong> for orchestration and deployment.</li>
 </ul>
 <hr>
-<h3 id="handling-high-qps"><strong>8. Handling High QPS</strong></h3>
+<h4 id="handling-high-qps"><strong>8. Handling High QPS</strong></h4>
 <p><strong>Concurrency:</strong></p>
 <ul>
 <li>Implement <strong>asynchronous I/O</strong> and non-blocking operations.</li>
@@ -2774,7 +2775,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li><strong>Compression:</strong> Use techniques like <strong>DAWG (Directed Acyclic Word Graph)</strong> to reduce duplication.</li>
 </ul>
 <hr>
-<h3 id="latency-minimization"><strong>9. Latency Minimization</strong></h3>
+<h4 id="latency-minimization"><strong>9. Latency Minimization</strong></h4>
 <p><strong>Geographical Distribution:</strong></p>
 <ul>
 <li>Deploy servers in multiple regions closer to users.</li>
@@ -2786,7 +2787,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Use <strong>HTTP/2</strong> for multiplexing and header compression.</li>
 </ul>
 <hr>
-<h3 id="data-freshness-and-updates"><strong>10. Data Freshness and Updates</strong></h3>
+<h4 id="data-freshness-and-updates"><strong>10. Data Freshness and Updates</strong></h4>
 <p><strong>Incremental Updates:</strong></p>
 <ul>
 <li>Apply updates to the in-memory trie without full reloads.</li>
@@ -2798,7 +2799,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Deploy new versions atomically to avoid downtime.</li>
 </ul>
 <hr>
-<h3 id="monitoring-and-alerting"><strong>11. Monitoring and Alerting</strong></h3>
+<h4 id="monitoring-and-alerting"><strong>11. Monitoring and Alerting</strong></h4>
 <p><strong>Metrics Collection:</strong></p>
 <ul>
 <li>Use <strong>Prometheus</strong> for metrics gathering.</li>
@@ -2815,7 +2816,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Implement thresholds for anomalies in traffic or resource usage.</li>
 </ul>
 <hr>
-<h3 id="security-and-compliance"><strong>12. Security and Compliance</strong></h3>
+<h4 id="security-and-compliance"><strong>12. Security and Compliance</strong></h4>
 <p><strong>Data Protection:</strong></p>
 <ul>
 <li>Encrypt data at rest and in transit using <strong>TLS</strong>.</li>
@@ -2832,7 +2833,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Implement rate limiting to prevent abuse.</li>
 </ul>
 <hr>
-<h3 id="optional-features"><strong>13. Optional Features</strong></h3>
+<h4 id="optional-features"><strong>13. Optional Features</strong></h4>
 <p><strong>Personalization:</strong></p>
 <ul>
 <li>If user authentication is available, personalize suggestions.</li>
@@ -2849,7 +2850,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Continuously train models on collected query data.</li>
 </ul>
 <hr>
-<h3 id="development-and-deployment-plan"><strong>14. Development and Deployment Plan</strong></h3>
+<h4 id="development-and-deployment-plan"><strong>14. Development and Deployment Plan</strong></h4>
 <p><strong>Phase 1: MVP Development (1-2 Months)</strong></p>
 <ul>
 <li>Implement basic autocomplete functionality.</li>
@@ -2866,7 +2867,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Enhance security measures and compliance checks.</li>
 </ul>
 <hr>
-<h3 id="cost-considerations"><strong>15. Cost Considerations</strong></h3>
+<h4 id="cost-considerations"><strong>15. Cost Considerations</strong></h4>
 <p><strong>Infrastructure Costs:</strong></p>
 <ul>
 <li>Optimize instance types and sizes.</li>
@@ -2882,7 +2883,7 @@ f_{c}(x_i,y_i)=N_C(x_i,y_i)/m
 <li>Use open-source tools where feasible to reduce licensing fees.</li>
 </ul>
 <hr>
-<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<h4 id="conclusion"><strong>Conclusion</strong></h4>
 <p>The proposed design addresses the high throughput and low latency requirements by utilizing efficient data structures, in-memory caching, and a scalable distributed architecture. By incorporating real-time data processing and advanced ranking algorithms, the system will provide relevant and timely autocomplete suggestions to users.</p>
 <hr>
 <p><strong>Next Steps:</strong></p>
@@ -4791,29 +4792,6 @@ b_{bp}^*(\lambda)=\lambda^{S_{bp}}
       </tags>
   </entry>
   <entry>
-    <title>SGLI 官方工具</title>
-    <url>/posts/46164445.html</url>
-    <content><![CDATA[<p>日本第二代水色卫星SGLI提供的官方工具，在这个<span class="exturl" data-url="aHR0cHM6Ly9ncG9ydGFsLmpheGEuanAvZ3ByL2luZm9ybWF0aW9uL3Rvb2w/bGFuZz1lbiNHQ09NLUM=">网站<i class="fa fa-external-link-alt"></i></span>可以看到。</p>
-<p>大概看看怎么使用</p>
-<p>这些软件都只能在windows和linux系统下使用，所以后面我在隔离期间才把他更新出来。</p>
-<span id="more"></span>
-<h1 id="sgli-map-projection-geotiff-conversion-toolver.1.0">SGLI Map projection &amp; GeoTIFF conversion Tool(Ver.1.0)</h1>
-<p>这个只是一个格式和地图投影的转换工具，而且还是命令行版本的。看到这里就没啥兴趣了，用不到hhh</p>
-<h1 id="sgli-user-tool">SGLI User tool</h1>
-<p>感觉这个反而是更有用一些的，但是是日语的，而且只能读SGLI的文件，别的读不了。</p>
-<h1 id="sgli-product-io-toolkit">SGLI Product I/O Toolkit</h1>
-<p>最后这个就是C和fortran读写的标准文件，对我来说没啥用处</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Research</tag>
-        <tag>Ocean Color</tag>
-        <tag>Oceanography</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Robust fit</title>
     <url>/posts/7ff46c3b.html</url>
     <content><![CDATA[<p>这一篇差不多是作为<a href="https://lifeodyssey.github.io/posts/7decea87.html">这个</a>的后续</p>
@@ -4899,6 +4877,29 @@ b_{bp}^*(\lambda)=\lambda^{S_{bp}}
       <tags>
         <tag>Research</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SGLI 官方工具</title>
+    <url>/posts/46164445.html</url>
+    <content><![CDATA[<p>日本第二代水色卫星SGLI提供的官方工具，在这个<span class="exturl" data-url="aHR0cHM6Ly9ncG9ydGFsLmpheGEuanAvZ3ByL2luZm9ybWF0aW9uL3Rvb2w/bGFuZz1lbiNHQ09NLUM=">网站<i class="fa fa-external-link-alt"></i></span>可以看到。</p>
+<p>大概看看怎么使用</p>
+<p>这些软件都只能在windows和linux系统下使用，所以后面我在隔离期间才把他更新出来。</p>
+<span id="more"></span>
+<h1 id="sgli-map-projection-geotiff-conversion-toolver.1.0">SGLI Map projection &amp; GeoTIFF conversion Tool(Ver.1.0)</h1>
+<p>这个只是一个格式和地图投影的转换工具，而且还是命令行版本的。看到这里就没啥兴趣了，用不到hhh</p>
+<h1 id="sgli-user-tool">SGLI User tool</h1>
+<p>感觉这个反而是更有用一些的，但是是日语的，而且只能读SGLI的文件，别的读不了。</p>
+<h1 id="sgli-product-io-toolkit">SGLI Product I/O Toolkit</h1>
+<p>最后这个就是C和fortran读写的标准文件，对我来说没啥用处</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Research</tag>
+        <tag>Ocean Color</tag>
+        <tag>Oceanography</tag>
       </tags>
   </entry>
   <entry>
@@ -8948,29 +8949,6 @@ ln(S)=B_0+B_1X_1+B_2X_2+B_3X_3+\cdots+B_nX_n
         <tag>Inversion</tag>
         <tag>Deep Learning</tag>
         <tag>tensorflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>two pointers</title>
-    <url>/posts/8f8ed91a.html</url>
-    <content><![CDATA[<p>双指针</p>
-<span id="more"></span>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<p>这题如果用双指针怎么写呢。</p>
-<p>归并排序？</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
-</figure>
-<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
-<p>记得要新创建一个vector</p>
-]]></content>
-      <categories>
-        <category>刷题找工作</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
@@ -13758,6 +13736,29 @@ k\le (\frac{R}{\gamma})^2
       </categories>
       <tags>
         <tag>日常记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>two pointers</title>
+    <url>/posts/8f8ed91a.html</url>
+    <content><![CDATA[<p>双指针</p>
+<span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Leetcode977</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[i]=nums[i]*nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>这题如果用双指针怎么写呢。</p>
+<p>归并排序？</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortedSquares</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(A.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = A.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = A.<span class="built_in">size</span>() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(A[r]) &gt; <span class="built_in">abs</span>(A[l])) res[k] = A[r] * A[r--];</span><br><span class="line">            <span class="keyword">else</span> res[k] = A[l] * A[l++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202203121401824.png" alt><figcaption>image</figcaption>
+</figure>
+<p>因为是按顺序排列的，比较第一个数的绝对值和最后一个输的绝对值，然后把大的放到后面就行。</p>
+<p>记得要新创建一个vector</p>
+]]></content>
+      <categories>
+        <category>刷题找工作</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
 </search>
