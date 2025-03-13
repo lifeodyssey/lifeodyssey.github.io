@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="I would like to summarize some of the basic principles and habits of coding that I learned while working at ThoughtWorks. These are some &#39;metaphysical&#39; guidelines, and later I plan to use Kotlin to wr">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215559.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215639.png">
 <meta property="article:published_time" content="2024-06-15T14:34:45.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.199Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.096Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Software Engineering">
 <meta property="article:tag" content="Software Design and Architecture">
@@ -40,7 +40,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/5ffd7c75.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/5ffd7c75.html","path":"posts/5ffd7c75.html","title":"Clean Code, Refactoring and Test-Driven Development"}</script>
@@ -109,25 +108,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -149,7 +148,10 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clean-code-refactoring-and-test-driven-development"><span class="nav-number">1.</span> <span class="nav-text">Clean Code, Refactoring and Test-Driven Development</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-problem-that-clean-code-want-to-solve-is-raised"><span class="nav-number">1.1.</span> <span class="nav-text">The problem that Clean Code want to solve is raised</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refactoring"><span class="nav-number">1.2.</span> <span class="nav-text">Refactoring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#refactoring-techniques"><span class="nav-number">1.2.1.</span> <span class="nav-text">Refactoring Techniques</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-is-refactoring-needed"><span class="nav-number">1.2.2.</span> <span class="nav-text">When is refactoring needed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-refactoring"><span class="nav-number">1.2.3.</span> <span class="nav-text">Rules of Refactoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-driven-development"><span class="nav-number">1.3.</span> <span class="nav-text">Test-Driven-Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-3-laws-of-tdd"><span class="nav-number">1.3.1.</span> <span class="nav-text">The 3 Laws of TDD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-double-and-test-structure"><span class="nav-number">1.3.2.</span> <span class="nav-text">Test Double and Test Structure</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clean-code-refactoring-and-test-driven-development"><span class="nav-number">1.</span> <span class="nav-text">Clean Code,
+Refactoring and Test-Driven Development</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-problem-that-clean-code-want-to-solve-is-raised"><span class="nav-number">1.1.</span> <span class="nav-text">The problem
+that Clean Code want to solve is raised</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refactoring"><span class="nav-number">1.2.</span> <span class="nav-text">Refactoring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#refactoring-techniques"><span class="nav-number">1.2.1.</span> <span class="nav-text">Refactoring Techniques</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#when-is-refactoring-needed"><span class="nav-number">1.2.2.</span> <span class="nav-text">When is refactoring needed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rules-of-refactoring"><span class="nav-number">1.2.3.</span> <span class="nav-text">Rules of Refactoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#test-driven-development"><span class="nav-number">1.3.</span> <span class="nav-text">Test-Driven-Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-3-laws-of-tdd"><span class="nav-number">1.3.1.</span> <span class="nav-text">The 3 Laws of TDD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#test-double-and-test-structure"><span class="nav-number">1.3.2.</span> <span class="nav-text">Test Double and Test
+Structure</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -285,29 +287,46 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>I would like to summarize some of the basic principles and habits of coding that I learned while working at ThoughtWorks. These are some 'metaphysical' guidelines, and later I plan to use Kotlin to write some design patterns to practice the 'physical' aspects.</p>
-<p>In a context where GPT can help us write most of the code, these principles become even more important.</p>
+    <div class="post-body" itemprop="articleBody"><p>I would like to summarize some of the basic principles and habits of
+coding that I learned while working at ThoughtWorks. These are some
+'metaphysical' guidelines, and later I plan to use Kotlin to write some
+design patterns to practice the 'physical' aspects.</p>
+<p>In a context where GPT can help us write most of the code, these
+principles become even more important.</p>
 <p>私はThoughtWorksでの勤務中に学んだコーディングの基本原則と習慣をまとめたいと思います。これらはいくつかの「形而上」のガイドラインで、後でKotlinを使用してデザインパターンを書き、その「形而下」の部分を実践する予定です。</p>
-<p>GPTがほとんどのコードを書く手助けをする状況では、これらの原則はさらに重要になります。 <span id="more"></span></p>
-<h1 id="clean-code-refactoring-and-test-driven-development">Clean Code, Refactoring and Test-Driven Development</h1>
-<p>Reference: - <strong>Refactoring: Improving the Design of Existing Code</strong> - <strong>Clean Code: A Handbook of Agile Software Craftsmanship</strong></p>
+<p>GPTがほとんどのコードを書く手助けをする状況では、これらの原則はさらに重要になります。
+<span id="more"></span></p>
+<h1 id="clean-code-refactoring-and-test-driven-development">Clean Code,
+Refactoring and Test-Driven Development</h1>
+<p>Reference: - <strong>Refactoring: Improving the Design of Existing
+Code</strong> - <strong>Clean Code: A Handbook of Agile Software
+Craftsmanship</strong></p>
 <p>## Clean Code</p>
-<h2 id="the-problem-that-clean-code-want-to-solve-is-raised">The problem that <strong>Clean Code</strong> want to solve is raised</h2>
+<h2 id="the-problem-that-clean-code-want-to-solve-is-raised">The problem
+that <strong>Clean Code</strong> want to solve is raised</h2>
 <blockquote>
-<p>Any fool can write code that a machine can understand. GPT is better at this field that you. Good programmers write code that humans can understand.</p>
+<p>Any fool can write code that a machine can understand. GPT is better
+at this field that you. Good programmers write code that humans can
+understand.</p>
 </blockquote>
 <blockquote>
-<p>Code is primarily written for people to read, and only incidentally for machines to execute.</p>
+<p>Code is primarily written for people to read, and only incidentally
+for machines to execute.</p>
 </blockquote>
 <blockquote>
-<p>The time spent reading code far exceeds the time spent writing code by a factor of 10x.</p>
+<p>The time spent reading code far exceeds the time spent writing code
+by a factor of 10x.</p>
 </blockquote>
 <blockquote>
-<p>Good design is obvious with no issues, while bad design has no obvious issues.</p>
+<p>Good design is obvious with no issues, while bad design has no
+obvious issues.</p>
 </blockquote>
-<p>So the things that we values should be - <strong>Readability! </strong> - <strong>Maintainability!</strong></p>
-<p>Code should be a <strong>Problem Solver</strong>, not a *Trouble Maker** .</p>
-<p>A <strong>Clean Code</strong> should be a code that achieve the beforehand mentioned functions and values.</p>
+<p>So the things that we values should be - <strong>Readability!
+</strong> - <strong>Maintainability!</strong></p>
+<p>Code should be a <strong>Problem Solver</strong>, not a *Trouble
+Maker** .</p>
+<p>A <strong>Clean Code</strong> should be a code that achieve the
+beforehand mentioned functions and values.</p>
 <p>My basic rules of Clean Code are</p>
 <ul>
 <li><strong>1-10-50 Rule</strong> (exceptions allowed in rare cases)
@@ -327,17 +346,21 @@
 <li>Import statements do not count.</li>
 </ul></li>
 </ul></li>
-<li>Reasonable naming: variables, constants, methods, classes, enum values, files, etc.</li>
+<li>Reasonable naming: variables, constants, methods, classes, enum
+values, files, etc.</li>
 <li>Formatting
 <ul>
 <li>Variable
 <ul>
-<li>Variable declarations should be as close as possible to their point of use</li>
+<li>Variable declarations should be as close as possible to their point
+of use</li>
 <li>Local variables should appear at the top of the function</li>
-<li>Variable declarations within loops should always occur inside the loop</li>
+<li>Variable declarations within loops should always occur inside the
+loop</li>
 <li>Entity variables should be declared at the top of the class.</li>
 </ul></li>
-<li>Method order: if one function calls another, should be placed together, and the caller should be placed above the callee</li>
+<li>Method order: if one function calls another, should be placed
+together, and the caller should be placed above the callee</li>
 </ul></li>
 <li>"No" Comments.</li>
 <li>"No" Else.
@@ -346,7 +369,9 @@
 </ul></li>
 </ul>
 <h2 id="refactoring">Refactoring</h2>
-<p>Refactoring is the way to achieve clean code. ### Code Smell Reference :<span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3NtZWxscw==">Code Smells<i class="fa fa-external-link-alt"></i></span></p>
+<p>Refactoring is the way to achieve clean code. ### Code Smell
+Reference :<span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3NtZWxscw==">Code
+Smells<i class="fa fa-external-link-alt"></i></span></p>
 <ol type="1">
 <li>Duplicate Code</li>
 <li>Long Method</li>
@@ -365,49 +390,93 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Feature Envy</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">totalPrice</span><span class="params">()</span></span> = <span class="number">20.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Payment</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">(order: <span class="type">Order</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> price = order.totalPrice()</span><br><span class="line">        <span class="comment">// Processing payment based on order&#x27;s data</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach: moving the processPayment method to the Order class</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">totalPrice</span><span class="params">()</span></span> = <span class="number">20.0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">val</span> price = totalPrice()</span><br><span class="line">        <span class="comment">// Processing payment</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Bad practice with comments</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calculate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// Check if the user is logged in and the session is valid</span></span><br><span class="line">    <span class="keyword">if</span> (user.isLoggedIn &amp;&amp; session.isValid) &#123;</span><br><span class="line">        <span class="comment">// If valid, perform the calculation based on the user type</span></span><br><span class="line">        <span class="comment">// If the user type is admin, apply a 10% increase</span></span><br><span class="line">        <span class="keyword">if</span> (user.type == <span class="string">&quot;admin&quot;</span>) &#123;</span><br><span class="line">            performCalculation() * <span class="number">1.10</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            performCalculation()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Better approach: self-explanatory code without comments</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calculate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (isValidSession()) &#123;</span><br><span class="line">        performUserSpecificCalculation()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">isValidSession</span><span class="params">()</span></span> = user.isLoggedIn &amp;&amp; session.isValid</span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">performUserSpecificCalculation</span><span class="params">()</span></span> = <span class="keyword">when</span> (user.type) &#123;</span><br><span class="line">    <span class="string">&quot;admin&quot;</span> -&gt; performCalculation() * <span class="number">1.10</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; performCalculation()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="refactoring-techniques">Refactoring Techniques</h3>
-<p>Reference : <span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3RlY2huaXF1ZXM=">Refactoring Techniques<i class="fa fa-external-link-alt"></i></span> 1. Extract Variable 2. Inline Temp 3. Extract Method 4. Inline Method</p>
+<p>Reference : <span class="exturl" data-url="aHR0cHM6Ly9yZWZhY3RvcmluZy5ndXJ1L3JlZmFjdG9yaW5nL3RlY2huaXF1ZXM=">Refactoring
+Techniques<i class="fa fa-external-link-alt"></i></span> 1. Extract Variable 2. Inline Temp 3. Extract Method 4.
+Inline Method</p>
 <h3 id="when-is-refactoring-needed">When is refactoring needed?</h3>
 <ul>
-<li><strong>Code Review</strong>: Detect bad smells during code reviews and politely suggest improvements.</li>
-<li><strong>Every Commit</strong>: Each commit you make should leave the code cleaner than it was before.</li>
-<li><strong>When Taking Over a Difficult-to-Read Project</strong>: Convince the project team to treat refactoring as a necessary task.</li>
-<li><strong>When Iteration Efficiency Is Below Expectations</strong>: Treat refactoring as a specific task, and if necessary, pause to iterate on requirements.</li>
+<li><strong>Code Review</strong>: Detect bad smells during code reviews
+and politely suggest improvements.</li>
+<li><strong>Every Commit</strong>: Each commit you make should leave the
+code cleaner than it was before.</li>
+<li><strong>When Taking Over a Difficult-to-Read Project</strong>:
+Convince the project team to treat refactoring as a necessary task.</li>
+<li><strong>When Iteration Efficiency Is Below Expectations</strong>:
+Treat refactoring as a specific task, and if necessary, pause to iterate
+on requirements.</li>
 </ul>
 <h3 id="rules-of-refactoring">Rules of Refactoring</h3>
 <ul>
 <li><p>Use keyboard shortcuts.</p></li>
-<li><p><strong>Refactoring should not break the functionality of the code; it should always be able to compile and run.</strong></p></li>
-<li><p><strong>Avoid starting to write new code while in the middle of refactoring.</strong></p>
+<li><p><strong>Refactoring should not break the functionality of the
+code; it should always be able to compile and run.</strong></p></li>
+<li><p><strong>Avoid starting to write new code while in the middle of
+refactoring.</strong></p>
 <h2 id="test-driven-development">Test-Driven-Development</h2></li>
 </ul>
-<p>To ensure that <strong>refactoring does not break the functionality of the code</strong>, we require a reliable method to verify its integrity. This is where Test-Driven Development (TDD) proves invaluable. By integrating TDD, we establish a safety net of tests that confirm the code continues to perform as expected throughout the refactoring process.</p>
+<p>To ensure that <strong>refactoring does not break the functionality
+of the code</strong>, we require a reliable method to verify its
+integrity. This is where Test-Driven Development (TDD) proves
+invaluable. By integrating TDD, we establish a safety net of tests that
+confirm the code continues to perform as expected throughout the
+refactoring process.</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/TDD%20cycle.png" alt><figcaption>TDD cycle</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/TDD%20cycle.png" alt="TDD cycle">
+<figcaption aria-hidden="true">TDD cycle</figcaption>
 </figure>
 <h3 id="the-3-laws-of-tdd">The 3 Laws of TDD</h3>
 <ol type="1">
-<li>You are not allowed to write any production code unless it is to make a failed pass</li>
-<li>You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures</li>
-<li>You are not allowed to write any more production code than is sufficient to pass on failing unit test .</li>
+<li>You are not allowed to write any production code unless it is to
+make a failed pass</li>
+<li>You are not allowed to write any more of a unit test than is
+sufficient to fail; and compilation failures are failures</li>
+<li>You are not allowed to write any more production code than is
+sufficient to pass on failing unit test .</li>
 </ol>
-<h3 id="test-double-and-test-structure">Test Double and Test Structure</h3>
+<h3 id="test-double-and-test-structure">Test Double and Test
+Structure</h3>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">CreditCardProcessor</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">chargeCard</span><span class="params">(cardInfo: <span class="type">String</span>, amount: <span class="type">Double</span>)</span></span>: <span class="built_in">Boolean</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TransactionLog</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">logTransaction</span><span class="params">(status: <span class="type">String</span>)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentService</span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> processor: CreditCardProcessor,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> transactionLog: TransactionLog</span><br><span class="line">) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">processPayment</span><span class="params">(cardInfo: <span class="type">String</span>, amount: <span class="type">Double</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> success = processor.chargeCard(cardInfo, amount)</span><br><span class="line">        <span class="keyword">if</span> (success) &#123;</span><br><span class="line">            transactionLog.logTransaction(<span class="string">&quot;Success&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            transactionLog.logTransaction(<span class="string">&quot;Failure&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> success</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io.mockk.every</span><br><span class="line"><span class="keyword">import</span> io.mockk.mockk</span><br><span class="line"><span class="keyword">import</span> io.mockk.verify</span><br><span class="line"><span class="keyword">import</span> org.junit.Test</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentServiceTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> `Given credit card <span class="keyword">is</span> valid, When processing payment, Then log success`<span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// Arrange (Given)</span></span><br><span class="line">        <span class="keyword">val</span> mockProcessor = mockk&lt;CreditCardProcessor&gt;()</span><br><span class="line">        <span class="keyword">val</span> mockTransactionLog = mockk&lt;TransactionLog&gt;(relaxed = <span class="literal">true</span>)</span><br><span class="line">        </span><br><span class="line">        every &#123; mockProcessor.chargeCard(any(), any()) &#125; returns <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">val</span> paymentService = PaymentService(mockProcessor, mockTransactionLog)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Act (When)</span></span><br><span class="line">        <span class="keyword">val</span> paymentResult = paymentService.processPayment(<span class="string">&quot;1234567890&quot;</span>, <span class="number">100.0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Assert (Then)</span></span><br><span class="line">        assert(paymentResult)</span><br><span class="line">        verify &#123; mockTransactionLog.logTransaction(<span class="string">&quot;Success&quot;</span>) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong>Stub</strong>: In the test above, <code>mockProcessor</code> is used as a stub. It is configured to return a specific response (<code>true</code> in this case) when its <code>chargeCard</code> method is called. Stubs are used to provide predetermined responses to method calls during tests.</p></li>
-<li><p><strong>Mock</strong>: <code>mockTransactionLog</code> is used as a mock. While it could also be seen as a stub because it is providing predefined behavior (due to <code>relaxed = true</code>), the key aspect here is that we're verifying its behavior post-factum. We are checking whether the <code>logTransaction</code> method was called with the correct argument ("Success"). This is typical mocking behavior, where the emphasis is on verifying that certain methods are called correctly.</p>
-<p>More detailed ( Reference: <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9hcnRpY2xlcy9tb2Nrc0FyZW50U3R1YnMuaHRtbA==">Mocks Aren't Stubs<i class="fa fa-external-link-alt"></i></span>)</p></li>
-<li><p><strong>Dummy</strong> objects are passed around but never actually used. Usually they are just used to fill parameter lists.</p></li>
-<li><p><strong>Fake</strong> objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9ibGlraS9Jbk1lbW9yeVRlc3REYXRhYmFzZS5odG1s">in memory database<i class="fa fa-external-link-alt"></i></span> is a good example).</p></li>
-<li><p><strong>Stubs</strong> provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.</p></li>
-<li><p><strong>Spies</strong> are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.</p></li>
-<li><p><strong>Mocks</strong> are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive. ### Test Pyramid</p></li>
+<li><p><strong>Stub</strong>: In the test above,
+<code>mockProcessor</code> is used as a stub. It is configured to return
+a specific response (<code>true</code> in this case) when its
+<code>chargeCard</code> method is called. Stubs are used to provide
+predetermined responses to method calls during tests.</p></li>
+<li><p><strong>Mock</strong>: <code>mockTransactionLog</code> is used as
+a mock. While it could also be seen as a stub because it is providing
+predefined behavior (due to <code>relaxed = true</code>), the key aspect
+here is that we're verifying its behavior post-factum. We are checking
+whether the <code>logTransaction</code> method was called with the
+correct argument ("Success"). This is typical mocking behavior, where
+the emphasis is on verifying that certain methods are called
+correctly.</p>
+<p>More detailed ( Reference: <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9hcnRpY2xlcy9tb2Nrc0FyZW50U3R1YnMuaHRtbA==">Mocks
+Aren't Stubs<i class="fa fa-external-link-alt"></i></span>)</p></li>
+<li><p><strong>Dummy</strong> objects are passed around but never
+actually used. Usually they are just used to fill parameter
+lists.</p></li>
+<li><p><strong>Fake</strong> objects actually have working
+implementations, but usually take some shortcut which makes them not
+suitable for production (an <span class="exturl" data-url="aHR0cHM6Ly93d3cubWFydGluZm93bGVyLmNvbS9ibGlraS9Jbk1lbW9yeVRlc3REYXRhYmFzZS5odG1s">in
+memory database<i class="fa fa-external-link-alt"></i></span> is a good example).</p></li>
+<li><p><strong>Stubs</strong> provide canned answers to calls made
+during the test, usually not responding at all to anything outside
+what's programmed in for the test.</p></li>
+<li><p><strong>Spies</strong> are stubs that also record some
+information based on how they were called. One form of this might be an
+email service that records how many messages it was sent.</p></li>
+<li><p><strong>Mocks</strong> are what we are talking about here:
+objects pre-programmed with expectations which form a specification of
+the calls they are expected to receive. ### Test Pyramid</p></li>
 </ul>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215559.png" alt><figcaption>Example of a web application</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215559.png" alt="Example of a web application">
+<figcaption aria-hidden="true">Example of a web application</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215639.png" alt><figcaption>Test Pyramid</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/20240615215639.png" alt="Test Pyramid">
+<figcaption aria-hidden="true">Test Pyramid</figcaption>
 </figure>
 
     </div>
@@ -470,7 +539,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -481,13 +550,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -519,7 +588,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -527,7 +596,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

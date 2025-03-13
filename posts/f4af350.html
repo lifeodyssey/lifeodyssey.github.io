@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Ordinary Kriging Poisson Kriging-Area to Area Poisson Kriging-Area to Point These are the three types inside https:&#x2F;&#x2F;github.com&#x2F;szymon-datalions&#x2F;pyinterpolate I also wan to show how to apply them to s">
 <meta property="og:type" content="article">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022142200533.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022160855202.png">
 <meta property="article:published_time" content="2020-10-22T02:53:33.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.219Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.115Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Kriging model">
 <meta property="article:tag" content="Spatial staticstics">
@@ -41,7 +41,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/f4af350.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/f4af350.html","path":"posts/f4af350.html","title":"kriging"}</script>
@@ -110,25 +109,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -150,7 +149,9 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#general-introduction"><span class="nav-number">1.</span> <span class="nav-text">General Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-setup"><span class="nav-number">1.1.</span> <span class="nav-text">Problem Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variogram"><span class="nav-number">1.2.</span> <span class="nav-text">Variogram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solving-model"><span class="nav-number">1.3.</span> <span class="nav-text">Solving model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#several-assumpution"><span class="nav-number">1.4.</span> <span class="nav-text">Several Assumpution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pros-and-cons"><span class="nav-number">1.5.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ordinary-kriging"><span class="nav-number">2.</span> <span class="nav-text">Ordinary Kriging</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#theory-of-ordinary-kriging"><span class="nav-number">2.1.</span> <span class="nav-text">THEORY OF ORDINARY KRIGING</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weights"><span class="nav-number">2.2.</span> <span class="nav-text">WEIGHTS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#covariance-and-variogram"><span class="nav-number">3.</span> <span class="nav-text">Covariance and Variogram</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-stochastic-approach-to-spatial-variation-the-theory-of-regionalized-variables"><span class="nav-number">3.1.</span> <span class="nav-text">A STOCHASTIC APPROACH TO SPATIAL VARIATION: THE THEORY OF REGIONALIZED VARIABLES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#random-variables"><span class="nav-number">3.1.1.</span> <span class="nav-text">Random variables</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#poisson-kriging-area-to-area"><span class="nav-number">4.</span> <span class="nav-text">Poisson Kriging-Area to Area</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#general-introduction"><span class="nav-number">1.</span> <span class="nav-text">General Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-setup"><span class="nav-number">1.1.</span> <span class="nav-text">Problem Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variogram"><span class="nav-number">1.2.</span> <span class="nav-text">Variogram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solving-model"><span class="nav-number">1.3.</span> <span class="nav-text">Solving model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#several-assumpution"><span class="nav-number">1.4.</span> <span class="nav-text">Several Assumpution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pros-and-cons"><span class="nav-number">1.5.</span> <span class="nav-text">Pros and Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ordinary-kriging"><span class="nav-number">2.</span> <span class="nav-text">Ordinary Kriging</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#theory-of-ordinary-kriging"><span class="nav-number">2.1.</span> <span class="nav-text">THEORY OF ORDINARY KRIGING</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weights"><span class="nav-number">2.2.</span> <span class="nav-text">WEIGHTS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#covariance-and-variogram"><span class="nav-number">3.</span> <span class="nav-text">Covariance and Variogram</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-stochastic-approach-to-spatial-variation-the-theory-of-regionalized-variables"><span class="nav-number">3.1.</span> <span class="nav-text">A
+STOCHASTIC APPROACH TO SPATIAL VARIATION: THE THEORY OF REGIONALIZED
+VARIABLES</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#random-variables"><span class="nav-number">3.1.1.</span> <span class="nav-text">Random variables</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#poisson-kriging-area-to-area"><span class="nav-number">4.</span> <span class="nav-text">Poisson Kriging-Area to Area</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -289,105 +290,234 @@
     <div class="post-body" itemprop="articleBody"><p>Ordinary Kriging</p>
 <p>Poisson Kriging-Area to Area</p>
 <p>Poisson Kriging-Area to Point</p>
-<p>These are the three types inside https://github.com/szymon-datalions/pyinterpolate</p>
-<p>I also wan to show how to apply them to satellite image as an practice for APTRK</p>
+<p>These are the three types inside
+https://github.com/szymon-datalions/pyinterpolate</p>
+<p>I also wan to show how to apply them to satellite image as an
+practice for APTRK</p>
 <span id="more"></span>
 <h1 id="general-introduction">General Introduction</h1>
 <p>Reference: https://www.youtube.com/watch?v=J-IB4_QL7Oc</p>
 <h2 id="problem-setup">Problem Setup</h2>
 <p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022110419095.png"></p>
-<p>Here we have a island and we take some measurement for some red points. Each point include two attributes. <span class="math inline">\(x_i\)</span> is the location and <span class="math inline">\(y_i\)</span> is the thing we are interested in, like elevation.</p>
-<p>Now we want to get the elevation in some other point that we did not explicitly collect data. For example in this black dot.</p>
+<p>Here we have a island and we take some measurement for some red
+points. Each point include two attributes. <span class="math inline">\(x_i\)</span> is the location and <span class="math inline">\(y_i\)</span> is the thing we are interested in,
+like elevation.</p>
+<p>Now we want to get the elevation in some other point that we did not
+explicitly collect data. For example in this black dot.</p>
 <p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022110833500.png"></p>
-<p>So we just could use the data we have to predict the elevation of black dot. There are five closest red dots to this unknown dot. We are gonna to use these five dots to predict the unknown dots. <span class="math display">\[
+<p>So we just could use the data we have to predict the elevation of
+black dot. There are five closest red dots to this unknown dot. We are
+gonna to use these five dots to predict the unknown dots. <span class="math display">\[
 y_{new}=w^Ty+\epsilon_{new}\\
 =w_1y_1+w_2y_2+...+w_5y_5+\epsilon_{new}
-\]</span> This is a linear combination weight of neighbor dots. This is the kirging model. So the important thing is to know the <span class="math inline">\(w\)</span> .</p>
+\]</span> This is a linear combination weight of neighbor dots. This is
+the kirging model. So the important thing is to know the <span class="math inline">\(w\)</span> .</p>
 <h2 id="variogram">Variogram</h2>
-<p>A general idea is that the closer one should have higher weigh. But how do I formalize this idea in math? Here the things determines the weight is called the variogram. <span class="math display">\[
+<p>A general idea is that the closer one should have higher weigh. But
+how do I formalize this idea in math? Here the things determines the
+weight is called the variogram. <span class="math display">\[
 \gamma(x_i,x_j)=\frac{1}{2}(y_i-y_j)^2
-\]</span> This is the equation of variogram. <span class="math inline">\((x_i,x_j)\)</span> indicate the distance between two points. The distance is the input of <span class="math inline">\(\gamma\)</span> function. And the output of <span class="math inline">\(\gamma\)</span> function is half the difference of elevation. It should be increasing function since the smaller distance, the smaller difference.</p>
+\]</span> This is the equation of variogram. <span class="math inline">\((x_i,x_j)\)</span> indicate the distance between
+two points. The distance is the input of <span class="math inline">\(\gamma\)</span> function. And the output of <span class="math inline">\(\gamma\)</span> function is half the difference of
+elevation. It should be increasing function since the smaller distance,
+the smaller difference.</p>
 <p>So lets plot the graph between H, the distance <span class="math inline">\((x_i,x_j)\)</span> and the output of <span class="math inline">\(\gamma\)</span> function.</p>
 <p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022142200533.png"></p>
-<p>This graph should reach the plateau as H increase. Because if the distance is two large, the difference should be almost the same, which indicate that the elevation belong to different group.</p>
-<p>There are some terminology here. First is the nugget. The nugget is the intercept that our graph begin. It should be not equal to zero. Because the variogram is a fit line and maybe we have a lot of closed dot with different elevation. But it shoul be small.</p>
-<p>Second one is the sill. Sill is the silling of a variogram. And the he range is the H value of sill.</p>
+<p>This graph should reach the plateau as H increase. Because if the
+distance is two large, the difference should be almost the same, which
+indicate that the elevation belong to different group.</p>
+<p>There are some terminology here. First is the nugget. The nugget is
+the intercept that our graph begin. It should be not equal to zero.
+Because the variogram is a fit line and maybe we have a lot of closed
+dot with different elevation. But it shoul be small.</p>
+<p>Second one is the sill. Sill is the silling of a variogram. And the
+he range is the H value of sill.</p>
 <h2 id="solving-model">Solving model</h2>
-<p>So we can get the weight from the variogram by solving a matrix equation.</p>
+<p>So we can get the weight from the variogram by solving a matrix
+equation.</p>
 <p><span class="math inline">\(Aw=b\)</span></p>
-<p>Here A is the <span class="math inline">\(\gamma(x_i,x_j)\)</span> and b is the <span class="math inline">\(\gamma(x_{new},x_i)\)</span>, <span class="math inline">\(w\)</span> is the vector from <span class="math inline">\(w_1\)</span> to<span class="math inline">\(w_5\)</span></p>
+<p>Here A is the <span class="math inline">\(\gamma(x_i,x_j)\)</span>
+and b is the <span class="math inline">\(\gamma(x_{new},x_i)\)</span>,
+<span class="math inline">\(w\)</span> is the vector from <span class="math inline">\(w_1\)</span> to<span class="math inline">\(w_5\)</span></p>
 <p>So I can just take a inverse to get the <span class="math inline">\(w\)</span>.</p>
 <h2 id="several-assumpution">Several Assumpution</h2>
 <ol type="1">
-<li>Stationarity: In every small part of island, the change speed of elevation should be almost the same.</li>
-<li>Constant variogram. In every small part of the island, the variogram shoul be almost the same.</li>
+<li>Stationarity: In every small part of island, the change speed of
+elevation should be almost the same.</li>
+<li>Constant variogram. In every small part of the island, the variogram
+shoul be almost the same.</li>
 </ol>
 <h2 id="pros-and-cons">Pros and Cons</h2>
 <p>Pros: we can estimate the error</p>
-<p>Cons: For every new point, we need to solve different equation matrix.</p>
+<p>Cons: For every new point, we need to solve different equation
+matrix.</p>
 <h1 id="ordinary-kriging">Ordinary Kriging</h1>
-<p>Refference: Olea R A. Geostatistics for engineers and earth scientists[M]. Springer Science &amp; Business Media, 2012.</p>
-<p>The kriging model we describe before is the ordinary kriging. Kriging covers a range of least-squares methods of spatial prediction.</p>
+<p>Refference: Olea R A. Geostatistics for engineers and earth
+scientists[M]. Springer Science &amp; Business Media, 2012.</p>
+<p>The kriging model we describe before is the ordinary kriging. Kriging
+covers a range of least-squares methods of spatial prediction.</p>
 <ul>
-<li>􏰀 Ordinary kriging of a single variable, as described in Section 8.2, is the most robust method and the one most used.</li>
-<li>􏰀 Simple kriging (Section 8.9) is rather little used as it stands because we usually do not know the mean. It finds application in other forms such as indicator and disjunctive kriging in which the data are transformed to have known means.</li>
-<li>􏰀 Lognormal kriging (Section 8.10) is ordinary kriging of the logarithms of the measured values. It is used for strongly positively skewed data that approximate a lognormal distribution.</li>
-<li>􏰀 Kriging with drift (Chapter 9), also known as universal kriging, recognizes both non-stationary deterministic and random components in a variable, estimates the trend in the former and the variogram of the latter, and recombines the two for prediction. This introduces residual maximum likelihood into the kriging procedure (see Section 9.2).</li>
-<li>􏰀 Factorial kriging or kriging analysis (Chapter 9) is of particular value where the variation is nested, i.e. more than one scale of variation is present. Factorial kriging estimates the individual components of variation sepa- rately, but in a single analysis.</li>
-<li>􏰀 Ordinary cokriging (Chapter 10) is the extension of ordinary kriging of a single variable to two or more variables. There must be some coregionaliza- tion among the variables for it to be profitable. It is particularly useful if some property that can be measured cheaply at many sites is spatially correlated with one or more others that are expensive to measure and are measured at many fewer sites. It enables us to estimate the more sparsely sampled property with more precision by cokriging using the spatial information from the more intensely measured one.</li>
-<li>􏰀 Indicator kriging (see Chapter 11) is a non-linear, non-parametric form of kriging in which continuous variables are converted to binary ones (indicators). It is becoming popular because it can handle distribu- tions of almost any kind, and empirical cumulative distributions of estimates can be computed and thereby provide confidence limits on them. It can also accommodate ‘soft’ qualitative information to improve prediction.</li>
-<li>􏰀 Disjunctive kriging (see Chapter 11) is also a non-linear method of kriging, but it is strictly parametric. It is valuable for decision-making because the probabilities of exceeding or not exceeding a predefined threshold are determined in addition to the kriged estimates.</li>
-<li>􏰀 Probability kriging (not described further in this book) was proposed by Sullivan (1984) because indicator kriging does not take into account the proximity of a value to the threshold, but only its position. It uses the rank order for each value, zðxÞ, normalized to 1 as the secondary variable to estimate the indicator by cokriging. Chile`s and Delfiner (1999) and Goo- vaerts (1997) describe the method briefly.</li>
-<li>􏰀 Bayesian kriging (not described further in this book) was introduced by Omre (1987) for situations in which there is some prior knowledge about the drift. It is intermediate between simple kriging, used when there is no drift, and universal kriging where there is known to be drift. The kriging equations are those of simple kriging, but with non-stationary covariances (Chile`s and Delfiner, 1999).</li>
+<li>􏰀 Ordinary kriging of a single variable, as described in Section
+8.2, is the most robust method and the one most used.</li>
+<li>􏰀 Simple kriging (Section 8.9) is rather little used as it stands
+because we usually do not know the mean. It finds application in other
+forms such as indicator and disjunctive kriging in which the data are
+transformed to have known means.</li>
+<li>􏰀 Lognormal kriging (Section 8.10) is ordinary kriging of the
+logarithms of the measured values. It is used for strongly positively
+skewed data that approximate a lognormal distribution.</li>
+<li>􏰀 Kriging with drift (Chapter 9), also known as universal kriging,
+recognizes both non-stationary deterministic and random components in a
+variable, estimates the trend in the former and the variogram of the
+latter, and recombines the two for prediction. This introduces residual
+maximum likelihood into the kriging procedure (see Section 9.2).</li>
+<li>􏰀 Factorial kriging or kriging analysis (Chapter 9) is of particular
+value where the variation is nested, i.e. more than one scale of
+variation is present. Factorial kriging estimates the individual
+components of variation sepa- rately, but in a single analysis.</li>
+<li>􏰀 Ordinary cokriging (Chapter 10) is the extension of ordinary
+kriging of a single variable to two or more variables. There must be
+some coregionaliza- tion among the variables for it to be profitable. It
+is particularly useful if some property that can be measured cheaply at
+many sites is spatially correlated with one or more others that are
+expensive to measure and are measured at many fewer sites. It enables us
+to estimate the more sparsely sampled property with more precision by
+cokriging using the spatial information from the more intensely measured
+one.</li>
+<li>􏰀 Indicator kriging (see Chapter 11) is a non-linear, non-parametric
+form of kriging in which continuous variables are converted to binary
+ones (indicators). It is becoming popular because it can handle
+distribu- tions of almost any kind, and empirical cumulative
+distributions of estimates can be computed and thereby provide
+confidence limits on them. It can also accommodate ‘soft’ qualitative
+information to improve prediction.</li>
+<li>􏰀 Disjunctive kriging (see Chapter 11) is also a non-linear method
+of kriging, but it is strictly parametric. It is valuable for
+decision-making because the probabilities of exceeding or not exceeding
+a predefined threshold are determined in addition to the kriged
+estimates.</li>
+<li>􏰀 Probability kriging (not described further in this book) was
+proposed by Sullivan (1984) because indicator kriging does not take into
+account the proximity of a value to the threshold, but only its
+position. It uses the rank order for each value, zðxÞ, normalized to 1
+as the secondary variable to estimate the indicator by cokriging.
+Chile`s and Delfiner (1999) and Goo- vaerts (1997) describe the method
+briefly.</li>
+<li>􏰀 Bayesian kriging (not described further in this book) was
+introduced by Omre (1987) for situations in which there is some prior
+knowledge about the drift. It is intermediate between simple kriging,
+used when there is no drift, and universal kriging where there is known
+to be drift. The kriging equations are those of simple kriging, but with
+non-stationary covariances (Chile`s and Delfiner, 1999).</li>
 </ul>
-<p>Here I just gonna to talk about the three kinds of kriging model. For further you can just find that textbook.</p>
-<p>But before we talk more deeply about that two type. Lets write the former introduction more detailed.</p>
+<p>Here I just gonna to talk about the three kinds of kriging model. For
+further you can just find that textbook.</p>
+<p>But before we talk more deeply about that two type. Lets write the
+former introduction more detailed.</p>
 <h2 id="theory-of-ordinary-kriging">THEORY OF ORDINARY KRIGING</h2>
-<p>The aim of kriging is to estimate the value of a random variable,<span class="math inline">\(Z\)</span>, at one or more unsampled points or over larger blocks, from more or less sparse sample data on a given support, say <span class="math inline">\(z(\boldsymbol{x}_1),z(\boldsymbol{x}_2),...,z(\boldsymbol{x}_N)\)</span>, at points <span class="math inline">\(\boldsymbol{x}_1,\boldsymbol{x}_2,...,\boldsymbol{x}_N\)</span>. The data may be distributed in one, two or three dimensions, though applications in the environmental sciences are usually two-dimensional.</p>
-<p>Ordinary kriging is by far the most common type of kriging in practice,and for this reason we focus on its theory here. It is based on the assumption that we do not know the mean. If we consider punctual estimation first, then we estimate <span class="math inline">\(Z\)</span> at a point <span class="math inline">\(\boldsymbol{x}_0\)</span>by <span class="math inline">\(\hat{Z}(\boldsymbol{x}_0)\)</span>, with the same support as the data, by <span class="math display">\[
+<p>The aim of kriging is to estimate the value of a random
+variable,<span class="math inline">\(Z\)</span>, at one or more
+unsampled points or over larger blocks, from more or less sparse sample
+data on a given support, say <span class="math inline">\(z(\boldsymbol{x}_1),z(\boldsymbol{x}_2),...,z(\boldsymbol{x}_N)\)</span>,
+at points <span class="math inline">\(\boldsymbol{x}_1,\boldsymbol{x}_2,...,\boldsymbol{x}_N\)</span>.
+The data may be distributed in one, two or three dimensions, though
+applications in the environmental sciences are usually
+two-dimensional.</p>
+<p>Ordinary kriging is by far the most common type of kriging in
+practice,and for this reason we focus on its theory here. It is based on
+the assumption that we do not know the mean. If we consider punctual
+estimation first, then we estimate <span class="math inline">\(Z\)</span> at a point <span class="math inline">\(\boldsymbol{x}_0\)</span>by <span class="math inline">\(\hat{Z}(\boldsymbol{x}_0)\)</span>, with the same
+support as the data, by <span class="math display">\[
 \hat{Z}(\boldsymbol{x}_0)=\sum_{i=1}^{N}\lambda_i(\boldsymbol{x}_i),
-\]</span> where <span class="math inline">\(\lambda_i\)</span> are the weights. To ensure that the estimate is unbiased the weights are made to sum to 1, <span class="math display">\[
+\]</span> where <span class="math inline">\(\lambda_i\)</span> are the
+weights. To ensure that the estimate is unbiased the weights are made to
+sum to 1, <span class="math display">\[
 \sum_{i=1}^{N}\lambda_i=1
 \]</span></p>
 <blockquote>
-<p>Review about the unbiased, consistent, efficient estimator https://en.wikipedia.org/wiki/Consistent_estimator#Unbiased_but_not_consistent</p>
+<p>Review about the unbiased, consistent, efficient estimator
+https://en.wikipedia.org/wiki/Consistent_estimator#Unbiased_but_not_consistent</p>
 </blockquote>
 <p>and the expected error is <span class="math inline">\(E[\hat{Z}(\boldsymbol{x}_0)-Z(\boldsymbol{x}_0)]=0\)</span>.</p>
 <p>The estimation variance is <span class="math display">\[
 var[\hat{Z}(\boldsymbol{x}_0)]=E[\{\hat{Z}(\boldsymbol{x}_0)-Z(\boldsymbol{x}_0)\}^2]\\
 =2\sum_{i=1}^{N}\lambda_i\gamma(\boldsymbol{x}_i,\boldsymbol{x}_0)-\sum_{i=1}^{N}\sum_{i=1}^{N}\lambda_i\lambda_j\gamma(\boldsymbol{x}_i,\boldsymbol{x}_j)
-\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x}_j)\)</span> is the semivariance of <span class="math inline">\(Z\)</span> between the data points<span class="math inline">\(\boldsymbol{x}_i\)</span> and <span class="math inline">\(\boldsymbol{x}_j\)</span>, and <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x}_0)\)</span> is the semivariance between the ith data point and the target point <span class="math inline">\(x_0\)</span>.</p>
+\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x}_j)\)</span>
+is the semivariance of <span class="math inline">\(Z\)</span> between
+the data points<span class="math inline">\(\boldsymbol{x}_i\)</span> and
+<span class="math inline">\(\boldsymbol{x}_j\)</span>, and <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x}_0)\)</span>
+is the semivariance between the ith data point and the target point
+<span class="math inline">\(x_0\)</span>.</p>
 <blockquote>
 <p>Semi variance:http://www.kgs.ku.edu/Tis/surf3/s3krig2.html</p>
 </blockquote>
-<p>In the more general case we may wish to estimate <span class="math inline">\(Z\)</span> in a block <span class="math inline">\(B\)</span>, which may be a line, an area or a volume depending on whether it is in one, two or three spatial dimensions. The kriged estimate in <span class="math inline">\(B\)</span> is still a simple weighted average of the data, <span class="math display">\[
+<p>In the more general case we may wish to estimate <span class="math inline">\(Z\)</span> in a block <span class="math inline">\(B\)</span>, which may be a line, an area or a
+volume depending on whether it is in one, two or three spatial
+dimensions. The kriged estimate in <span class="math inline">\(B\)</span> is still a simple weighted average of
+the data, <span class="math display">\[
 \hat{Z}(\boldsymbol{B})=\sum_{i=1}^{N}\lambda_iz(\boldsymbol{x}_i),
-\]</span> but with <span class="math inline">\(x_0\)</span> of equation (3) replaced by <span class="math inline">\(B\)</span>. Its variance is <span class="math display">\[
+\]</span> but with <span class="math inline">\(x_0\)</span> of equation
+(3) replaced by <span class="math inline">\(B\)</span>. Its variance is
+<span class="math display">\[
 var[\hat{Z}(\boldsymbol{B})]=E[\{\hat{Z}(\boldsymbol{B})-Z(\boldsymbol{B})\}^2]\\
 =2\sum_{i=1}^{N}\lambda_i\gamma(\boldsymbol{x}_i,\boldsymbol{B})-\sum_{i=1}^{N}\sum_{i=1}^{N}\lambda_i\lambda_j\gamma(\boldsymbol{x}_i,\boldsymbol{x}_j)-\bar{\gamma}(B,B).
-\]</span> The quantity <span class="math inline">\(\bar\gamma(\boldsymbol{x}_i,B)\)</span> is the average semivariance between the <span class="math inline">\(i\)</span>th sampling point and the block <span class="math inline">\(B\)</span> and is the integral <span class="math display">\[
-$\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\boldsymbol{x})d\boldsymbol{x},
-\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x})\)</span> denotes the semivariance between the sampling point xi and a point x describing the block.</p>
+\]</span> The quantity <span class="math inline">\(\bar\gamma(\boldsymbol{x}_i,B)\)</span> is the
+average semivariance between the <span class="math inline">\(i\)</span>th sampling point and the block <span class="math inline">\(B\)</span> and is the integral <span class="math display">\[
+$\bar\gamma(\boldsymbol{x}_i,B)$
+=\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\boldsymbol{x})d\boldsymbol{x},
+\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x}_i,\boldsymbol{x})\)</span>
+denotes the semivariance between the sampling point xi and a point x
+describing the block.</p>
 <p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021022160855202.png"></p>
-<p>The third term on the right-hand side of equation (7) is the double integral <span class="math display">\[
+<p>The third term on the right-hand side of equation (7) is the double
+integral <span class="math display">\[
 \bar{\gamma}(B,B)=\frac{1}{|B^2|}\int_B\int_B\gamma(\boldsymbol{x},\boldsymbol{x^{\prime}})d\boldsymbol{x}d\boldsymbol{x^{\prime}}
-\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x},\boldsymbol{x^{\prime}})\)</span> is the semivariance between two points <span class="math inline">\(x\)</span> and <span class="math inline">\(x^{\prime}\)</span> that sweep independently over B. It is the within-block variance. In punctual kriging <span class="math inline">\(\bar{\gamma}(B,B)\)</span>becomes <span class="math inline">\(\bar{\gamma}(x_0,x_0)=0\)</span>, which is why equation (5) has two terms rather than three.</p>
-<p>For each kriged estimate there is an associated kriging variance, which we can denote by <span class="math inline">\(\sigma^2(\boldsymbol{x}_0)\)</span> and <span class="math inline">\(\sigma^2(B)\)</span> for the point and block, respectively, and which are defined in equation(5) and equation(7).</p>
-<p>The next step in kriging is to find the weights that minimize these variances, subject to the constraint that they sum to 1. We achieve this using the method of Lagrange multipliers.</p>
-<p>Here I do not want to show how Lagrange multipliers works. Anyway this post is just a general introduction.</p>
+\]</span> where <span class="math inline">\(\gamma(\boldsymbol{x},\boldsymbol{x^{\prime}})\)</span>
+is the semivariance between two points <span class="math inline">\(x\)</span> and <span class="math inline">\(x^{\prime}\)</span> that sweep independently over
+B. It is the within-block variance. In punctual kriging <span class="math inline">\(\bar{\gamma}(B,B)\)</span>becomes <span class="math inline">\(\bar{\gamma}(x_0,x_0)=0\)</span>, which is why
+equation (5) has two terms rather than three.</p>
+<p>For each kriged estimate there is an associated kriging variance,
+which we can denote by <span class="math inline">\(\sigma^2(\boldsymbol{x}_0)\)</span> and <span class="math inline">\(\sigma^2(B)\)</span> for the point and block,
+respectively, and which are defined in equation(5) and equation(7).</p>
+<p>The next step in kriging is to find the weights that minimize these
+variances, subject to the constraint that they sum to 1. We achieve this
+using the method of Lagrange multipliers.</p>
+<p>Here I do not want to show how Lagrange multipliers works. Anyway
+this post is just a general introduction.</p>
 <h2 id="weights">WEIGHTS</h2>
-<p>When the kriging equations are solved to obtain the weights, <span class="math inline">\(\lambda_i\)</span>, in general the only large weights are those of the points near to the point or block to be kriged. The nearest four or five might contribute 80% of the total weight, and the next nearest ten almost all of the remainder. The weights also depend on the configuration of the sampling. We can summarize the factors affecting the weights as follows.</p>
+<p>When the kriging equations are solved to obtain the weights, <span class="math inline">\(\lambda_i\)</span>, in general the only large
+weights are those of the points near to the point or block to be kriged.
+The nearest four or five might contribute 80% of the total weight, and
+the next nearest ten almost all of the remainder. The weights also
+depend on the configuration of the sampling. We can summarize the
+factors affecting the weights as follows.</p>
 <ol type="1">
-<li>Near points carry more weight than more distant ones. Their relative proportions depend on the positions of the sampling points and on the variogram: the larger is the nugget variance, the smaller are the weights of the points that are nearest to target point or block.</li>
-<li>The relative weights of points also depend on the block size: as the block size increases, the weights of the nearest points decrease and those of the more distant points increase , until the weights become nearly equal.</li>
-<li>Clustered points carry less weight individually than isolated ones at the same distance</li>
-<li>Data points can be screened by ones lying between them and the target</li>
+<li>Near points carry more weight than more distant ones. Their relative
+proportions depend on the positions of the sampling points and on the
+variogram: the larger is the nugget variance, the smaller are the
+weights of the points that are nearest to target point or block.</li>
+<li>The relative weights of points also depend on the block size: as the
+block size increases, the weights of the nearest points decrease and
+those of the more distant points increase , until the weights become
+nearly equal.</li>
+<li>Clustered points carry less weight individually than isolated ones
+at the same distance</li>
+<li>Data points can be screened by ones lying between them and the
+target</li>
 </ol>
-<p>These effects are all intuitively desirable, and the first shows that kriging is local. They will become evident in the examples below. They also have practical implications. The most important for present purposes is that because only the nearest few data points to the target carry significant weight, matrix A in the kriging system need never be large and its inversion will be swift.</p>
+<p>These effects are all intuitively desirable, and the first shows that
+kriging is local. They will become evident in the examples below. They
+also have practical implications. The most important for present
+purposes is that because only the nearest few data points to the target
+carry significant weight, matrix A in the kriging system need never be
+large and its inversion will be swift.</p>
 <h1 id="covariance-and-variogram">Covariance and Variogram</h1>
-<p>Before we step into the next one, we need to clarify some basic definition.</p>
+<p>Before we step into the next one, we need to clarify some basic
+definition.</p>
 <p>This part also comes from the previous textbook.</p>
-<h2 id="a-stochastic-approach-to-spatial-variation-the-theory-of-regionalized-variables">A STOCHASTIC APPROACH TO SPATIAL VARIATION: THE THEORY OF REGIONALIZED VARIABLES</h2>
+<h2 id="a-stochastic-approach-to-spatial-variation-the-theory-of-regionalized-variables">A
+STOCHASTIC APPROACH TO SPATIAL VARIATION: THE THEORY OF REGIONALIZED
+VARIABLES</h2>
 <h3 id="random-variables">Random variables</h3>
 <h1 id="poisson-kriging-area-to-area">Poisson Kriging-Area to Area</h1>
 
@@ -451,7 +581,7 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -462,13 +592,13 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -500,7 +630,7 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -508,7 +638,7 @@ $\bar\gamma(\boldsymbol{x}_i,B)$ =\frac{1}{B}\int_B\gamma(\boldsymbol{x}_i,\bold
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

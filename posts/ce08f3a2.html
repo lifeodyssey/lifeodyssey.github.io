@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="这个教程主要分为两部分：  应用python分析MODIS水色遥感数据 SeaDAS OCSSW的安装与应用  2021.8.12更新SNAP相关 （最近来看这篇文章的小伙伴好多，可以跟我打个招呼让我认识一下同行么哈哈。 邮箱zhenjiazhou0127@outlook.com，任何问题都可以，欢迎交流） 2022.2.11更新后续">
 <meta property="og:type" content="article">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="这个教程主要分为两部分：  应用python分析MODIS水色遥感数据 SeaDAS OCSSW的安装与应用  2021.8.12更新SNAP相关 （最近来看这篇文章的小伙伴好多，可以跟我打个招呼让我认识一下同行么哈哈。 邮箱zhenjiazhou0127@outlook.com，任何问题都可以，欢迎交流） 2022.2.11更新后续">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-12T12:09:56.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.211Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.108Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Research">
 <meta property="article:tag" content="Ocean Color">
@@ -39,7 +39,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/ce08f3a2.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/ce08f3a2.html","path":"posts/ce08f3a2.html","title":"MODIS水色数据处理教程"}</script>
@@ -108,25 +107,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -161,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -299,31 +298,52 @@
 <p>如果这个步骤你花了很久才搞定的话，去用R吧，我朋友想跟我学python的都让我劝退学R了。</p>
 <h3 id="anaconda和-pycharm">Anaconda和 pycharm</h3>
 <p>Anaconda里涵盖了很多科学计算要用到的包，同时也给了一个很好用的包管理工具。下载地址https://www.anaconda.com/；如果在国内的话，推荐使用清华镜像进行下载https://mirror.tuna.tsinghua.edu.cn/help/anaconda/，然后再更换为国内源https://www.cnblogs.com/yikemogutou/p/11396045.html。</p>
-<p>下载完anaconda之后，打开anaconda navigator把Jupyter notebook(或者Jupyter lab)安装好，我个人通常会用这个用一张遥感数据进行程序的调试，然后在pycharm里改成批处理。</p>
-<p>pycharm是一个编辑器，同时支持python,R和markdown。对于本菜鸡来说，这个编辑器可以很方便的打开Terminal和python console，添加TODO和利用git备份，最重要的是管理环境方便，不用每次都active啥啥啥。下载地址https://www.jetbrains.com/pycharm/。</p>
+<p>下载完anaconda之后，打开anaconda navigator把Jupyter
+notebook(或者Jupyter
+lab)安装好，我个人通常会用这个用一张遥感数据进行程序的调试，然后在pycharm里改成批处理。</p>
+<p>pycharm是一个编辑器，同时支持python,R和markdown。对于本菜鸡来说，这个编辑器可以很方便的打开Terminal和python
+console，添加TODO和利用git备份，最重要的是管理环境方便，不用每次都active啥啥啥。下载地址https://www.jetbrains.com/pycharm/。</p>
 <h3 id="环境创建">环境创建</h3>
 <h4 id="地理信息数据分析环境">地理信息数据分析环境</h4>
-<p>打开pycharm，新建一个项目或者打开你之前的项目，然后preference-project interpreter-show all，右下角小加号添加一个python interpreter，选择Conda Environment，用你刚刚安装好的anaconda来创建一个新的环境。</p>
-<p>结束之后回到编辑器界面，最下面有四个选项 TODO,Version Control,Terminal,Python Console。这四个东西和刚才那个project interpreter基本是我平时比较喜欢用pycharm的最主要原因了。在写程序时#TODO然后写上要做的事情，就可以在下面TODO页面里看到要做的东西;Version Control 可以提供本地或者github的版本控制，具体设置方法可以参考https://www.jetbrains.com/help/pycharm/manage-projects-hosted-on-github.html；Terminal其实就是一个bash，并且是在你刚才创建的环境里面，不需要去确认环境啥的，也不用添加全局变量，就相当于一个anaconda prompt; python console就相当于一个命令行的python，在右上角绿色小三角附近点下拉菜单Edit configuration，然后选择run in python console，就可以在右边框里看到变量，比较适合我这种从matlab迁移过来的人。</p>
+<p>打开pycharm，新建一个项目或者打开你之前的项目，然后preference-project
+interpreter-show all，右下角小加号添加一个python interpreter，选择Conda
+Environment，用你刚刚安装好的anaconda来创建一个新的环境。</p>
+<p>结束之后回到编辑器界面，最下面有四个选项 TODO,Version
+Control,Terminal,Python Console。这四个东西和刚才那个project
+interpreter基本是我平时比较喜欢用pycharm的最主要原因了。在写程序时#TODO然后写上要做的事情，就可以在下面TODO页面里看到要做的东西;Version
+Control
+可以提供本地或者github的版本控制，具体设置方法可以参考https://www.jetbrains.com/help/pycharm/manage-projects-hosted-on-github.html；Terminal其实就是一个bash，并且是在你刚才创建的环境里面，不需要去确认环境啥的，也不用添加全局变量，就相当于一个anaconda
+prompt; python
+console就相当于一个命令行的python，在右上角绿色小三角附近点下拉菜单Edit
+configuration，然后选择run in python
+console，就可以在右边框里看到变量，比较适合我这种从matlab迁移过来的人。</p>
 <p>先打开Terminal，依次运行</p>
 <p><code>conda install -c conda-forge numpy h5py netcd4 opencv-python requests matplotlib pandas scipy scikit-learn</code></p>
 <p><code>conda update -all</code></p>
-<p>在这里一般不会出问题，-c conda-forge可以安装由大佬在开源社区里上传的程序包</p>
+<p>在这里一般不会出问题，-c
+conda-forge可以安装由大佬在开源社区里上传的程序包</p>
 <p><code>conda install -c conda-forge pyresample</code></p>
-<p>这里可能会遇到问题，这里有可能有两种问题，一个是C语言编译器的问题，下载安装Microsoft Visual Studio Community 2017然后再运行一下这句话就好了；另一种就是GDAL的问题。</p>
-<p>GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库，可以参考大佬翻译的这份中文教程https://www.osgeo.cn/python_gdal_utah_tutorial/index.html来学习一下。之前电脑上没有安装过python相关的东西的话一般不会遇到这个问题。如果你是在windows平台，那么我推荐你来安装OSGeo4W来搞定这个问题https://trac.osgeo.org/osgeo4w/；除此之外，还有两种方法，一个是你重新搞个环境，不要加入之前的包再来安装一次，另一个是下载whl文件来安装。</p>
+<p>这里可能会遇到问题，这里有可能有两种问题，一个是C语言编译器的问题，下载安装Microsoft
+Visual Studio Community
+2017然后再运行一下这句话就好了；另一种就是GDAL的问题。</p>
+<p>GDAL(Geospatial Data Abstraction
+Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库，可以参考大佬翻译的这份中文教程https://www.osgeo.cn/python_gdal_utah_tutorial/index.html来学习一下。之前电脑上没有安装过python相关的东西的话一般不会遇到这个问题。如果你是在windows平台，那么我推荐你来安装OSGeo4W来搞定这个问题https://trac.osgeo.org/osgeo4w/；除此之外，还有两种方法，一个是你重新搞个环境，不要加入之前的包再来安装一次，另一个是下载whl文件来安装。</p>
 <p>记得每次装完新的都来个conda update -all。</p>
 <p>最后</p>
 <p><code>conda install -c conda-forge basemap basemape-data-hires</code></p>
 <p><code>conda install -c conda-forge gdal</code></p>
 <p><code>conda update -all</code></p>
 <p>如果一切顺利，恭喜你完成了最麻烦的一步。</p>
-<p>之后可以参照我之前写过的这篇文章里面的python包，https://lifeodyssey.github.io/post/3aa0ed1a.html ,这些包都安装之后基本够用了。</p>
+<p>之后可以参照我之前写过的这篇文章里面的python包，https://lifeodyssey.github.io/post/3aa0ed1a.html
+,这些包都安装之后基本够用了。</p>
 <p>其实环境这个问题可以用Docker来解决，之前有看到过这个大佬https://zhuanlan.zhihu.com/p/108012664的文章，我也还在研究，争取尽快搞出来一个水色人的Docker。</p>
 <h4 id="pycharm及jupyter插件">pycharm及Jupyter插件</h4>
 <p>这个是属于个人喜好。</p>
-<p>在pycharm-preference-plugins里可以安装插件，我安装了.*ignore,Dart,Kite和Material Theme UI，因为我有的时候还会用R，虽然R studio更好用，但是我也装了R Language for IntelliJ这个，来进行一些小的调试。</p>
-<p>Jupyter个人一般只用来学习新的知识、调试和改bug，或者用来教别人的时候用，所以我这里用的还是Jupyter notebook,没有升级到Jupyterlab，安装教程可见https://github.com/ipython-contrib/jupyter_contrib_nbextensions。</p>
+<p>在pycharm-preference-plugins里可以安装插件，我安装了.*ignore,Dart,Kite和Material
+Theme UI，因为我有的时候还会用R，虽然R studio更好用，但是我也装了R
+Language for IntelliJ这个，来进行一些小的调试。</p>
+<p>Jupyter个人一般只用来学习新的知识、调试和改bug，或者用来教别人的时候用，所以我这里用的还是Jupyter
+notebook,没有升级到Jupyterlab，安装教程可见https://github.com/ipython-contrib/jupyter_contrib_nbextensions。</p>
 <p>在Terminal里依次输入</p>
 <p><code>conda install -c conda-forge jupyter_contrib_nbextensions</code></p>
 <p><code>jupyter contrib nbextension install --user</code></p>
@@ -331,7 +351,8 @@
 <p>然后在Terminal里输入</p>
 <p><code>Jupyter notebook</code></p>
 <p>就可以看到浏览器里蹦出来一个Jupyter notebook</p>
-<p>点开Configurable nbextensions中勾选variable inspector，然后随便新建一个notebook，点开那个小瞄准镜就可以看到变量了。我平时没事就只用这个了。</p>
+<p>点开Configurable nbextensions中勾选variable
+inspector，然后随便新建一个notebook，点开那个小瞄准镜就可以看到变量了。我平时没事就只用这个了。</p>
 <h2 id="modis-数据读取重投影及绘图">MODIS 数据读取、重投影及绘图</h2>
 <p>数据的下载可以参考https://lifeodyssey.github.io/post/8636bca2.html</p>
 <p>直接上我写的代码，造福千万家，但是希望你直接用的时候能够知其然也知其所以然。感谢实验室之前毕业的前辈给我提供的代码样本</p>
@@ -344,7 +365,8 @@
 <p>QAA的代码还需要很多的改进，目前正在参考https://github.com/BrandonSmithJ/band-adjustment进行改进，欢迎同行交流。</p>
 <h2 id="程序加速">程序加速</h2>
 <p>因为python自己的问题，如果你要处理大量遥感图像的话会很慢，这个一方面是matplotlib自己出图慢，另一方面是因为没有充分利用多核cpu。</p>
-<p>批量出图可以参考https://cloud.tencent.com/developer/article/1584962 这篇文章。</p>
+<p>批量出图可以参考https://cloud.tencent.com/developer/article/1584962
+这篇文章。</p>
 <p>解决多核cpu最好用的方法是并行。</p>
 <p>像上面那个程序，用并行来加速的话可以这么写：</p>
 <ol type="1">
@@ -355,7 +377,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>()</span><br><span class="line"><span class="comment">#这里是你刚才改写的程序</span></span><br><span class="line">pool=mp.Pool(processes=<span class="number">7</span>)<span class="comment">#电脑8核，给自己空余了一个核用来处理其他任务</span></span><br><span class="line">pool.<span class="built_in">map</span>(main,a1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>可以先不做并行查看内存占用情况，如果有很多内存没用的话，开了并行一般都会提速，我的程序需要处理140张卫星图像，缩短到原来的1/3左右。</p>
 <h1 id="seadas-ocssw的安装与应用">SeaDAS OCSSW的安装与应用</h1>
-<p>SeaDAS是NASA出品的一个水色遥感处理软件，其中的OCSSW更是内置了很多美国发射的卫星的标准处理流程算法（欧洲的那几个用的SNAP，韩国的GOCI用的GDPS，日本的SGLI，也许哪天我用OLCI数据的时候会把SNAP的教程搞一下），我主要是用他的l2gen这个功能。OCSSW只能在Linux或者Mac OS系统下安装。下载地址https://seadas.gsfc.nasa.gov/，这里讲Linux系统下的安装方法，我用的是Ubuntu 18.04LTS.</p>
+<p>SeaDAS是NASA出品的一个水色遥感处理软件，其中的OCSSW更是内置了很多美国发射的卫星的标准处理流程算法（欧洲的那几个用的SNAP，韩国的GOCI用的GDPS，日本的SGLI，也许哪天我用OLCI数据的时候会把SNAP的教程搞一下），我主要是用他的l2gen这个功能。OCSSW只能在Linux或者Mac
+OS系统下安装。下载地址https://seadas.gsfc.nasa.gov/，这里讲Linux系统下的安装方法，我用的是Ubuntu
+18.04LTS.</p>
 <h2 id="安装">安装</h2>
 <p>如果你像我一样肉身翻墙的话，那恭喜你真的是非常方便了。</p>
 <h3 id="seadas-安装">SeaDAS 安装</h3>
@@ -364,17 +388,25 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> add-apt-repository ppa:ts.sch.gr/ppa </span><br><span class="line"><span class="built_in">sudo</span> apt-get update </span><br><span class="line"><span class="built_in">sudo</span> apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
 <h3 id="ocssw安装">OCSSW安装</h3>
 <h4 id="python环境设置">Python环境设置</h4>
-<p>我们一般现在用来干活的python一般都是3版本的，但是Ubuntu系统内置的python是2版本，SeaDAS OCSSW会使用默认的内置版本，所以在这里需要搞定一些程序库的问题（如果没搞好的话后面一般会显示你没有requests这个包）。</p>
-<p>这时候就用到我刚才安装的Pycharm来手动管理了，打开pycharm-preference-Project Interpreter,如果你没有装别的东西的话，你的电脑里应该就只有几个python的解释器，你刚才通过anacoonda安装的是3版本，在Add Python Interpreter里面，系统自带的解释器一般会在Pipenv、System或者Virtualenv这里找到，通过路径判断出来哪个是系统自带的，创建一个新环境，然后在Terminal里安装requests这个包就可以了</p>
+<p>我们一般现在用来干活的python一般都是3版本的，但是Ubuntu系统内置的python是2版本，SeaDAS
+OCSSW会使用默认的内置版本，所以在这里需要搞定一些程序库的问题（如果没搞好的话后面一般会显示你没有requests这个包）。</p>
+<p>这时候就用到我刚才安装的Pycharm来手动管理了，打开pycharm-preference-Project
+Interpreter,如果你没有装别的东西的话，你的电脑里应该就只有几个python的解释器，你刚才通过anacoonda安装的是3版本，在Add
+Python
+Interpreter里面，系统自带的解释器一般会在Pipenv、System或者Virtualenv这里找到，通过路径判断出来哪个是系统自带的，创建一个新环境，然后在Terminal里安装requests这个包就可以了</p>
 <h4 id="安装-1">安装</h4>
 <p>完成这一步之后，如果你肉身翻墙或者依靠金钱的力量翻墙的话，就可以在GUI里面手动点选安装了；如果在国内，可以按照刚才放的官方的页面，把每个Bundle都下载下来离线安装。</p>
 <h2 id="应用">应用</h2>
-<p>我这里主要用的是l2gen这个函数，这里放一个在seadas forum找到然后自己修改的脚本</p>
+<p>我这里主要用的是l2gen这个函数，这里放一个在seadas
+forum找到然后自己修改的脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># source /Users/zhenjia/.bash_profile </span></span><br><span class="line"><span class="comment">#先运行上面这个文件来搞定全局变量</span></span><br><span class="line"><span class="comment">#Example script to process L1A files up to L2, put in same directory as </span></span><br><span class="line"><span class="comment"># your L1A files</span></span><br><span class="line"><span class="comment"># Run script by typing on Terminal Command Line: </span></span><br><span class="line"><span class="comment"># bash l1a_to_l2.sh input.txt</span></span><br><span class="line"><span class="comment"># input.txt contains list of files [ create by: ls -1 *L1A_LAC* &gt; input.txt ]</span></span><br><span class="line"></span><br><span class="line">LIST=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$LIST</span>&quot;</span> ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;No input file list supplied&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ ! -a <span class="variable">$LIST</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$LIST</span> does not exist!&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="keyword">done</span></span><br><span class="line"><span class="built_in">mkdir</span> -p l2_lac</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> FILE <span class="keyword">in</span> $(<span class="built_in">cat</span> <span class="variable">$LIST</span>);</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Working on <span class="variable">$FILE</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;FILE&#125;</span></span><br><span class="line">    <span class="comment"># get file basename (no file extension)</span></span><br><span class="line">    BASE=`<span class="built_in">basename</span> <span class="variable">$FILE</span> .L1A_LAC.x.hdf`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;BASE&#125;</span></span><br><span class="line">    GEOFILE=<span class="variable">$&#123;BASE&#125;</span>.GEO</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;GEOFILE&#125;</span></span><br><span class="line">    L1BFILE=<span class="variable">$&#123;BASE&#125;</span>.L1B_LAC.x.hdf</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L1BFILE&#125;</span></span><br><span class="line">    L2FILE=<span class="variable">$&#123;BASE&#125;</span>.L2_LAC.x.hdf</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;L2FILE&#125;</span></span><br><span class="line">    ancfile=<span class="variable">$&#123;BASE&#125;</span>.L1A_LAC.x.hdf.anc</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating GEOFILE <span class="variable">$GEOFILE</span>&quot;</span></span><br><span class="line">    modis_GEO.py -v <span class="variable">$FILE</span> -o <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating L1B file&quot;</span></span><br><span class="line">    modis_L1B.py -v <span class="variable">$FILE</span> <span class="variable">$GEOFILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Creating anc file&quot;</span></span><br><span class="line">    getanc.py -v <span class="variable">$FILE</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Create L2 file&quot;</span></span><br><span class="line">    l2gen ifile=<span class="variable">$L1BFILE</span> geofile=<span class="variable">$GEOFILE</span> ofile=<span class="variable">$L2FILE</span> par=<span class="variable">$ancfile</span> l2prod=<span class="string">&quot;Kd_490 Rrs_nnn angstrom aot_869 chlor_a ipar nLw_nnn nflh par pic poc rhos_nnn&quot;</span> aer_opt=-2</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Cleaning up&quot;</span></span><br><span class="line">    <span class="built_in">rm</span> -v <span class="variable">$&#123;BASE&#125;</span>.L1B* <span class="variable">$GEOFILE</span> <span class="variable">$ancfile</span></span><br><span class="line">    <span class="comment">#mv -v $FILE done/</span></span><br><span class="line">    <span class="built_in">mv</span> -v <span class="variable">$L2FILE</span> l2_lac/</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="snap">SNAP</h1>
-<p>最近ESA的SNAP宣布了对SeaDAS OCSSW的支持，这个不需要搞Linux系统啥的了，用起来方便很多。</p>
+<p>最近ESA的SNAP宣布了对SeaDAS
+OCSSW的支持，这个不需要搞Linux系统啥的了，用起来方便很多。</p>
 <p>下载地址：https://step.esa.int/main/download/snap-download/</p>
-<p>下载安装之后在<span class="exturl" data-url="aHR0cHM6Ly9zZWFkYXMuZ3NmYy5uYXNhLmdvdi9pbnN0YWxsZXJzL3NuYXAtc2VhZGFzLXRvb2xib3gv">这里<i class="fa fa-external-link-alt"></i></span>下载SeaDAS的插件。然后打开SNAP，打开Plugin Manager，在菜单中依次选择Tools --&gt; Plugins--&gt;Downloaded--&gt; Add Plugins，定位到你解压好的插件的位置，选择好之后点Open，然后Install-&gt;finish即可。</p>
+<p>下载安装之后在<span class="exturl" data-url="aHR0cHM6Ly9zZWFkYXMuZ3NmYy5uYXNhLmdvdi9pbnN0YWxsZXJzL3NuYXAtc2VhZGFzLXRvb2xib3gv">这里<i class="fa fa-external-link-alt"></i></span>下载SeaDAS的插件。然后打开SNAP，打开Plugin
+Manager，在菜单中依次选择Tools --&gt; Plugins--&gt;Downloaded--&gt; Add
+Plugins，定位到你解压好的插件的位置，选择好之后点Open，然后Install-&gt;finish即可。</p>
 <p>顺带一提，SNAP还支持最近几个比较新的大气校正和IOP反演的算法插件，比如<span class="exturl" data-url="aHR0cDovL3d3dy5ydGF0bW9jbi5jb20vb2Mtc21hcnQv">OC-SMART<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9naXRsYWIuZXVtZXRzYXQuaW50L2V1bWV0bGFiL29jZWFucy9vY2Vhbi1zY2llbmNlLXN0dWRpZXMvb2xjaS1pb3AtcHJvY2Vzc29yLy0vdHJlZS9tYXN0ZXI=">3SAA<i class="fa fa-external-link-alt"></i></span>。</p>
 
     </div>
@@ -440,7 +472,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -451,13 +483,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -489,7 +521,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -497,7 +529,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

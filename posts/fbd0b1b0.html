@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。">
 <meta property="og:type" content="article">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="article:published_time" content="2021-12-28T05:23:00.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.211Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.108Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -46,7 +46,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/fbd0b1b0.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/fbd0b1b0.html","path":"posts/fbd0b1b0.html","title":"Mixture Density Network(1)"}</script>
@@ -115,25 +114,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -155,7 +154,15 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E7%AF%87%E8%AE%BA%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">几篇论文、</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seamless-retrievals-of-chlorophyll-a-from-sentinel-2-msi-and-sentinel-3-olci-in-inland-and-coastal-waters-a-machine-learning-approach"><span class="nav-number">1.1.</span> <span class="nav-text">Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and Sentinel-3 (OLCI) in inland and coastal waters: A machine-learning approach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">训练过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robust-algorithm-for-estimating-total-suspended-solids-tss-in-inland-and-nearshore-coastal-waters"><span class="nav-number">1.2.</span> <span class="nav-text">Robust algorithm for estimating total suspended solids (TSS) in inland and nearshore coastal waters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyperspectral-retrievals-of-phytoplankton-absorption-and-chlorophyll-a-in-inland-and-nearshore-coastal-waters"><span class="nav-number">1.3.</span> <span class="nav-text">Hyperspectral retrievals of phytoplankton absorption and chlorophyll-a in inland and nearshore coastal waters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-chlorophyll-a-algorithm-for-landsat-8-based-on-mixture-density-networks"><span class="nav-number">1.4.</span> <span class="nav-text">A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%89%8D%E8%A1%A5%E5%85%85%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">看源代码之前补充一些知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81"><span class="nav-number">2.0.1.</span> <span class="nav-text">类的继承和多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterator"><span class="nav-number">2.0.2.</span> <span class="nav-text">iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6"><span class="nav-number">2.0.3.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">2.0.4.</span> <span class="nav-text">模块的调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mdn%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">MDN的实现</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E7%AF%87%E8%AE%BA%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">几篇论文、</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seamless-retrievals-of-chlorophyll-a-from-sentinel-2-msi-and-sentinel-3-olci-in-inland-and-coastal-waters-a-machine-learning-approach"><span class="nav-number">1.1.</span> <span class="nav-text">Seamless
+retrievals of chlorophyll-a from Sentinel-2 (MSI) and Sentinel-3 (OLCI)
+in inland and coastal waters: A machine-learning approach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">训练过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robust-algorithm-for-estimating-total-suspended-solids-tss-in-inland-and-nearshore-coastal-waters"><span class="nav-number">1.2.</span> <span class="nav-text">Robust
+algorithm for estimating total suspended solids (TSS) in inland and
+nearshore coastal waters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyperspectral-retrievals-of-phytoplankton-absorption-and-chlorophyll-a-in-inland-and-nearshore-coastal-waters"><span class="nav-number">1.3.</span> <span class="nav-text">Hyperspectral
+retrievals of phytoplankton absorption and chlorophyll-a in inland and
+nearshore coastal waters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-chlorophyll-a-algorithm-for-landsat-8-based-on-mixture-density-networks"><span class="nav-number">1.4.</span> <span class="nav-text">A
+Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density
+Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81%E4%B9%8B%E5%89%8D%E8%A1%A5%E5%85%85%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">看源代码之前补充一些知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81"><span class="nav-number">2.0.1.</span> <span class="nav-text">类的继承和多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterator"><span class="nav-number">2.0.2.</span> <span class="nav-text">iterator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6"><span class="nav-number">2.0.3.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B0%83%E7%94%A8"><span class="nav-number">2.0.4.</span> <span class="nav-text">模块的调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mdn%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">MDN的实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,18 +175,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -291,118 +298,196 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。 <span id="more"></span></p>
+    <div class="post-body" itemprop="articleBody"><p>之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。
+<span id="more"></span></p>
 <h1 id="几篇论文">几篇论文、</h1>
 <ul>
-<li>"Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and Sentinel-3 (OLCI) in inland and coastal waters: A machine-learning approach". N. Pahlevan, et al. (2020). Remote Sensing of Environment. 111604. 10.1016/j.rse.2019.111604.</li>
-<li>"Robust algorithm for estimating total suspended solids (TSS) in inland and nearshore coastal waters". S.V. Balasubramanian, et al. (2020). Remote Sensing of Environment. 111768. 10.1016/j.rse.2020.111768. Code.</li>
-<li>"Hyperspectral retrievals of phytoplankton absorption and chlorophyll-a in inland and nearshore coastal waters". N. Pahlevan, et al. (2021). Remote Sensing of Environment. 112200. 10.1016/j.rse.2020.112200.</li>
-<li>"A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density Networks". B. Smith, et al. (2021). Frontiers in Remote Sensing. 623678. 10.3389/frsen.2020.623678.</li>
+<li>"Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and
+Sentinel-3 (OLCI) in inland and coastal waters: A machine-learning
+approach". N. Pahlevan, et al. (2020). Remote Sensing of Environment.
+111604. 10.1016/j.rse.2019.111604.</li>
+<li>"Robust algorithm for estimating total suspended solids (TSS) in
+inland and nearshore coastal waters". S.V. Balasubramanian, et al.
+(2020). Remote Sensing of Environment. 111768.
+10.1016/j.rse.2020.111768. Code.</li>
+<li>"Hyperspectral retrievals of phytoplankton absorption and
+chlorophyll-a in inland and nearshore coastal waters". N. Pahlevan, et
+al. (2021). Remote Sensing of Environment. 112200.
+10.1016/j.rse.2020.112200.</li>
+<li>"A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density
+Networks". B. Smith, et al. (2021). Frontiers in Remote Sensing. 623678.
+10.3389/frsen.2020.623678.</li>
 </ul>
 <p>这几篇论文都是Pahlevan搞的，代码都放在https://github.com/BrandonSmithJ/MDN，但是跟怕别人偷走一样，对于怎么重新应用只口不提。</p>
 <p>一篇篇来看吧</p>
-<h2 id="seamless-retrievals-of-chlorophyll-a-from-sentinel-2-msi-and-sentinel-3-olci-in-inland-and-coastal-waters-a-machine-learning-approach">Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and Sentinel-3 (OLCI) in inland and coastal waters: A machine-learning approach</h2>
+<h2 id="seamless-retrievals-of-chlorophyll-a-from-sentinel-2-msi-and-sentinel-3-olci-in-inland-and-coastal-waters-a-machine-learning-approach">Seamless
+retrievals of chlorophyll-a from Sentinel-2 (MSI) and Sentinel-3 (OLCI)
+in inland and coastal waters: A machine-learning approach</h2>
 <p>这篇论文是Pahlevan搞得第一篇，重点来看看他的这个网络是怎么做的，MDN的原理回合后面实现一起讲</p>
 <h3 id="训练过程">训练过程</h3>
 <p>因为他们的数据足够多，所以只用了1/3，大概1000个数据来训练。</p>
 <p>输入数据只有400-800的Rrs.</p>
-<p>所有的feature都log-transformed, normalized based on median centering and interquartile scaling, and then scaled to the range (0,1);</p>
-<p>这个步骤是咋做的呢，我去翻了翻他们的源代码，对于传进来的data，会利用from .transformers import TransformerPipeline, generate_scalers 这个scalers来做变换。</p>
+<p>所有的feature都log-transformed, normalized based on median centering
+and interquartile scaling, and then scaled to the range (0,1);</p>
+<p>这个步骤是咋做的呢，我去翻了翻他们的源代码，对于传进来的data，会利用from
+.transformers import TransformerPipeline, generate_scalers
+这个scalers来做变换。</p>
 <p>然后</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line">args.x_scalers = [</span><br><span class="line">			serialize(preprocessing.RobustScaler),</span><br><span class="line">	]</span><br><span class="line">	args.y_scalers = [</span><br><span class="line">		serialize(LogTransformer),</span><br><span class="line">		serialize(preprocessing.MinMaxScaler, [(-<span class="number">1</span>, <span class="number">1</span>)]),</span><br><span class="line">	]</span><br></pre></td></tr></table></figure>
 <p>?不是说的0-1吗？</p>
 <p>具体用的应该是这一个https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html，然后对y做的就是MinMaxScaler了。</p>
 <p>然后应该是把这个参数存下来，等到后面在做的时候重新来弄，不然一个单独的数哪儿来的IQR。</p>
 <p>等到后面具体实现的时候可以认真看下。</p>
-<p>输出的数据output variables are subject to the same normalization method</p>
+<p>输出的数据output variables are subject to the same normalization
+method</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin1-s2.0-S0034425719306248-gr3.jpg" alt><figcaption>Fig. 3</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin1-s2.0-S0034425719306248-gr3.jpg" alt="Fig. 3">
+<figcaption aria-hidden="true">Fig. 3</figcaption>
 </figure>
 <p>然后放了这么一张图上来。</p>
 <p>不是，我也没见你哪里有做feature engineering啊。</p>
-<p>再看后面几个论文的时候发现把feature engineering给去掉了hhh，果然顶刊也是很容易出问题的啊。</p>
+<p>再看后面几个论文的时候发现把feature
+engineering给去掉了hhh，果然顶刊也是很容易出问题的啊。</p>
 <p>然后对于调参</p>
 <blockquote>
-<p>These choices appear to be fairly robust to changes within the current implementation, especially with regard to the MDN-specific parameters. Following experimenting with several architectures, we found that the model is very robust to changes in various hyperparameters.</p>
+<p>These choices appear to be fairly robust to changes within the
+current implementation, especially with regard to the MDN-specific
+parameters. Following experimenting with several architectures, we found
+that the model is very robust to changes in various hyperparameters.</p>
 </blockquote>
-<p>在这种情况下他们就只用了一个a five-layer neural network with 100 neurons per layer, which is trained to output the parameters of five Gaussians.</p>
-<p>The median estimates from the MDN model taken over ten trials of random network initializations are the predicted Chl<em>a</em> for a given *R**rs* spectrum. Here, the same training data are used for all trials.</p>
+<p>在这种情况下他们就只用了一个a five-layer neural network with 100
+neurons per layer, which is trained to output the parameters of five
+Gaussians.</p>
+<p>The median estimates from the MDN model taken over ten trials of
+random network initializations are the predicted Chl<em>a</em> for a
+given *R**rs* spectrum. Here, the same training data are used for all
+trials.</p>
 <p>这篇论文关于网络的部分基本就这么结了，看下一个</p>
-<h2 id="robust-algorithm-for-estimating-total-suspended-solids-tss-in-inland-and-nearshore-coastal-waters">Robust algorithm for estimating total suspended solids (TSS) in inland and nearshore coastal waters</h2>
+<h2 id="robust-algorithm-for-estimating-total-suspended-solids-tss-in-inland-and-nearshore-coastal-waters">Robust
+algorithm for estimating total suspended solids (TSS) in inland and
+nearshore coastal waters</h2>
 <p>直接跳到训练过程</p>
 <p>其实有点想吐槽，这么直接的复制粘贴，好多地方都一样，真的不会被判抄袭吗，这篇论文有意思的地方是结合了MDN，QAA，水体光学分类，来做TSS。</p>
 <p>和上一篇论文不同的地方只有</p>
 <blockquote>
-<p>. The current default model uses a five-layer neural network with 25 neurons per layer, which is trained to output the parameters of five Gaussians. From this mixture model, the overall estimate is selected via the Gaussian with the maximum prior likelihood. The described model is trained a number of times with random initializations of the underlying neural network, in order to ensure a stable final output of the estimates. The median estimate is taken as the final result of these trials, with convergence occurring within some small margin of error after approximately ten trials</p>
+<p>. The current default model uses a five-layer neural network with 25
+neurons per layer, which is trained to output the parameters of five
+Gaussians. From this mixture model, the overall estimate is selected via
+the Gaussian with the maximum prior likelihood. The described model is
+trained a number of times with random initializations of the underlying
+neural network, in order to ensure a stable final output of the
+estimates. The median estimate is taken as the final result of these
+trials, with convergence occurring within some small margin of error
+after approximately ten trials</p>
 </blockquote>
-<h2 id="hyperspectral-retrievals-of-phytoplankton-absorption-and-chlorophyll-a-in-inland-and-nearshore-coastal-waters">Hyperspectral retrievals of phytoplankton absorption and chlorophyll-a in inland and nearshore coastal waters</h2>
+<h2 id="hyperspectral-retrievals-of-phytoplankton-absorption-and-chlorophyll-a-in-inland-and-nearshore-coastal-waters">Hyperspectral
+retrievals of phytoplankton absorption and chlorophyll-a in inland and
+nearshore coastal waters</h2>
 <p>没有任何其他的区别。</p>
 <p>真要说的话就是他们训练了俩模型，也不太懂为什么要训练俩。</p>
-<h2 id="a-chlorophyll-a-algorithm-for-landsat-8-based-on-mixture-density-networks">A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density Networks</h2>
+<h2 id="a-chlorophyll-a-algorithm-for-landsat-8-based-on-mixture-density-networks">A
+Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density
+Networks</h2>
 <p>这个是这么说的</p>
 <blockquote>
-<p>. All models examined in this study have simply used ‘reasonable’ default values for their hyperparameters (Glorot and Bengio 2010; Hinton 1990; Kingma and Ba 2014) namely: a five layer neural network with 100 nodes per layer, learning a mixture of five gaussians; a learning rate, L2 normalization rate, and <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinclip_image002.png" alt="img"> value all set to 0.001; and with training performed via Adam optimization over a set of 10,000 stochastic mini-batch iterations, using a mini-batch size of 128 samples.</p>
+<p>. All models examined in this study have simply used ‘reasonable’
+default values for their hyperparameters (Glorot and Bengio 2010; Hinton
+1990; Kingma and Ba 2014) namely: a five layer neural network with 100
+nodes per layer, learning a mixture of five gaussians; a learning rate,
+L2 normalization rate, and <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinclip_image002.png" alt="img"> value all set to 0.001; and with training performed via
+Adam optimization over a set of 10,000 stochastic mini-batch iterations,
+using a mini-batch size of 128 samples.</p>
 </blockquote>
 <p>这篇论文其实很有意思。</p>
 <p>这篇论文的一个主要目的是证明MDN这个专门针对反演问题的网络架构和其他的神经网络架构相比的优越性。具体结果可以看这几张图。</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g004.jpg" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g004.jpg" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g005.jpg" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g005.jpg" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g006.jpg" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinfrsen-01-623678-g006.jpg" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>还比较了我之前想试着用的cao 2020用过的XGBoost</p>
 <p>这篇论文的补充材料里的讨论也写的贼有意思，感觉这个讨论是用来怼某个审稿人的。我来翻译一下这个讨论。</p>
 <p>审稿人问：你为啥不改你模型的参数啊</p>
 <blockquote>
-<p>While no hyperparameter optimization has taken place over the course of this work, it is an important step to ensure optimal performance and generality.</p>
-<p>These choices are mostly arbitrary, as the goal of this study was to present the feasibility and theoretical backing of the MDN model</p>
-<p>These choices are mostly arbitrary, as the goal of this study was to present the feasibility and theoretical backing of the MDN model. A full optimality demonstration, on the other hand, would require a significantly longer study than already presented.</p>
+<p>While no hyperparameter optimization has taken place over the course
+of this work, it is an important step to ensure optimal performance and
+generality.</p>
+<p>These choices are mostly arbitrary, as the goal of this study was to
+present the feasibility and theoretical backing of the MDN model</p>
+<p>These choices are mostly arbitrary, as the goal of this study was to
+present the feasibility and theoretical backing of the MDN model. A full
+optimality demonstration, on the other hand, would require a
+significantly longer study than already presented.</p>
 </blockquote>
 <p>回答：第一，重点不在这，第二，没空，先水一个论文再说。</p>
 <p>审稿人：不行，你得证明你这个模型参数不重要。</p>
 <blockquote>
-<p>Nevertheless, we would be remiss to exclude any discussion which examines the hyperparameter choices, and so what follows is a (very) brief look at how select parameters affect performance.</p>
+<p>Nevertheless, we would be remiss to exclude any discussion which
+examines the hyperparameter choices, and so what follows is a (very)
+brief look at how select parameters affect performance.</p>
 </blockquote>
 <p>回答：行吧，既然你不懂，我们就稍微给你讲一下，而且我们觉得你听不懂，我们给你们讲个最简单的。</p>
 <blockquote>
-<p>First, some terminology must be defined in order to make it clear what is being examined. Normally in hyperparameter optimization, and machine learning in general, the dataset is split into three parts: training, validation, and testing. The training set is of course used to train the model on; the validation set is used to optimize the model using data unseen during training; and the testing set is used only at the end, in order to benchmark performance.</p>
+<p>First, some terminology must be defined in order to make it clear
+what is being examined. Normally in hyperparameter optimization, and
+machine learning in general, the dataset is split into three parts:
+training, validation, and testing. The training set is of course used to
+train the model on; the validation set is used to optimize the model
+using data unseen during training; and the testing set is used only at
+the end, in order to benchmark performance.</p>
 </blockquote>
 <p>回答：爷来给你们讲一下定义。</p>
 <blockquote>
-<p>As mentioned, no explicit hyperparameter optimizations have taken place thus far in the study. Default values were chosen based on those commonly used in literature and in available libraries (e.g. scikit-learn), and as will be seen, do not represent the optimal values for our specific data. As such, no separate validation set was set aside for the purposes of such an exercise.</p>
+<p>As mentioned, no explicit hyperparameter optimizations have taken
+place thus far in the study. Default values were chosen based on those
+commonly used in literature and in available libraries (e.g.
+scikit-learn), and as will be seen, do not represent the optimal values
+for our specific data. As such, no separate validation set was set aside
+for the purposes of such an exercise.</p>
 </blockquote>
-<p>因为我们没有做一个精确的超参数调整，所以我们就没做val那一部分的数据集，只做了train test</p>
+<p>因为我们没有做一个精确的超参数调整，所以我们就没做val那一部分的数据集，只做了train
+test</p>
 <blockquote>
-<p>One of the main questions any reader may have is, “how large is the model?”.</p>
+<p>One of the main questions any reader may have is, “how large is the
+model?”.</p>
 </blockquote>
 <p>我知道你们不是这行的，提不出来啥专业问题，我来提一个。</p>
 <p>然后给了两张图看layer和node的影响</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinclip_image003.png" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewinclip_image003.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>接着给看了learning curve</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png" alt><figcaption>img</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
 </figure>
 <p>怼的真的很好哈哈哈</p>
 <h1 id="看源代码之前补充一些知识">看源代码之前补充一些知识</h1>
 <p>不想看可以直接跳过</p>
 <p>###　class的一些知识补充</p>
 <p>自己之前逃的课都会以另一种方式回来，面向对象，这不就又来了。</p>
-<p>类包括同时包括valuable 和function，前者是类的属性，后者是类的方法。</p>
+<p>类包括同时包括valuable
+和function，前者是类的属性，后者是类的方法。</p>
 <p>比如一个人的身高和体重就是属性，说话吃饭是他的方法</p>
 <p>定义的方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ClassName</span>:</span><br><span class="line">   <span class="string">&#x27;类的帮助信息&#x27;</span>   <span class="comment">#类文档字符串</span></span><br><span class="line">   class_suite  <span class="comment">#类体</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 一个例子</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>:</span><br><span class="line">   <span class="string">&#x27;所有员工的基类&#x27;</span></span><br><span class="line">   empCount = <span class="number">0</span><span class="comment"># 属性</span></span><br><span class="line"> </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, salary</span>):</span><br><span class="line">      <span class="variable language_">self</span>.name = name</span><br><span class="line">      <span class="variable language_">self</span>.salary = salary</span><br><span class="line">      Employee.empCount += <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayCount</span>(<span class="params">self</span>):<span class="comment">#方法</span></span><br><span class="line">     <span class="built_in">print</span> <span class="string">&quot;Total Employee %d&quot;</span> % Employee.empCount</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayEmployee</span>(<span class="params">self</span>):</span><br><span class="line">      <span class="built_in">print</span> <span class="string">&quot;Name : &quot;</span>, <span class="variable language_">self</span>.name,  <span class="string">&quot;, Salary: &quot;</span>, <span class="variable language_">self</span>.salary</span><br></pre></td></tr></table></figure>
 <p>在这里面呢，empCount变量是一个类变量，这个值在所有的实例之间共享，访问方法为Employee.empCount</p>
-<p>第一种方法 <strong>init</strong>() 方法是一种特殊的方法，被称为类的构造函数或初始化方法，当创建了这个类的实例时就会调用该方法。意思就是每次创建一个类的实例，就会给name和salary赋值，然后Employee.empCount+1</p>
-<p>这里面self代表的是实例，意思比如你定义了一个李华进去，这个self就代表了李华，可以理解为你定义一个fun(x,y,z),然后调用的时候用的是fun(a,b,c), self只是他在类内部的名字而已，调用的使用不需要传入相应的参数。</p>
+<p>第一种方法 <strong>init</strong>()
+方法是一种特殊的方法，被称为类的构造函数或初始化方法，当创建了这个类的实例时就会调用该方法。意思就是每次创建一个类的实例，就会给name和salary赋值，然后Employee.empCount+1</p>
+<p>这里面self代表的是实例，意思比如你定义了一个李华进去，这个self就代表了李华，可以理解为你定义一个fun(x,y,z),然后调用的时候用的是fun(a,b,c),
+self只是他在类内部的名字而已，调用的使用不需要传入相应的参数。</p>
 <p>这就是类和函数一个特别的区别，类必须由一个额外的第一个参数名称。</p>
 <p>更具体一点的区别可以看这里</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">prt</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="variable language_">self</span>.__class__)</span><br><span class="line">t = Test()</span><br><span class="line">t.prt()</span><br></pre></td></tr></table></figure>
@@ -421,19 +506,25 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emp1.age = <span class="number">7</span>  <span class="comment"># 添加一个 &#x27;age&#x27; 属性</span></span><br><span class="line">emp1.age = <span class="number">8</span>  <span class="comment"># 修改 &#x27;age&#x27; 属性</span></span><br><span class="line"><span class="keyword">del</span> emp1.age  <span class="comment"># 删除 &#x27;age&#x27; 属性</span></span><br></pre></td></tr></table></figure>
 <p>也可以使用这些函数来访问属性</p>
 <ul>
-<li><strong>getattr(obj, name[, default]) : 访问对象的属性。</strong></li>
+<li><strong>getattr(obj, name[, default]) :
+访问对象的属性。</strong></li>
 <li><strong>hasattr(obj,name) : 检查是否存在一个属性。</strong></li>
-<li><strong>setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。</strong></li>
+<li><strong>setattr(obj,name,value) :
+设置一个属性。如果属性不存在，会创建一个新属性。</strong></li>
 <li><strong>delattr(obj, name) : 删除属性</strong></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hasattr</span>(emp1, <span class="string">&#x27;age&#x27;</span>)    <span class="comment"># 如果存在 &#x27;age&#x27; 属性返回 True。</span></span><br><span class="line"><span class="built_in">getattr</span>(emp1, <span class="string">&#x27;age&#x27;</span>)    <span class="comment"># 返回 &#x27;age&#x27; 属性的值</span></span><br><span class="line"><span class="built_in">setattr</span>(emp1, <span class="string">&#x27;age&#x27;</span>, <span class="number">8</span>) <span class="comment"># 添加属性 &#x27;age&#x27; 值为 8</span></span><br><span class="line"><span class="built_in">delattr</span>(empl, <span class="string">&#x27;age&#x27;</span>)    <span class="comment"># 删除属性 &#x27;age&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>python有一些内置的类属性，意思是你创建这个类的时候就有这些属性。包括：</p>
 <ul>
-<li><strong>dict</strong> : 类的属性（包含一个字典，由类的数据属性组成）</li>
+<li><strong>dict</strong> :
+类的属性（包含一个字典，由类的数据属性组成）</li>
 <li><strong>doc</strong> :类的文档字符串</li>
 <li><strong>name</strong>: 类名</li>
-<li><strong>module</strong>: 类定义所在的模块（类的全名是'<strong>main</strong>.className'，如果类位于一个导入模块 mymod 中，那么 className.__module__ 等于 mymod）</li>
-<li><strong>bases</strong> : 类的所有父类构成元素（包含了以个由所有父类组成的元组）</li>
+<li><strong>module</strong>:
+类定义所在的模块（类的全名是'<strong>main</strong>.className'，如果类位于一个导入模块
+mymod 中，那么 className.__module__ 等于 mymod）</li>
+<li><strong>bases</strong> :
+类的所有父类构成元素（包含了以个由所有父类组成的元组）</li>
 </ul>
 <p>调用方式为</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>:</span><br><span class="line">   <span class="string">&#x27;所有员工的基类&#x27;</span></span><br><span class="line">   empCount = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, salary</span>):</span><br><span class="line">      <span class="variable language_">self</span>.name = name</span><br><span class="line">      <span class="variable language_">self</span>.salary = salary</span><br><span class="line">      Employee.empCount += <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayCount</span>(<span class="params">self</span>):</span><br><span class="line">     <span class="built_in">print</span> <span class="string">&quot;Total Employee %d&quot;</span> % Employee.empCount</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayEmployee</span>(<span class="params">self</span>):</span><br><span class="line">      <span class="built_in">print</span> <span class="string">&quot;Name : &quot;</span>, <span class="variable language_">self</span>.name,  <span class="string">&quot;, Salary: &quot;</span>, <span class="variable language_">self</span>.salary</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;Employee.__doc__:&quot;</span>, Employee.__doc__</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;Employee.__name__:&quot;</span>, Employee.__name__</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;Employee.__module__:&quot;</span>, Employee.__module__</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;Employee.__bases__:&quot;</span>, Employee.__bases__</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;Employee.__dict__:&quot;</span>, Employee.__dict__</span><br></pre></td></tr></table></figure>
@@ -448,15 +539,19 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>:</span><br><span class="line">   <span class="string">&#x27;所有员工的基类&#x27;</span></span><br><span class="line">   empCount = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, salary</span>):</span><br><span class="line">      <span class="variable language_">self</span>.name = name</span><br><span class="line">      <span class="variable language_">self</span>.salary = salary</span><br><span class="line">      Employee.empCount += <span class="number">1</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayCount</span>(<span class="params">self</span>):</span><br><span class="line">     <span class="built_in">print</span> <span class="string">&quot;Total Employee %d&quot;</span> % Employee.empCount</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">print_title</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.sex == <span class="string">&quot;male&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;man&quot;</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="variable language_">self</span>.sex == <span class="string">&quot;female&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;woman&quot;</span>)</span><br><span class="line">        </span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">displayEmployee</span>(<span class="params">self</span>):</span><br><span class="line">      <span class="built_in">print</span> <span class="string">&quot;Name : &quot;</span>, <span class="variable language_">self</span>.name,  <span class="string">&quot;, Salary: &quot;</span>, <span class="variable language_">self</span>.salary     </span><br></pre></td></tr></table></figure>
 <p>现在我我们想雇佣童工了，就可以把新的子类写为</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">child</span>(<span class="title class_ inherited__">Employee</span>):</span><br><span class="line">     <span class="keyword">def</span> <span class="title function_">print_title</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.sex == <span class="string">&quot;male&quot;</span>:</span><br><span class="line">             <span class="built_in">print</span>(<span class="string">&quot;boy&quot;</span>)</span><br><span class="line">         <span class="keyword">elif</span> <span class="variable language_">self</span>.sex == <span class="string">&quot;female&quot;</span>:</span><br><span class="line">             <span class="built_in">print</span>(<span class="string">&quot;girl&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>当子类和父类都存在相同的 print_title()方法时，子类的 print_title() 覆盖了父类的 print_title()，在代码运行时，会调用子类的 print_title()</p>
-<p>多态的好处就是，当我们需要传入更多的子类，例如新增 Teenagers、Grownups 等时，我们只需要继承 Person 类型就可以了，而print_title()方法既可以直不重写（即使用Person的），也可以重写一个特有的。这就是多态的意思。调用方只管调用，不管细节，而当我们新增一种Person的子类时，只要确保新方法编写正确，而不用管原来的代码。这就是著名的“开闭”原则：</p>
+<p>当子类和父类都存在相同的 print_title()方法时，子类的 print_title()
+覆盖了父类的 print_title()，在代码运行时，会调用子类的 print_title()</p>
+<p>多态的好处就是，当我们需要传入更多的子类，例如新增
+Teenagers、Grownups 等时，我们只需要继承 Person
+类型就可以了，而print_title()方法既可以直不重写（即使用Person的），也可以重写一个特有的。这就是多态的意思。调用方只管调用，不管细节，而当我们新增一种Person的子类时，只要确保新方法编写正确，而不用管原来的代码。这就是著名的“开闭”原则：</p>
 <h3 id="iterator">iterator</h3>
 <p>讲什么样的类才能循环，我感觉暂时用不到</p>
 <h3 id="访问限制">访问限制</h3>
 <p>如果我们不想让某个属性被外界访问到，可以增加访问限制，就像</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">JustCounter</span>:</span><br><span class="line">	__secretCount = <span class="number">0</span>  <span class="comment"># 私有变量</span></span><br><span class="line">	publicCount = <span class="number">0</span>    <span class="comment"># 公开变量</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">count</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="variable language_">self</span>.__secretCount += <span class="number">1</span></span><br><span class="line">		<span class="variable language_">self</span>.publicCount += <span class="number">1</span></span><br><span class="line">		<span class="built_in">print</span> <span class="variable language_">self</span>.__secretCount</span><br><span class="line"></span><br><span class="line">counter = JustCounter()</span><br><span class="line">counter.count()</span><br><span class="line">counter.count()</span><br><span class="line"><span class="built_in">print</span> counter.publicCount</span><br><span class="line"><span class="built_in">print</span> counter.__secretCount  <span class="comment"># 报错，实例不能访问私有变量</span></span><br></pre></td></tr></table></figure>
 <h3 id="模块的调用">模块的调用</h3>
-<p>Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和Python语句。</p>
+<p>Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python
+对象定义和Python语句。</p>
 <p>意思就是，我们可以把类也放到模块里，跟函数一样去调用。</p>
 <h1 id="mdn的实现">MDN的实现</h1>
 <p>说了这么多，啥是MDN呢</p>
@@ -466,29 +561,58 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MDN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_hidden, n_gaussians</span>):</span><br><span class="line">        <span class="built_in">super</span>(MDN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.z_h = nn.Sequential(<span class="comment"># 这个是连续处理的意思，就是先做线性变换再做tanh变换</span></span><br><span class="line">            nn.Linear(<span class="number">1</span>, n_hidden),<span class="comment">#这里是做了Linear transformation</span></span><br><span class="line">            nn.Tanh()</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.z_pi = nn.Linear(n_hidden, n_gaussians)</span><br><span class="line">        <span class="variable language_">self</span>.z_sigma = nn.Linear(n_hidden, n_gaussians)</span><br><span class="line">        <span class="variable language_">self</span>.z_mu = nn.Linear(n_hidden, n_gaussians)  </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        z_h = <span class="variable language_">self</span>.z_h(x)</span><br><span class="line">        pi = nn.functional.softmax(<span class="variable language_">self</span>.z_pi(z_h), -<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># re scale to [0,1]</span></span><br><span class="line">        sigma = torch.exp(<span class="variable language_">self</span>.z_sigma(z_h))</span><br><span class="line">        <span class="comment">#做exp运算</span></span><br><span class="line">        mu = <span class="variable language_">self</span>.z_mu(z_h)</span><br><span class="line">        <span class="keyword">return</span> pi, sigma, mu</span><br></pre></td></tr></table></figure>
 <p>让我们详细说一下这个MDN是怎么构造的</p>
 <p>对于每一个输入的x，我们预测的是y的分布</p>
-<p><span class="math inline">\(P(y|x) = \sum_{k}^{K} \Pi_{k}(x) \phi(y, \mu_{k}(x), \sigma_{k}(x))\)</span></p>
+<p><span class="math inline">\(P(y|x) = \sum_{k}^{K} \Pi_{k}(x) \phi(y,
+\mu_{k}(x), \sigma_{k}(x))\)</span></p>
 <ul>
-<li><span class="math inline">\(k\)</span> is an index describing which Gaussian we are referencing. There are <span class="math inline">\(K\)</span> Gaussians total.</li>
-<li><span class="math inline">\(\sum_{k}^{K}\)</span> is the summation operator. We sum every <span class="math inline">\(k\)</span> Gaussian across all <span class="math inline">\(K\)</span>. You might also see <span class="math inline">\(\sum_{k=0}^{K-1}\)</span> or <span class="math inline">\(\sum_{k=1}^{K}\)</span> depending on whether an author is using zero-based numbering or not.</li>
-<li><span class="math inline">\(\Pi_k\)</span> acts as a weight, or multiplier, for mixing every <span class="math inline">\(k\)</span> Gaussian. It is a function of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\Pi_k(x)\)</span></li>
-<li><span class="math inline">\(\phi\)</span> is the Gaussian function and returns the at <span class="math inline">\(y\)</span> for a given mean and standard deviation.</li>
-<li><span class="math inline">\(\mu_k\)</span> and <span class="math inline">\(\sigma_k\)</span> are the parameters for the <span class="math inline">\(k\)</span> Gaussian: mean <span class="math inline">\(\mu_k\)</span> and standard deviation <span class="math inline">\(\sigma_k\)</span>. Instead of being fixed for each Gaussian, they are also functions of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\mu_k(x)\)</span> and <span class="math inline">\(\sigma_k(x)\)</span></li>
+<li><span class="math inline">\(k\)</span> is an index describing which
+Gaussian we are referencing. There are <span class="math inline">\(K\)</span> Gaussians total.</li>
+<li><span class="math inline">\(\sum_{k}^{K}\)</span> is the summation
+operator. We sum every <span class="math inline">\(k\)</span> Gaussian
+across all <span class="math inline">\(K\)</span>. You might also see
+<span class="math inline">\(\sum_{k=0}^{K-1}\)</span> or <span class="math inline">\(\sum_{k=1}^{K}\)</span> depending on whether an
+author is using zero-based numbering or not.</li>
+<li><span class="math inline">\(\Pi_k\)</span> acts as a weight, or
+multiplier, for mixing every <span class="math inline">\(k\)</span>
+Gaussian. It is a function of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\Pi_k(x)\)</span></li>
+<li><span class="math inline">\(\phi\)</span> is the Gaussian function
+and returns the at <span class="math inline">\(y\)</span> for a given
+mean and standard deviation.</li>
+<li><span class="math inline">\(\mu_k\)</span> and <span class="math inline">\(\sigma_k\)</span> are the parameters for the <span class="math inline">\(k\)</span> Gaussian: mean <span class="math inline">\(\mu_k\)</span> and standard deviation <span class="math inline">\(\sigma_k\)</span>. Instead of being fixed for each
+Gaussian, they are also functions of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\mu_k(x)\)</span> and <span class="math inline">\(\sigma_k(x)\)</span></li>
 </ul>
-<p>All of <span class="math inline">\(\sigma_{k}\)</span> are positive, and all of the weights <span class="math inline">\(\Pi\)</span> sum to one:</p>
+<p>All of <span class="math inline">\(\sigma_{k}\)</span> are positive,
+and all of the weights <span class="math inline">\(\Pi\)</span> sum to
+one:</p>
 <p><span class="math inline">\(\sum_{k}^{K} \Pi_{k} = 1\)</span></p>
-<p>First our network must learn the functions <span class="math inline">\(\Pi_{k}(x), \mu_{k}(x), \sigma_{k}(x)\)</span> for every <span class="math inline">\(k\)</span> Gaussian. Then these functions can be used to generate individual parameters <span class="math inline">\(\mu_k, \sigma_k, \Pi_k\)</span> for a given input <span class="math inline">\(x\)</span>. These parameters will be used to generate our pdf <span class="math inline">\(P(y|x)\)</span>. Finally, to make a prediction, we will need to sample (pick a value) from this pdf.</p>
-<p>In our implementation, we will use a neural network of one hidden layer with 20 nodes. This will feed into another layer that generates the parameters for 5 mixtures: with 3 parameters <span class="math inline">\(\Pi_k\)</span>, <span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(\sigma_k\)</span> for each Gaussian <span class="math inline">\(k\)</span>.</p>
+<p>First our network must learn the functions <span class="math inline">\(\Pi_{k}(x), \mu_{k}(x), \sigma_{k}(x)\)</span> for
+every <span class="math inline">\(k\)</span> Gaussian. Then these
+functions can be used to generate individual parameters <span class="math inline">\(\mu_k, \sigma_k, \Pi_k\)</span> for a given input
+<span class="math inline">\(x\)</span>. These parameters will be used to
+generate our pdf <span class="math inline">\(P(y|x)\)</span>. Finally,
+to make a prediction, we will need to sample (pick a value) from this
+pdf.</p>
+<p>In our implementation, we will use a neural network of one hidden
+layer with 20 nodes. This will feed into another layer that generates
+the parameters for 5 mixtures: with 3 parameters <span class="math inline">\(\Pi_k\)</span>, <span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(\sigma_k\)</span> for each Gaussian <span class="math inline">\(k\)</span>.</p>
 <p>Our definition will be split into three parts.</p>
 <p>First we will compute 20 hidden values <span class="math inline">\(z_h\)</span> from our input <span class="math inline">\(x\)</span>.</p>
-<p><span class="math inline">\(z_h(x) = \tanh( W_{in} x + b_{in})\)</span></p>
-<p>Second, we will use these hidden values <span class="math inline">\(z_h\)</span> to compute our three sets of parameters <span class="math inline">\(\Pi, \sigma, \mu\)</span>:</p>
+<p><span class="math inline">\(z_h(x) = \tanh( W_{in} x +
+b_{in})\)</span></p>
+<p>Second, we will use these hidden values <span class="math inline">\(z_h\)</span> to compute our three sets of
+parameters <span class="math inline">\(\Pi, \sigma, \mu\)</span>:</p>
 <p>$ z_= W_{} z_h + b_{}\ z_= W_{} z_h + b_{}\ z_= W_{} z_h + b_{} $</p>
-<p>Third, we will use the output of these layers to determine the parameters of the Gaussians.</p>
+<p>Third, we will use the output of these layers to determine the
+parameters of the Gaussians.</p>
 <p>$ = \ = (z_{})\ = z_{} $</p>
 <ul>
-<li><span class="math inline">\(\exp(x)\)</span> is the exponential function also written as <span class="math inline">\(e^x\)</span></li>
+<li><span class="math inline">\(\exp(x)\)</span> is the exponential
+function also written as <span class="math inline">\(e^x\)</span></li>
 </ul>
-<p>We use a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Softmax_function"><em>softmax</em></a> operator to ensure that <span class="math inline">\(\Pi\)</span> sums to one across all <span class="math inline">\(k\)</span>, and the exponential function ensures that each weight <span class="math inline">\(\Pi_k\)</span> is positive. We also use the exponential function to ensure that every <span class="math inline">\(\sigma_k\)</span> is positive.</p>
+<p>We use a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Softmax_function"><em>softmax</em></a>
+operator to ensure that <span class="math inline">\(\Pi\)</span> sums to
+one across all <span class="math inline">\(k\)</span>, and the
+exponential function ensures that each weight <span class="math inline">\(\Pi_k\)</span> is positive. We also use the
+exponential function to ensure that every <span class="math inline">\(\sigma_k\)</span> is positive.</p>
 <p>懂了，这个构造的方式其实是利用MDN预测了高斯混合网络的几个参数，再从整个PDF里面取值作为预测值。</p>
 <p>那么就牵扯到一个问题，就是我的y值只有一个，但是MDN产生的结果是一个分布，怎么计算loss来更新权重呢？</p>
 <p>请见下篇</p>
@@ -554,7 +678,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -565,13 +689,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -603,7 +727,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -611,7 +735,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

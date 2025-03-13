@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Learning to Answer Yes&#x2F;No">
 <meta property="og:type" content="article">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="Learning to Answer Yes&#x2F;No">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-04-08T07:08:38.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.227Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.123Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Cousera">
@@ -37,7 +37,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/2c9001a2.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/2c9001a2.html","path":"posts/2c9001a2.html","title":"Cousera机器学习基石第二周笔记 Machine Learning Foundation Week 2 Note in Cousera"}</script>
@@ -106,25 +105,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -146,7 +145,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#perceptron-hypothesis-set"><span class="nav-number">1.</span> <span class="nav-text">Perceptron Hypothesis Set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-simple-hypothesis-setthe-perceptron"><span class="nav-number">1.1.</span> <span class="nav-text">A Simple Hypothesis Set:the &#39;Perceptron&#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-form-of-perceptron-hypothesis"><span class="nav-number">1.2.</span> <span class="nav-text">Vector Form of Perceptron Hypothesis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptrons-in-r2"><span class="nav-number">1.3.</span> <span class="nav-text">Perceptrons in \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#perceptron-learning-algorithm-pla"><span class="nav-number">2.</span> <span class="nav-text">Perceptron Learning Algorithm (PLA)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#select-g-from-h"><span class="nav-number">2.1.</span> <span class="nav-text">Select g from H</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptron-learning-algorithm"><span class="nav-number">2.2.</span> <span class="nav-text">Perceptron Learning Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pratical-implementation-of-pla"><span class="nav-number">2.3.</span> <span class="nav-text">Pratical implementation of PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cyclic-pla"><span class="nav-number">2.3.1.</span> <span class="nav-text">Cyclic PLA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some-remaning-issues-of-pla"><span class="nav-number">2.4.</span> <span class="nav-text">Some Remaning issues of PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learninggapprox-f"><span class="nav-number">2.4.1.</span> <span class="nav-text">Learning:\(g\approx f\) ?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#guarantee-of-pla"><span class="nav-number">3.</span> <span class="nav-text">Guarantee of PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-separability"><span class="nav-number">3.1.</span> <span class="nav-text">Linear Separability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pla-fact-w_tgets-more-aligned-with-w_f"><span class="nav-number">3.2.</span> <span class="nav-text">PLA Fact: \(w_t\)Gets More Aligned with \(w_f\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pla-fact-w_t-does-not-grow-too-fast"><span class="nav-number">3.3.</span> <span class="nav-text">PLA fact: \(w_t\) Does Not Grow Too Fast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#novikoff-theorem"><span class="nav-number">3.4.</span> <span class="nav-text">Novikoff theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#non-separable-data"><span class="nav-number">4.</span> <span class="nav-text">Non-Separable Data</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#more-about-pla"><span class="nav-number">4.1.</span> <span class="nav-text">More about PLA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-with-noisy-data"><span class="nav-number">4.2.</span> <span class="nav-text">Learning with Noisy Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-with-noise-tolerance"><span class="nav-number">4.3.</span> <span class="nav-text">Line with Noise Tolerance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pocket-algorithm"><span class="nav-number">4.4.</span> <span class="nav-text">Pocket Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#perceptron-hypothesis-set"><span class="nav-number">1.</span> <span class="nav-text">Perceptron Hypothesis Set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-simple-hypothesis-setthe-perceptron"><span class="nav-number">1.1.</span> <span class="nav-text">A Simple Hypothesis
+Set:the &#39;Perceptron&#39;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-form-of-perceptron-hypothesis"><span class="nav-number">1.2.</span> <span class="nav-text">Vector Form of Perceptron
+Hypothesis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptrons-in-r2"><span class="nav-number">1.3.</span> <span class="nav-text">Perceptrons in \(R^2\)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#perceptron-learning-algorithm-pla"><span class="nav-number">2.</span> <span class="nav-text">Perceptron Learning Algorithm
+(PLA)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#select-g-from-h"><span class="nav-number">2.1.</span> <span class="nav-text">Select g from H</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptron-learning-algorithm"><span class="nav-number">2.2.</span> <span class="nav-text">Perceptron Learning
+Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pratical-implementation-of-pla"><span class="nav-number">2.3.</span> <span class="nav-text">Pratical implementation of
+PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cyclic-pla"><span class="nav-number">2.3.1.</span> <span class="nav-text">Cyclic PLA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#some-remaning-issues-of-pla"><span class="nav-number">2.4.</span> <span class="nav-text">Some Remaning issues of PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learninggapprox-f"><span class="nav-number">2.4.1.</span> <span class="nav-text">Learning:\(g\approx
+f\) ?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#guarantee-of-pla"><span class="nav-number">3.</span> <span class="nav-text">Guarantee of PLA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-separability"><span class="nav-number">3.1.</span> <span class="nav-text">Linear Separability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pla-fact-w_tgets-more-aligned-with-w_f"><span class="nav-number">3.2.</span> <span class="nav-text">PLA Fact: \(w_t\)Gets More Aligned with \(w_f\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pla-fact-w_t-does-not-grow-too-fast"><span class="nav-number">3.3.</span> <span class="nav-text">PLA fact: \(w_t\) Does Not Grow Too Fast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#novikoff-theorem"><span class="nav-number">3.4.</span> <span class="nav-text">Novikoff theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#non-separable-data"><span class="nav-number">4.</span> <span class="nav-text">Non-Separable Data</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#more-about-pla"><span class="nav-number">4.1.</span> <span class="nav-text">More about PLA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-with-noisy-data"><span class="nav-number">4.2.</span> <span class="nav-text">Learning with Noisy Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-with-noise-tolerance"><span class="nav-number">4.3.</span> <span class="nav-text">Line with Noise Tolerance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pocket-algorithm"><span class="nav-number">4.4.</span> <span class="nav-text">Pocket Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -285,54 +290,77 @@
     <div class="post-body" itemprop="articleBody"><p>Learning to Answer Yes/No <span id="more"></span></p>
 <h1 id="perceptron-hypothesis-set">Perceptron Hypothesis Set</h1>
 <p>Example:Credit Approval Problem Revisited</p>
-<h2 id="a-simple-hypothesis-setthe-perceptron">A Simple Hypothesis Set:the 'Perceptron'</h2>
+<h2 id="a-simple-hypothesis-setthe-perceptron">A Simple Hypothesis
+Set:the 'Perceptron'</h2>
 <ul>
-<li><p>For <strong>x</strong>=<span class="math inline">\((x_1,x_2,...,x_d)\)</span> 'feature of customer',compute a weighted'score' and</p>
-<p>&lt;center&gt; <span class="math inline">\(approve \quad credit\quad if \sum_{i=1}^{d} w_i x_i&gt;threshold\)</span>&lt;center&gt;</p>
-<p>&lt;center&gt; <span class="math inline">\(deny \quad credit\quad if \sum_{i=1}^{d} w_i x_i&lt;threshold\)</span>&lt;center&gt;</p></li>
-<li><p><span class="math inline">\(y:\{+1(good),-1(bad)\}\)</span>,0 ignored-linear formula<span class="math inline">\(h\in H\)</span>are</p>
-<p>&lt;center&gt;<span class="math inline">\(h(x)=sign((\sum_{i=i}^{d}w_i x_i)-threshold)\)</span>&lt;center&gt;</p></li>
+<li><p>For <strong>x</strong>=<span class="math inline">\((x_1,x_2,...,x_d)\)</span> 'feature of
+customer',compute a weighted'score' and</p>
+<p>&lt;center&gt; <span class="math inline">\(approve \quad credit\quad
+if \sum_{i=1}^{d} w_i x_i&gt;threshold\)</span>&lt;center&gt;</p>
+<p>&lt;center&gt; <span class="math inline">\(deny \quad credit\quad if
+\sum_{i=1}^{d} w_i x_i&lt;threshold\)</span>&lt;center&gt;</p></li>
+<li><p><span class="math inline">\(y:\{+1(good),-1(bad)\}\)</span>,0
+ignored-linear formula<span class="math inline">\(h\in H\)</span>are</p>
+<p>&lt;center&gt;<span class="math inline">\(h(x)=sign((\sum_{i=i}^{d}w_i
+x_i)-threshold)\)</span>&lt;center&gt;</p></li>
 </ul>
-<p>this is called'<strong>perceptron</strong>'hypothesis histroically</p>
-<h2 id="vector-form-of-perceptron-hypothesis">Vector Form of Perceptron Hypothesis</h2>
+<p>this is called'<strong>perceptron</strong>'hypothesis
+histroically</p>
+<h2 id="vector-form-of-perceptron-hypothesis">Vector Form of Perceptron
+Hypothesis</h2>
 $$
 <span class="math display">\[\begin{split}
 h(x)&amp;=sign((\sum_{i=1}^{d}w_i x_i)-threshold)\\
    
-    &amp;=sign((\sum_{i=1}^{d}w_i x_i)+\underbrace{(threshold)}_{w_0}\cdot\underbrace{(+1)}_{x_0})\\
+    &amp;=sign((\sum_{i=1}^{d}w_i
+x_i)+\underbrace{(threshold)}_{w_0}\cdot\underbrace{(+1)}_{x_0})\\
    
     &amp;=sign(sum_{i=0}^{d}w_i x_i)\\
     &amp;=sign(W^T x)
 \end{split}\]</span>
 <p>$$</p>
 <ul>
-<li>each'tall'<strong>w</strong> represents a hypothesis <em>h</em> &amp;is multiplied with 'tall' <strong>x</strong>——will use tall versions to simplify notation</li>
+<li>each'tall'<strong>w</strong> represents a hypothesis <em>h</em>
+&amp;is multiplied with 'tall' <strong>x</strong>——will use tall
+versions to simplify notation</li>
 </ul>
 <p>Q:What does <em>h</em> look like</p>
 <h2 id="perceptrons-in-r2">Perceptrons in <span class="math inline">\(R^2\)</span></h2>
-<p><strong>perceptrons<span class="math inline">\(\Leftrightarrow\)</span>linear(binary) classifiers</strong></p>
-<h1 id="perceptron-learning-algorithm-pla">Perceptron Learning Algorithm (PLA)</h1>
+<p><strong>perceptrons<span class="math inline">\(\Leftrightarrow\)</span>linear(binary)
+classifiers</strong></p>
+<h1 id="perceptron-learning-algorithm-pla">Perceptron Learning Algorithm
+(PLA)</h1>
 <h2 id="select-g-from-h">Select <em>g</em> from H</h2>
 <ul>
-<li>want: g<span class="math inline">\(\approx\)</span>f(hard when f unkown)</li>
-<li>almost necessary:g<span class="math inline">\(\approx\)</span>f on D,ideally <span class="math inline">\(g(x_n)=f(x_n)=y_n\)</span></li>
+<li>want: g<span class="math inline">\(\approx\)</span>f(hard when f
+unkown)</li>
+<li>almost necessary:g<span class="math inline">\(\approx\)</span>f on
+D,ideally <span class="math inline">\(g(x_n)=f(x_n)=y_n\)</span></li>
 <li>difficult:H is of infinite size</li>
-<li>idea: start from some <span class="math inline">\(g_0\)</span>,and 'correct' its mistakes on D</li>
+<li>idea: start from some <span class="math inline">\(g_0\)</span>,and
+'correct' its mistakes on D</li>
 </ul>
-<h2 id="perceptron-learning-algorithm">Perceptron Learning Algorithm</h2>
+<h2 id="perceptron-learning-algorithm">Perceptron Learning
+Algorithm</h2>
 <p>For t=0,1,...</p>
-<p>1. find a mistake of <span class="math inline">\(w_t\)</span> called<span class="math inline">\((x_{n(t)},y_{n(t)})\)</span></p>
-<p>sign<span class="math inline">\((W^{T}_t X_{n(t)})\not=y_{n(t)}\)</span></p>
+<p>1. find a mistake of <span class="math inline">\(w_t\)</span>
+called<span class="math inline">\((x_{n(t)},y_{n(t)})\)</span></p>
+<p>sign<span class="math inline">\((W^{T}_t
+X_{n(t)})\not=y_{n(t)}\)</span></p>
 <p>2. (try to) correct the mistake by</p>
-<p><span class="math inline">\(w_{t+1}\leftarrow w_t+y_{n(t)}x_{n(t)}\)</span></p>
+<p><span class="math inline">\(w_{t+1}\leftarrow
+w_t+y_{n(t)}x_{n(t)}\)</span></p>
 <p>...until no more mistakes</p>
 <p>return last <strong>w</strong> (called <span class="math inline">\(w_{PLA}\)</span> )as <em>g</em></p>
 <p>My question:why determinant is like vector</p>
-<h2 id="pratical-implementation-of-pla">Pratical implementation of PLA</h2>
+<h2 id="pratical-implementation-of-pla">Pratical implementation of
+PLA</h2>
 <h3 id="cyclic-pla">Cyclic PLA</h3>
 <h2 id="some-remaning-issues-of-pla">Some Remaning issues of PLA</h2>
-<p>###　Algorithmic:halt(no mistake)? - naive cyclic:?? - random cyclic:?? - other variant:??</p>
-<h3 id="learninggapprox-f">Learning:<span class="math inline">\(g\approx f\)</span> ?</h3>
+<p>###　Algorithmic:halt(no mistake)? - naive cyclic:?? - random
+cyclic:?? - other variant:??</p>
+<h3 id="learninggapprox-f">Learning:<span class="math inline">\(g\approx
+f\)</span> ?</h3>
 <ul>
 <li>on D, if halt,yes(no mistake)</li>
 <li>outside D:??</li>
@@ -341,13 +369,17 @@ h(x)&amp;=sign((\sum_{i=1}^{d}w_i x_i)-threshold)\\
 <h1 id="guarantee-of-pla">Guarantee of PLA</h1>
 <h2 id="linear-separability">Linear Separability</h2>
 <ul>
-<li>if PLA halts(i.e. no more mistakes), (necessary condition)D allows some <strong>w</strong> to make no mistakes</li>
+<li>if PLA halts(i.e. no more mistakes), (necessary condition)D allows
+some <strong>w</strong> to make no mistakes</li>
 <li>call such D linear separable</li>
 </ul>
 <h2 id="pla-fact-w_tgets-more-aligned-with-w_f">PLA Fact: <span class="math inline">\(w_t\)</span>Gets More Aligned with <span class="math inline">\(w_f\)</span></h2>
 <ul>
-<li><p><span class="math inline">\(w_f\)</span> perfect hence every <span class="math inline">\(x_n\)</span> correctly away from line: <span class="math inline">\(y_{n(t)}w_f^T x_{n(t)}\ge \underset{n}{min} y_{n(t)}w_f^T x_{n(t)}&gt;0\)</span></p></li>
-<li><p><span class="math inline">\(w_f^T w_t\uparrow\)</span>by updating with any<span class="math inline">\((x_{n(t)},y_{n(t)})\)</span> <span class="math display">\[
+<li><p><span class="math inline">\(w_f\)</span> perfect hence every
+<span class="math inline">\(x_n\)</span> correctly away from line: <span class="math inline">\(y_{n(t)}w_f^T x_{n(t)}\ge \underset{n}{min}
+y_{n(t)}w_f^T x_{n(t)}&gt;0\)</span></p></li>
+<li><p><span class="math inline">\(w_f^T w_t\uparrow\)</span>by updating
+with any<span class="math inline">\((x_{n(t)},y_{n(t)})\)</span> <span class="math display">\[
 \begin{split}
 w_f^Tw_{t+1}&amp;=w_f^T(w_t+y_{n(t)}x_{n(t)})\\
 &amp;\ge w_f^Tw_{t}+\underset{n}{min}  y_{n(t)}w_f^T x_{n(t)}\\
@@ -355,13 +387,18 @@ w_f^Tw_{t+1}&amp;=w_f^T(w_t+y_{n(t)}x_{n(t)})\\
 \end{split}
 \]</span></p></li>
 </ul>
-<p><span class="math inline">\(w_t\)</span> appears more algned with <span class="math inline">\(w_f\)</span></p>
+<p><span class="math inline">\(w_t\)</span> appears more algned with
+<span class="math inline">\(w_f\)</span></p>
 <p>Q:the length of vector</p>
 <h2 id="pla-fact-w_t-does-not-grow-too-fast">PLA fact: <span class="math inline">\(w_t\)</span> Does Not Grow Too Fast</h2>
-<p><span class="math inline">\(w_t\)</span> changed only when mistake</p>
-<p><span class="math inline">\(\Leftrightarrow sign(w_t^Tx_{n(t)})\not=y_{n(t)}\Leftrightarrow y_{n(t)}w_t^Tx_{n(t)}\le 0\)</span></p>
+<p><span class="math inline">\(w_t\)</span> changed only when
+mistake</p>
+<p><span class="math inline">\(\Leftrightarrow
+sign(w_t^Tx_{n(t)})\not=y_{n(t)}\Leftrightarrow y_{n(t)}w_t^Tx_{n(t)}\le
+0\)</span></p>
 <ul>
-<li>mistake ‘limits’<span class="math inline">\(||w_t||^2\)</span> growth,even when updating with’longest’ <span class="math inline">\(x_n\)</span> <span class="math display">\[
+<li>mistake ‘limits’<span class="math inline">\(||w_t||^2\)</span>
+growth,even when updating with’longest’ <span class="math inline">\(x_n\)</span> <span class="math display">\[
 \begin{split}
 ||w_{t+1}||^2&amp;=||w_t+y_{n(t)}x_{n(t)}||^2\\
 &amp;=||w_t||^2+2y_{n(t)}w_t^Tx_{n(t)}+||y_{n(t)}x_{n(t)}||^2\\
@@ -370,7 +407,8 @@ w_f^Tw_{t+1}&amp;=w_f^T(w_t+y_{n(t)}x_{n(t)})\\
 \end{split}
 \]</span></li>
 </ul>
-<p>start from <span class="math inline">\(w_0=0\)</span>,after<em>T</em> mistake corrections, <span class="math display">\[
+<p>start from <span class="math inline">\(w_0=0\)</span>,after<em>T</em>
+mistake corrections, <span class="math display">\[
 \frac{w_f^T\quad w_T}{||w_f||\quad||w_T||}\ge \sqrt{T}\cdot constant
 \]</span></p>
 <h2 id="novikoff-theorem">Novikoff theorem</h2>
@@ -379,12 +417,15 @@ w_f^Tw_{t+1}&amp;=w_f^T(w_t+y_{n(t)}x_{n(t)})\\
 <p>（1）存在满足条件<span class="math inline">\(||\hat{w}_{opt}||=1\)</span>的超平面<span class="math inline">\(\hat{w}_{opt}\cdot\hat{x}+b_{opt}=0\)</span>将训练数据集完全正确分开，且存在<span class="math inline">\(\gamma&gt;0\)</span>，对所有<span class="math inline">\(i=1,2,...,N\)</span> <span class="math display">\[
 y_i(\hat{w}_{opt}\cdot\hat{x}_i)=y_i(\hat{w}_{opt}\cdot\hat{x}_i+b_{opt}\ge\gamma
 \]</span></p>
-<p>(2)令<span class="math inline">\(R=\underset{1\le i\le N}{max}||\hat{x}_i||\)</span>,则感知机算法在训练数据集上的误分类次数<em>k</em>满足不等式 <span class="math display">\[
+<p>(2)令<span class="math inline">\(R=\underset{1\le i\le
+N}{max}||\hat{x}_i||\)</span>,则感知机算法在训练数据集上的误分类次数<em>k</em>满足不等式
+<span class="math display">\[
 k\le (\frac{R}{\gamma})^2
 \]</span></p>
 <h1 id="non-separable-data">Non-Separable Data</h1>
 <h2 id="more-about-pla">More about PLA</h2>
-<p>CONS:maybe not’linnear separable’,and not fully sure how long halting takes</p>
+<p>CONS:maybe not’linnear separable’,and not fully sure how long halting
+takes</p>
 <h2 id="learning-with-noisy-data">Learning with Noisy Data</h2>
 <h2 id="line-with-noise-tolerance">Line with Noise Tolerance</h2>
 <p>NP-hard</p>
@@ -463,7 +504,7 @@ k\le (\frac{R}{\gamma})^2
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -474,13 +515,13 @@ k\le (\frac{R}{\gamma})^2
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -512,7 +553,7 @@ k\le (\frac{R}{\gamma})^2
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -520,7 +561,7 @@ k\le (\frac{R}{\gamma})^2
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

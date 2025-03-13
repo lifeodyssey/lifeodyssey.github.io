@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。 我对于树莓派应该会有以下的几个需求  NAS 用来存放相机和手机的照片，方便P图整理备份 自动下载电影和番剧 电子图书馆 homekit  这里先写第一个，希望能赶紧解决吧哈哈">
 <meta property="og:type" content="article">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png">
 <meta property="article:published_time" content="2022-07-02T07:15:14.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.227Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.123Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="树莓派">
 <meta property="article:tag" content="NAS">
@@ -39,7 +39,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/d7f3beca.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/d7f3beca.html","path":"posts/d7f3beca.html","title":"树莓派nas-nextcloudpi"}</script>
@@ -108,25 +107,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -161,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -295,27 +294,43 @@
 <p>这里先写第一个，希望能赶紧解决吧哈哈</p>
 <span id="more"></span>
 <h1 id="系统烧录与设置">系统烧录与设置</h1>
-<p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
+<p>看了一堆中文的帖子都是在raspi上设置nextcloud服务，过程复杂，其实最简单的方法是直接用nextcloud
+pi，下载地址在https://github.com/nextcloud/nextcloudpi/releases/tag/v1.47.2</p>
 <p>不过注意这个只是一个还没测试过的版本，具体有啥坑俺也不知道</p>
-<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/ 除此之外参考的文档在这https://nextcloudpi-documentation.readthedocs.io/en/latest/</p>
+<p>基本根据这个来的https://www.makeuseof.com/raspberry-pi-nextcloud/
+除此之外参考的文档在这https://nextcloudpi-documentation.readthedocs.io/en/latest/</p>
 <p>安装完之后只有命令行。</p>
 <p>用lsb_release -a看了下 是Debian GNU/Linux 11(bullseye)</p>
 <p>ip address show看了下ip</p>
 <p>sudo service ssh start 启动ssh服务</p>
-<p>输入 sudo ncp-config 并在提示更新时选择是。 在下一个菜单中，选择 CONFIG 并使用向下箭头滚动到列表底部。 在这里，选择 nc-webui，然后删除 no 并输入 yes。 按 Enter，然后按任意键。 选择 Back and Finish 退出配置工具。</p>
-<p>除此之外为了方便我用ssh 我在network里还开启了config，这里需要 ssh-keyscan -t rsa server_ip　</p>
-<p>在另一台计算机上的网络浏览器中，输入地址 https://[您的 Pi 的 IP 地址]:4443</p>
-<p>如果您看到您的连接不私密或不安全的警告，请选择忽略它（通过在 Chrome 或 Firefox 中选择高级）并继续访问该站点。</p>
+<p>输入 sudo ncp-config 并在提示更新时选择是。 在下一个菜单中，选择
+CONFIG 并使用向下箭头滚动到列表底部。 在这里，选择 nc-webui，然后删除 no
+并输入 yes。 按 Enter，然后按任意键。 选择 Back and Finish
+退出配置工具。</p>
+<p>除此之外为了方便我用ssh 我在network里还开启了config，这里需要
+ssh-keyscan -t rsa server_ip　</p>
+<p>在另一台计算机上的网络浏览器中，输入地址 https://[您的 Pi 的 IP
+地址]:4443</p>
+<p>如果您看到您的连接不私密或不安全的警告，请选择忽略它（通过在 Chrome
+或 Firefox 中选择高级）并继续访问该站点。</p>
 <p>系统会提示您登录。默认用户名是 ncp，密码是 ownyourbits。</p>
-<p>NextCloudPi 激活屏幕显示两个密码，您需要将其复制并粘贴到文档中以安全保存。 第一个是 NextCloudPi Web 面板的密码，可让您配置服务器设置。 第二个是 Nextcloud Web 界面本身。 如果需要，您可以稍后更改这些密码。</p>
-<p>记下这些密码后，选择激活。 几秒钟后，系统将提示您登录 NextCloudPi 网络面板。 在这里可以对nextcloudpi进行一些设置 点击右上角一个魔法棒可以很方便的进行修改。</p>
-<p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp 和您记下的第二个密码登录。</p>
-<p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4 云服务器！</p>
+<p>NextCloudPi
+激活屏幕显示两个密码，您需要将其复制并粘贴到文档中以安全保存。 第一个是
+NextCloudPi Web 面板的密码，可让您配置服务器设置。 第二个是 Nextcloud
+Web 界面本身。 如果需要，您可以稍后更改这些密码。</p>
+<p>记下这些密码后，选择激活。 几秒钟后，系统将提示您登录 NextCloudPi
+网络面板。 在这里可以对nextcloudpi进行一些设置
+点击右上角一个魔法棒可以很方便的进行修改。</p>
+<p>转到 https://[您的 Pi 的 IP 地址]（不带 :4443 后缀）并使用用户名 ncp
+和您记下的第二个密码登录。</p>
+<p>通过欢迎屏幕后，您将看到主 Web 仪表板。 这是您自己的树莓派 4
+云服务器！</p>
 <h1 id="修改pi设置">修改pi设置</h1>
 <p>这一步甚至简单到不需要命令行。</p>
 <p>fdisk -l看了眼硬盘</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png" alt><figcaption>image-20220706113025038</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image.202207061130124.png" alt="image-20220706113025038">
+<figcaption aria-hidden="true">image-20220706113025038</figcaption>
 </figure>
 <p>https://support.huaweicloud.com/evs_faq/evs_faq_0022.html</p>
 <p>nc-automount</p>
@@ -387,7 +402,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -398,13 +413,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -436,7 +451,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -444,7 +459,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

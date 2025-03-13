@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="没想到我也有开始炼丹的一天">
 <meta property="og:type" content="article">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311621806.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311632948.png">
 <meta property="article:published_time" content="2021-12-31T02:43:02.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.211Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.109Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -41,7 +41,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/fee729e7.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/fee729e7.html","path":"posts/fee729e7.html","title":"PyTorch基础"}</script>
@@ -110,25 +109,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -163,18 +162,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -312,13 +311,16 @@
 <p>替换</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># adds x to y</span></span><br><span class="line">y.add_(x)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line">tensor([[ <span class="number">0.7808</span>, -<span class="number">1.4388</span>,  <span class="number">0.3151</span>],</span><br><span class="line">        [-<span class="number">0.0076</span>,  <span class="number">1.0716</span>, -<span class="number">0.8465</span>],</span><br><span class="line">        [-<span class="number">0.8175</span>,  <span class="number">0.3625</span>, -<span class="number">0.2005</span>],</span><br><span class="line">        [ <span class="number">0.2435</span>,  <span class="number">0.8512</span>,  <span class="number">0.7142</span>],</span><br><span class="line">        [ <span class="number">1.4737</span>, -<span class="number">0.8545</span>,  <span class="number">2.4833</span>]])</span><br></pre></td></tr></table></figure>
 <h4 id="note">Note</h4>
-<p>任何 以<code>_</code> 结尾的操作都会用结果替换原变量. 例如: <code>x.copy_(y)</code>, <code>x.t_()</code>, 都会改变 <code>x</code>.</p>
+<p>任何 以<code>_</code> 结尾的操作都会用结果替换原变量. 例如:
+<code>x.copy_(y)</code>, <code>x.t_()</code>, 都会改变
+<code>x</code>.</p>
 <p>改变维度</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.randn(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line">y = x.view(<span class="number">16</span>)</span><br><span class="line">z = x.view(-<span class="number">1</span>, <span class="number">8</span>)  <span class="comment">#  size -1 从其他维度推断</span></span><br><span class="line"><span class="built_in">print</span>(x.size(), y.size(), z.size())</span><br><span class="line">torch.Size([<span class="number">4</span>, <span class="number">4</span>]) torch.Size([<span class="number">16</span>]) torch.Size([<span class="number">2</span>, <span class="number">8</span>])</span><br></pre></td></tr></table></figure>
 <p>如果你有只有一个元素的张量，使用<code>.item()</code>来得到Python数据类型的数值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = torch.randn(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(x.item())</span><br><span class="line">tensor([-<span class="number">0.2368</span>])</span><br><span class="line">-<span class="number">0.2368014901876</span> b4496</span><br></pre></td></tr></table></figure>
 <h3 id="与numpy的转换">与numpy的转换</h3>
-<p>Torch Tensor与NumPy数组共享底层内存地址，修改一个会导致另一个的变化。</p>
+<p>Torch
+Tensor与NumPy数组共享底层内存地址，修改一个会导致另一个的变化。</p>
 <p>将一个Torch Tensor转换为NumPy数组</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = torch.ones(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">tensor([<span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>, <span class="number">1.</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b = a.numpy()</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line">[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
@@ -327,18 +329,23 @@
 <p>NumPy Array 转化成 Torch Tensor</p>
 <p>使用from_numpy自动转化</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = torch.from_numpy(a)</span><br><span class="line">np.add(a, <span class="number">1</span>, out=a)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line">[<span class="number">2.</span> <span class="number">2.</span> <span class="number">2.</span> <span class="number">2.</span> <span class="number">2.</span>]</span><br><span class="line">tensor([<span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>, <span class="number">2.</span>], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
-<p>所有的 Tensor 类型默认都是基于CPU， CharTensor 类型不支持到 NumPy 的转换.</p>
+<p>所有的 Tensor 类型默认都是基于CPU， CharTensor 类型不支持到 NumPy
+的转换.</p>
 <p>使用<code>.to</code> 方法 可以将Tensor移动到任何设备中</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># is_available 函数判断是否有cuda可以使用</span></span><br><span class="line"><span class="comment"># ``torch.device``将张量移动到指定的设备中</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    device = torch.device(<span class="string">&quot;cuda&quot;</span>)          <span class="comment"># a CUDA 设备对象</span></span><br><span class="line">    y = torch.ones_like(x, device=device)  <span class="comment"># 直接从GPU创建张量</span></span><br><span class="line">    x = x.to(device)                       <span class="comment"># 或者直接使用``.to(&quot;cuda&quot;)``将张量移动到cuda中</span></span><br><span class="line">    z = x + y</span><br><span class="line">    <span class="built_in">print</span>(z)</span><br><span class="line">    <span class="built_in">print</span>(z.to(<span class="string">&quot;cpu&quot;</span>, torch.double))       <span class="comment"># ``.to`` 也会对变量的类型做更改</span></span><br><span class="line">tensor([<span class="number">0.7632</span>], device=<span class="string">&#x27;cuda:0&#x27;</span>)</span><br><span class="line">tensor([<span class="number">0.7632</span>], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
 <h2 id="自动求导">自动求导</h2>
 <p>没太看懂这里是用来干嘛的</p>
 <h2 id="神经网络包优化器">神经网络包&amp;优化器</h2>
-<p>torch.nn是专门为神经网络设计的模块化接口。nn构建于 Autograd之上，可用来定义和运行神经网络。 这里我们主要介绍几个一些常用的类</p>
-<p><strong>约定：torch.nn 我们为了方便使用，会为他设置别名为nn，本章除nn以外还有其他的命名约定</strong></p>
+<p>torch.nn是专门为神经网络设计的模块化接口。nn构建于
+Autograd之上，可用来定义和运行神经网络。
+这里我们主要介绍几个一些常用的类</p>
+<p><strong>约定：torch.nn
+我们为了方便使用，会为他设置别名为nn，本章除nn以外还有其他的命名约定</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先要引入相关的包</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="comment"># 引入torch.nn并指定别名</span></span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="comment">#打印一下版本</span></span><br><span class="line">torch.__version__</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;1.0.0&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>除了nn别名以外，我们还引用了nn.functional，这个包中包含了神经网络中使用的一些常用函数，这些函数的特点是，不具有可学习的参数(如ReLU，pool，DropOut等)，这些函数可以放在构造函数中，也可以不放，但是这里建议不放。</p>
-<p>一般情况下我们会<strong>将nn.functional 设置为大写的F</strong>，这样缩写方便调用</p>
+<p>一般情况下我们会<strong>将nn.functional
+设置为大写的F</strong>，这样缩写方便调用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br></pre></td></tr></table></figure>
 <h3 id="定义一个网络">定义一个网络</h3>
 <p>PyTorch中已经为我们准备好了现成的网络模型，只要继承nn.Module，并实现它的forward方法，PyTorch会根据autograd，自动实现backward函数，在forward函数中可使用任何tensor支持的函数，还可以使用if、for循环、print、log等Python语法，写法和标准的Python写法一致。</p>
@@ -363,15 +370,18 @@
 <h4 id="前向传播后向传播神经网络">前向传播，后向传播，神经网络</h4>
 <p>翻出来了<span class="exturl" data-url="aHR0cHM6Ly93d3cudGVjaGJyb29kLmNvbS96aC9uZXdzL2FpLyVFNyU5NCVBOCVFNCVCQSVCQSVFOCVBRiU5RCVFOCVBNyVBMyVFOSU4NyU4QSVFNyVBNSU5RSVFNyVCQiU4RiVFNyVCRCU5MSVFNyVCQiU5QyVFOSU4NyU4QyVFOSU5RCVBMiVFNyU5QSU4NCVFNSU4OSU4RCVFNSU5MCU5MSVFNCVCQyVBMCVFNiU5MiVBRCVFNSU5MiU4QyVFNSU4RiU4RCVFNSU5MCU5MSVFNCVCQyVBMCVFNiU5MiVBRC5odG1s">这个<i class="fa fa-external-link-alt"></i></span></p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311621806.png" alt><figcaption>1.png</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311621806.png" alt="1.png">
+<figcaption aria-hidden="true">1.png</figcaption>
 </figure>
 <p>这是一个没有隐藏层的神经网络，左侧输入，右侧输出，前向就是从输入到输出，反向就是从后面获取的Loss传到前面的那个输出层里（比如logistic）</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311632948.png" alt><figcaption>1552807616619421</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/202112311632948.png" alt="1552807616619421">
+<figcaption aria-hidden="true">1552807616619421</figcaption>
 </figure>
 <p>这是一个带有隐藏层的神经网络，像之前没有隐藏层的时候，我们改一个东西的参数就可以了，现在我们还要改小女孩的参数，所以要用链式求导梯度下降。</p>
 <p>这些中间层和output就是传说中的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JUJGJTgwJUU2JUI0JUJCJUU1JTg3JUJEJUU2JTk1JUIw">激活函数<i class="fa fa-external-link-alt"></i></span>，如果不用激活函数，每一层输出都是上一层输入的线性函数，没法拟合非线性函数。</p>
-<p>输入数据乘以权重（weight）加上一个偏置（bias），然后应用激活函数得到该神经元的输出，再将此输出传给下一层的神经元。这些weight和bias，再加上L1 L2 batch size之类的 就是超参数。</p>
+<p>输入数据乘以权重（weight）加上一个偏置（bias），然后应用激活函数得到该神经元的输出，再将此输出传给下一层的神经元。这些weight和bias，再加上L1
+L2 batch size之类的 就是超参数。</p>
 <h3 id="损失函数">损失函数</h3>
 <h2 id="损失函数-1">损失函数</h2>
 <p>在nn中PyTorch还预制了常用的损失函数，下面我们用MSELoss用来计算均方误差</p>
@@ -390,7 +400,9 @@
 <p>后面就没有再细看了</p>
 <h2 id="fine-tuning">Fine tuning</h2>
 <p>这个目前恰好切中自己的需求。</p>
-<p>针对于某个任务，自己的训练数据不多，那怎么办？ 没关系，我们先找到一个同类的别人训练好的模型，把别人现成的训练好了的模型拿过来，换成自己的数据，调整一下参数，再训练一遍，这就是微调（fine-tune）。 PyTorch里面提供的经典的网络模型都是官方通过Imagenet的数据集与训练好的数据，如果我们的数据训练数据不够，这些数据是可以作为基础模型来使用的。</p>
+<p>针对于某个任务，自己的训练数据不多，那怎么办？
+没关系，我们先找到一个同类的别人训练好的模型，把别人现成的训练好了的模型拿过来，换成自己的数据，调整一下参数，再训练一遍，这就是微调（fine-tune）。
+PyTorch里面提供的经典的网络模型都是官方通过Imagenet的数据集与训练好的数据，如果我们的数据训练数据不够，这些数据是可以作为基础模型来使用的。</p>
 <ol type="1">
 <li>新数据集和原始数据集合类似，那么直接可以微调一个最后的FC层或者重新指定一个新的分类器</li>
 <li>新数据集比较小和原始数据集合差异性比较大，那么可以使用从模型的中部开始训练，只对最后几层进行fine-tuning</li>
@@ -464,7 +476,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -475,13 +487,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -513,7 +525,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -521,7 +533,7 @@
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

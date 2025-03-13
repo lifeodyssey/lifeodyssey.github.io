@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="机器学习中的统计方法，主要是跟着mixture density network那篇下来的">
 <meta property="og:type" content="article">
@@ -64,7 +64,7 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=L(\theta+%7C+\textbf%7Bx%7D)+%3D+f(\textbf%7Bx%7D+%3B+\theta)">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=\theta">
 <meta property="article:published_time" content="2022-02-12T06:24:22.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.223Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.117Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -75,7 +75,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/62469dc9.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/62469dc9.html","path":"posts/62469dc9.html","title":"probabilistic method in machine learning"}</script>
@@ -144,25 +143,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -197,18 +196,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -322,7 +321,8 @@
     
     <div class="post-body" itemprop="articleBody"><p>机器学习中的统计方法，主要是跟着mixture density network那篇下来的</p>
 <span id="more"></span>
-<p>在MDN的那篇里面主要使用的是tfp.distributions.MixtureSameFamily(prob, dist),</p>
+<p>在MDN的那篇里面主要使用的是tfp.distributions.MixtureSameFamily(prob,
+dist),</p>
 <p>mix.log_prob(y)</p>
 <p>MixtureSameFamily，一个categorical,</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">self, y, output</span>):</span><br><span class="line">    prior, mu, scale = <span class="variable language_">self</span>._parse_outputs(output) </span><br><span class="line">    <span class="comment">#获取输出结果的三个参数</span></span><br><span class="line">    dist  = <span class="built_in">getattr</span>(tfp.distributions, <span class="variable language_">self</span>.distribution)(mu, scale)</span><br><span class="line">    prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">    mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line">    likelihood = mix.log_prob(y)</span><br><span class="line">    <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + <span class="variable language_">self</span>.model.losses)</span><br></pre></td></tr></table></figure>
@@ -335,10 +335,14 @@
 <ul>
 <li>oject -- 对象。</li>
 <li>name -- 字符串，对象属性。</li>
-<li>default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError。</li>
+<li>default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发
+AttributeError。</li>
 </ul>
 <p>但是这里用的是利用getattr来调用函数的办法</p>
-<p>self.distribution等于 'MultivariateNormalTriL'这句话实际上是 在tfp.distributions里调用了一个 'MultivariateNormalTriL'的函数实例，然后把(mu, scale)这两个参数传给这个函数</p>
+<p>self.distribution等于 'MultivariateNormalTriL'这句话实际上是
+在tfp.distributions里调用了一个
+'MultivariateNormalTriL'的函数实例，然后把(mu,
+scale)这两个参数传给这个函数</p>
 <p>这个函数是</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MultivariateNormalTriL</span>(</span><br><span class="line">    mvn_linear_operator.MultivariateNormalLinearOperator):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;The multivariate normal distribution on `R^k`.</span></span><br><span class="line"><span class="string">  The Multivariate Normal distribution is defined over `R^k` and parameterized</span></span><br><span class="line"><span class="string">  by a (batch of) length-`k` `loc` vector (aka &quot;mu&quot;) and a (batch of) `k x k`</span></span><br><span class="line"><span class="string">  `scale` matrix; `covariance = scale @ scale.T` where `@` denotes</span></span><br><span class="line"><span class="string">  matrix-multiplication.</span></span><br><span class="line"><span class="string">  #### Mathematical Details</span></span><br><span class="line"><span class="string">  The probability density function (pdf) is,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  pdf(x; loc, scale) = exp(-0.5 ||y||**2) / Z,</span></span><br><span class="line"><span class="string">  y = inv(scale) @ (x - loc),</span></span><br><span class="line"><span class="string">  Z = (2 pi)**(0.5 k) |det(scale)|,</span></span><br><span class="line"><span class="string">  where:</span></span><br><span class="line"><span class="string">  * `loc` is a vector in `R^k`,</span></span><br><span class="line"><span class="string">  * `scale` is a matrix in `R^&#123;k x k&#125;`, `covariance = scale @ scale.T`,</span></span><br><span class="line"><span class="string">  * `Z` denotes the normalization constant, and,</span></span><br><span class="line"><span class="string">  * `||y||**2` denotes the squared Euclidean norm of `y`.</span></span><br><span class="line"><span class="string">    A (non-batch) `scale` matrix is:</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  scale = scale_tril</span></span><br><span class="line"><span class="string">```</span></span><br><span class="line"><span class="string">  where `scale_tril` is lower-triangular `k x k` matrix with non-zero diagonal,</span></span><br><span class="line"><span class="string">  i.e., `tf.diag_part(scale_tril) != 0`.</span></span><br><span class="line"><span class="string">  Additional leading dimensions (if any) will index batches.</span></span><br><span class="line"><span class="string">  The MultivariateNormal distribution is a member of the [location-scale</span></span><br><span class="line"><span class="string">  family](https://en.wikipedia.org/wiki/Location-scale_family), i.e., it can be</span></span><br><span class="line"><span class="string">  constructed as,</span></span><br><span class="line"><span class="string">  ```none</span></span><br><span class="line"><span class="string">  X ~ MultivariateNormal(loc=0, scale=1)   # Identity scale, zero shift.</span></span><br><span class="line"><span class="string">  Y = scale @ X + loc</span></span><br><span class="line"><span class="string">  ```</span></span><br><span class="line"><span class="string">  Trainable (batch) lower-triangular matrices can be created with</span></span><br><span class="line"><span class="string">  `tfp.distributions.matrix_diag_transform()` and/or</span></span><br><span class="line"><span class="string">  `tfp.math.fill_triangular()</span></span><br></pre></td></tr></table></figure>
 <p>简单理解就是传入了方差和均值两个参数，来计算一个多变量的正态分布</p>
@@ -351,8 +355,11 @@
 <p>又要补数学了</p>
 <h2 id="categorical-distribution">Categorical distribution</h2>
 <p>这里参考<span class="exturl" data-url="aHR0cHM6Ly96aGFuZ3poZW5odS5naXRodWIuaW8vYmxvZy9nbG0vc291cmNlLyVFNiVBNiU4MiVFNyU4RSU4NyVFNSU5RiVCQSVFNyVBMSU4MC9jb250ZW50Lmh0bWwjaWQxNw==">这个<i class="fa fa-external-link-alt"></i></span></p>
-<p>伯努利分布（Bernoulli distribution）是单个随机变量的一种分布，它只有两个可能的取值。</p>
-<p>多努利分布（multinoulli distribution）或者范畴分布（categorical distribution）是单个随机变量的一种分布，它有 k 个可能的取值，不过 k 是有限的。例如人的血型。</p>
+<p>伯努利分布（Bernoulli
+distribution）是单个随机变量的一种分布，它只有两个可能的取值。</p>
+<p>多努利分布（multinoulli distribution）或者范畴分布（categorical
+distribution）是单个随机变量的一种分布，它有 k 个可能的取值，不过 k
+是有限的。例如人的血型。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dist = Categorical(probs=[<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.4</span>])</span><br><span class="line">n = <span class="number">1e4</span></span><br><span class="line">empirical_prob = tf.cast(</span><br><span class="line">tf.histogram_fixed_width(</span><br><span class="line">        dist.sample(<span class="built_in">int</span>(n)),</span><br><span class="line">        [<span class="number">0.</span>, <span class="number">2</span>],</span><br><span class="line">        nbins=<span class="number">3</span>),</span><br><span class="line">      dtype=tf.float32) / n</span><br><span class="line">  <span class="comment"># ==&gt; array([ 0.1005,  0.5037,  0.3958], dtype=float32)</span></span><br></pre></td></tr></table></figure>
 <p>一个例子。</p>
 <p>这里的prior是权重，也就是创建了一个范畴分布，概率是权重。</p>
@@ -362,11 +369,14 @@
 <p>例子</p>
 <p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> tfd = tfp.distributions</span><br><span class="line"> <span class="comment">### Create a mixture of two scalar Gaussians:</span></span><br><span class="line"> gm = tfd.MixtureSameFamily(</span><br><span class="line">     mixture_distribution=tfd.Categorical(</span><br><span class="line">         probs=[<span class="number">0.3</span>, <span class="number">0.7</span>]),</span><br><span class="line">     components_distribution=tfd.Normal(</span><br><span class="line">       loc=[-<span class="number">1.</span>, <span class="number">1</span>],       <span class="comment"># One for each component.</span></span><br><span class="line">       scale=[<span class="number">0.1</span>, <span class="number">0.5</span>]))  <span class="comment"># And same here.</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x = np.linspace(-<span class="number">2.</span>, <span class="number">3.</span>, <span class="built_in">int</span>(<span class="number">1e4</span>), dtype=np.float32)</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot(x, gm.prob(x));</span><br></pre></td></tr></table></figure></p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131741558.png" alt><figcaption>image-20220213174110526</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131741558.png" alt="image-20220213174110526">
+<figcaption aria-hidden="true">image-20220213174110526</figcaption>
 </figure>
-<p>这里的这个prob是pdf pdf是概率密度函数，纵坐标是概率密度，而不是概率，cdf对应的纵坐标才是概率，总的积分面积是1</p>
+<p>这里的这个prob是pdf
+pdf是概率密度函数，纵坐标是概率密度，而不是概率，cdf对应的纵坐标才是概率，总的积分面积是1</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131756011.jpeg" alt><figcaption>preview</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131756011.jpeg" alt="preview">
+<figcaption aria-hidden="true">preview</figcaption>
 </figure>
 <p>对密度函数来说，某点，比如x=1的位置，这个x=1邻域的面积，才是这点的概率，如左图所示。当然，邻域宽度无穷小，所以每一点的概率是0，如果一个区域足够宽，它的概率值就显示出来了。</p>
 <p>这个面积是1这回事我也差点不信，然后手动算了下</p>
@@ -381,17 +391,20 @@
 L(\theta|x)=f(x|\theta)
 \]</span> 这里小x是指联合样本随机变量X取到的值，<span class="math inline">\(\theta\)</span>是指未知参数，它属于参数空间。</p>
 <p>这里<span class="math inline">\(f(x|\theta)\)</span>是一个密度函数，特别的，他表示给定<span class="math inline">\(\theta\)</span>下关于样本联合值x的联合密度函数。</p>
-<p>所以从定义上，似然函数和密度函数是完全不同的两个<strong>数学对象</strong>：前者是关于<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">的函数，后者是关于<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的函数。所以这里的等号<img src="https://www.zhihu.com/equation?tex=%3D" alt="[公式]"> 理解为<strong>函数值形式</strong>的相等，而不是两个函数本身是同一函数(根据函数相等的定义，函数相等当且仅当定义域相等并且对应关系相等)。</p>
+<p>所以从定义上，似然函数和密度函数是完全不同的两个<strong>数学对象</strong>：前者是关于<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">的函数，后者是关于<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的函数。所以这里的等号<img src="https://www.zhihu.com/equation?tex=%3D" alt="[公式]">
+理解为<strong>函数值形式</strong>的相等，而不是两个函数本身是同一函数(根据函数相等的定义，函数相等当且仅当定义域相等并且对应关系相等)。</p>
 <p>两者的联系则是</p>
 <p>（1）如果<strong>x</strong>是离散的随机向量，那么其<strong>概率</strong>密度函数<span class="math inline">\(f(x|\theta)\)</span>可改写为<span class="math inline">\(f(x|\theta)=P_{\theta}(X=x)\)</span>，即代表了在参数<span class="math inline">\(\theta\)</span>下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>；并且，<strong>如果</strong>我们发现</p>
 <figure>
-<img src="https://www.zhihu.com/equation?tex=L(\theta_1+%7C+\textbf%7Bx%7D+)+%3D+\mathbb%7BP%7D_%7B\theta_1%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3E+\mathbb%7BP%7D_%7B\theta_2%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3D+L(\theta_2+%7C+\textbf%7Bx%7D)" alt><figcaption>[公式]</figcaption>
+<img src="https://www.zhihu.com/equation?tex=L(\theta_1+%7C+\textbf%7Bx%7D+)+%3D+\mathbb%7BP%7D_%7B\theta_1%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3E+\mathbb%7BP%7D_%7B\theta_2%7D(\textbf%7BX%7D+%3D+\textbf%7Bx%7D)+%3D+L(\theta_2+%7C+\textbf%7Bx%7D)" alt="[公式]">
+<figcaption aria-hidden="true">[公式]</figcaption>
 </figure>
 <p>那么<strong>似然</strong>函数就反应出这样一个<strong>朴素推测</strong>：在参数<img src="https://www.zhihu.com/equation?tex=\theta_1" alt="[公式]">下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=\textbf%7Bx%7D" alt="[公式]">的<strong>可能性大于</strong> 在参数<img src="https://www.zhihu.com/equation?tex=\theta_2" alt="[公式]">下随机向量<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">取到值<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>。换句话说，我们更有理由相信(相对于<img src="https://www.zhihu.com/equation?tex=%5Ctheta_2" alt="[公式]">来说)<img src="https://www.zhihu.com/equation?tex=%5Ctheta_1" alt="[公式]"></p>
 <p><strong>更有可能</strong>是真实值。这里的可能性由概率来刻画。</p>
 <p>（2）如果<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D" alt="[公式]">是连续的随机向量，那么其密度函数<img src="https://www.zhihu.com/equation?tex=+f(\textbf%7Bx%7D+%7C+\theta)" alt="[公式]">本身（如果在<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">连续的话）在<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7Bx%7D" alt="[公式]">处的<strong>概率</strong>为0，为了方便考虑一维情况：给定一个充分小<img src="https://www.zhihu.com/equation?tex=\epsilon+%3E+0" alt="[公式]">，那么随机变量<img src="https://www.zhihu.com/equation?tex=X" alt="[公式]">取值在<img src="https://www.zhihu.com/equation?tex=(x+-+\epsilon%2C+x+%2B+\epsilon)" alt="[公式]">区间内的<strong>概率</strong>即为</p>
 <figure>
-<img src="https://www.zhihu.com/equation?tex=\mathbb%7BP%7D_\theta(x+-+\epsilon+%3C+X+%3C+x+%2B+\epsilon)+%3D+\int_%7Bx+-+\epsilon%7D%5E%7Bx+%2B+\epsilon%7D+f(x+%7C+\theta)+dx+\approx+2+\epsilon+f(x+%7C+\theta)+%3D+2+\epsilon+L(\theta+%7C+x)" alt><figcaption>[公式]</figcaption>
+<img src="https://www.zhihu.com/equation?tex=\mathbb%7BP%7D_\theta(x+-+\epsilon+%3C+X+%3C+x+%2B+\epsilon)+%3D+\int_%7Bx+-+\epsilon%7D%5E%7Bx+%2B+\epsilon%7D+f(x+%7C+\theta)+dx+\approx+2+\epsilon+f(x+%7C+\theta)+%3D+2+\epsilon+L(\theta+%7C+x)" alt="[公式]">
+<figcaption aria-hidden="true">[公式]</figcaption>
 </figure>
 <p>并且两个未知参数的情况下做比就能约掉<img src="https://www.zhihu.com/equation?tex=2\epsilon" alt="[公式]">，所以和离散情况下的理解一致，只是此时<strong>似然</strong>所表达的那种<strong>可能性</strong>和<strong>概率</strong><img src="https://www.zhihu.com/equation?tex=f(x%7C\theta)+%3D+0" alt="[公式]">无关。</p>
 <p>综上，<strong>概率</strong>(密度)表达给定<img src="https://www.zhihu.com/equation?tex=\theta" alt="[公式]">下样本随机向量<img src="https://www.zhihu.com/equation?tex=\textbf%7BX%7D+%3D+\textbf%7Bx%7D" alt="[公式]">的<strong>可能性</strong>，而<strong>似然</strong>表达了给定样本<img src="https://www.zhihu.com/equation?tex=%5Ctextbf%7BX%7D+%3D+%5Ctextbf%7Bx%7D" alt="[公式]">下参数<img src="https://www.zhihu.com/equation?tex=%5Ctheta_1" alt="[公式]">(相对于另外的参数<img src="https://www.zhihu.com/equation?tex=%5Ctheta_2" alt="[公式]">)为真实值的<strong>可能性</strong>。我们总是对随机变量的取值谈<strong>概率</strong>，而在非贝叶斯统计的角度下，参数是一个实数而非随机变量，所以我们一般不谈一个参数的<strong>概率</strong>。</p>
@@ -404,8 +417,10 @@ L(\theta|x)=f(x|\theta)
 <h1 id="最后一句">最后一句</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + <span class="variable language_">self</span>.model.losses)</span><br></pre></td></tr></table></figure>
 <p>tf.reduce_mean是计算likelihood的平均值。</p>
-<p>tf.add_n([p1, p2, p3....])函数是实现一个列表的元素的相加。就是输入的对象是一个列表，列表里的元素可以是向量，矩阵，等</p>
-<p>self.model.losses 这个我就真的不是特别懂了，除了这里之外没找到有别的地方用过这个</p>
+<p>tf.add_n([p1, p2,
+p3....])函数是实现一个列表的元素的相加。就是输入的对象是一个列表，列表里的元素可以是向量，矩阵，等</p>
+<p>self.model.losses
+这个我就真的不是特别懂了，除了这里之外没找到有别的地方用过这个</p>
 <h1 id="跑个debug康康">跑个debug康康</h1>
 <p>我好像没有看到这个函数被调用</p>
 <h2 id="mdn代码解析">MDN代码解析</h2>
@@ -484,7 +499,7 @@ L(\theta|x)=f(x|\theta)
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -495,13 +510,13 @@ L(\theta|x)=f(x|\theta)
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -533,7 +548,7 @@ L(\theta|x)=f(x|\theta)
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -541,7 +556,7 @@ L(\theta|x)=f(x|\theta)
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

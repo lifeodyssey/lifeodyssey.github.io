@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="本科毕设就没搞懂的两个r现在终于弄明白了 大部分内容来自于维基百科 主要讲Brewin 2015里面用到的metrics">
 <meta property="og:type" content="article">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png">
 <meta property="article:published_time" content="2020-12-03T06:51:44.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.223Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.117Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Statistics">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/e45539ea.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/e45539ea.html","path":"posts/e45539ea.html","title":"Correlation metrics"}</script>
@@ -115,25 +114,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -168,18 +167,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -296,21 +295,29 @@
 <p>主要讲Brewin 2015里面用到的metrics</p>
 <span id="more"></span>
 <h1 id="pearsons-r">Pearson's r</h1>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中，<strong>皮尔逊积矩相关系数</strong>（英语：Pearson product-moment correlation coefficient，又称作 <strong>PPMCC</strong>或<strong>PCCs</strong>[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55qu5bCU6YCK56ev55+p55u45YWz57O75pWwI2NpdGVfbm90ZS0x">1]<i class="fa fa-external-link-alt"></i></span>, 文章中常用r或Pearson's r表示）用于度量两个变量X和Y之间的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz">相关<i class="fa fa-external-link-alt"></i></span>程度（线性相关），其值介于-1与1之间。</p>
+<p>在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中，<strong>皮尔逊积矩相关系数</strong>（英语：Pearson
+product-moment correlation coefficient，又称作
+<strong>PPMCC</strong>或<strong>PCCs</strong>[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55qu5bCU6YCK56ev55+p55u45YWz57O75pWwI2NpdGVfbm90ZS0x">1]<i class="fa fa-external-link-alt"></i></span>,
+文章中常用r或Pearson's r表示）用于度量两个变量X和Y之间的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz">相关<i class="fa fa-external-link-alt"></i></span>程度（线性相关），其值介于-1与1之间。</p>
 <h2 id="定义">定义</h2>
 <p>两个变量之间的皮尔逊相关系数定义为两个变量的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Y2P5pa55beu">协方差<i class="fa fa-external-link-alt"></i></span>除以它们<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5qCH5YeG5beu">标准差<i class="fa fa-external-link-alt"></i></span>的乘积： <span class="math display">\[
 \rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X\sigma_Y}=\frac{E[(X-\mu_x)(Y-\mu_Y)]}{\sigma_{X}\sigma{Y}}
 \]</span></p>
-<p>这个是总体相关系数，对于我们抽样的样本，我们可以得到样本相关系数 <span class="math display">\[
+<p>这个是总体相关系数，对于我们抽样的样本，我们可以得到样本相关系数
+<span class="math display">\[
 r=\frac{\sum_{i=1}^{n}(X_i-X)\sum_{i=1}^{n}(Y_i-Y)}{\sqrt{\sum_{n=1}^{n}}(X_i-\bar{X})^2\sqrt{\sum_{n=1}^{n}}(Y_i-\bar{Y})^2}
 \]</span></p>
 <p>其中<span class="math inline">\(\bar{X}\)</span>代表样本平均值</p>
 <h2 id="数学特性">数学特性</h2>
-<p>总体和样本皮尔逊系数的绝对值小于或等于1。如果样本数据点精确的落在直线上（计算样本皮尔逊系数的情况），或者双变量分布完全在直线上（计算总体皮尔逊系数的情况），则相关系数等于1或-1。皮尔逊系数是对称的：corr(X,Y) = corr(Y,X)。</p>
-<p>皮尔逊相关系数有一个重要的数学特性是，因两个变量的位置和尺度的变化并不会引起该系数的改变，即它该变化的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5LiN5Y+Y6YeP">不变量<i class="fa fa-external-link-alt"></i></span> (由符号确定)。也就是说，我们如果把X移动到a + bX和把Y移动到c + dY，其中a、b、c和d是常数，并不会改变两个变量的相关系数（该结论在总体和样本皮尔逊相关系数中都成立）</p>
+<p>总体和样本皮尔逊系数的绝对值小于或等于1。如果样本数据点精确的落在直线上（计算样本皮尔逊系数的情况），或者双变量分布完全在直线上（计算总体皮尔逊系数的情况），则相关系数等于1或-1。皮尔逊系数是对称的：corr(X,Y)
+= corr(Y,X)。</p>
+<p>皮尔逊相关系数有一个重要的数学特性是，因两个变量的位置和尺度的变化并不会引起该系数的改变，即它该变化的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5LiN5Y+Y6YeP">不变量<i class="fa fa-external-link-alt"></i></span>
+(由符号确定)。也就是说，我们如果把X移动到a + bX和把Y移动到c +
+dY，其中a、b、c和d是常数，并不会改变两个变量的相关系数（该结论在总体和样本皮尔逊相关系数中都成立）</p>
 <h2 id="与相关系数">与相关系数</h2>
 <p>这个是最容易混淆的，首先明确<span class="math inline">\(R^2\not=r^2\)</span>并不一直成立，最简单的可以从计算方式来看。</p>
-<p><strong>决定系数</strong>（英语：coefficient of determination，记为<em>R</em>2或<em>r</em>2）在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5qih5Z6L">统计模型<i class="fa fa-external-link-alt"></i></span>的解释力。</p>
+<p><strong>决定系数</strong>（英语：coefficient of
+determination，记为<em>R</em>2或<em>r</em>2）在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5qih5Z6L">统计模型<i class="fa fa-external-link-alt"></i></span>的解释力。</p>
 <p>对于简单<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57ea5oCn5Zue5q24">线性回归<i class="fa fa-external-link-alt"></i></span>而言，决定系数为样本<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz57O75pWw">相关系数<i class="fa fa-external-link-alt"></i></span>的平方。[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Yaz5a6a57O75pWwI2NpdGVfbm90ZS1EZXZvcmUtNA==">4]<i class="fa fa-external-link-alt"></i></span>当加入其他回归自变量后，决定系数相应地变为多重相关系数的平方。</p>
 <p>假设一数据集包括<span class="math inline">\(y_1,...,y_n\)</span><em>共</em>n<em>个观察值，相对应的模型预测值分别为</em><span class="math inline">\(f_1,...,f_n\)</span>。定义<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPeaui+W3riZhY3Rpb249ZWRpdCZyZWRsaW5rPTE=">残差<i class="fa fa-external-link-alt"></i></span><span class="math inline">\(e_i = y_i − f_i\)</span>，平均观察值为 <span class="math display">\[
 \bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i,
@@ -341,29 +348,37 @@ R^2=1-\frac{SS_{res}}{SS_{tot}}
 <h1 id="rmsebias-urmse">RMSE,Bias, uRMSE</h1>
 <p>这几个都是y和y_fit，很简单，直接上截图吧懒得写</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221344982.png" alt><figcaption>image-00021216221344982</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221344982.png" alt="image-00021216221344982">
+<figcaption aria-hidden="true">image-00021216221344982</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221433256.png" alt><figcaption>image-00021216221433256</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221433256.png" alt="image-00021216221433256">
+<figcaption aria-hidden="true">image-00021216221433256</figcaption>
 </figure>
 <p>Bias有时也用Relative bias或者MAPE</p>
 <h1 id="slope-and-intercept">Slope and Intercept</h1>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png" alt><figcaption>image-00021216221526273</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png" alt="image-00021216221526273">
+<figcaption aria-hidden="true">image-00021216221526273</figcaption>
 </figure>
 <p>Type-2用的是这个包https://github.com/OceanOptics/pylr2</p>
 <p>我觉得没啥问题 一看就很专业</p>
 <h1 id="log-transfermation">Log transfermation</h1>
 <p>主要是要搞明白这个</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png" alt><figcaption>image-00030609133319132</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png" alt="image-00030609133319132">
+<figcaption aria-hidden="true">image-00030609133319132</figcaption>
 </figure>
 <p>图里两条虚线分别是Y=2X和Y=X/2。</p>
-<p>X轴每一个大tick代表的是log10(in situ Chla), Y轴代表的是log10(Chla OC3M)，标注的数字是in situ Chla和Chla OC3M</p>
+<p>X轴每一个大tick代表的是log10(in situ Chla), Y轴代表的是log10(Chla
+OC3M)，标注的数字是in situ Chla和Chla OC3M</p>
 <p>这也是为啥 那条Regression line是Log(y)=a*log(x)+b。</p>
 <p>调换一下 就是 y=x10^a + 10^b。</p>
-<p>虽然X轴和Y轴标注的数字就是那个In situ Chla，但是实际上每一格对应的数字是1,2,3,4，标注的对应的是10^1, 10^2, 10^3, 10^4，这也是那个Minor tick会先大间隔后小间隔的原因。</p>
-<p>但是y=2x和y=x/2这两条线代表的还是Chla OC3M=2 in situ Chla这种的情况</p>
+<p>虽然X轴和Y轴标注的数字就是那个In situ
+Chla，但是实际上每一格对应的数字是1,2,3,4，标注的对应的是10^1, 10^2,
+10^3, 10^4，这也是那个Minor tick会先大间隔后小间隔的原因。</p>
+<p>但是y=2x和y=x/2这两条线代表的还是Chla OC3M=2 in situ
+Chla这种的情况</p>
 <p>但是在Linear的里面这仨不是平行线，在这里平行了</p>
 <p>是因为实质上 画的这两条线是log chla oc3m=log2 +login situ Chla</p>
 <p>log2大概是0.3，对应的就是10</p>
@@ -427,7 +442,7 @@ R^2=1-\frac{SS_{res}}{SS_{tot}}
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -438,13 +453,13 @@ R^2=1-\frac{SS_{res}}{SS_{tot}}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -476,7 +491,7 @@ R^2=1-\frac{SS_{res}}{SS_{tot}}
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -484,7 +499,7 @@ R^2=1-\frac{SS_{res}}{SS_{tot}}
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 

@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="太长了，分P">
 <meta property="og:type" content="article">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131440250.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131441773.png">
 <meta property="article:published_time" content="2022-02-10T05:23:00.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:51:50.211Z">
+<meta property="article:modified_time" content="2025-03-13T13:40:07.108Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -49,7 +49,6 @@
 
 
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/8bb8e4ec.html">
-
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/8bb8e4ec.html","path":"posts/8bb8e4ec.html","title":"Mixture Density Network(2)"}</script>
@@ -118,25 +117,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -171,18 +170,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -298,11 +297,14 @@
 <h1 id="数学补课">数学补课</h1>
 <h2 id="what-is-maximum-likelihood">What is maximum likelihood</h2>
 <p>the likelihood is the possibility that fit a distribution</p>
-<p>例えば 抛一枚匀质硬币，抛10次，6次正面向上的可能性多大？ 这里的可能性是probability 是某个时间发生的可能性</p>
+<p>例えば 抛一枚匀质硬币，抛10次，6次正面向上的可能性多大？
+这里的可能性是probability 是某个时间发生的可能性</p>
 <p>而似然值是给定某一结果，求是这个分布的可能性。</p>
-<p>例如 抛一枚硬币，抛10次，结果是6次正面向上，其是匀质的可能性多大？</p>
+<p>例如
+抛一枚硬币，抛10次，结果是6次正面向上，其是匀质的可能性多大？</p>
 <p>再举个例子，比如经过统计，这次期末考试泛函分析的成绩服从<span class="math inline">\(N(80,4^2)\)</span>，问小黄这次考了90分的概率是多少。这个计算的就是probability</p>
-<p>再比如，小黄这次考了90，问这次期末考试泛函服从<span class="math inline">\(N(80,4^2 )\)</span>的概率是多少，这个就是likelihood。</p>
+<p>再比如，小黄这次考了90，问这次期末考试泛函服从<span class="math inline">\(N(80,4^2
+)\)</span>的概率是多少，这个就是likelihood。</p>
 <p>我们要用的就是这个，来选取一个让likelihood最大的参数。</p>
 <p>那么，怎么计算likelihood呢？</p>
 <h2 id="how-to-get-likelihood">How to get likelihood</h2>
@@ -311,21 +313,32 @@
 <p>就当复习了。</p>
 <p>我们来换个更简单一点的问题来理解这个概念，最简单的分布是二项分布。这里我们就拿抛硬币为例。</p>
 <p>在我拿硬币举例子的时候其实就暗含了一个要求，就是每个事件是独立的。只要能够用到likelihood这个概念，就得要求每个事件都是独立的。</p>
-<p>一个质量均匀的硬币，抛出来是正面的概率 是0.5这里这个概率是probability。</p>
+<p>一个质量均匀的硬币，抛出来是正面的概率
+是0.5这里这个概率是probability。</p>
 <p>一个硬币，抛了一次是正面，求下一次抛出来是正面的概率（即确定这个二项分布的参数），这个是likelihood。</p>
 <p>但是我们举得这个例子显然无法计算出来likelihood，因为样本太少了。从直觉来想，我们需要做足够多的采样，用频率来替代概率。更学术一点，这个东西其实就是大数定律和中心极限定理。</p>
 <p>###　大数定律和中心极限定理</p>
 <p>这是整个数理统计最基础的东西了，既然复习我们就复习到底</p>
-<p><strong>例子：</strong> 抛一个均匀的硬币，正面朝上和反面朝上的概率是相等的。我们把正面朝上的频率记为 <span class="math inline">\(v_n=S_n/n\)</span>，其中<span class="math inline">\(S_n\)</span>为正面朝上出现的次数，n为抛硬币的总次数，那么当把硬币一直抛下去，我们会发现频率序列 <span class="math inline">\({v_n}\)</span> 会出现两个现象：</p>
+<p><strong>例子：</strong>
+抛一个均匀的硬币，正面朝上和反面朝上的概率是相等的。我们把正面朝上的频率记为
+<span class="math inline">\(v_n=S_n/n\)</span>，其中<span class="math inline">\(S_n\)</span>为正面朝上出现的次数，n为抛硬币的总次数，那么当把硬币一直抛下去，我们会发现频率序列
+<span class="math inline">\({v_n}\)</span> 会出现两个现象：</p>
 <ol type="1">
-<li>频率 <span class="math inline">\({v_n}\)</span> 对频率p的绝对偏差 <span class="math inline">\(|v_n-p|\)</span> 将随着n的增大而呈现逐渐减小的趋势，但无法说它就收敛域0</li>
-<li>由于频率的随机性，绝对偏差 <span class="math inline">\(|v_n-p|\)</span> 时大时小，虽然我们无法排除大偏差发生的可能性，但随着n的不断增大，大偏差发生的可能性会越来越小。 <strong>这是一种新的极限概念</strong></li>
+<li>频率 <span class="math inline">\({v_n}\)</span> 对频率p的绝对偏差
+<span class="math inline">\(|v_n-p|\)</span>
+将随着n的增大而呈现逐渐减小的趋势，但无法说它就收敛域0</li>
+<li>由于频率的随机性，绝对偏差 <span class="math inline">\(|v_n-p|\)</span>
+时大时小，虽然我们无法排除大偏差发生的可能性，但随着n的不断增大，大偏差发生的可能性会越来越小。
+<strong>这是一种新的极限概念</strong></li>
 </ol>
 <p>定义</p>
-<p>如果对于任何<span class="math inline">\(\varepsilon\)</span>，都有 <span class="math display">\[
+<p>如果对于任何<span class="math inline">\(\varepsilon\)</span>，都有
+<span class="math display">\[
 \lim_{n\to\infty}P(|\xi_n-\xi|\ge\varepsilon)=0
 \]</span> 那么我们就称随机变量序列{<span class="math inline">\(\xi_n,n\in N\)</span>}依概率收敛到随机变量<span class="math inline">\(\xi\)</span>，记为<span class="math inline">\(\xi_n\to^{P}\xi\)</span></p>
-<p>依概率收敛的含义是：$ _n $ 对$ $ 的绝对偏差不小于任意给定量的可能性将随着n的增大而越来越小。反过来说，绝对偏差<span class="math inline">\(|\xi_n-\xi|\)</span>小于任一给定量的可能性将随着 n的增大而越来越接近与1。</p>
+<p>依概率收敛的含义是：$ _n $ 对$ $
+的绝对偏差不小于任意给定量的可能性将随着n的增大而越来越小。反过来说，绝对偏差<span class="math inline">\(|\xi_n-\xi|\)</span>小于任一给定量的可能性将随着
+n的增大而越来越接近与1。</p>
 <p>我们来换个写法 <span class="math display">\[
 \lim_{n\to\infty}P(|\xi_n-\xi|\leq\varepsilon)=1
 \]</span> 举个例子就是<span class="math inline">\(v_n\)</span>这个序列将越来越倾向于某一个数。</p>
@@ -337,6 +350,11 @@
 <p>很容易可以看到，伯努利大数定律是针对二项分布的一个特殊情况。</p>
 <p>除了这个还有。</p>
 <table>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>切比雪夫大数定律</th>
@@ -358,22 +376,31 @@
 </tbody>
 </table>
 <p>切比雪夫大数定律是最宽泛的大数定律，不需要每个序列具有相同的分布；辛钦大数定律则是在他们分布相同的情况下的特殊情况，没有规定是什么分布；伯努利大数定律则是这个分布是二项分布的特殊情况。大数定律的左边的本质是求整个随机变量分布列的平均数，右边则是总体的平均值（期望），即样本的平均值等于总体的平均值。</p>
-<p>在概率论中, <strong>中心极限定理</strong>是对一列独立同分布的随机变量之平均值的描述.</p>
-<p>具体而言, 大数定律表明, 对一列独立同分布的随机变量而言, 当随机变量的个数 <em>n</em>→∞ 时, 其均值几乎必然收敛于其期望. 中心极限定理则表明, 其均值与期望的差大约满足 1/<em>n</em> 倍的正态分布 N(0,<em>σ</em>2), 其中 <em>σ</em>2 是原来随机变量的方差.</p>
-<p><strong>同分布的中心极限定理</strong> 设 X1, X2, …, Xn 相互独立，服从同一分布，具有数学期望和方差：</p>
+<p>在概率论中,
+<strong>中心极限定理</strong>是对一列独立同分布的随机变量之平均值的描述.</p>
+<p>具体而言, 大数定律表明, 对一列独立同分布的随机变量而言,
+当随机变量的个数 <em>n</em>→∞ 时, 其均值几乎必然收敛于其期望.
+中心极限定理则表明, 其均值与期望的差大约满足 1/<em>n</em> 倍的正态分布
+N(0,<em>σ</em>2), 其中 <em>σ</em>2 是原来随机变量的方差.</p>
+<p><strong>同分布的中心极限定理</strong> 设 X1, X2, …, Xn
+相互独立，服从同一分布，具有数学期望和方差：</p>
 <p><a target="_blank" rel="noopener" href="https://db.yihui.org/hexun/b_4FE2288307FFF259.jpg"><img src="https://db.yihui.org/hexun/b_4FE2288307FFF259.jpg" alt="img"></a></p>
 <p>则对任意的 x，恒有</p>
 <p><a target="_blank" rel="noopener" href="https://db.yihui.org/hexun/b_94BC3E85BB876C97.jpg"><img src="https://db.yihui.org/hexun/b_94BC3E85BB876C97.jpg" alt="img"></a></p>
 <h2 id="说了那么多-到底怎么算呢">说了那么多 到底怎么算呢</h2>
-<p>我们这里来抛十次硬币试试，似然函数通常用<em>L</em>表示，对应英文Likelihood。观察到抛硬币“6正4反”的事实，硬币参数<em>θ</em>取不同值时，似然函数表示为： <span class="math display">\[
+<p>我们这里来抛十次硬币试试，似然函数通常用<em>L</em>表示，对应英文Likelihood。观察到抛硬币“6正4反”的事实，硬币参数<em>θ</em>取不同值时，似然函数表示为：
+<span class="math display">\[
 L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
-\]</span> 这个公式的图形如下图所示。从图中可以看出：参数θ*为0.6时，似然函数最大，参数为其他值时，“6正4反”发生的概率都相对更小。在这个赌局中，我会猜测下次硬币为正，因为根据已有观察，硬币很可能以0.6的概率为正。</p>
+\]</span>
+这个公式的图形如下图所示。从图中可以看出：参数θ*为0.6时，似然函数最大，参数为其他值时，“6正4反”发生的概率都相对更小。在这个赌局中，我会猜测下次硬币为正，因为根据已有观察，硬币很可能以0.6的概率为正。</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131440250.png" alt><figcaption>“6正4反”的似然函数</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131440250.png" alt="“6正4反”的似然函数">
+<figcaption aria-hidden="true">“6正4反”的似然函数</figcaption>
 </figure>
 <p>推广到更为一般的场景，似然函数的一般形式可以用下面公式来表示，也就是之前提到的，各个样本发生的概率的乘积。</p>
 <figure>
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131441773.png" alt><figcaption>image-20220213144122733</figcaption>
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202202131441773.png" alt="image-20220213144122733">
+<figcaption aria-hidden="true">image-20220213144122733</figcaption>
 </figure>
 <p>这里还涉及到一个东西叫极大似然估计，不过好像这篇论文的loss就只是用了极大似然值，先在这里省略一下</p>
 <p>参考资料</p>
@@ -387,11 +414,13 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
 <p>虽然最后输出的是只输出一个数，但是他在训练这个网络的时候，用了pdf和pdf的极大似然值来做loss</p>
 <p>就是这里</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">self, y, output</span>):</span><br><span class="line">    prior, mu, scale = <span class="variable language_">self</span>._parse_outputs(output) </span><br><span class="line">    dist  = <span class="built_in">getattr</span>(tfp.distributions, <span class="variable language_">self</span>.distribution)(mu, scale)</span><br><span class="line">    prob  = tfp.distributions.Categorical(probs=prior)</span><br><span class="line">    mix   = tfp.distributions.MixtureSameFamily(prob, dist)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">impute</span>(<span class="params">mix, y, N</span>):</span><br><span class="line">        <span class="comment"># summation  = tf.zeros(tf.shape(y)[0])</span></span><br><span class="line">        <span class="comment"># imputation = lambda i, s: [i+1, tf.add(s, mix.log_prob(tf.where(tf.math.is_nan(y), mix.sample(), y)))]</span></span><br><span class="line">        <span class="comment"># return tf.while_loop(lambda i, x: i &lt; N, imputation, (0, summation), maximum_iterations=N, parallel_iterations=N)[1] / N</span></span><br><span class="line">        <span class="keyword">return</span> tf.reduce_mean([</span><br><span class="line">            mix.log_prob( tf.where(tf.math.is_nan(y), mix.sample(), y) )</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Much slower due to cond executing both branches regardless of the conditional</span></span><br><span class="line">    <span class="comment"># likelihood = tf.cond(tf.reduce_any(tf.math.is_nan(y)), lambda: impute(mix, y, self.imputations), lambda: mix.log_prob(y))</span></span><br><span class="line">    likelihood = mix.log_prob(y)</span><br><span class="line">    <span class="keyword">return</span> tf.reduce_mean(-likelihood) + tf.add_n([<span class="number">0.</span>] + <span class="variable language_">self</span>.model.losses)</span><br></pre></td></tr></table></figure>
-<p>返回值是tf.reduce_mean(-likelihood) + tf.add_n([0.] + self.model.losses)</p>
+<p>返回值是tf.reduce_mean(-likelihood) + tf.add_n([0.] +
+self.model.losses)</p>
 <p>impute这个函数似乎一直都没有用到</p>
 <p>计算张量的各个维度上的元素的平均值.</p>
 <p>而这里计算的是likelihood，计算方式是mix.log_prob(y)</p>
-<p>mix这个类来自于tfp.distributions.MixtureSameFamily(prob, dist), prob和dist来自output</p>
+<p>mix这个类来自于tfp.distributions.MixtureSameFamily(prob, dist),
+prob和dist来自output</p>
 <p>tfp这个东西来自于tensorflow_probability</p>
 <p>接下来请见第三篇，tensorflow_probability</p>
 
@@ -456,7 +485,7 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -467,13 +496,13 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">261k</span>
+    <span title="Word count total">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">15:48</span>
+    <span title="Reading time total">15:59</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
@@ -505,7 +534,7 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
@@ -513,7 +542,7 @@ L(\theta;6正4反)=C^6_{10}*\theta^6*(1-\theta)^4
   <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js","integrity":"sha256-stuqcu2FrjYCXDOytWFA5SoUE/r3nkp6gTglzNSlavU="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
 
 
