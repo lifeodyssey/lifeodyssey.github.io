@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.22.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.23.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="之前在IOP的那篇论文里提到过，反演问题的数学本质是一个病态问题。而机器学习和深度学习本质上解决的都是分类和回归问题，并不能直接解决病态问题。最近重新查看一些论文，终于想起了之前看过的一些东西。">
 <meta property="og:type" content="article">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/gamewin202112302311329.png">
 <meta property="article:published_time" content="2021-12-28T05:23:00.000Z">
-<meta property="article:modified_time" content="2025-03-13T13:42:53.357Z">
+<meta property="article:modified_time" content="2025-04-08T02:40:49.697Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Inversion">
@@ -55,12 +55,41 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
 
 
 
 
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.min.js","integrity":"sha256-2obLuIPcceEhkE3G09G33hBdmE55ivVcZUlcKcGNHjU="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -302,20 +331,20 @@ Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav
 <span id="more"></span></p>
 <h1 id="几篇论文">几篇论文、</h1>
 <ul>
-<li>"Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and
+<li>“Seamless retrievals of chlorophyll-a from Sentinel-2 (MSI) and
 Sentinel-3 (OLCI) in inland and coastal waters: A machine-learning
-approach". N. Pahlevan, et al. (2020). Remote Sensing of Environment.
+approach”. N. Pahlevan, et al. (2020). Remote Sensing of Environment.
 111604. 10.1016/j.rse.2019.111604.</li>
-<li>"Robust algorithm for estimating total suspended solids (TSS) in
-inland and nearshore coastal waters". S.V. Balasubramanian, et al.
-(2020). Remote Sensing of Environment. 111768.
+<li>“Robust algorithm for estimating total suspended solids (TSS) in
+inland and nearshore coastal waters”. S.V. Balasubramanian, et
+al. (2020). Remote Sensing of Environment. 111768.
 10.1016/j.rse.2020.111768. Code.</li>
-<li>"Hyperspectral retrievals of phytoplankton absorption and
-chlorophyll-a in inland and nearshore coastal waters". N. Pahlevan, et
-al. (2021). Remote Sensing of Environment. 112200.
+<li>“Hyperspectral retrievals of phytoplankton absorption and
+chlorophyll-a in inland and nearshore coastal waters”. N. Pahlevan, et
+al. (2021). Remote Sensing of Environment. 112200.
 10.1016/j.rse.2020.112200.</li>
-<li>"A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density
-Networks". B. Smith, et al. (2021). Frontiers in Remote Sensing. 623678.
+<li>“A Chlorophyll-a Algorithm for Landsat-8 Based on Mixture Density
+Networks”. B. Smith, et al. (2021). Frontiers in Remote Sensing. 623678.
 10.3389/frsen.2020.623678.</li>
 </ul>
 <p>这几篇论文都是Pahlevan搞的，代码都放在https://github.com/BrandonSmithJ/MDN，但是跟怕别人偷走一样，对于怎么重新应用只口不提。</p>
@@ -447,10 +476,10 @@ the end, in order to benchmark performance.</p>
 <blockquote>
 <p>As mentioned, no explicit hyperparameter optimizations have taken
 place thus far in the study. Default values were chosen based on those
-commonly used in literature and in available libraries (e.g.
-scikit-learn), and as will be seen, do not represent the optimal values
-for our specific data. As such, no separate validation set was set aside
-for the purposes of such an exercise.</p>
+commonly used in literature and in available libraries
+(e.g. scikit-learn), and as will be seen, do not represent the optimal
+values for our specific data. As such, no separate validation set was
+set aside for the purposes of such an exercise.</p>
 </blockquote>
 <p>因为我们没有做一个精确的超参数调整，所以我们就没做val那一部分的数据集，只做了train
 test</p>
@@ -521,7 +550,7 @@ self只是他在类内部的名字而已，调用的使用不需要传入相应�
 <li><strong>doc</strong> :类的文档字符串</li>
 <li><strong>name</strong>: 类名</li>
 <li><strong>module</strong>:
-类定义所在的模块（类的全名是'<strong>main</strong>.className'，如果类位于一个导入模块
+类定义所在的模块（类的全名是’<strong>main</strong>.className’，如果类位于一个导入模块
 mymod 中，那么 className.__module__ 等于 mymod）</li>
 <li><strong>bases</strong> :
 类的所有父类构成元素（包含了以个由所有父类组成的元组）</li>
@@ -561,58 +590,67 @@ Teenagers、Grownups 等时，我们只需要继承 Person
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MDN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_hidden, n_gaussians</span>):</span><br><span class="line">        <span class="built_in">super</span>(MDN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.z_h = nn.Sequential(<span class="comment"># 这个是连续处理的意思，就是先做线性变换再做tanh变换</span></span><br><span class="line">            nn.Linear(<span class="number">1</span>, n_hidden),<span class="comment">#这里是做了Linear transformation</span></span><br><span class="line">            nn.Tanh()</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.z_pi = nn.Linear(n_hidden, n_gaussians)</span><br><span class="line">        <span class="variable language_">self</span>.z_sigma = nn.Linear(n_hidden, n_gaussians)</span><br><span class="line">        <span class="variable language_">self</span>.z_mu = nn.Linear(n_hidden, n_gaussians)  </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        z_h = <span class="variable language_">self</span>.z_h(x)</span><br><span class="line">        pi = nn.functional.softmax(<span class="variable language_">self</span>.z_pi(z_h), -<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># re scale to [0,1]</span></span><br><span class="line">        sigma = torch.exp(<span class="variable language_">self</span>.z_sigma(z_h))</span><br><span class="line">        <span class="comment">#做exp运算</span></span><br><span class="line">        mu = <span class="variable language_">self</span>.z_mu(z_h)</span><br><span class="line">        <span class="keyword">return</span> pi, sigma, mu</span><br></pre></td></tr></table></figure>
 <p>让我们详细说一下这个MDN是怎么构造的</p>
 <p>对于每一个输入的x，我们预测的是y的分布</p>
-<p><span class="math inline">\(P(y|x) = \sum_{k}^{K} \Pi_{k}(x) \phi(y,
-\mu_{k}(x), \sigma_{k}(x))\)</span></p>
+<p><span class="math inline">$P(y|x) = \sum_{k}^{K} \Pi_{k}(x) \phi(y,
+\mu_{k}(x), \sigma_{k}(x))$</span></p>
 <ul>
-<li><span class="math inline">\(k\)</span> is an index describing which
-Gaussian we are referencing. There are <span class="math inline">\(K\)</span> Gaussians total.</li>
-<li><span class="math inline">\(\sum_{k}^{K}\)</span> is the summation
-operator. We sum every <span class="math inline">\(k\)</span> Gaussian
-across all <span class="math inline">\(K\)</span>. You might also see
-<span class="math inline">\(\sum_{k=0}^{K-1}\)</span> or <span class="math inline">\(\sum_{k=1}^{K}\)</span> depending on whether an
-author is using zero-based numbering or not.</li>
-<li><span class="math inline">\(\Pi_k\)</span> acts as a weight, or
-multiplier, for mixing every <span class="math inline">\(k\)</span>
-Gaussian. It is a function of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\Pi_k(x)\)</span></li>
-<li><span class="math inline">\(\phi\)</span> is the Gaussian function
-and returns the at <span class="math inline">\(y\)</span> for a given
-mean and standard deviation.</li>
-<li><span class="math inline">\(\mu_k\)</span> and <span class="math inline">\(\sigma_k\)</span> are the parameters for the <span class="math inline">\(k\)</span> Gaussian: mean <span class="math inline">\(\mu_k\)</span> and standard deviation <span class="math inline">\(\sigma_k\)</span>. Instead of being fixed for each
-Gaussian, they are also functions of the input <span class="math inline">\(x\)</span>: <span class="math inline">\(\mu_k(x)\)</span> and <span class="math inline">\(\sigma_k(x)\)</span></li>
+<li><span class="math inline"><em>k</em></span> is an index describing
+which Gaussian we are referencing. There are <span class="math inline"><em>K</em></span> Gaussians total.</li>
+<li><span class="math inline">$\sum_{k}^{K}$</span> is the summation
+operator. We sum every <span class="math inline"><em>k</em></span>
+Gaussian across all <span class="math inline"><em>K</em></span>. You
+might also see <span class="math inline">$\sum_{k=0}^{K-1}$</span> or
+<span class="math inline">$\sum_{k=1}^{K}$</span> depending on whether
+an author is using zero-based numbering or not.</li>
+<li><span class="math inline"><em>Π</em><sub><em>k</em></sub></span>
+acts as a weight, or multiplier, for mixing every <span class="math inline"><em>k</em></span> Gaussian. It is a function of the
+input <span class="math inline"><em>x</em></span>: <span class="math inline"><em>Π</em><sub><em>k</em></sub>(<em>x</em>)</span></li>
+<li><span class="math inline"><em>ϕ</em></span> is the Gaussian function
+and returns the at <span class="math inline"><em>y</em></span> for a
+given mean and standard deviation.</li>
+<li><span class="math inline"><em>μ</em><sub><em>k</em></sub></span> and
+<span class="math inline"><em>σ</em><sub><em>k</em></sub></span> are the
+parameters for the <span class="math inline"><em>k</em></span> Gaussian:
+mean <span class="math inline"><em>μ</em><sub><em>k</em></sub></span>
+and standard deviation <span class="math inline"><em>σ</em><sub><em>k</em></sub></span>. Instead of
+being fixed for each Gaussian, they are also functions of the input
+<span class="math inline"><em>x</em></span>: <span class="math inline"><em>μ</em><sub><em>k</em></sub>(<em>x</em>)</span>
+and <span class="math inline"><em>σ</em><sub><em>k</em></sub>(<em>x</em>)</span></li>
 </ul>
-<p>All of <span class="math inline">\(\sigma_{k}\)</span> are positive,
-and all of the weights <span class="math inline">\(\Pi\)</span> sum to
-one:</p>
-<p><span class="math inline">\(\sum_{k}^{K} \Pi_{k} = 1\)</span></p>
-<p>First our network must learn the functions <span class="math inline">\(\Pi_{k}(x), \mu_{k}(x), \sigma_{k}(x)\)</span> for
-every <span class="math inline">\(k\)</span> Gaussian. Then these
-functions can be used to generate individual parameters <span class="math inline">\(\mu_k, \sigma_k, \Pi_k\)</span> for a given input
-<span class="math inline">\(x\)</span>. These parameters will be used to
-generate our pdf <span class="math inline">\(P(y|x)\)</span>. Finally,
+<p>All of <span class="math inline"><em>σ</em><sub><em>k</em></sub></span> are positive,
+and all of the weights <span class="math inline"><em>Π</em></span> sum
+to one:</p>
+<p><span class="math inline">$\sum_{k}^{K} \Pi_{k} = 1$</span></p>
+<p>First our network must learn the functions <span class="math inline"><em>Π</em><sub><em>k</em></sub>(<em>x</em>), <em>μ</em><sub><em>k</em></sub>(<em>x</em>), <em>σ</em><sub><em>k</em></sub>(<em>x</em>)</span>
+for every <span class="math inline"><em>k</em></span> Gaussian. Then
+these functions can be used to generate individual parameters <span class="math inline"><em>μ</em><sub><em>k</em></sub>, <em>σ</em><sub><em>k</em></sub>, <em>Π</em><sub><em>k</em></sub></span>
+for a given input <span class="math inline"><em>x</em></span>. These
+parameters will be used to generate our pdf <span class="math inline"><em>P</em>(<em>y</em>|<em>x</em>)</span>. Finally,
 to make a prediction, we will need to sample (pick a value) from this
 pdf.</p>
 <p>In our implementation, we will use a neural network of one hidden
 layer with 20 nodes. This will feed into another layer that generates
-the parameters for 5 mixtures: with 3 parameters <span class="math inline">\(\Pi_k\)</span>, <span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(\sigma_k\)</span> for each Gaussian <span class="math inline">\(k\)</span>.</p>
+the parameters for 5 mixtures: with 3 parameters <span class="math inline"><em>Π</em><sub><em>k</em></sub></span>, <span class="math inline"><em>μ</em><sub><em>k</em></sub></span>, <span class="math inline"><em>σ</em><sub><em>k</em></sub></span> for each
+Gaussian <span class="math inline"><em>k</em></span>.</p>
 <p>Our definition will be split into three parts.</p>
-<p>First we will compute 20 hidden values <span class="math inline">\(z_h\)</span> from our input <span class="math inline">\(x\)</span>.</p>
-<p><span class="math inline">\(z_h(x) = \tanh( W_{in} x +
-b_{in})\)</span></p>
-<p>Second, we will use these hidden values <span class="math inline">\(z_h\)</span> to compute our three sets of
-parameters <span class="math inline">\(\Pi, \sigma, \mu\)</span>:</p>
+<p>First we will compute 20 hidden values <span class="math inline"><em>z</em><sub><em>h</em></sub></span> from our
+input <span class="math inline"><em>x</em></span>.</p>
+<p><span class="math inline"><em>z</em><sub><em>h</em></sub>(<em>x</em>) = tanh (<em>W</em><sub><em>i</em><em>n</em></sub><em>x</em>+<em>b</em><sub><em>i</em><em>n</em></sub>)</span></p>
+<p>Second, we will use these hidden values <span class="math inline"><em>z</em><sub><em>h</em></sub></span> to compute
+our three sets of parameters <span class="math inline"><em>Π</em>, <em>σ</em>, <em>μ</em></span>:</p>
 <p>$ z_= W_{} z_h + b_{}\ z_= W_{} z_h + b_{}\ z_= W_{} z_h + b_{} $</p>
 <p>Third, we will use the output of these layers to determine the
 parameters of the Gaussians.</p>
 <p>$ = \ = (z_{})\ = z_{} $</p>
 <ul>
-<li><span class="math inline">\(\exp(x)\)</span> is the exponential
-function also written as <span class="math inline">\(e^x\)</span></li>
+<li><span class="math inline">exp (<em>x</em>)</span> is the exponential
+function also written as <span class="math inline"><em>e</em><sup><em>x</em></sup></span></li>
 </ul>
 <p>We use a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Softmax_function"><em>softmax</em></a>
-operator to ensure that <span class="math inline">\(\Pi\)</span> sums to
-one across all <span class="math inline">\(k\)</span>, and the
-exponential function ensures that each weight <span class="math inline">\(\Pi_k\)</span> is positive. We also use the
-exponential function to ensure that every <span class="math inline">\(\sigma_k\)</span> is positive.</p>
+operator to ensure that <span class="math inline"><em>Π</em></span> sums
+to one across all <span class="math inline"><em>k</em></span>, and the
+exponential function ensures that each weight <span class="math inline"><em>Π</em><sub><em>k</em></sub></span> is positive.
+We also use the exponential function to ensure that every <span class="math inline"><em>σ</em><sub><em>k</em></sub></span> is
+positive.</p>
 <p>懂了，这个构造的方式其实是利用MDN预测了高斯混合网络的几个参数，再从整个PDF里面取值作为预测值。</p>
 <p>那么就牵扯到一个问题，就是我的y值只有一个，但是MDN产生的结果是一个分布，怎么计算loss来更新权重呢？</p>
 <p>请见下篇</p>
@@ -723,36 +761,6 @@ exponential function to ensure that every <span class="math inline">\(\sigma_k\)
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
-  <script src="/js/third-party/tags/pdf.js"></script>
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
-  <script src="/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
-
-
 
 </body>
 </html>
