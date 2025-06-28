@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -26,9 +26,9 @@
 <meta property="og:url" content="https://lifeodyssey.github.io/posts/6d590b83.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
 <meta property="og:description" content="本文写于2025年6月28日，AI时代的日新月异导致哪怕隔了一天，本文中所写的事实与我的态度都有可能发生极大的变化，请以最新情况为准。">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:published_time" content="2025-06-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-28T16:15:35.173Z">
+<meta property="article:modified_time" content="2025-06-28T16:34:12.261Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="Software Engineering">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,7 @@
 <link rel="canonical" href="https://lifeodyssey.github.io/posts/6d590b83.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/6d590b83.html","path":"posts/6d590b83.html","title":"Agent coding experience and future"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh","comments":true,"permalink":"https://lifeodyssey.github.io/posts/6d590b83.html","path":"posts/6d590b83.html","title":"Agent coding experience and future"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Agent coding experience and future | 乔克叔叔的床边故事</title>
@@ -172,8 +172,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">核心概念定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%96%B0%E6%9C%88%E5%BC%82%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%80%9F%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">日新月异的迭代速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-coding%E7%9A%84%E6%A0%B8%E5%BF%83%E5%AE%9E%E8%B7%B5"><span class="nav-number">3.</span> <span class="nav-text">Agent Coding的核心实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84tips"><span class="nav-number">4.</span> <span class="nav-text">一些有用的tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9F%E8%AE%B8%E6%98%AF%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%AF%E8%83%BDno-line-by-line-code"><span class="nav-number">5.</span> <span class="nav-text">也许是未来的可能：no
-line-by-line code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5"><span class="nav-number">6.</span> <span class="nav-text">未来</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">核心概念定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%96%B0%E6%9C%88%E5%BC%82%E7%9A%84%E8%BF%AD%E4%BB%A3%E9%80%9F%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">日新月异的迭代速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-coding%E7%9A%84%E6%A0%B8%E5%BF%83%E5%AE%9E%E8%B7%B5"><span class="nav-number">3.</span> <span class="nav-text">Agent Coding的核心实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84tips"><span class="nav-number">4.</span> <span class="nav-text">一些有用的tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9F%E8%AE%B8%E6%98%AF%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%8F%AF%E8%83%BD%E5%91%8A%E5%88%AB%E9%80%90%E8%A1%8C%E7%BC%96%E7%A0%81"><span class="nav-number">5.</span> <span class="nav-text">也许是未来的可能：告别逐行编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5"><span class="nav-number">6.</span> <span class="nav-text">未来</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +185,7 @@ line-by-line code</span></a></li><li class="nav-item nav-level-2"><a class="nav-
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">163</span>
+          <span class="site-state-item-count">165</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -243,7 +242,7 @@ line-by-line code</span></a></li><li class="nav-item nav-level-2"><a class="nav-
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh">
     <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/6d590b83.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +291,7 @@ line-by-line code</span></a></li><li class="nav-item nav-level-2"><a class="nav-
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>3.8k</span>
+      <span>3.9k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -369,7 +368,7 @@ information, knowledge, insight, wisdom<i class="fa fa-external-link-alt"></i></
 </tr>
 </tbody>
 </table>
-<p>我发现不管在我使用LLM还是在进行Vibe
+<p>我发现不管在我使用LLM还是在进行Agent
 Coding的时候，我们的工作区域都可以划分成为这四个象限：</p>
 <ul>
 <li><p><strong>你和LLM都知道</strong>：这一部分的工作曾一度是在23和24年上半年的时候我觉得LLM影响不大的主要原因之一，我知道LLM也知道的东西，很多时候都觉得LLM写的不好，而且效率低（需要好几次对话来纠正错误）。在24年的Claude
@@ -395,14 +394,11 @@ review。</p></li>
 <li><p><strong>Plan and
 Ask</strong>：在拿到任何一个需求，特别是一个故事卡级别的需求的时候，千万不要让Coding
 Agent直接开始写代码，而是要使用ask或者plan模式将任务进行拆分，写到md文件里，review它的solution之后，开启一轮新的对话再让它开始写。这样也可以极大地节省token，降低API的费用。</p></li>
-<li><p><strong>Let the Agent RTFM</strong>：在解决一些比较high
-level或者open的问题的时候，可以让它去搜索最新的解决方案，比如我要引入一个库来解决我的需求，就可以让它去搜索PyPI、npm、Maven或者GitHub里面使用人数最多/star最多的库，并且给出至少5个解决方案，做一轮deep
-research。我经常做的一些流程有：</p>
+<li><p><strong>让助手阅读文档</strong>：在解决一些比较高层次或者开放性的问题的时候，可以让它去搜索最新的解决方案，比如我要引入一个库来解决我的需求，就可以让它去搜索PyPI、npm、Maven或者GitHub里面使用人数最多/星标最多的库，并且给出至少5个解决方案，做一轮深度研究。我经常做的一些流程有：</p>
 <ul>
-<li>Paste a link to the docs and ask LLM to read it first</li>
-<li>Ask LLM to find out the state-of-the-art</li>
-<li>Use the Task tool and have LLM conduct deep-research on a particular
-topic</li>
+<li>粘贴文档链接并要求LLM先阅读</li>
+<li>要求LLM找出最新技术</li>
+<li>使用任务工具让LLM对特定主题进行深度研究</li>
 </ul></li>
 <li><p><strong>Use
 MCP</strong>：这里的一系列工具可以极大地改善”你以为LLM知道”的工作场景，我最近每天都在用的几个列举如下：</p>
@@ -423,16 +419,13 @@ Agent去看它修改的每一个文件，所以有的时候会发现它改了一
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21pY3Jvc29mdC9wbGF5d3JpZ2h0LW1jcA==">Playwright<i class="fa fa-external-link-alt"></i></span>：这个可以让LLM能够和web前端页面进行交互和截图，对前端比较有帮助（应该）。我的使用还比较少</li>
 </ul>
 <p>其他好用的MCP还可以去<span class="exturl" data-url="aHR0cHM6Ly9zbWl0aGVyeS5haS8=">Smithery.ai<i class="fa fa-external-link-alt"></i></span>来寻找。我目前也只是使用了一小部分。</p></li>
-<li><p><strong>Precise
-Prompt</strong>：这个仍然是很重要的，给出的prompt越清晰越explicit，生成的代码越准确。除此之外，很多时候LLM也在偷懒，在这种时候告诉它要使用什么MCP，tell
+<li><p><strong>精确Prompt</strong>：这个仍然是很重要的，给出的prompt越清晰越explicit，生成的代码越准确。除此之外，很多时候LLM也在偷懒，在这种时候告诉它要使用什么MCP，tell
 the model to think, to deep think and
 ultrathink，很多时候可以收获更好的效果，可以参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmFudGhyb3BpYy5jb20vZW4vZG9jcy9idWlsZC13aXRoLWNsYXVkZS9wcm9tcHQtZW5naW5lZXJpbmcvZXh0ZW5kZWQtdGhpbmtpbmctdGlwcw==">Extended
 thinking tips<i class="fa fa-external-link-alt"></i></span>。</p></li>
-<li><p><strong>Stop and interrupt early, do not attempt one
-shot</strong>：这些LLM在长的对话中经常有各种各样的问题，要及时中断和调整。并且一轮对话通常无法完成一个较大的需求</p></li>
+<li><p><strong>及时停止和中断，不要尝试一次完成</strong>：这些LLM在长的对话中经常有各种各样的问题，要及时中断和调整。并且一轮对话通常无法完成一个较大的需求</p></li>
 </ol>
-<h2 id="也许是未来的可能no-line-by-line-code">也许是未来的可能：no
-line-by-line code</h2>
+<h2 id="也许是未来的可能告别逐行编码">也许是未来的可能：告别逐行编码</h2>
 <p>在我多次尝试Claude
 Code之后，我认为在未来可能真的不需要人一行行地去写代码了，CLI模式下的Coding
 Agent可以天生进行并行多任务（例如，使用git worktree和让Claude
@@ -484,9 +477,12 @@ with Gemini CLI…”</p>
       6. Add unit tests if appropriate
 
       You MUST use the write_file tool to create actual files. Do not just provide code examples.&quot;
-
-      # Method 1: Using stdin with enhanced prompt and YOLO mode
+      # ============================================
+      # 🔥CORE STEP: Using stdin with enhanced prompt and YOLO mode
+      # ============================================
+      # All the above is preparation work, the magic happens in this single line:
       echo &quot;$PROMPT&quot; | gemini --yolo &gt; &quot;generated/$&#123;FEATURE_NAME&#125;_output.txt&quot; 2&gt;&amp;1
+      # ☝️ That&#39;s it! One command to complete AI code generation
 
       # Check if generation was successful
       if [ $? -eq 0 ]; then
@@ -524,8 +520,12 @@ tech serves great taste, not the other way around.</p>
 </blockquote>
 <p>这让我不得不想起二十多年前的Agile Code
 Manifesto，而我能做的目前只有快速去学习这新一代的珍妮纺织机的用法吧。</p>
-<p>最后，感谢公司的AIFSD提供的claude
-code，让我能够体验到最新的模型与进行尝试。</p>
+<p>最后，感谢thoughtworks的AIFSD提供的Claude
+Code，让我能够体验到最新的模型与进行尝试。</p>
+<hr>
+<p><strong>多语言版本：</strong> - <a href="./agent-coding-experience-and-future.en.md">English版 (英文)</a> -
+<a href="./agent-coding-experience-and-future.ja.md">日本語版
+(日文)</a></p>
 
     </div>
 
@@ -559,8 +559,8 @@ code，让我能够体验到最新的模型与进行尝试。</p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/ca51402d.html" rel="prev" title="破解 AWS Inspector 与 ECR 的隐藏关联：解决 Terraform 管理的循环困境">
-                  <i class="fa fa-angle-left"></i> 破解 AWS Inspector 与 ECR 的隐藏关联：解决 Terraform 管理的循环困境
+                <a href="/posts/cb8288cd.html" rel="prev" title="Agent Coding Experience and Future">
+                  <i class="fa fa-angle-left"></i> Agent Coding Experience and Future
                 </a>
             </div>
             <div class="post-nav-item">
@@ -594,13 +594,13 @@ code，让我能够体验到最新的模型与进行尝试。</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">267k</span>
+    <span title="Word count total">275k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">16:13</span>
+    <span title="Reading time total">16:39</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>

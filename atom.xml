@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2025-06-28T16:15:35.173Z</updated>
+  <updated>2025-06-28T16:34:12.261Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -21,10 +21,51 @@
     <link href="https://lifeodyssey.github.io/posts/6d590b83.html"/>
     <id>https://lifeodyssey.github.io/posts/6d590b83.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2025-06-28T16:15:35.173Z</updated>
+    <updated>2025-06-28T16:34:12.261Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文写于2025年6月28日，AI时代的日新月异导致哪怕隔了一天，本文中所写的事实与我的态度都有可能发生极大的变化，请以最新情况为准。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Work Note" scheme="https://lifeodyssey.github.io/categories/Work-Note/"/>
+    
+    
+    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Agent Coding Experience and Future</title>
+    <link href="https://lifeodyssey.github.io/posts/cb8288cd.html"/>
+    <id>https://lifeodyssey.github.io/posts/cb8288cd.html</id>
+    <published>2025-06-27T16:00:00.000Z</published>
+    <updated>2025-06-28T16:34:12.261Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;This article was written on June 28, 2025. Due to the rapid changes
+in the AI era, the facts and my attitudes described in this article may
+change dramatically even after just one day. Please refer to the latest
+situation.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Work Note" scheme="https://lifeodyssey.github.io/categories/Work-Note/"/>
+    
+    
+    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>エージェントコーディングの経験と未来</title>
+    <link href="https://lifeodyssey.github.io/posts/ad479b93.html"/>
+    <id>https://lifeodyssey.github.io/posts/ad479b93.html</id>
+    <published>2025-06-27T16:00:00.000Z</published>
+    <updated>2025-06-28T16:34:12.261Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;この記事は2025年6月28日に書かれました。AI時代の日進月歩により、一日経っただけでも、本記事に書かれた事実と私の態度が大きく変化する可能性があります。最新の状況を参考にしてください。&lt;/p&gt;</summary>
     
     
     
@@ -40,7 +81,7 @@
     <link href="https://lifeodyssey.github.io/posts/ca51402d.html"/>
     <id>https://lifeodyssey.github.io/posts/ca51402d.html</id>
     <published>2025-03-13T11:22:56.000Z</published>
-    <updated>2025-06-28T16:15:35.036Z</updated>
+    <updated>2025-06-28T16:34:12.114Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在设置AWS Inspector的时候发现的一个神奇循环。&lt;/p&gt;
@@ -64,7 +105,7 @@
     <link href="https://lifeodyssey.github.io/posts/aec625cb.html"/>
     <id>https://lifeodyssey.github.io/posts/aec625cb.html</id>
     <published>2024-09-14T11:22:56.000Z</published>
-    <updated>2025-06-28T16:15:35.163Z</updated>
+    <updated>2025-06-28T16:34:12.246Z</updated>
     
     
     <summary type="html">&lt;p&gt;Let’s compare in two way, Algorithm and system design.&lt;/p&gt;
@@ -86,7 +127,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/49e48baa.html"/>
     <id>https://lifeodyssey.github.io/posts/49e48baa.html</id>
     <published>2024-07-20T07:59:56.000Z</published>
-    <updated>2025-06-28T16:15:35.182Z</updated>
+    <updated>2025-06-28T16:34:12.272Z</updated>
     
     
     <summary type="html">&lt;p&gt;为了解决在国内使用claude的问题，进行了一番研究&lt;/p&gt;</summary>
@@ -105,7 +146,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/789fd60c.html"/>
     <id>https://lifeodyssey.github.io/posts/789fd60c.html</id>
     <published>2024-06-19T14:34:45.000Z</published>
-    <updated>2025-06-28T16:15:35.166Z</updated>
+    <updated>2025-06-28T16:34:12.250Z</updated>
     
     
     <summary type="html">&lt;p&gt;In the past, I found it quite hard to understand React code as a
@@ -129,7 +170,7 @@ development work, and I want to share them with you.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/5ffd7c75.html"/>
     <id>https://lifeodyssey.github.io/posts/5ffd7c75.html</id>
     <published>2024-06-15T14:34:45.000Z</published>
-    <updated>2025-06-28T16:15:35.156Z</updated>
+    <updated>2025-06-28T16:34:12.236Z</updated>
     
     
     <summary type="html">&lt;p&gt;I would like to summarize some of the basic principles and habits of
@@ -157,7 +198,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/6ef15720.html"/>
     <id>https://lifeodyssey.github.io/posts/6ef15720.html</id>
     <published>2024-03-03T10:34:45.000Z</published>
-    <updated>2025-06-28T16:15:35.183Z</updated>
+    <updated>2025-06-28T16:34:12.273Z</updated>
     
     
     <summary type="html">&lt;p&gt;总感觉每一年的春天才是新的一年的开始。&lt;/p&gt;</summary>
@@ -176,7 +217,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8c33e681.html"/>
     <id>https://lifeodyssey.github.io/posts/8c33e681.html</id>
     <published>2024-02-09T08:36:49.000Z</published>
-    <updated>2025-06-28T16:15:35.180Z</updated>
+    <updated>2025-06-28T16:34:12.270Z</updated>
     
     
     <summary type="html">&lt;p&gt;谢谢大家！！！！&lt;/p&gt;
@@ -199,7 +240,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b30efee3.html"/>
     <id>https://lifeodyssey.github.io/posts/b30efee3.html</id>
     <published>2023-08-27T10:03:54.000Z</published>
-    <updated>2025-06-28T16:15:35.183Z</updated>
+    <updated>2025-06-28T16:34:12.273Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前总结的东西 放一下出来 一直记不住的东西之一&lt;/p&gt;</summary>
@@ -218,7 +259,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/a41520c0.html"/>
     <id>https://lifeodyssey.github.io/posts/a41520c0.html</id>
     <published>2023-08-20T17:37:35.000Z</published>
-    <updated>2025-06-28T16:15:35.178Z</updated>
+    <updated>2025-06-28T16:34:12.268Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -248,7 +289,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b25cb4c7.html"/>
     <id>https://lifeodyssey.github.io/posts/b25cb4c7.html</id>
     <published>2023-01-08T13:37:35.000Z</published>
-    <updated>2025-06-28T16:15:35.178Z</updated>
+    <updated>2025-06-28T16:34:12.267Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -275,7 +316,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8bf3d056.html"/>
     <id>https://lifeodyssey.github.io/posts/8bf3d056.html</id>
     <published>2022-12-03T13:37:35.000Z</published>
-    <updated>2025-06-28T16:15:35.178Z</updated>
+    <updated>2025-06-28T16:34:12.268Z</updated>
     
     
     <summary type="html">&lt;p&gt;这个bug卡了我好久了&lt;/p&gt;</summary>
@@ -294,7 +335,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8cacdaad.html"/>
     <id>https://lifeodyssey.github.io/posts/8cacdaad.html</id>
     <published>2022-09-20T13:37:35.000Z</published>
-    <updated>2025-06-28T16:15:35.178Z</updated>
+    <updated>2025-06-28T16:34:12.268Z</updated>
     
     
     <summary type="html">&lt;p&gt;日子过的真的好快啊，又忍不住来写点东西&lt;/p&gt;</summary>
@@ -313,7 +354,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/f36cc8b7.html"/>
     <id>https://lifeodyssey.github.io/posts/f36cc8b7.html</id>
     <published>2022-07-23T15:36:22.000Z</published>
-    <updated>2025-06-28T16:15:35.168Z</updated>
+    <updated>2025-06-28T16:34:12.253Z</updated>
     
     
     <summary type="html">&lt;p&gt;这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html
@@ -338,7 +379,7 @@ Management (PKM) -
     <link href="https://lifeodyssey.github.io/posts/73362798.html"/>
     <id>https://lifeodyssey.github.io/posts/73362798.html</id>
     <published>2022-07-22T14:56:18.000Z</published>
-    <updated>2025-06-28T16:15:35.175Z</updated>
+    <updated>2025-06-28T16:34:12.264Z</updated>
     
     
     <summary type="html">&lt;p&gt;公司用的是Kotlin，这次用的是公开资料，就可以不加密了hhh
@@ -360,7 +401,7 @@ https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html
     <link href="https://lifeodyssey.github.io/posts/715050f6.html"/>
     <id>https://lifeodyssey.github.io/posts/715050f6.html</id>
     <published>2022-07-18T08:22:18.000Z</published>
-    <updated>2025-06-28T16:15:35.171Z</updated>
+    <updated>2025-06-28T16:34:12.258Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -379,7 +420,7 @@ https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html
     <link href="https://lifeodyssey.github.io/posts/d7f3beca.html"/>
     <id>https://lifeodyssey.github.io/posts/d7f3beca.html</id>
     <published>2022-07-02T07:15:14.000Z</published>
-    <updated>2025-06-28T16:15:35.184Z</updated>
+    <updated>2025-06-28T16:34:12.274Z</updated>
     
     
     <summary type="html">&lt;p&gt;今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。&lt;/p&gt;
@@ -410,7 +451,7 @@ https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html
     <link href="https://lifeodyssey.github.io/posts/2cb8508a.html"/>
     <id>https://lifeodyssey.github.io/posts/2cb8508a.html</id>
     <published>2022-07-01T00:13:10.000Z</published>
-    <updated>2025-06-28T16:15:35.186Z</updated>
+    <updated>2025-06-28T16:34:12.276Z</updated>
     
     
     <summary type="html">&lt;p&gt;8.2号就答辩了。&lt;/p&gt;
@@ -425,48 +466,6 @@ https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html
     
     
     <category term="日常记录" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javascript</title>
-    <link href="https://lifeodyssey.github.io/posts/84ea90f7.html"/>
-    <id>https://lifeodyssey.github.io/posts/84ea90f7.html</id>
-    <published>2022-06-27T07:45:10.000Z</published>
-    <updated>2025-06-28T16:15:35.175Z</updated>
-    
-    
-    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
-    
-    <category term="Javascript" scheme="https://lifeodyssey.github.io/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>没有大气校正和实测数据怎么搞水色</title>
-    <link href="https://lifeodyssey.github.io/posts/6c4d8823.html"/>
-    <id>https://lifeodyssey.github.io/posts/6c4d8823.html</id>
-    <published>2022-06-14T11:29:29.000Z</published>
-    <updated>2025-06-28T16:15:35.184Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;看到标题是不是觉得很奇怪，没错，我也觉得很奇怪，但没办法，这是客户的要求。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="工作" scheme="https://lifeodyssey.github.io/categories/%E5%B7%A5%E4%BD%9C/"/>
-    
-    
-    <category term="Ocean Color" scheme="https://lifeodyssey.github.io/tags/Ocean-Color/"/>
-    
-    <category term="Hyperspectral" scheme="https://lifeodyssey.github.io/tags/Hyperspectral/"/>
     
   </entry>
   
