@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /_astro/
+Disallow: /feeds/
+Disallow: /giscus/
+Disallow: /og/
+Disallow: /~partytown/
+
+Sitemap: https://lifeodyssey.github.io/sitemap-index.xml
