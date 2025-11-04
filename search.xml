@@ -9998,6 +9998,1177 @@ href="https://lifeodyssey.github.io/posts/cb8288cd.html">English</a></p>
       </tags>
   </entry>
   <entry>
+    <title>Agentic AI 学習記録</title>
+    <url>/posts/34c938fb.html</url>
+    <content><![CDATA[<p>最近、DeepLearning.AI の <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
+を学習し、<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">証明書<i class="fa fa-external-link-alt"></i></span>
+を取得した。学習時間は合計で約 6 時間。内容は Agentic AI
+の基本概念と応用の紹介が中心で、講座の質は高い。ただし入門向けなので、数学や実装コードは多くない。</p>
+<p>振り返ると、Andrew Ng の講座を前回受けたのは 2016〜2017 年、Coursera
+の Machine Learning だった。もう約 9 年前。時が経つのは早い。</p>
+<p>以下では本講座の要点をまとめ、次の問いに答える：2025 年 11 月 2
+日現在、なぜ Claude Code は最も成功した Agentic 系製品なのか。</p>
+<p>なお、講座の実装は <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span> を用いており、現在よく使われる LangGraph や OpenAI Agent SDK
+とは少し異なる。そのため本ノートでは実装の細部にはあまり踏み込まない。</p>
+<h1 id="agentic-workflows-の導入">1 Agentic Workflows の導入</h1>
+<p>ここでいう Agentic AI は、実際には Agentic AI workflow
+を指す。定義は「LLM
+を用いたアプリが、課題を完了するために複数の手順を実行する過程」。Non-agentic
+workflow が単発の呼び出しで流れを持たないのに対し、Agentic workflow
+は「流れ・記憶・feedback」を備え、より複雑な状況に適応できる。</p>
+<p>例えば文章作成なら、Agentic AI workflow
+は課題の自動分解・計画・複数手順の実行・他の tool
+の呼び出しなどを行い、単発の出力では終わらない。 <img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png" /></p>
+<p>Agentic AI workflow
+は高い自律性を持たせることもできる。実行中に手順分解や使用する tool
+の選択、さらには自分で code
+を書いて完了することもある。一方、低自律にして、手順や使用 tool
+をあらかじめ固定し、文章や画像生成など一部のみを自律にする設計も可能。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png" /></p>
+<p>Agentic AI の利点は次のとおり。</p>
+<ul>
+<li>性能向上: 同じ model を使っても tool
+を使えることで性能が上がる。例えば coding では code
+検査や単体試験を回せるので、単なる補完より品質が高い。</li>
+<li>並列実行: 例えば複数の検索を同時に実行できる。</li>
+<li>部品化・交換容易性: workflow の各手順で使う tool や model
+を柔軟に差し替え可能。</li>
+</ul>
+<p>Agentic AI の設計で重要なのは課題の分解で、どこを Agentic AI
+に任せるかを見極めること。主に二系統がある。</p>
+<ol type="1">
+<li>AI model:
+文章生成、情報抽出と要約、PDF→text、音声生成、画像解析と生成。</li>
+<li>tool 利用: Web 検索、database 照会、RAG、計算とデータ分析。</li>
+</ol>
+<p>Agentic AI の評価は開発で最重要。客観評価と主観評価に分かれる。 -
+客観評価: 例えば code
+検査と単体試験。検索では重要情報源を使ったか（研究報告なら著名 journal
+を引用しているか）。 - 主観評価: よくあるのは
+LLM-as-a-Judge。ただし最良実践ではない。後述。</p>
+<p>併せて trace を確認し、誤り分析と評価を行う。</p>
+<p>よく使われる設計指針は次の 4 つ。</p>
+<ol type="1">
+<li>Reflection</li>
+<li>Tool use</li>
+<li>Planning</li>
+<li>Multi-agent collaboration</li>
+</ol>
+<p>この中で最重要なのは Reflection と Tool use。次で詳述する。 # 2
+Reflection 設計指針</p>
+<p>Reflection（省察）は、LLM
+の初回出力を固定手順で再考・分析すること。人間の coding
+なら、書いた後で単体試験を実行し、結果に基づき改良するのと同様。</p>
+<p>実装は難しくない。講座の code 例: <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_draft</span>(<span class="params">topic: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>: </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert academic writer. Write a well-structured essay draft on the following topic:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Topic: &quot;<span class="subst">&#123;topic&#125;</span>&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The essay should include:</span></span><br><span class="line"><span class="string">    - A clear introduction with a thesis statement.</span></span><br><span class="line"><span class="string">    - 2–3 body paragraphs that elaborate on the main ideas.</span></span><br><span class="line"><span class="string">    - A strong conclusion summarizing the main points.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The tone should be formal and academic, and the essay should be coherent, logically organized, and written in full sentences.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span> </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reflect_on_draft</span>(<span class="params">draft: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:o4-mini&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert writing instructor. Please carefully review the following essay draft:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;draft&#125;</span></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Provide a detailed reflection on the essay, including:</span></span><br><span class="line"><span class="string">    1. The strengths of the essay (e.g., clarity, structure, argumentation, tone).</span></span><br><span class="line"><span class="string">    2. The weaknesses or areas for improvement (e.g., coherence, evidence, flow, grammar).</span></span><br><span class="line"><span class="string">    3. Specific and actionable suggestions to improve the essay in the next revision.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Be concise but insightful, and focus on helping the author improve their work.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">revise_draft</span>(<span class="params">original_draft: <span class="built_in">str</span>, reflection: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert editor. Revise the following essay using the feedback provided.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Goals:</span></span><br><span class="line"><span class="string">    - Address every actionable point in the feedback.</span></span><br><span class="line"><span class="string">    - Improve clarity, coherence, argument strength, transitions, and overall flow.</span></span><br><span class="line"><span class="string">    - Preserve the author’s intent and key ideas; do not change the topic.</span></span><br><span class="line"><span class="string">    - Keep length roughly similar (±15%) unless feedback suggests otherwise.</span></span><br><span class="line"><span class="string">    - Do not invent facts or citations. If evidence is requested but unavailable, strengthen reasoning and clarify limits.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Output requirement:</span></span><br><span class="line"><span class="string">    - Return ONLY the final revised essay. No preface, bullets, or meta commentary.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;original_draft&#125;</span></span></span><br><span class="line"><span class="string">    --- END ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;reflection&#125;</span></span></span><br><span class="line"><span class="string">    --- END REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line">essay_prompt = <span class="string">&quot;Should social media platforms be regulated by the government?&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 1 – Draft</span></span><br><span class="line">draft = generate_draft(essay_prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📝 Draft:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(draft)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 2 – Reflection</span></span><br><span class="line">feedback = reflect_on_draft(draft)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n🧠 Feedback:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(feedback)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 3 – Revision</span></span><br><span class="line">revised = revise_draft(draft, feedback)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n✍️ Revised:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(revised)  </span><br></pre></td></tr></table></figure> 流れは、新しい agent
+を追加して reflection を行い、feedback
+を与え、出力を改稿するだけ。多くの課題で出力品質が向上する。効果評価として二つの例がある。</p>
+<h2 id="evaluating-the-impact-of-reflection">Evaluating the impact of
+reflection</h2>
+<h3 id="主観評価図表生成">1. 主観評価（図表生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032109283.png" />
+最も単純なのは前述の LLM-as-a-Judge。ある model が作図 code
+を生成し、別の model
+がその図を評価する。しかし精度は十分でない。理由は二つ: 一つは「garbage
+in, garbage out」で、model が model
+を評価すること。もう一つは研究で示されるように position
+bias（最初の選択を好む傾向）があるため。そこで rubric-based
+grading（評価規準に基づく採点）を導入する。例えば図の評価では、prompt
+を次のように書く:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Assess the attached image against this</span><br><span class="line">quality rubric. Each item should receive a</span><br><span class="line">score for 1 (true) or 0 (false). Return the scores</span><br><span class="line">for each item as a json object</span><br><span class="line">1. Has clear title</span><br><span class="line">2. Axis labels present</span><br><span class="line">3. Appropriate chart type</span><br><span class="line">4. Axes use appropriate numerical range</span><br><span class="line">5. …</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="客観評価sql-問い合わせ生成">2. 客観評価（SQL
+問い合わせ生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032114633.png" />
+この場合は実データに基づき評価 dataset を作れる。つまり ground truth
+の例を構築し、それで評価する。</p>
+<p>さらに、code で評価できる課題は一般に容易である。次は Reflection with
+external feedback（外部 feedback を組み合わせた省察）。</p>
+<h4 id="reflection-with-external-feedback">Reflection with external
+feedback</h4>
+<p>これは reflection
+を入れた後に行うことが多い。効果は次のような曲線になる。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032134411.png" />
+SQL 生成を例にすると、おおよその流れは次の code:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_sql_workflow</span>(<span class="params"></span></span><br><span class="line"><span class="params">    db_path: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    question: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    model_generation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params">    model_evaluation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    End-to-end workflow to generate, execute, evaluate, and refine SQL queries.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Steps:</span></span><br><span class="line"><span class="string">      1) Extract database schema</span></span><br><span class="line"><span class="string">      2) Generate SQL (V1)</span></span><br><span class="line"><span class="string">      3) Execute V1 → show output</span></span><br><span class="line"><span class="string">      4) Reflect on V1 with execution feedback → propose refined SQL (V2)</span></span><br><span class="line"><span class="string">      5) Execute V2 → show final answer</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1) Schema</span></span><br><span class="line">    schema = utils.get_schema(db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        schema,</span><br><span class="line">        title=<span class="string">&quot;📘 Step 1 — Extract Database Schema&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2) Generate SQL (V1)</span></span><br><span class="line">    sql_v1 = generate_sql(question, schema, model_generation)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v1,</span><br><span class="line">        title=<span class="string">&quot;🧠 Step 2 — Generate SQL (V1)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3) Execute V1</span></span><br><span class="line">    df_v1 = utils.execute_sql(sql_v1, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v1,</span><br><span class="line">        title=<span class="string">&quot;🧪 Step 3 — Execute V1 (SQL Output)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4) Reflect on V1 with execution feedback → refine to V2</span></span><br><span class="line">    feedback, sql_v2 = refine_sql_external_feedback(</span><br><span class="line">        question=question,</span><br><span class="line">        sql_query=sql_v1,</span><br><span class="line">        df_feedback=df_v1,          <span class="comment"># external feedback: real output of V1</span></span><br><span class="line">        schema=schema,</span><br><span class="line">        model=model_evaluation,</span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        feedback,</span><br><span class="line">        title=<span class="string">&quot;🧭 Step 4 — Reflect on V1 (Feedback)&quot;</span></span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v2,</span><br><span class="line">        title=<span class="string">&quot;🔁 Step 4 — Refined SQL (V2)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5) Execute V2</span></span><br><span class="line">    df_v2 = utils.execute_sql(sql_v2, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v2,</span><br><span class="line">        title=<span class="string">&quot;✅ Step 5 — Execute V2 (Final Answer)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="tool-use">3 Tool Use</h1>
+<p>今年 Agentic AI が伸びた要因の一つがこれ。MCP により、model へ tool
+を適合させる手間が大きく下がった。</p>
+<h2 id="tools-とは">Tools とは</h2>
+<p>LLM は本質的に text 生成 model であり、直接 tool
+を呼び出す能力はない。tool の呼出能力は、実行環境が解釈できる code
+や指示を出力できることに由来するだけ。</p>
+<p>例えば「今の時刻は？」と尋ねる場合、学習前の自分は次の流れを想像していた。</p>
+<p>LLM が要求を受ける → 新しい thread を立てて
+<code>datetime.now().strftime("%H:%M:%S")</code> を実行 → 主 thread
+が結果を受け取り返す。</p>
+<p>実際には、backend が要求を受け LLM に転送 → LLM が実行可能な code
+や印（例: <code>""" FUNCTION def get_current_time(): """</code>）を出力
+→ backend が <code>FUNCTION</code> を検知し、対応する tool を実行 →
+backend が結果を LLM に返す → LLM が最終応答を生成して返す。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032147035.png" /></p>
+<p>この仕組みは、tool
+呼出能力が近年の学習で重視される理由でもある。本質は、model
+が与えた指示文（prompt）の規格に厳密に従った形式で応答できる能力にある。</p>
+<p>例えば次のように書く。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">You have access to a tool called</span><br><span class="line">get<span class="emphasis">_current_</span>time for a specific timezone.</span><br><span class="line">To use it, return the following exactly:</span><br><span class="line">FUNCTION:</span><br><span class="line">get<span class="emphasis">_current_</span>time(&quot;timezone&quot;)</span><br></pre></td></tr></table></figure> tool
+呼出性能は、<code>FUNCTION:get_current_time("timezone")</code>
+を正確に出力できるかに完全に依存する。つまり Agentic AI に tool
+を持たせるなら、model は次の二点が必要。</p>
+<ul>
+<li>どの tool が利用可能かを知ること: これは prompt
+と関係し、要求送信時に利用可能な tool
+を明示する必要がある。これにより以前の疑問が説明できる。第一に、なぜ MCP
+が Claude Code の context window を消費するのか——tool 説明を context
+に含める必要があるため。第二に、同じ model でも製品によって tool
+呼出能力が異なるのはなぜか——費用削減のために context を短くし、tool
+関連の文脈が省かれることがあるため。したがって、特定の tool
+を使うよう明示すれば、呼び出しやすくなる。</li>
+<li>模倣精度: model 自体の能力で、書式や指示に厳密に従う力。昨年多くの
+model（特に GPT）は最新の文書や規約に完全準拠した code
+を書けず、作り話が混じった。今年は調整により改善した。Claude 系が coding
+で良い体験を与えるのは、いわゆる「知能」よりも、この従順さ（format/指示の遵守）が大きい。</li>
+</ul>
+<p>要するに、model に tool の存在を知らせるには prompt
+に書く必要があり、頭痛の種が出てくる。</p>
+<h2 id="tool-syntax">Tool syntax</h2>
+<p>現在時刻の取得を例にすると、実際の呼出は次のようになる。
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_current_time</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the current time as a string&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> datetime.now().strftime(<span class="string">&quot;%H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">client = ai.Client()</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;openai:gpt-4o&quot;</span>,</span><br><span class="line">    messages=messages,</span><br><span class="line">    tools=[get_current_time],</span><br><span class="line">    max_turns=<span class="number">5</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure> tool に引数がある場合は次のようになる。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tools = [&#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;function&quot;</span>,</span><br><span class="line">    <span class="string">&quot;function&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;get_current_time&quot;</span>,</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Returns current time for the given timezone.&quot;</span>,</span><br><span class="line">        <span class="string">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;timezone&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span>,</span><br><span class="line">                <span class="string">&quot;description&quot;</span>: <span class="string">&quot;The IANA time zone string, e.g., &#x27;America/New_York&#x27; or &#x27;Pacific/Auckland&#x27;.&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>引数や tool
+が増えると、この部分は肥大化し保守が難しくなる。そこで広く使われる解決策が二つある。</p>
+<h3 id="code-execution">Code execution</h3>
+<p>興味深い方法として、簡単な tool（加減乗除など）は LLM に tool の code
+を直接出力させる。例えば:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032156263.png" /></p>
+<p>この場合、code は必ず sandbox で実行する。独立の Docker container
+など。本番環境で直接実行するのは危険。</p>
+<p>体感として、昨年の ChatGPT
+はすでにこれを行っていた。問題が少し複雑になると、「思考」の過程で
+Python code
+を書いて実行していた。社内でもこの方向は強く支持されているようだ。これが最初の
+Codex の構想でもあった。cloud 側で動くアプリが code
+を生成し、試験を実行して PR を出す。全体が sandbox
+上で動く。その後、Claude Code を模して CLI 版が出た。</p>
+<p>昨年流行した「strawberry に r はいくつ？」のような問題も、多くの
+model は code を生成（あるいは実行）して解いている。</p>
+<h3 id="mcp">MCP</h3>
+<p>MCP
+の概念自体はここでは詳述しない。前述の課題をどう解決するかに絞って述べる。</p>
+<p>MCP がない場合:</p>
+<ul>
+<li><p>各 App（Slack、GDrive、GitHub など）は、それぞれ複数の LLM の
+tool/agent を自前で接続する必要がある。</p></li>
+<li><p>m 個のアプリと n 個の tool があれば、m × n
+の統合が必要になり、重複した開発と保守が大量に発生する。</p></li>
+</ul>
+<p>MCP（Model Context Protocol）の核心は、すべての App と Tools が共有の
+MCP Server を介して通信すること。 つまり、 - 各 App は MCP Server
+に一度だけ接続（m 本の接続）。 - 各 Tool も MCP Server に一度だけ登録（n
+本の接続）。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">App1 ─┐</span><br><span class="line">App2 ─┼─&gt; Shared MCP Server &lt;─┬─ Tool1 (Slack)</span><br><span class="line">App3 ─┘                        ├─ Tool2 (GitHub)</span><br><span class="line">                               └─ Tool3 (GDrive)</span><br></pre></td></tr></table></figure>
+<p>MCP Server は次を担う。 - tool 記述（JSON schema、metadata）の管理 -
+複数 App からの要求の受領 - 対応する Tool の統一調停と呼出 - 結果を該当
+App / Agent に返却</p>
+<p>役割は Kong のような API Gateway、あるいは Backend for
+Frontend（BFF）に近い。LLM の tool 開発・適合の負担を大きく減らす。</p>
+<h1 id="practical-tips-for-building-agentic-ai">4 Practical Tips for
+Building Agentic AI</h1>
+<p>Agentic AI
+を開発するとき、理論や設計議論に長く留まらない。最善の進め方は次のとおり。</p>
+<ol type="1">
+<li>速く MVP を作る（quick and dirty で良い）。</li>
+<li>結果に基づき評価を作る。小さくても良い（20
+件程度）。誤りが出やすい工程を特定して改善。</li>
+<li>Agent の反復とともに評価系を継続的に改善。</li>
+</ol>
+<h2 id="evaluations-evals">Evaluations (evals)</h2>
+<p>評価は二つの軸で見る。</p>
+<ul>
+<li>評価方法: code による客観評価（Objective） vs
+LLM-as-a-Judge（Subjective）</li>
+<li>正解の有無: 正解あり vs 正解なし</li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041254577.png" /></p>
+<ol type="1">
+<li>正解あり + code 評価: 最も客観で信頼できる。例:
+請求書の日付が期待と一致するか、正規表現で形式と要点を照合。</li>
+<li>正解あり + LLM 評価: Deep Research や要約（Notebook LLM
+など）に適する。研究総説では特定 journal
+や出典を引用すべき、調査報告では複数ブランドを含むべき、学習ノートではキーワードを含むべき、など。</li>
+<li>正解なし + code 評価: 基本的な検査。例: 生成内容の長さ。</li>
+<li>正解なし + LLM 評価: 非常に主観で柔軟。通常は best practice
+としては推奨しない。</li>
+</ol>
+<h2 id="error-analysis-and-prioritizing-next-steps">Error Analysis and
+prioritizing next steps</h2>
+<p>eval を用意したら、実行 trace
+を分析し、各手順の出力を期待と比較し、手順ごとの誤り率を計算する。誤りが多く影響の大きい部分から集中的に最適化する。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041331799.png" /></p>
+<p>例として、ある問い合わせ対応 system には次の三手順がある。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041333477.png" /></p>
+<ol type="1">
+<li>SQL 問い合わせを生成する。</li>
+<li>SQL で database を照会する。</li>
+<li>結果を利用者に返す。</li>
+</ol>
+<p>このとき、次のように一覧できる。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041334343.png" /></p>
+<p>いくつか例を流し、各手順の結果を分析し、どこで誤りが多いかを特定する。</p>
+<h2 id="構成要素レベルの評価">構成要素レベルの評価</h2>
+<p>端から端までの評価だけでなく、単一構成要素の評価も重要。これにより
+workflow 全体を通さず、対象部分を素早く正確に検証・最適化できる。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041336067.png" /></p>
+<p>例えば research agent では Web research
+部分だけを個別に評価・最適化できる。</p>
+<h2 id="構成要素の性能最適化">構成要素の性能最適化</h2>
+<p>一般に Agentic AI workflow は LLM 構成要素と非 LLM
+構成要素に分かれる。</p>
+<p>LLM 構成要素がボトルネックのときは、次を検討する。</p>
+<ul>
+<li>指示文を改善: 明確な指示を増やす。具体例を追加（few-shot
+prompting）。</li>
+<li>別の model を試す: 複数 LLM を試し、評価で最良を選ぶ。</li>
+<li>手順を分割: 課題を小さな手順に分解。</li>
+<li>fine-tune: 内部データで fine-tune して性能向上。</li>
+</ul>
+<p>非 LLM 構成要素（Web search、RAG の検索、code 実行、既存 ML model
+など）がボトルネックのときは、次を検討する。</p>
+<ul>
+<li>hyperparameters を調整: Web search — 結果件数・期間。RAG —
+類似度閾値・chunk size。ML models — 検出閾値。</li>
+<li>構成要素を置換: 別の Web search engine、RAG provider
+などを試す。</li>
+</ul>
+<p>開発者として model への直感を養うことが重要。どの model
+がどの課題に適するか、性能・遅延・費用の折り合いを理解する。方法:</p>
+<ul>
+<li>頻繁に model を試す。
+<ul>
+<li>自分用の評価集合を持つと良い。</li>
+<li>他者の指示文を読み、使い方の工夫を学ぶ。</li>
+</ul></li>
+<li>workflow で複数の model を使う。
+<ul>
+<li>どの model がどの種類の課題で機能するか見極める。</li>
+<li>model 変更が容易な framework/SDK や provider を用いる。</li>
+</ul></li>
+</ul>
+<h2 id="遅延費用の最適化">遅延・費用の最適化</h2>
+<p>遅延と費用は重要だが、初期は過度に気にしない。まずは正確率を上げ、Agent
+が正しく動くことを確保し、その後に遅延と費用を最適化する。</p>
+<h1 id="高度自律-agent-の設計指針">5 高度自律 agent の設計指針</h1>
+<p>前半では少量/半自律の Agentic AI を扱った。最後に高自律 agent
+の設計を簡潔に述べる。</p>
+<h2 id="計画型-workflow">計画型 workflow</h2>
+<p>この方式では、利用可能な tool 一覧を LLM に与え、LLM に作業計画（tool
+呼出の手順）を作らせ、その計画どおりに system
+が実行する。先の問い合わせ対応 system の例では、</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041400422.png" /></p>
+<p>Planning agent に JSON 形式の実行計画を生成させることができる。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;plan&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Find round sunglasses&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_item_descriptions&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="string">&quot;round sunglasses&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Check available stock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;check_inventory&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="string">&quot;results from step 1&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    …</span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>これで後続の各手順の agent 入力に分割しやすくなる。</p>
+<p>しかし問題もある。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041424781.png" /></p>
+<p>質問: 「Which month had the highest sales of hot
+chocolate?」（どの月の hot chocolate の売上が最高か？）</p>
+<p>Planning workflow は次のようになる。 1. filter_rows で 1 月の hot
+chocolate のデータを抽出。 2. get_column_mean で平均売上を求める。 3. 2
+月・3 月…12 月まで繰り返す。 4. 各平均を比較し、最大の月を得る。</p>
+<p>この方法には次の問題がある。</p>
+<ol type="1">
+<li><p>脆弱（Brittle）</p>
+<p>入力構造への依存が強すぎる。CSV の列名が coffee_name から drink_name
+に変わったり、日付形式が少し違うだけで失敗する。model
+が前手順の結果（「Step 3
+results」など）を参照できなくなることもあり、少しの変化で崩れる。</p></li>
+<li><p>非効率（Inefficient）</p>
+<p>LLM は一手順ごとに次の指示を再生成する。12 か月分なら filter_rows 12
+回 + get_column_mean 12
+回の呼出が必要になり、応答待ちや文脈伝搬で遅く、計算資源も無駄。</p></li>
+<li><p>境界事例への対処が増え続ける（Edge cases）</p>
+<p>データの違いごとに補修が必要で、開発者は「特殊ケース修正」に追われる。</p>
+<ul>
+<li>ある月に hot chocolate がない → 例外処理が必要。</li>
+<li>欠損や形式の乱れ → 例外処理が必要。</li>
+<li>列順やファイル名が違う → さらに処理を変更。</li>
+</ul></li>
+</ol>
+<p>より良い方法は「Planning with code execution」。</p>
+<h2 id="planning-with-code-execution">Planning with code execution</h2>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041427014.png" /></p>
+<p>手順 JSON ではなく code を直接生成させる方が、相対的に柔軟。</p>
+<h2 id="multi-agentic-workflows-と通信様式">Multi-agentic workflows
+と通信様式</h2>
+<p>課題が十分に複雑な場合、複数の専門 agent
+で協調して進める。典型は次のとおり。</p>
+<ol type="1">
+<li>直列 agent: 流れ作業。前段の出力が後段の入力。</li>
+<li>階層 agent: 監督者が manager として課題分解と配分、統合。</li>
+</ol>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041434016.png" /></p>
+<h1 id="まとめ">まとめ</h1>
+<p>本講座は Agent 開発の入門として良い概説。少しの Python と Jupyter
+Notebook、指示文設計を知っていれば理解でき、code は多くない。</p>
+<p>最も有用なのは Reflection と Tool use。</p>
+<p>最後に二つの問いに答える。</p>
+<ol type="1">
+<li>なぜ Claude Code は現時点で最も成功した Agentic 系製品なのか？</li>
+</ol>
+<ul>
+<li>製品領域が code 生成に絞られており、試験や Lint
+など明確で定量的な評価系がある。これは今 Agentic Coding
+が多い最大理由だと思う。開発で最重要かつ難しい eval を、他領域（Deep
+Research など）より客観的に作りやすい。</li>
+<li>MCP により、Claude Code は tool 呼出で外部情報を取り込み、外部
+feedback を得る力が大幅に強化された。</li>
+<li>model が「従順」で、模倣精度が高い。</li>
+<li>Context と prompt の管理: 何が coding
+に重要かを開発者が理解し、設計段階で固定文脈を定義している。 <img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041443224.png" /></li>
+</ul>
+<ol type="1">
+<li>次に成功する Agentic 系製品は何か？</li>
+</ol>
+<p>自分は browser だと考える。ChatGPT Atlas
+はすでに公開され、体験は良好だった。</p>
+<ul>
+<li>browser は操作時の安全問題を避けやすい。個人アカウントの login
+などは利用者がローカルで完結・保存できる。これは従来の各種製品の Agent
+模式（Manus や ChatGPT
+など）における大きな痛点だった。以前の方式は「雲原神」に似ており、遠隔
+server 上に仮想環境を起動し、言語指示で AI がその上の browser と OS
+を操作する。この場合、多窓遷移などの体験は弱い（実体験）。多くの利用者が本当に求めるのは、自分の
+browser と OS を AI に操作させ、自分で
+login・支払いなどの要所を行い、反復作業を agent
+に任せること。これは初期の Codex と Codex CLI/Claude Code
+の違いに近い。</li>
+<li>browser 領域の Agentic 製品は評価系が比較的明確。自動 form
+入力、情報抽出、Web navigation
+などは、結果の正確率や完了効率など客観指標で評価でき、継続的最適化が容易。</li>
+<li>MCP などの普及、特に Playwright MCP は agent と browser
+の連携障壁を大幅に下げ、model が API のように Web
+を操作し、データ取得や複雑作業を行える。model
+が呼出指令を正確に出力できれば、高度な自動化が実現可能。</li>
+<li>browser
+は情報取得・作業実行・外界との連携の中心入口で、拡張性と生態が強い。Agentic
+browser 製品が成熟すれば、インターネット時代の Google
+のように新しい流入口になる。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Work Note</category>
+      </categories>
+      <tags>
+        <tag>Software Engineering</tag>
+        <tag>Agentic AI</tag>
+        <tag>Large Language Model</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Agentic AI Learning Note</title>
+    <url>/posts/c4b27adb.html</url>
+    <content><![CDATA[<p>I recently spent some time taking DeepLearning.AI’s <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
+course and earned the <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">certificate<i class="fa fa-external-link-alt"></i></span>.
+It took around six hours. The content focuses on core concepts and
+applications of Agentic AI; the course quality is high, but as an intro
+it stays fairly light and doesn’t dive much into math or implementation
+details.</p>
+<p>Thinking back, the last time I took an Andrew Ng course was in 2016
+or 2017—his Machine Learning on Coursera. Nearly nine years ago; time
+flies.</p>
+<p>Next I’ll summarize the core ideas from the course and answer one
+question: Why, as of Nov 2, 2025, is Claude Code the most successful
+agentic product?</p>
+<p>Note that the course uses <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI Suite<i class="fa fa-external-link-alt"></i></span> for hands-on
+implementation, which differs from commonly used stacks like LangGraph
+and OpenAI Agent SDK. So these notes won’t go deep into code
+implementation details.</p>
+<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
+Workflows</h1>
+<p>In this course, “Agentic AI” really means agentic AI workflows,
+defined as: An agentic AI workflow is a process where an LLM-based app
+executes multiple steps to complete a task. Compared with non-agentic
+workflows (a single call, no process), agentic workflows have process,
+memory, and feedback, and can adapt to more complex scenarios.</p>
+<p>For example, in writing an article, an agentic workflow will
+automatically decompose and plan, execute multi-step tasks, call other
+tools, etc., instead of just producing a one-shot output. <img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png" /></p>
+<p>Agentic workflows can be highly autonomous—for instance, during
+execution they can decide how to break down the task, which tools to
+call, and even write code—or they can be low-autonomy, with predefined
+steps and tools, where only certain steps like text or image generation
+are somewhat autonomous.</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png" /></p>
+<p>Key advantages of Agentic AI:</p>
+<ul>
+<li>Better performance: With the same model, tool use often improves
+performance. For coding, for example, you can run linters and unit tests
+to raise quality rather than pure completion.</li>
+<li>Parallel execution: e.g., run multiple searches at the same
+time.</li>
+<li>Modularity: you can flexibly swap the tool or model used for any
+step in the workflow.</li>
+</ul>
+<p>The most critical step in designing an Agentic AI is decomposing the
+task and identifying which parts can be handled agentically. Two main
+categories:</p>
+<ol type="1">
+<li>AI models: text generation, information extraction and
+summarization, PDF-to-text, speech generation, image analysis and
+generation.</li>
+<li>Tool use: web search, database queries, RAG, computation and data
+analysis.</li>
+</ol>
+<p>Evaluation is the most important part of development and includes
+objective and subjective components. - Objective: e.g., linting and unit
+tests; or in search tasks, whether important sources are used (good
+research reports cite reputable journals). - Subjective: LLM-as-a-Judge
+is common, but not best practice—we’ll expand on this later.</p>
+<p>Also inspect traces to analyze errors and evaluate behavior.</p>
+<p>Common design patterns include:</p>
+<ol type="1">
+<li>Reflection</li>
+<li>Tool use</li>
+<li>Planning</li>
+<li>Multi-agent collaboration</li>
+</ol>
+<p>The most important are Reflection and Tool use; details next.</p>
+<h1 id="reflection-design-pattern">2 Reflection Design Pattern</h1>
+<p>Reflection means adding a fixed step to think about and analyze the
+LLM’s first-pass output. By analogy to coding: after writing code, you
+run tests, see results, and iterate based on the feedback.</p>
+<p>This isn’t difficult to implement; here’s a course example:
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_draft</span>(<span class="params">topic: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>: </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert academic writer. Write a well-structured essay draft on the following topic:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Topic: &quot;<span class="subst">&#123;topic&#125;</span>&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The essay should include:</span></span><br><span class="line"><span class="string">    - A clear introduction with a thesis statement.</span></span><br><span class="line"><span class="string">    - 2–3 body paragraphs that elaborate on the main ideas.</span></span><br><span class="line"><span class="string">    - A strong conclusion summarizing the main points.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The tone should be formal and academic, and the essay should be coherent, logically organized, and written in full sentences.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span> </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reflect_on_draft</span>(<span class="params">draft: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:o4-mini&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert writing instructor. Please carefully review the following essay draft:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;draft&#125;</span></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Provide a detailed reflection on the essay, including:</span></span><br><span class="line"><span class="string">    1. The strengths of the essay (e.g., clarity, structure, argumentation, tone).</span></span><br><span class="line"><span class="string">    2. The weaknesses or areas for improvement (e.g., coherence, evidence, flow, grammar).</span></span><br><span class="line"><span class="string">    3. Specific and actionable suggestions to improve the essay in the next revision.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Be concise but insightful, and focus on helping the author improve their work.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">revise_draft</span>(<span class="params">original_draft: <span class="built_in">str</span>, reflection: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert editor. Revise the following essay using the feedback provided.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Goals:</span></span><br><span class="line"><span class="string">    - Address every actionable point in the feedback.</span></span><br><span class="line"><span class="string">    - Improve clarity, coherence, argument strength, transitions, and overall flow.</span></span><br><span class="line"><span class="string">    - Preserve the author’s intent and key ideas; do not change the topic.</span></span><br><span class="line"><span class="string">    - Keep length roughly similar (±15%) unless feedback suggests otherwise.</span></span><br><span class="line"><span class="string">    - Do not invent facts or citations. If evidence is requested but unavailable, strengthen reasoning and clarify limits.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Output requirement:</span></span><br><span class="line"><span class="string">    - Return ONLY the final revised essay. No preface, bullets, or meta commentary.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;original_draft&#125;</span></span></span><br><span class="line"><span class="string">    --- END ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;reflection&#125;</span></span></span><br><span class="line"><span class="string">    --- END REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line">essay_prompt = <span class="string">&quot;Should social media platforms be regulated by the government?&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 1 – Draft</span></span><br><span class="line">draft = generate_draft(essay_prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📝 Draft:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(draft)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 2 – Reflection</span></span><br><span class="line">feedback = reflect_on_draft(draft)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n🧠 Feedback:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(feedback)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 3 – Revision</span></span><br><span class="line">revised = revise_draft(draft, feedback)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n✍️ Revised:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(revised)  </span><br></pre></td></tr></table></figure> Workflow-wise, you add a reflection agent that supplies
+feedback, then rewrite. Reflection improves output quality for most
+tasks. Two examples of evaluating its impact:</p>
+<h2 id="evaluating-the-impact-of-reflection">Evaluating the impact of
+reflection</h2>
+<h3 id="subjective-evaluation-chart-generation">1. Subjective evaluation
+(chart generation)</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032109283.png" />
+The simplest approach is LLM-as-a-Judge: after a model writes plotting
+code, use another model to grade the chart. This is not very accurate:
+on one hand it’s “garbage in, garbage out”—a model judging a model; on
+the other, research shows position bias for the first option. So in
+LLM-as-a-Judge we can add rubric-based grading. For example, when
+grading a chart, the prompt might be:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Assess the attached image against this</span><br><span class="line">quality rubric. Each item should receive a</span><br><span class="line">score for 1 (true) or 0 (false). Return the scores</span><br><span class="line">for each item as a json object</span><br><span class="line">1. Has clear title</span><br><span class="line">2. Axis labels present</span><br><span class="line">3. Appropriate chart type</span><br><span class="line">4. Axes use appropriate numerical range</span><br><span class="line">5. …</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="objective-evaluation-sql-query-generation">2. Objective
+evaluation (SQL query generation)</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032114633.png" />
+Here you can build a dataset of ground-truth examples from real data and
+evaluate against that.</p>
+<p>In general, what can be evaluated via code is easier. That leads to
+Reflection with external feedback.</p>
+<h4 id="reflection-with-external-feedback">Reflection with external
+feedback</h4>
+<p>This is typically added after basic reflection; its performance curve
+looks like this:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032134411.png" />
+Take SQL generation as an example; the flow might look like:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_sql_workflow</span>(<span class="params"></span></span><br><span class="line"><span class="params">    db_path: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    question: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    model_generation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params">    model_evaluation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    End-to-end workflow to generate, execute, evaluate, and refine SQL queries.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Steps:</span></span><br><span class="line"><span class="string">      1) Extract database schema</span></span><br><span class="line"><span class="string">      2) Generate SQL (V1)</span></span><br><span class="line"><span class="string">      3) Execute V1 → show output</span></span><br><span class="line"><span class="string">      4) Reflect on V1 with execution feedback → propose refined SQL (V2)</span></span><br><span class="line"><span class="string">      5) Execute V2 → show final answer</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1) Schema</span></span><br><span class="line">    schema = utils.get_schema(db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        schema,</span><br><span class="line">        title=<span class="string">&quot;📘 Step 1 — Extract Database Schema&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2) Generate SQL (V1)</span></span><br><span class="line">    sql_v1 = generate_sql(question, schema, model_generation)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v1,</span><br><span class="line">        title=<span class="string">&quot;🧠 Step 2 — Generate SQL (V1)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3) Execute V1</span></span><br><span class="line">    df_v1 = utils.execute_sql(sql_v1, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v1,</span><br><span class="line">        title=<span class="string">&quot;🧪 Step 3 — Execute V1 (SQL Output)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4) Reflect on V1 with execution feedback → refine to V2</span></span><br><span class="line">    feedback, sql_v2 = refine_sql_external_feedback(</span><br><span class="line">        question=question,</span><br><span class="line">        sql_query=sql_v1,</span><br><span class="line">        df_feedback=df_v1,          <span class="comment"># external feedback: real output of V1</span></span><br><span class="line">        schema=schema,</span><br><span class="line">        model=model_evaluation,</span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        feedback,</span><br><span class="line">        title=<span class="string">&quot;🧭 Step 4 — Reflect on V1 (Feedback)&quot;</span></span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v2,</span><br><span class="line">        title=<span class="string">&quot;🔁 Step 4 — Refined SQL (V2)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5) Execute V2</span></span><br><span class="line">    df_v2 = utils.execute_sql(sql_v2, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v2,</span><br><span class="line">        title=<span class="string">&quot;✅ Step 5 — Execute V2 (Final Answer)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="tool-use">3 Tool Use</h1>
+<p>This is, in my view, one of the reasons agentic AI has taken off this
+year. MCP dramatically lowers the barrier to adapt tools for models.</p>
+<h2 id="what-are-tools">What are tools</h2>
+<p>An LLM is fundamentally a text generator. It doesn’t directly “call
+tools”; its ability to “use tools” comes entirely from outputting code
+or directives that an execution environment recognizes.</p>
+<p>If you ask an LLM for the current time, before this course I imagined
+the flow as:</p>
+<p>The LLM receives the request → spawns a new thread to call
+<code>datetime.now().strftime("%H:%M:%S")</code> → the main thread
+returns the result to me</p>
+<p>In reality:</p>
+<p>The backend receives the request and forwards it to the LLM → the LLM
+outputs executable code or markers (e.g.,
+<code>""" FUNCTION def get_current_time(): """</code>) → the backend
+detects <code>FUNCTION</code> and passes the content to the
+corresponding tool → the backend returns the tool’s result to the LLM →
+the LLM generates the final answer for me.</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032147035.png" /></p>
+<p>This explains why tool-use ability has become a training focus: it’s
+about producing outputs exactly in the specified format per the
+prompt.</p>
+<p>For example: <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">You have access to a tool called</span><br><span class="line">get<span class="emphasis">_current_</span>time for a specific timezone.</span><br><span class="line">To use it, return the following exactly:</span><br><span class="line">FUNCTION:</span><br><span class="line">get<span class="emphasis">_current_</span>time(&quot;timezone&quot;)</span><br></pre></td></tr></table></figure> Whether a model can invoke tools well
+depends on whether it can precisely output the line
+<code>FUNCTION:get_current_time("timezone")</code>. So, if we want an
+agentic AI to use tools, the model needs two abilities:</p>
+<ul>
+<li>Knowing which tools are available: this depends on prompting; you
+must explicitly tell it which tools exist at request time. This also
+explains two observations: (1) why MCP consumes Claude Code’s context
+window—because tool descriptions must live in the request context; (2)
+why the same model has different tool-usage ability across
+products—vendors often shrink context to cut costs, dropping some tool
+descriptions. When we explicitly tell it to use a tool, it’s more likely
+to do so because the tool description is in context.</li>
+<li>The ability to follow formats exactly. This is a property of the
+model itself. It matches my impression: last year many models
+(especially GPT) struggled to fully follow the latest docs and style
+guides, often “making things up”; this year, instruction-following has
+improved markedly. That’s one reason Claude feels better for coding—not
+necessarily “smarter,” but more “obedient” to formats and
+instructions.</li>
+</ul>
+<p>In short, to make the model aware of a tool, you must describe it in
+the prompt. This leads to some headaches.</p>
+<h2 id="tool-syntax">Tool syntax</h2>
+<p>Take “get current time” as an example; the actual call looks like:
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_current_time</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the current time as a string&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> datetime.now().strftime(<span class="string">&quot;%H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">client = ai.Client()</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;openai:gpt-4o&quot;</span>,</span><br><span class="line">    messages=messages,</span><br><span class="line">    tools=[get_current_time],</span><br><span class="line">    max_turns=<span class="number">5</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure> If the tool takes parameters, it becomes:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tools = [&#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;function&quot;</span>,</span><br><span class="line">    <span class="string">&quot;function&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;get_current_time&quot;</span>,</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Returns current time for the given timezone.&quot;</span>,</span><br><span class="line">        <span class="string">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;timezone&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span>,</span><br><span class="line">                <span class="string">&quot;description&quot;</span>: <span class="string">&quot;The IANA time zone string, e.g., &#x27;America/New_York&#x27; or &#x27;Pacific/Auckland&#x27;.&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>As parameters and tools grow, this becomes long and hard to maintain.
+Two common mitigations:</p>
+<h3 id="code-execution">Code execution</h3>
+<p>This is interesting: for simple tools (e.g., arithmetic), we can have
+the LLM output the tool code directly, e.g.:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032156263.png" /></p>
+<p>Be careful to run such code in a sandbox (e.g., an isolated Docker
+container) to avoid risk.</p>
+<p>In fact, I suspect last year’s ChatGPT did this: for slightly more
+complex questions, you can see in its “thinking” process that it writes
+Python code and runs it. Internally they clearly agree with this
+direction. This was also the original Codex approach—a cloud app that
+generates code and runs tests to produce PRs, entirely in a sandbox;
+later they released a CLI version similar to Claude Code.</p>
+<p>Last year’s popular “IQ test” question—“How many r’s are there in
+‘strawberry’?”—is often solved by generating (or executing) code.</p>
+<h3 id="mcp">MCP</h3>
+<p>I won’t reintroduce MCP here; instead, how it solves the earlier
+problems.</p>
+<p>Without MCP:</p>
+<ul>
+<li><p>Each app (Slack, GDrive, GitHub, etc.) integrates many LLM
+tools/agents itself.</p></li>
+<li><p>With m apps and n tools, you build m × n bespoke integrations.
+Lots of duplicated effort and maintenance.</p></li>
+</ul>
+<p>With MCP (Model Context Protocol), all apps and tools communicate
+through a shared MCP server. That is:</p>
+<ul>
+<li>Each app integrates with the MCP server once (m connections);</li>
+<li>Each tool registers with the MCP server once (n connections);</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">App1 ─┐</span><br><span class="line">App2 ─┼─&gt; Shared MCP Server &lt;─┬─ Tool1 (Slack)</span><br><span class="line">App3 ─┘                        ├─ Tool2 (GitHub)</span><br><span class="line">                               └─ Tool3 (GDrive)</span><br></pre></td></tr></table></figure>
+<p>The MCP server: - Manages tool descriptions (JSON schema, metadata);
+- Receives requests from different apps; - Routes and invokes the
+appropriate tool; - Returns results to the corresponding app or
+agent.</p>
+<p>It’s similar to an API gateway like Kong, or a Backend for Frontend
+(BFF). This significantly reduces the work to develop and adapt tools
+for LLMs.</p>
+<h1 id="practical-tips-for-building-agentic-ai">4 Practical Tips for
+Building Agentic AI</h1>
+<p>When developing agentic systems, don’t get stuck in long theoretical
+or architectural debates. The best approach:</p>
+<ol type="1">
+<li>Build an MVP quickly (quick and dirty to start)</li>
+<li>Build evaluations from results—create a small eval set, even just
+~20; use results to find error-prone steps and improve them</li>
+<li>Continuously improve evals as the agent iterates</li>
+</ol>
+<h2 id="evaluations-evals">Evaluations (evals)</h2>
+<p>Two axes for evaluation:</p>
+<ul>
+<li>Evaluation method: code-based (Objective) vs. LLM-as-a-Judge
+(Subjective)</li>
+<li>Ground truth availability: with gold answers vs. without</li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041254577.png" /></p>
+<ol type="1">
+<li>Ground truth + code-based evals: most objective and reliable. E.g.,
+check invoice date matches the expected date, or use regex to validate
+formats and key fields.</li>
+<li>Ground truth + LLM evals: common for deep research or summarization
+(e.g., notebook LLM). For research summaries, good reports must cite
+certain journals/sources; for market studies, they must cover certain
+brands; for learning notes, include key terms.</li>
+<li>No ground truth + code-based evals: apply simple heuristics for
+basic checks, such as content length.</li>
+<li>No ground truth + LLM evals: highly subjective and flexible;
+generally not recommended as best practice.</li>
+</ol>
+<h2 id="error-analysis-and-prioritizing-next-steps">Error Analysis and
+prioritizing next steps</h2>
+<p>With evals in place, analyze execution traces. Compare each step’s
+output to the expectation, compute error rates per step, and focus
+optimization on the highest-error, highest-impact parts.</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041331799.png" /></p>
+<p>For example, a customer support system might have three steps:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041333477.png" /></p>
+<ol type="1">
+<li>Generate an SQL query</li>
+<li>Query the database via SQL</li>
+<li>Return the result to the customer</li>
+</ol>
+<p>You can then tabulate results like:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041334343.png" /></p>
+<p>Run some examples and analyze each step’s result to see where errors
+concentrate.</p>
+<h2 id="component-level-evaluations">Component-level evaluations</h2>
+<p>Besides end-to-end evaluation, component-level evaluation is
+important. It lets you test and optimize specific modules more quickly
+and precisely without running the entire workflow.</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041336067.png" /></p>
+<p>For instance, inside a research agent, you can separately evaluate
+and optimize the web research component.</p>
+<h2 id="optimizing-component-performance">Optimizing component
+performance</h2>
+<p>Broadly, an agentic workflow consists of LLM and non-LLM
+components.</p>
+<p>When the LLM component is the bottleneck, try:</p>
+<ul>
+<li>Improve prompts: add explicit instructions; add concrete examples
+(few-shot)</li>
+<li>Try a new model: evaluate multiple LLMs and pick the best</li>
+<li>Split the step: decompose the task further</li>
+<li>Fine-tune a model: fine-tune on internal data to improve
+performance</li>
+</ul>
+<p>When non-LLM components (web search, RAG retrieval, code execution,
+traditional ML models, etc.) are bottlenecks, try:</p>
+<ul>
+<li>Tune component hyperparameters: web search—result count, date range;
+RAG—similarity threshold, chunk size; ML—detection threshold</li>
+<li>Replace the component: try a different search engine, RAG provider,
+etc.</li>
+</ul>
+<p>As developers, cultivate intuition for models—what tasks each model
+suits, and how to balance performance, latency, and cost. Ways to build
+intuition:</p>
+<ul>
+<li>Play with models often
+<ul>
+<li>Keep a personal set of evals</li>
+<li>Read others’ prompts for ideas on effective usage</li>
+</ul></li>
+<li>Use different models in your agentic workflows
+<ul>
+<li>Which models work for which tasks?</li>
+<li>Use frameworks/SDKs or providers that make model swapping easy.</li>
+</ul></li>
+</ul>
+<h2 id="latency-cost-optimization">Latency, cost optimization</h2>
+<p>Latency and cost matter, but early on you shouldn’t over-optimize
+them. Typical strategy: improve accuracy first to make the agent
+reliable, then optimize latency and cost.</p>
+<h1 id="patterns-for-highly-autonomous-agents">5 Patterns for highly
+autonomous agents</h1>
+<p>The previous four sections cover low- or semi-autonomous agentic
+systems. Finally, a brief look at designing highly autonomous ones.</p>
+<h2 id="planning-workflows">Planning workflows</h2>
+<p>In this mode, we give the LLM a set of available tools and ask it to
+plan a sequence of tool calls; the system then follows the plan. For
+example, in the customer support system mentioned earlier.</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041400422.png" /></p>
+<p>The planning agent can produce a JSON execution plan:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;plan&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Find round sunglasses&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_item_descriptions&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="string">&quot;round sunglasses&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Check available stock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;check_inventory&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="string">&quot;results from step 1&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    …</span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>This makes it easy to pass each step to the corresponding agent as
+input.</p>
+<p>But there are issues, for example:</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041424781.png" /></p>
+<p>We ask: “Which month had the highest sales of hot chocolate?”</p>
+<p>The planning workflow might be: 1. Use <code>filter_rows</code> to
+filter January’s hot chocolate data. 2. Use <code>get_column_mean</code>
+to compute average sales. 3. Repeat for February, March, April … through
+December. 4. Compare the averages and find the maximum.</p>
+<p>Problems:</p>
+<ol type="1">
+<li><p>Brittle</p>
+<p>This approach depends too much on input structure. If the CSV’s
+<code>coffee_name</code> column becomes <code>drink_name</code>, or the
+date format changes a bit, the process breaks. The model may also forget
+earlier results (e.g., “Step 3 results”), and small changes make it
+fail.</p></li>
+<li><p>Inefficient</p>
+<p>The LLM must generate the next step after every step. For 12 months,
+that’s 12 <code>filter_rows</code> + 12 <code>get_column_mean</code>
+calls, with model round-trips and context passing in between—slow and
+compute-wasteful.</p></li>
+<li><p>Continuously dealing with edge cases</p>
+<p>Every data quirk needs a patch, so you’re always fixing “special
+cases” instead of improving the algorithm:</p>
+<ul>
+<li>Some months have no hot chocolate → errors; you need guards.</li>
+<li>Missing or malformed data → more exception handling.</li>
+<li>Different column orders or filenames → logic changes again.</li>
+</ul></li>
+</ol>
+<p>So a better approach is Planning with code execution.</p>
+<h2 id="planning-with-code-execution">Planning with code execution</h2>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041427014.png" /></p>
+<p>Have the system generate code directly instead of JSON steps—it’s
+more flexible.</p>
+<h2
+id="multi-agentic-workflows-communication-patterns-for-multi-agent-systems">Multi-agentic
+workflows &amp; Communication patterns for multi-agent systems</h2>
+<p>When tasks get complex, multiple specialized agents can collaborate.
+Common patterns:</p>
+<ol type="1">
+<li>Pipeline agents: like an assembly line; each agent’s output feeds
+the next.</li>
+<li>Hierarchical agents: a manager agent decomposes and assigns
+sub-tasks, then aggregates results.</li>
+</ol>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041434016.png" /></p>
+<h1 id="summary">Summary</h1>
+<p>This course is a solid beginner’s outline for understanding agent
+development. With a bit of Python and Jupyter Notebook plus prompt
+engineering, you can follow and complete it; there’s not much heavy
+code.</p>
+<p>The most useful parts are Reflection and Tool Use.</p>
+<p>Two questions to close:</p>
+<ol type="1">
+<li>Why is Claude Code currently the most successful agentic
+product?</li>
+</ol>
+<ul>
+<li>The product centers on code generation with clear, quantifiable
+evaluation—tests and lint. That’s a big reason agentic coding products
+are thriving: evals are the most important and hardest part of
+development, and “coding” evals are comparatively objective.</li>
+<li>MCP. MCP greatly enhances Claude Code’s ability to call tools for
+external information and feedback.</li>
+<li>The model “follows instructions” very well.</li>
+<li>Context and prompt management: Claude Code’s developers clearly know
+what matters for coding and design a fixed context accordingly. <img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041443224.png" /></li>
+</ul>
+<ol type="1">
+<li>What might be the next most successful agentic product?</li>
+</ol>
+<p>I think it will be the browser. ChatGPT Atlas has launched, and in my
+experience it’s very well done.</p>
+<ul>
+<li>Browsers avoid many security issues during operation—for example,
+personal account login can be handled and stored locally by the user.
+This has been a major pain point in prior agent modes (e.g., Manus and
+ChatGPT). Those products felt like “cloud gaming”: a remote VM where AI
+operates the browser/OS via your language commands; multi-window
+navigation and similar actions feel clunky (from experience). What most
+users actually want is for AI to operate their own browser and system,
+with the user handling login/payment locally, and repetitive actions
+delegated to the agent. This is similar to the distinction between the
+original Codex and Codex CLI/Claude Code.</li>
+<li>In-browser agentic products have relatively clear evaluation
+frameworks. Tasks like automated form filling, information extraction,
+and web navigation can be evaluated via accuracy and efficiency,
+enabling continuous optimization.</li>
+<li>The spread of protocols like MCP—especially Playwright MCP—greatly
+reduces the integration cost between agents and browsers, letting models
+operate pages, extract data, and complete complex tasks as if calling
+APIs. As long as the model can output precise call directives, you get
+highly automated browsing.</li>
+<li>The browser is a powerful tool by nature: the core entry point for
+information access, task execution, and interaction with the external
+world, with strong extensibility and ecosystem potential. Once an
+agentic browser matures, it could become a new traffic gateway much like
+Google in the early web era.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Work Note</category>
+      </categories>
+      <tags>
+        <tag>Software Engineering</tag>
+        <tag>Agentic AI</tag>
+        <tag>Large Language Model</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Agentic AI Learning Note</title>
+    <url>/posts/c4b27adb.html</url>
+    <content><![CDATA[<p>最近花了一些时间学习DeepLearning.AI的<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic
+AI<i class="fa fa-external-link-alt"></i></span>，并且拿到了<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">证书<i class="fa fa-external-link-alt"></i></span>。一共花了六个小时左右。内容偏向于介绍Agentic
+AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。</p>
+<p>回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在
+Coursera 上学他的 Machine
+Learning。已经将近九年前的事了，时间飞逝啊。</p>
+<p>接下来我将总结这门课的核心内容，并回答一个问题：为什么截至 2025 年 11
+月 2 日，Claude Code 是最成功的 Agentic 类产品？</p>
+<p>注意到这门课使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span>来做具体的实现，这与现在大家使用较多的 LangGraph、OpenAI Agent
+SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。</p>
+<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
+Workflows</h1>
+<p>这门课里讲的Agentic AI，实际上讲的是Agentic AI workflows，定义为An
+agentic AI workflow is a process where an LLM-based app executes
+multiple steps to complete a task. 相比于Non-agentic
+workflow只需一次调用，不涉及流程。而Agentic
+workflow则是“有流程、有记忆、有反馈”的智能体系统，能适应更复杂的场景。</p>
+<p>比如以写文章为例子，Agentic AI
+workflow生成文章的流程包括自动分解、规划、执行多步任务，调用其他工具等等，而不是只做一次性输出。
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png" /></p>
+<p>Agentic AI
+workflow可以是高度自主的，比如在执行过程中自己来思考要把任务分为哪几步，调用什么工具，甚至是自行编写代码来完成任务，也可以是低自主的，预先规定好步骤和要调用的工具的，只有在类似于文本和图片生成的步骤才有一定的自主性。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png" /></p>
+<p>Agentic AI 的优势主要有以下几点：</p>
+<ul>
+<li>性能更好：在使用相同模型的情况下，由于能够使用工具，能够获得更好的性能表现，例如在写代码的时候可以使用代码检查工具和运行单元测试来提高代码质量，而不只是单纯的代码补全。</li>
+<li>并行执行：例如同时执行多个搜索工作。</li>
+<li>模块化：可以灵活替换工作流中的某一个步骤使用的工具或者模型。</li>
+</ul>
+<p>设计 Agentic AI 最关键的一步是对任务进行拆解，识别哪一步可以由
+Agentic AI 来完成。目前主要有两类：</p>
+<ol type="1">
+<li>AI 模型：例如文本生成、信息提取与总结、PDF
+转文本、语音生成、图像分析与生成。</li>
+<li>工具使用：例如网页搜索、数据库查询、RAG、计算与数据分析。</li>
+</ol>
+<p>Agentic AI
+的评估是开发过程中最重要的一部分，可以分为客观评价和主观评价。 -
+客观评价：例如通过代码检查与单元测试；再例如在搜索过程中，是否使用了重要的信息源（若是研究报告，好的报告一定会引用知名期刊）。
+- 主观评价：常见做法是
+LLM-as-a-Judge，但并非最佳实践，后续会详细展开。</p>
+<p>同时要通过检查 trace 来进行错误分析与评估。</p>
+<p>常用的设计模式有这几种</p>
+<ol type="1">
+<li>Reflection</li>
+<li>Tool use</li>
+<li>Planning</li>
+<li>Multi-agent collaboration</li>
+</ol>
+<p>这里面最重要的就是Reflection和 Tool use，接下来会详细展开。 # 2
+Reflection Design Pattern</p>
+<p>Reflection(反思)是指通过固定步骤对LLM的初次输出再次进行思考和分析的过程，拿人类写代码举例子，在写完代码之后运行单测可以得到代码的结果，然后根据这个代码可以去迭代这个结果。</p>
+<p>这个在代码里面来做并没有很难，这是课程上的代码例子 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_draft</span>(<span class="params">topic: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>: </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert academic writer. Write a well-structured essay draft on the following topic:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Topic: &quot;<span class="subst">&#123;topic&#125;</span>&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The essay should include:</span></span><br><span class="line"><span class="string">    - A clear introduction with a thesis statement.</span></span><br><span class="line"><span class="string">    - 2–3 body paragraphs that elaborate on the main ideas.</span></span><br><span class="line"><span class="string">    - A strong conclusion summarizing the main points.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The tone should be formal and academic, and the essay should be coherent, logically organized, and written in full sentences.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span> </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reflect_on_draft</span>(<span class="params">draft: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:o4-mini&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert writing instructor. Please carefully review the following essay draft:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;draft&#125;</span></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Provide a detailed reflection on the essay, including:</span></span><br><span class="line"><span class="string">    1. The strengths of the essay (e.g., clarity, structure, argumentation, tone).</span></span><br><span class="line"><span class="string">    2. The weaknesses or areas for improvement (e.g., coherence, evidence, flow, grammar).</span></span><br><span class="line"><span class="string">    3. Specific and actionable suggestions to improve the essay in the next revision.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Be concise but insightful, and focus on helping the author improve their work.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">revise_draft</span>(<span class="params">original_draft: <span class="built_in">str</span>, reflection: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert editor. Revise the following essay using the feedback provided.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Goals:</span></span><br><span class="line"><span class="string">    - Address every actionable point in the feedback.</span></span><br><span class="line"><span class="string">    - Improve clarity, coherence, argument strength, transitions, and overall flow.</span></span><br><span class="line"><span class="string">    - Preserve the author’s intent and key ideas; do not change the topic.</span></span><br><span class="line"><span class="string">    - Keep length roughly similar (±15%) unless feedback suggests otherwise.</span></span><br><span class="line"><span class="string">    - Do not invent facts or citations. If evidence is requested but unavailable, strengthen reasoning and clarify limits.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Output requirement:</span></span><br><span class="line"><span class="string">    - Return ONLY the final revised essay. No preface, bullets, or meta commentary.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;original_draft&#125;</span></span></span><br><span class="line"><span class="string">    --- END ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;reflection&#125;</span></span></span><br><span class="line"><span class="string">    --- END REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line">essay_prompt = <span class="string">&quot;Should social media platforms be regulated by the government?&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 1 – Draft</span></span><br><span class="line">draft = generate_draft(essay_prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📝 Draft:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(draft)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 2 – Reflection</span></span><br><span class="line">feedback = reflect_on_draft(draft)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n🧠 Feedback:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(feedback)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 3 – Revision</span></span><br><span class="line">revised = revise_draft(draft, feedback)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n✍️ Revised:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(revised)  </span><br></pre></td></tr></table></figure>
+流程上，就是添加一个新的 agent 做 reflection，提供
+feedback，然后再写一次。 Reflection 在大多数任务上都能提升输出质量。对于
+reflection 带来的效果评估，这里给了两个例子：</p>
+<h2 id="evaluating-the-impact-of-reflection">Evaluating the impact of
+reflection</h2>
+<h3 id="主观评估图表生成">1. 主观评估（图表生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032109283.png" />
+最简单的方案就是之前提到的
+LLM-as-a-Judge：使用一个模型生成画图代码之后，用另一个模型来评价生成的图。但这并不准确：一方面有点像“garbage
+in, garbage
+out”，拿模型来评价模型；另一方面有研究表明模型会更偏好第一个选项（position
+bias）。因此可以在 LLM-as-a-Judge 场景下加入 rubric-based
+grading（基于评分量表的评估）。例如在评价生成的图表时，提示词可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Assess the attached image against this</span><br><span class="line">quality rubric. Each item should receive a</span><br><span class="line">score for 1 (true) or 0 (false). Return the scores</span><br><span class="line">for each item as a json object</span><br><span class="line">1. Has clear title</span><br><span class="line">2. Axis labels present</span><br><span class="line">3. Appropriate chart type</span><br><span class="line">4. Axes use appropriate numerical range</span><br><span class="line">5. …</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="客观评估sql-查询生成">2. 客观评估（SQL 查询生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032114633.png" />
+在这种情况下我们就可以根据真实数据来生成评价数据集了。因此可以Build a
+dataset of ground truth examples来作为评价。</p>
+<p>除此之外，能够用代码来评价的通常更容易。这就是接下来要讲的 Reflection
+with external feedback（结合外部反馈的反思）。</p>
+<h4 id="reflection-with-external-feedback">Reflection with external
+feedback</h4>
+<p>这一步通常在加入 reflection 之后做，它的效果曲线大致如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032134411.png" />
+拿 SQL 生成来举例子，大概的流程代码长这样：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_sql_workflow</span>(<span class="params"></span></span><br><span class="line"><span class="params">    db_path: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    question: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    model_generation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params">    model_evaluation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    End-to-end workflow to generate, execute, evaluate, and refine SQL queries.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Steps:</span></span><br><span class="line"><span class="string">      1) Extract database schema</span></span><br><span class="line"><span class="string">      2) Generate SQL (V1)</span></span><br><span class="line"><span class="string">      3) Execute V1 → show output</span></span><br><span class="line"><span class="string">      4) Reflect on V1 with execution feedback → propose refined SQL (V2)</span></span><br><span class="line"><span class="string">      5) Execute V2 → show final answer</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1) Schema</span></span><br><span class="line">    schema = utils.get_schema(db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        schema,</span><br><span class="line">        title=<span class="string">&quot;📘 Step 1 — Extract Database Schema&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2) Generate SQL (V1)</span></span><br><span class="line">    sql_v1 = generate_sql(question, schema, model_generation)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v1,</span><br><span class="line">        title=<span class="string">&quot;🧠 Step 2 — Generate SQL (V1)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3) Execute V1</span></span><br><span class="line">    df_v1 = utils.execute_sql(sql_v1, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v1,</span><br><span class="line">        title=<span class="string">&quot;🧪 Step 3 — Execute V1 (SQL Output)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4) Reflect on V1 with execution feedback → refine to V2</span></span><br><span class="line">    feedback, sql_v2 = refine_sql_external_feedback(</span><br><span class="line">        question=question,</span><br><span class="line">        sql_query=sql_v1,</span><br><span class="line">        df_feedback=df_v1,          <span class="comment"># external feedback: real output of V1</span></span><br><span class="line">        schema=schema,</span><br><span class="line">        model=model_evaluation,</span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        feedback,</span><br><span class="line">        title=<span class="string">&quot;🧭 Step 4 — Reflect on V1 (Feedback)&quot;</span></span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v2,</span><br><span class="line">        title=<span class="string">&quot;🔁 Step 4 — Refined SQL (V2)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5) Execute V2</span></span><br><span class="line">    df_v2 = utils.execute_sql(sql_v2, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v2,</span><br><span class="line">        title=<span class="string">&quot;✅ Step 5 — Execute V2 (Final Answer)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="tool-use">3 Tool Use</h1>
+<p>这一部分是我认为今年 Agentic AI 爆发的原因之一。MCP
+的出现极大地降低了为模型适配工具的难度。</p>
+<h2 id="what-are-tools">What are tools</h2>
+<p>LLM
+本质上只是一个文本生成模型，它并不具备直接调用工具的能力；其“调用工具”的能力完全来自于它能够输出一段可被执行环境识别的代码或指令。</p>
+<p>比如如果问LLM现在是几点，在学习这门课之前我想象中的流程一直是</p>
+<p>LLM收到请求-&gt;启动一个新的线程来调用<code>datetime.now().strftime("%H:%M:%S")</code>得到结果-&gt;主线程收到结果返回给我</p>
+<p>实际上是</p>
+<p>后端收到请求并转发给 LLM → LLM 输出可执行的代码或标记（例如
+<code>""" FUNCTION def get_current_time(): """</code>）→
+后端检测到结果里带有
+<code>FUNCTION</code>，将生成的内容传递给对应工具执行 →
+后端得到工具的返回结果并发回 LLM → LLM 生成新的最终结果返回给我。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032147035.png" /></p>
+<p>这也就解释了为啥工具调用能力是最近一年很多新的模型的训练方向，本质上是模型你能够按照你给的prompt的标准给出对应的格式的回答的能力。</p>
+<p>例如 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">You have access to a tool called</span><br><span class="line">get<span class="emphasis">_current_</span>time for a specific timezone.</span><br><span class="line">To use it, return the following exactly:</span><br><span class="line">FUNCTION:</span><br><span class="line">get<span class="emphasis">_current_</span>time(&quot;timezone&quot;)</span><br></pre></td></tr></table></figure> 模型的工具调用能力好坏完全取决于它能否精确地输出
+<code>FUNCTION:get_current_time("timezone")</code>
+这一行。也就是说，如果想让一个 Agentic AI
+有工具调用能力，模型必须具备以下两个方面的能力：</p>
+<ul>
+<li>Agentic AI 知道自己能够调用哪些工具：这与 Agentic AI
+的提示词（prompt）相关，必须在发送请求时明确告诉它有哪些工具可用。这也解释了我之前的两个疑惑：其一，为什么
+MCP 会占用 Claude Code 的 context
+window——因为这些工具说明必须包含在请求的上下文里；其二，为什么同样的模型在不同产品中的工具调用能力不同——为了降低成本，厂商最直接的办法是缩小
+context，一些工具相关的上下文可能会被丢弃。也因此，当我们明确告诉它使用某个工具时，它就更可能去调用，因为我们把该工具的描述显式放进了上下文。</li>
+<li>依样画葫芦的能力。这是模型本身的能力。这也与我的体感一致：去年很多模型（尤其是
+GPT）还无法完全按照提供的最新文档与编码规范来写代码，容易“胡编乱造”；而今年经过特调的模型在这方面有明显提升。这也解释了为什么
+Claude
+系列在写代码方面体验更好，这与模型的“智力”未必相关，而更多与其“听话程度”（遵循格式与指令的能力）相关。</li>
+</ul>
+<p>总结一下，要让模型知道他有这个工具，就必须得在prompt里面给他写出来。这就会有一些令人头痛的问题</p>
+<h2 id="tool-syntax">Tool syntax</h2>
+<p>就拿得到当前的时间来说，他实际的调用流程长这样 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_current_time</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the current time as a string&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> datetime.now().strftime(<span class="string">&quot;%H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">client = ai.Client()</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;openai:gpt-4o&quot;</span>,</span><br><span class="line">    messages=messages,</span><br><span class="line">    tools=[get_current_time],</span><br><span class="line">    max_turns=<span class="number">5</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+假设我的工具还有参数，那么调用就会变成</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tools = [&#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;function&quot;</span>,</span><br><span class="line">    <span class="string">&quot;function&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;get_current_time&quot;</span>,</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Returns current time for the given timezone.&quot;</span>,</span><br><span class="line">        <span class="string">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;timezone&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span>,</span><br><span class="line">                <span class="string">&quot;description&quot;</span>: <span class="string">&quot;The IANA time zone string, e.g., &#x27;America/New_York&#x27; or &#x27;Pacific/Auckland&#x27;.&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>如果参数越来越多、工具越来越多，那么这一段就会变得越来越长、越来越难以维护，因此大家用得比较多的有两个解决办法：</p>
+<h3 id="code-execution">Code execution</h3>
+<p>这是一个很有意思的办法，对于一些简单的工具，比如加减乘除，我们可以让LLM直接输出工具的代码，例如</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032156263.png" /></p>
+<p>在做这个的时候要注意，这些代码一定要在 sandbox 里运行，例如独立的
+Docker 容器，否则风险很大。</p>
+<p>实际上，我的体感是去年的 ChatGPT
+就在做这件事：当问题稍微复杂一些时，通过“思考”过程可以看到它是通过写
+Python 代码来执行的。他们内部显然也非常认同这个方向。这也是 Codex
+最早的思路——一个运行在云端的应用，生成代码并执行测试来产出
+PR，整体都运行在一个 sandbox 里；后来才仿照 Claude Code 出了 CLI
+版本。</p>
+<p>去年很流行的“智商检测”问题：“strawberry 里面有几个
+r？”现在也有很多模型是通过生成（或执行）代码来完成的。</p>
+<h3 id="mcp">MCP</h3>
+<p>MCP
+的概念在这里就不再多讲了，这里主要说它是怎么解决之前提到的问题的。</p>
+<p>在没有 MCP 的情况下：</p>
+<ul>
+<li><p>每个 App（如 Slack、GDrive、GitHub）都需要自己去接入多个 LLM
+工具或代理。</p></li>
+<li><p>假设有 m 个应用和 n 个工具，就需要 m × n
+条独立的集成通道。这会导致大量重复开发和维护成本。</p></li>
+</ul>
+<p>MCP（Model Context Protocol） 的核心思想是：所有 App 和 Tools
+都通过一个 共享的 MCP Server 进行通信。 也就是说： - 每个 App 只需要与
+MCP Server 对接一次（m 条连接）； - 每个 Tool 也只需要注册到 MCP Server
+一次（n 条连接）；</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">App1 ─┐</span><br><span class="line">App2 ─┼─&gt; Shared MCP Server &lt;─┬─ Tool1 (Slack)</span><br><span class="line">App3 ─┘                        ├─ Tool2 (GitHub)</span><br><span class="line">                               └─ Tool3 (GDrive)</span><br></pre></td></tr></table></figure>
+<p>MCP Server 负责： - 管理工具描述（JSON schema、metadata）； -
+接收来自不同 App 的请求； - 统一调度和调用相应的 Tool； -
+将结果返回给对应的 App 或 Agent。</p>
+<p>它的作用很像一个 Kong 这样的 API Gateway，或者 Backend for
+Frontend（BFF）。这显著减少了为 LLM 开发和适配工具所需的工作量。</p>
+<h1 id="practical-tips-for-building-agentic-ai">4 Practical Tips for
+Building Agentic AI</h1>
+<p>在开发Agentic
+AI的时候，不要陷入长时间的理论和架构讨论，最好的方法是</p>
+<ol type="1">
+<li>快速构建 MVP（quick and dirty to start）</li>
+<li>基于结果构建评估，构建一个小评估数据集，哪怕只有20个，根据评价结果来找出容易出错的环节来改进</li>
+<li>持续改进评估系统，随着Agent的迭代来优化</li>
+</ol>
+<h2 id="evaluations-evals">Evaluations (evals)</h2>
+<p>评价主要从两个维度来进行</p>
+<ul>
+<li>评估方法：使用代码来评估（Objective） vs LLM AS A
+Judge(Subjective)</li>
+<li>真实值可用性：有标准答案 vs 无标准答案</li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041254577.png" /></p>
+<ol type="1">
+<li>有真实值 +
+代码评估：最客观可靠。例如判断发票日期是否与预期一致，或者用正则表达式匹配格式和关键信息。</li>
+<li>有真实值 + LLM 评估：一般适用于 Deep Research 或总结类型（例如
+Notebook
+LLM）的任务。例如在生成研究综述时，好的研究报告就必须引用某些期刊与来源；在生成调研报告时，一般必须包含若干品牌；在生成学习笔记时，则必须包含几个关键字。</li>
+<li>无真实值+代码评估：通过简单的规则来进行基础校验，比如生成内容的长度。</li>
+<li>无真实值+LLM评估：非常主观灵活的评价标准，一般情况下不推荐作为best
+practice使用。</li>
+</ol>
+<h2 id="error-analysis-and-prioritizing-next-steps">Error Analysis and
+prioritizing next steps</h2>
+<p>在有了 eval
+之后，就可以通过分析执行的轨迹（trace），对比每一步的输出与预期结果，计算每一步的错误率，从而集中优化错误最多、影响最大的环节。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041331799.png" /></p>
+<p>例如，在一个客服系统中可能会有这三步</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041333477.png" /></p>
+<ol type="1">
+<li>生成 SQL 查询</li>
+<li>通过 SQL 去数据库查询数据</li>
+<li>将结果返回给顾客</li>
+</ol>
+<p>这时候就可以列一个表</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041334343.png" /></p>
+<p>运行一些例子，然后分析每一步的结果，来得出在哪一步出错最多。</p>
+<h2 id="component-level-evaluations">Component-level evaluations</h2>
+<p>除了端到端的整体评估，对单个组件进行评估同样很重要。这能让你更快速、精准地测试和优化特定模块，而无需从头到尾运行整个工作流。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041336067.png" /></p>
+<p>例如在一个research agent中，就可以单独对web
+research进行评估和优化。</p>
+<h2 id="优化组件的性能">优化组件的性能</h2>
+<p>一般来说，Agentic AI workflow 分为 LLM 组件和非 LLM 组件。</p>
+<p>当 LLM 组件是瓶颈时，可以从以下方面入手：</p>
+<ul>
+<li>Improve your prompts: Add more explicit instructions; add one or
+more concrete examples to the prompt (few-shot prompting)</li>
+<li>Try a new model: Try multiple LLMs and use evals to pick the
+best</li>
+<li>Split up the step: Decompose the task into smaller steps</li>
+<li>Fine-tune a model: Fine-tune on your internal data to improve
+performance</li>
+</ul>
+<p>当非 LLM 组件（例如 Web search、RAG
+的文本检索、代码执行、已训练的传统 ML
+模型等）是瓶颈时，可以从以下方面入手：</p>
+<ul>
+<li>Tune hyperparameters of component: Web search — number of results,
+date range; RAG — change similarity threshold, chunk size; ML models —
+detection threshold</li>
+<li>Replace the component: Try a different web search engine, RAG
+provider, etc.</li>
+</ul>
+<p>作为开发者，培养对模型的直觉很重要，需要了解每种模型适合什么任务，以及如何在性能、延迟和成本之间取得平衡。
+培养直觉的方法有：</p>
+<ul>
+<li>Play with models often
+<ul>
+<li>Having a personal set of evals might be helpful</li>
+<li>Read other people’s prompts for ideas of how to best use models</li>
+</ul></li>
+<li>Use different models in your agentic workflows
+<ul>
+<li>Which models work for which types of tasks?</li>
+<li>Use a framework/SDK or model provider that allows changing models
+easily.</li>
+</ul></li>
+</ul>
+<h2 id="latency-cost-optimization">Latency, cost optimization</h2>
+<p>延迟和成本固然重要，但是在初期不应该过度考虑，通常的策略是先提升准确率，确保Agent正常工作，再针对性优化延迟和成本。</p>
+<h1 id="patterns-for-highly-autonomous-agents">5 Patterns for highly
+autonomous agents</h1>
+<p>之前四节讲的是少量或半自主性的 Agentic AI，最后也简要讲了高自主性的
+Agentic AI 该如何设计。</p>
+<h2 id="planning-workflows">Planning workflows</h2>
+<p>在这种模式下，我们给 LLM 提供一系列可用的工具，并要求 LLM
+规划出完成任务的工具调用步骤，让系统按照这个计划进行。比如在之前提到的客服系统中。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041400422.png" /></p>
+<p>就可以让 Planning Agent 生成 JSON 格式的执行计划</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;plan&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Find round sunglasses&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_item_descriptions&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="string">&quot;round sunglasses&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Check available stock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;check_inventory&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="string">&quot;results from step 1&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    …</span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这样就方便我们后续把这个拆分作为每一步的Agent的输入。</p>
+<p>但是这样也会有问题，比如</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041424781.png" /></p>
+<p>我们提问：“Which month had the highest sales of hot
+chocolate?”（哪一个月的热巧克力销量最高？）</p>
+<p>Planning Workflow 将会是这样的： 1. 用 filter_rows
+工具筛选出一月的热巧克力数据。 2. 用 get_column_mean 求平均销量。 3.
+再筛选二月，再求平均；三月、四月……重复直到十二月。 4.
+最后比较这些平均值，找到最高的月份。</p>
+<p>这样就会有以下几个问题：</p>
+<ol type="1">
+<li><p>Brittle（脆弱）</p>
+<p>这种方法对输入结构依赖太强。如果 CSV 文件列名从 coffee_name 改成
+drink_name，或者日期格式稍有不同，整个流程就会出错。模型也可能忘记前几步的结果，比如「Step
+3 results」引用不到，稍有变化就会崩溃。</p></li>
+<li><p>Inefficient（低效）</p>
+<p>LLM 每执行一步都得重新生成下一步指令。要跑 12 个月，就得调用 12 次
+filter_rows + 12 次
+get_column_mean。每次调用之间还要等模型回应和上下文传递，速度很慢且算力浪费。</p></li>
+<li><p>Continuously dealing with edge cases（不断处理边缘情况）</p>
+<p>每次数据有点不同就得写补丁，开发者永远在修“特殊情况”，而不是改进算法：</p>
+<ul>
+<li>有的月份没有热巧克力 → 代码报错，要加判断。</li>
+<li>数据缺失或格式不对 → 要加异常处理。</li>
+<li>有时列顺序不一样、文件名不同 → 又得改逻辑。</li>
+</ul></li>
+</ol>
+<p>所以更好的方案是 Planning with code execution</p>
+<h2 id="planning-with-code-execution">Planning with code execution</h2>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041427014.png" /></p>
+<p>直接让系统生成代码，而不是JSON格式的步骤，相对来说就更加灵活</p>
+<h2
+id="multi-agentic-workflows-communication-patterns-for-multi-agent-systems">Multi-agentic
+workflows &amp; Communication patterns for multi-agent systems</h2>
+<p>最后这里课程只是简单的讲了一下，当任务过于复杂时，可以由多个专门的智能体一起完成，常见的模式有</p>
+<ol type="1">
+<li>串行智能体：像流水线一样工作，前一个 Agent 的输出是后一个 Agent
+的输入。</li>
+<li>分层智能体：一个主管智能体充当
+manager，负责分解与分配子任务，并进行结果汇总与整合。</li>
+</ol>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041434016.png" /></p>
+<h1 id="总结">总结</h1>
+<p>这门课可以作为一个很好的新手入门大纲，帮助了解 Agent
+开发。基本上只要稍微懂一些 Python 和 Jupyter
+Notebook，以及提示词工程，就可以理解并完成课程，不涉及太多代码。</p>
+<p>最有用的部分就是Reflection和Tool Use。</p>
+<p>接下来回答两个问题：</p>
+<ol type="1">
+<li>为什么Claude Code是目前最成功的Agentic类产品？</li>
+</ol>
+<ul>
+<li>产品只涉及代码生成，有明确且可量化的评价体系，例如测试和
+Lint。这也是我认为为什么现在 Agentic Coding 产品这么多的最大原因：eval
+是开发过程中最重要也最困难的部分，而“写代码”的评估相对其他场景（例如
+Deep Research）更容易做成客观评价。</li>
+<li>MCP。MCP 极大地增强了 Claude Code
+通过调用工具获取外部信息并获得外部反馈的能力。</li>
+<li>模型“听话”，依样画葫芦的能力很强。</li>
+<li>Context and Prompt Management：Claude Code
+的开发者显然意识到哪些内容对写代码最重要，因此在设计阶段就预先定义了固定的上下文。
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041443224.png" /></li>
+</ul>
+<ol type="1">
+<li>下一个最成功的Agentic类产品会是什么？</li>
+</ol>
+<p>我认为会是浏览器。ChatGPT Atlas
+目前已经发布，我的体验是它做得很成功。</p>
+<ul>
+<li>浏览器在执行操作时能够很好地避免很多安全问题，例如个人账号的登录，这些都可以由用户本人在本地完成与存储。这在此前各类产品的
+Agent 模式（例如 Manus 和
+ChatGPT）中是很大的痛点。之前它们的模式有点像“云原神”：在远端服务器上开启一个虚拟机，由你的语言指令让
+AI
+在虚拟机上操作浏览器与操作系统；这种情况下多窗口跳转等操作体验较差（亲身体验）。而多数用户真正需要的是让
+AI
+操作自己的浏览器和系统，由自己完成登录、付款等关键环节，把重复性操作交给
+Agent。这有点像最初的 Codex 与 Codex CLI/Claude Code 的区别。</li>
+<li>浏览器场景下的 Agentic
+产品，评价体系相对清晰。例如自动化表单填写、信息抽取、网页导航等任务，都可以通过结果准确率、完成效率等客观指标进行评估，便于持续优化和迭代。</li>
+<li>MCP 等协议的普及，尤其是 Playwright MCP 极大降低了 Agent
+与浏览器之间的集成门槛，让模型能够像调用 API
+一样灵活地操作网页、抓取数据、完成复杂任务。只要模型能够精确地输出调用指令，就能实现高度自动化的浏览体验。</li>
+<li>浏览器天然具备极强的工具属性，是信息获取、任务执行和外部世界交互的核心入口，并具备很强的可扩展性与生态潜力。一旦
+Agentic 浏览器产品成熟，就会像互联网时代的 Google
+一样，成为新的流量入口。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Work Note</category>
+      </categories>
+      <tags>
+        <tag>Software Engineering</tag>
+        <tag>Agentic AI</tag>
+        <tag>Large Language Model</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>assert</title>
     <url>/posts/b1ef4fab.html</url>
     <content><![CDATA[<p>最近在读别人代码的时候发现了好多自己当时学python的时候没有学过的东西</p>
@@ -11722,6 +12893,49 @@ VARIABLES</h2>
       </tags>
   </entry>
   <entry>
+    <title>lfs</title>
+    <url>/posts/442707f1.html</url>
+    <content><![CDATA[<p>Github大文件</p>
+<span id="more"></span>
+<p>最近在搞的时候经常碰见</p>
+<p>fatal: sha1 file ‘<stdout>’ write error: Broken pipe</p>
+<p>这样的错误</p>
+<p>其实原因就是因为github只支持最大一个100mb，平时写代码够用了，但是如果有那么几张hdf或者nc啥的就不行了。</p>
+<p>装好lfshttps://git-lfs.github.com/之后用命令行(pycharm好像用不了)就可以了。</p>
+<p>其实最好的办法就是把数据文件分开存储，但是我中间一次commit把文件也跟加上了，再换路径也会被push过去。</p>
+<p>就只好先传上去转移路径 然后commit push</p>
+<p>而且lfs也是有限制的 只能传1g，剩下的就要付费。就还真的挺麻烦的。</p>
+<p>目前没找到更好的办法。</p>
+<h2 id="bfg-repo-cleaner"><span class="exturl" data-url="aHR0cHM6Ly9ydHlsZXkuZ2l0aHViLmlvL2JmZy1yZXBvLWNsZWFuZXIv">BFG
+Repo-Cleaner<i class="fa fa-external-link-alt"></i></span></h2>
+<p>更好的办法说来就来了</p>
+<p>是在<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjEwMDkwNy9ob3ctdG8tcmVtb3ZlLWRlbGV0ZS1hLWxhcmdlLWZpbGUtZnJvbS1jb21taXQtaGlzdG9yeS1pbi10aGUtZ2l0LXJlcG9zaXRvcnk=">这个页面<i class="fa fa-external-link-alt"></i></span>找到的。</p>
+<p>如果你已经把一部分文件上传到gayhub了，可以下载bfg。</p>
+<p>然后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --mirror git://example.com/some-big-repo.git</span><br><span class="line">$ java -jar bfg.jar --strip-blobs-bigger-than 100M my-repo.git</span><br><span class="line">$ git gc --prune=now --aggressive</span><br></pre></td></tr></table></figure>
+<p>搞定</p>
+<p>需要注意的是这个方法需要有jre</p>
+<p>##　git-filter-branch</p>
+<p>但是上面那个办法对我来讲是一个死循环</p>
+<p>因为文件太大，没法push到gayhub</p>
+<p>所以就没办法clone那个mirror再clean commit</p>
+<p>另一个办法是</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git filter-branch -f --index-filter <span class="string">&quot;git rm -rf --cached --ignore-unmatch *.HDF&quot;</span> -- --all</span><br></pre></td></tr></table></figure>
+<p>像我 我知道大文件都是hdf，直接用通配符就行</p>
+<p>然后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">rm</span> -rf .git/refs/original/</span><br><span class="line">$ git reflog expire --expire=now --all</span><br><span class="line">$ git gc --prune=now</span><br><span class="line">$ git gc --aggressive --prune=now</span><br></pre></td></tr></table></figure>
+<p>最后把他们全部push过去</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push --all --force</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Some Usefull python function</title>
     <url>/posts/d39dff82.html</url>
     <content><![CDATA[<h1 id="python-lambda">Python Lambda</h1>
@@ -11778,49 +12992,6 @@ VARIABLES</h2>
       </categories>
       <tags>
         <tag>Research</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>lfs</title>
-    <url>/posts/442707f1.html</url>
-    <content><![CDATA[<p>Github大文件</p>
-<span id="more"></span>
-<p>最近在搞的时候经常碰见</p>
-<p>fatal: sha1 file ‘<stdout>’ write error: Broken pipe</p>
-<p>这样的错误</p>
-<p>其实原因就是因为github只支持最大一个100mb，平时写代码够用了，但是如果有那么几张hdf或者nc啥的就不行了。</p>
-<p>装好lfshttps://git-lfs.github.com/之后用命令行(pycharm好像用不了)就可以了。</p>
-<p>其实最好的办法就是把数据文件分开存储，但是我中间一次commit把文件也跟加上了，再换路径也会被push过去。</p>
-<p>就只好先传上去转移路径 然后commit push</p>
-<p>而且lfs也是有限制的 只能传1g，剩下的就要付费。就还真的挺麻烦的。</p>
-<p>目前没找到更好的办法。</p>
-<h2 id="bfg-repo-cleaner"><span class="exturl" data-url="aHR0cHM6Ly9ydHlsZXkuZ2l0aHViLmlvL2JmZy1yZXBvLWNsZWFuZXIv">BFG
-Repo-Cleaner<i class="fa fa-external-link-alt"></i></span></h2>
-<p>更好的办法说来就来了</p>
-<p>是在<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjEwMDkwNy9ob3ctdG8tcmVtb3ZlLWRlbGV0ZS1hLWxhcmdlLWZpbGUtZnJvbS1jb21taXQtaGlzdG9yeS1pbi10aGUtZ2l0LXJlcG9zaXRvcnk=">这个页面<i class="fa fa-external-link-alt"></i></span>找到的。</p>
-<p>如果你已经把一部分文件上传到gayhub了，可以下载bfg。</p>
-<p>然后</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --mirror git://example.com/some-big-repo.git</span><br><span class="line">$ java -jar bfg.jar --strip-blobs-bigger-than 100M my-repo.git</span><br><span class="line">$ git gc --prune=now --aggressive</span><br></pre></td></tr></table></figure>
-<p>搞定</p>
-<p>需要注意的是这个方法需要有jre</p>
-<p>##　git-filter-branch</p>
-<p>但是上面那个办法对我来讲是一个死循环</p>
-<p>因为文件太大，没法push到gayhub</p>
-<p>所以就没办法clone那个mirror再clean commit</p>
-<p>另一个办法是</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git filter-branch -f --index-filter <span class="string">&quot;git rm -rf --cached --ignore-unmatch *.HDF&quot;</span> -- --all</span><br></pre></td></tr></table></figure>
-<p>像我 我知道大文件都是hdf，直接用通配符就行</p>
-<p>然后</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">rm</span> -rf .git/refs/original/</span><br><span class="line">$ git reflog expire --expire=now --all</span><br><span class="line">$ git gc --prune=now</span><br><span class="line">$ git gc --aggressive --prune=now</span><br></pre></td></tr></table></figure>
-<p>最后把他们全部push过去</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git push --all --force</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
         <tag>python</tag>
       </tags>
   </entry>

@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2025-10-07T17:14:18.035Z</updated>
+  <updated>2025-11-04T07:36:54.646Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,11 +17,162 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Agentic AI 学習記録</title>
+    <link href="https://lifeodyssey.github.io/posts/34c938fb.html"/>
+    <id>https://lifeodyssey.github.io/posts/34c938fb.html</id>
+    <published>2025-11-02T11:22:56.000Z</published>
+    <updated>2025-11-04T07:36:54.646Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近、DeepLearning.AI の &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic AI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+を学習し、&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==&quot;&gt;証明書&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+を取得した。学習時間は合計で約 6 時間。内容は Agentic AI
+の基本概念と応用の紹介が中心で、講座の質は高い。ただし入門向けなので、数学や実装コードは多くない。&lt;/p&gt;
+&lt;p&gt;振り返ると、Andrew Ng の講座を前回受けたのは 2016〜2017 年、Coursera
+の Machine Learning だった。もう約 9 年前。時が経つのは早い。&lt;/p&gt;
+&lt;p&gt;以下では本講座の要点をまとめ、次の問いに答える：2025 年 11 月 2
+日現在、なぜ Claude Code は最も成功した Agentic 系製品なのか。&lt;/p&gt;
+&lt;p&gt;なお、講座の実装は &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl&quot;&gt;AI
+Suite&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; を用いており、現在よく使われる LangGraph や OpenAI Agent SDK
+とは少し異なる。そのため本ノートでは実装の細部にはあまり踏み込まない。&lt;/p&gt;
+&lt;h1 id=&quot;agentic-workflows-の導入&quot;&gt;1 Agentic Workflows の導入&lt;/h1&gt;
+&lt;p&gt;ここでいう Agentic AI は、実際には Agentic AI workflow
+を指す。定義は「LLM
+を用いたアプリが、課題を完了するために複数の手順を実行する過程」。Non-agentic
+workflow が単発の呼び出しで流れを持たないのに対し、Agentic workflow
+は「流れ・記憶・feedback」を備え、より複雑な状況に適応できる。&lt;/p&gt;
+&lt;p&gt;例えば文章作成なら、Agentic AI workflow
+は課題の自動分解・計画・複数手順の実行・他の tool
+の呼び出しなどを行い、単発の出力では終わらない。 &lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Agentic AI workflow
+は高い自律性を持たせることもできる。実行中に手順分解や使用する tool
+の選択、さらには自分で code
+を書いて完了することもある。一方、低自律にして、手順や使用 tool
+をあらかじめ固定し、文章や画像生成など一部のみを自律にする設計も可能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Agentic AI の利点は次のとおり。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Work Note" scheme="https://lifeodyssey.github.io/categories/Work-Note/"/>
+    
+    
+    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
+    
+    <category term="Agentic AI" scheme="https://lifeodyssey.github.io/tags/Agentic-AI/"/>
+    
+    <category term="Large Language Model" scheme="https://lifeodyssey.github.io/tags/Large-Language-Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Agentic AI Learning Note</title>
+    <link href="https://lifeodyssey.github.io/posts/c4b27adb.html"/>
+    <id>https://lifeodyssey.github.io/posts/c4b27adb.html</id>
+    <published>2025-11-02T11:22:56.000Z</published>
+    <updated>2025-11-04T07:36:54.646Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;I recently spent some time taking DeepLearning.AI’s &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic AI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+course and earned the &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==&quot;&gt;certificate&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;.
+It took around six hours. The content focuses on core concepts and
+applications of Agentic AI; the course quality is high, but as an intro
+it stays fairly light and doesn’t dive much into math or implementation
+details.&lt;/p&gt;
+&lt;p&gt;Thinking back, the last time I took an Andrew Ng course was in 2016
+or 2017—his Machine Learning on Coursera. Nearly nine years ago; time
+flies.&lt;/p&gt;
+&lt;p&gt;Next I’ll summarize the core ideas from the course and answer one
+question: Why, as of Nov 2, 2025, is Claude Code the most successful
+agentic product?&lt;/p&gt;
+&lt;p&gt;Note that the course uses &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl&quot;&gt;AI Suite&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; for hands-on
+implementation, which differs from commonly used stacks like LangGraph
+and OpenAI Agent SDK. So these notes won’t go deep into code
+implementation details.&lt;/p&gt;
+&lt;h1 id=&quot;introduction-to-agentic-workflows&quot;&gt;1 Introduction to Agentic
+Workflows&lt;/h1&gt;
+&lt;p&gt;In this course, “Agentic AI” really means agentic AI workflows,
+defined as: An agentic AI workflow is a process where an LLM-based app
+executes multiple steps to complete a task. Compared with non-agentic
+workflows (a single call, no process), agentic workflows have process,
+memory, and feedback, and can adapt to more complex scenarios.&lt;/p&gt;
+&lt;p&gt;For example, in writing an article, an agentic workflow will
+automatically decompose and plan, execute multi-step tasks, call other
+tools, etc., instead of just producing a one-shot output. &lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Agentic workflows can be highly autonomous—for instance, during
+execution they can decide how to break down the task, which tools to
+call, and even write code—or they can be low-autonomy, with predefined
+steps and tools, where only certain steps like text or image generation
+are somewhat autonomous.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Key advantages of Agentic AI:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Work Note" scheme="https://lifeodyssey.github.io/categories/Work-Note/"/>
+    
+    
+    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
+    
+    <category term="Agentic AI" scheme="https://lifeodyssey.github.io/tags/Agentic-AI/"/>
+    
+    <category term="Large Language Model" scheme="https://lifeodyssey.github.io/tags/Large-Language-Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Agentic AI Learning Note</title>
+    <link href="https://lifeodyssey.github.io/posts/c4b27adb.html"/>
+    <id>https://lifeodyssey.github.io/posts/c4b27adb.html</id>
+    <published>2025-11-02T11:22:56.000Z</published>
+    <updated>2025-11-04T07:36:54.646Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近花了一些时间学习DeepLearning.AI的&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic
+AI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;，并且拿到了&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==&quot;&gt;证书&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;。一共花了六个小时左右。内容偏向于介绍Agentic
+AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。&lt;/p&gt;
+&lt;p&gt;回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在
+Coursera 上学他的 Machine
+Learning。已经将近九年前的事了，时间飞逝啊。&lt;/p&gt;
+&lt;p&gt;接下来我将总结这门课的核心内容，并回答一个问题：为什么截至 2025 年 11
+月 2 日，Claude Code 是最成功的 Agentic 类产品？&lt;/p&gt;
+&lt;p&gt;注意到这门课使用的是&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl&quot;&gt;AI
+Suite&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;来做具体的实现，这与现在大家使用较多的 LangGraph、OpenAI Agent
+SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。&lt;/p&gt;
+&lt;h1 id=&quot;introduction-to-agentic-workflows&quot;&gt;1 Introduction to Agentic
+Workflows&lt;/h1&gt;
+&lt;p&gt;这门课里讲的Agentic AI，实际上讲的是Agentic AI workflows，定义为An
+agentic AI workflow is a process where an LLM-based app executes
+multiple steps to complete a task. 相比于Non-agentic
+workflow只需一次调用，不涉及流程。而Agentic
+workflow则是“有流程、有记忆、有反馈”的智能体系统，能适应更复杂的场景。&lt;/p&gt;
+&lt;p&gt;比如以写文章为例子，Agentic AI
+workflow生成文章的流程包括自动分解、规划、执行多步任务，调用其他工具等等，而不是只做一次性输出。
+&lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Agentic AI
+workflow可以是高度自主的，比如在执行过程中自己来思考要把任务分为哪几步，调用什么工具，甚至是自行编写代码来完成任务，也可以是低自主的，预先规定好步骤和要调用的工具的，只有在类似于文本和图片生成的步骤才有一定的自主性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Agentic AI 的优势主要有以下几点：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Work Note" scheme="https://lifeodyssey.github.io/categories/Work-Note/"/>
+    
+    
+    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
+    
+    <category term="Agentic AI" scheme="https://lifeodyssey.github.io/tags/Agentic-AI/"/>
+    
+    <category term="Large Language Model" scheme="https://lifeodyssey.github.io/tags/Large-Language-Model/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Agent coding experience and future</title>
     <link href="https://lifeodyssey.github.io/posts/6d590b83.html"/>
     <id>https://lifeodyssey.github.io/posts/6d590b83.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2025-10-07T17:14:18.035Z</updated>
+    <updated>2025-11-04T07:36:54.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文写于2025年6月28日，AI时代的日新月异导致哪怕隔了一天，本文中所写的事实与我的态度都有可能发生极大的变化，请以最新情况为准。&lt;/p&gt;</summary>
@@ -40,7 +191,7 @@
     <link href="https://lifeodyssey.github.io/posts/cb8288cd.html"/>
     <id>https://lifeodyssey.github.io/posts/cb8288cd.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2025-10-07T17:14:18.035Z</updated>
+    <updated>2025-11-04T07:36:54.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article was written on June 28, 2025. Due to the rapid changes
@@ -62,7 +213,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/ad479b93.html"/>
     <id>https://lifeodyssey.github.io/posts/ad479b93.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2025-10-07T17:14:18.035Z</updated>
+    <updated>2025-11-04T07:36:54.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;この記事は2025年6月28日に書かれました。AI時代の日進月歩により、一日経っただけでも、本記事に書かれた事実と私の態度が大きく変化する可能性があります。最新の状況を参考にしてください。&lt;/p&gt;</summary>
@@ -81,7 +232,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/ca51402d.html"/>
     <id>https://lifeodyssey.github.io/posts/ca51402d.html</id>
     <published>2025-03-13T11:22:56.000Z</published>
-    <updated>2025-10-07T17:14:17.888Z</updated>
+    <updated>2025-11-04T07:36:54.507Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在设置AWS Inspector的时候发现的一个神奇循环。&lt;/p&gt;
@@ -105,7 +256,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/aec625cb.html"/>
     <id>https://lifeodyssey.github.io/posts/aec625cb.html</id>
     <published>2024-09-14T11:22:56.000Z</published>
-    <updated>2025-10-07T17:14:18.024Z</updated>
+    <updated>2025-11-04T07:36:54.635Z</updated>
     
     
     <summary type="html">&lt;p&gt;Let’s compare in two way, Algorithm and system design.&lt;/p&gt;
@@ -127,7 +278,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/49e48baa.html"/>
     <id>https://lifeodyssey.github.io/posts/49e48baa.html</id>
     <published>2024-07-20T07:59:56.000Z</published>
-    <updated>2025-10-07T17:14:18.042Z</updated>
+    <updated>2025-11-04T07:36:54.654Z</updated>
     
     
     <summary type="html">&lt;p&gt;为了解决在国内使用claude的问题，进行了一番研究&lt;/p&gt;</summary>
@@ -146,7 +297,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/789fd60c.html"/>
     <id>https://lifeodyssey.github.io/posts/789fd60c.html</id>
     <published>2024-06-19T14:34:45.000Z</published>
-    <updated>2025-10-07T17:14:18.027Z</updated>
+    <updated>2025-11-04T07:36:54.638Z</updated>
     
     
     <summary type="html">&lt;p&gt;In the past, I found it quite hard to understand React code as a
@@ -170,7 +321,7 @@ development work, and I want to share them with you.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/5ffd7c75.html"/>
     <id>https://lifeodyssey.github.io/posts/5ffd7c75.html</id>
     <published>2024-06-15T14:34:45.000Z</published>
-    <updated>2025-10-07T17:14:18.017Z</updated>
+    <updated>2025-11-04T07:36:54.628Z</updated>
     
     
     <summary type="html">&lt;p&gt;I would like to summarize some of the basic principles and habits of
@@ -198,7 +349,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/6ef15720.html"/>
     <id>https://lifeodyssey.github.io/posts/6ef15720.html</id>
     <published>2024-03-03T10:34:45.000Z</published>
-    <updated>2025-10-07T17:14:18.043Z</updated>
+    <updated>2025-11-04T07:36:54.654Z</updated>
     
     
     <summary type="html">&lt;p&gt;总感觉每一年的春天才是新的一年的开始。&lt;/p&gt;</summary>
@@ -217,7 +368,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8c33e681.html"/>
     <id>https://lifeodyssey.github.io/posts/8c33e681.html</id>
     <published>2024-02-09T08:36:49.000Z</published>
-    <updated>2025-10-07T17:14:18.041Z</updated>
+    <updated>2025-11-04T07:36:54.652Z</updated>
     
     
     <summary type="html">&lt;p&gt;谢谢大家！！！！&lt;/p&gt;
@@ -240,7 +391,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b30efee3.html"/>
     <id>https://lifeodyssey.github.io/posts/b30efee3.html</id>
     <published>2023-08-27T10:03:54.000Z</published>
-    <updated>2025-10-07T17:14:18.043Z</updated>
+    <updated>2025-11-04T07:36:54.654Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前总结的东西 放一下出来 一直记不住的东西之一&lt;/p&gt;</summary>
@@ -259,7 +410,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/a41520c0.html"/>
     <id>https://lifeodyssey.github.io/posts/a41520c0.html</id>
     <published>2023-08-20T17:37:35.000Z</published>
-    <updated>2025-10-07T17:14:18.039Z</updated>
+    <updated>2025-11-04T07:36:54.651Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -289,7 +440,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b25cb4c7.html"/>
     <id>https://lifeodyssey.github.io/posts/b25cb4c7.html</id>
     <published>2023-01-08T13:37:35.000Z</published>
-    <updated>2025-10-07T17:14:18.039Z</updated>
+    <updated>2025-11-04T07:36:54.651Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -316,7 +467,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8bf3d056.html"/>
     <id>https://lifeodyssey.github.io/posts/8bf3d056.html</id>
     <published>2022-12-03T13:37:35.000Z</published>
-    <updated>2025-10-07T17:14:18.039Z</updated>
+    <updated>2025-11-04T07:36:54.651Z</updated>
     
     
     <summary type="html">&lt;p&gt;这个bug卡了我好久了</summary>
@@ -335,7 +486,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8cacdaad.html"/>
     <id>https://lifeodyssey.github.io/posts/8cacdaad.html</id>
     <published>2022-09-20T13:37:35.000Z</published>
-    <updated>2025-10-07T17:14:18.039Z</updated>
+    <updated>2025-11-04T07:36:54.651Z</updated>
     
     
     <summary type="html">&lt;p&gt;日子过的真的好快啊，又忍不住来写点东西&lt;/p&gt;</summary>
@@ -354,7 +505,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/f36cc8b7.html"/>
     <id>https://lifeodyssey.github.io/posts/f36cc8b7.html</id>
     <published>2022-07-23T15:36:22.000Z</published>
-    <updated>2025-10-07T17:14:18.029Z</updated>
+    <updated>2025-11-04T07:36:54.640Z</updated>
     
     
     <summary type="html">&lt;p&gt;这一篇的后续https://lifeodyssey.github.io/posts/b58cbef5.html
@@ -379,7 +530,7 @@ Management (PKM) -
     <link href="https://lifeodyssey.github.io/posts/73362798.html"/>
     <id>https://lifeodyssey.github.io/posts/73362798.html</id>
     <published>2022-07-22T14:56:18.000Z</published>
-    <updated>2025-10-07T17:14:18.037Z</updated>
+    <updated>2025-11-04T07:36:54.648Z</updated>
     
     
     <summary type="html">&lt;p&gt;公司用的是Kotlin，这次用的是公开资料，就可以不加密了hhh
@@ -393,79 +544,6 @@ https://panxl6.gitbooks.io/kotlin-in-action-in-chinese/content/introduction.html
     
     
     <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TDD</title>
-    <link href="https://lifeodyssey.github.io/posts/715050f6.html"/>
-    <id>https://lifeodyssey.github.io/posts/715050f6.html</id>
-    <published>2022-07-18T08:22:18.000Z</published>
-    <updated>2025-10-07T17:14:18.033Z</updated>
-    
-    
-    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派nas-nextcloudpi</title>
-    <link href="https://lifeodyssey.github.io/posts/d7f3beca.html"/>
-    <id>https://lifeodyssey.github.io/posts/d7f3beca.html</id>
-    <published>2022-07-02T07:15:14.000Z</published>
-    <updated>2025-10-07T17:14:18.043Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今年年初就买了树莓派，本来想拿他做一个自动摄影分析的东西，分析一下天气来跑深度学习，但是一直很忙没开机。目前看来对我来说做NAS的需求更强烈，所以就拿来做NAS了。&lt;/p&gt;
-&lt;p&gt;我对于树莓派应该会有以下的几个需求&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;NAS 用来存放相机和手机的照片，方便P图整理备份&lt;/li&gt;
-&lt;li&gt;自动下载电影和番剧&lt;/li&gt;
-&lt;li&gt;电子图书馆&lt;/li&gt;
-&lt;li&gt;homekit&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这里先写第一个，希望能赶紧解决吧哈哈&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="自己动手" scheme="https://lifeodyssey.github.io/categories/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B/"/>
-    
-    
-    <category term="树莓派" scheme="https://lifeodyssey.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-    <category term="NAS" scheme="https://lifeodyssey.github.io/tags/NAS/"/>
-    
-    <category term="摄影处理" scheme="https://lifeodyssey.github.io/tags/%E6%91%84%E5%BD%B1%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>秋招&amp;春招进程记录及经验总结</title>
-    <link href="https://lifeodyssey.github.io/posts/2cb8508a.html"/>
-    <id>https://lifeodyssey.github.io/posts/2cb8508a.html</id>
-    <published>2022-07-01T00:13:10.000Z</published>
-    <updated>2025-10-07T17:14:18.045Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;8.2号就答辩了。&lt;/p&gt;
-&lt;p&gt;这几天都是睡在实验室里，也许答辩完或者写完最后的论文会再整理一点东西写出来吧。&lt;/p&gt;
-&lt;p&gt;忽然想起来，自己这个博客一开始也只想纯写技术型的东西，后来就慢慢地不得不加入了很多个人生活的东西。因为自己很难有别的地方去抒发这么长篇大论的感受。&lt;/p&gt;
-&lt;p&gt;2022.1.28解封，总结并且做一下春招的计划&lt;/p&gt;
-&lt;p&gt;2022.7.1加入春招和经验总结&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="成为社畜的路上" scheme="https://lifeodyssey.github.io/categories/%E6%88%90%E4%B8%BA%E7%A4%BE%E7%95%9C%E7%9A%84%E8%B7%AF%E4%B8%8A/"/>
-    
-    
-    <category term="日常记录" scheme="https://lifeodyssey.github.io/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   

@@ -179,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">165</span>
+          <span class="site-state-item-count">168</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -190,7 +190,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">97</span>
+        <span class="site-state-item-count">99</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -227,6 +227,388 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/34c938fb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/34c938fb.html" class="post-title-link" itemprop="url">Agentic AI 学習記録</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>21 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近、DeepLearning.AI の <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
+を学習し、<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">証明書<i class="fa fa-external-link-alt"></i></span>
+を取得した。学習時間は合計で約 6 時間。内容は Agentic AI
+の基本概念と応用の紹介が中心で、講座の質は高い。ただし入門向けなので、数学や実装コードは多くない。</p>
+<p>振り返ると、Andrew Ng の講座を前回受けたのは 2016〜2017 年、Coursera
+の Machine Learning だった。もう約 9 年前。時が経つのは早い。</p>
+<p>以下では本講座の要点をまとめ、次の問いに答える：2025 年 11 月 2
+日現在、なぜ Claude Code は最も成功した Agentic 系製品なのか。</p>
+<p>なお、講座の実装は <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span> を用いており、現在よく使われる LangGraph や OpenAI Agent SDK
+とは少し異なる。そのため本ノートでは実装の細部にはあまり踏み込まない。</p>
+<h1 id="agentic-workflows-の導入">1 Agentic Workflows の導入</h1>
+<p>ここでいう Agentic AI は、実際には Agentic AI workflow
+を指す。定義は「LLM
+を用いたアプリが、課題を完了するために複数の手順を実行する過程」。Non-agentic
+workflow が単発の呼び出しで流れを持たないのに対し、Agentic workflow
+は「流れ・記憶・feedback」を備え、より複雑な状況に適応できる。</p>
+<p>例えば文章作成なら、Agentic AI workflow
+は課題の自動分解・計画・複数手順の実行・他の tool
+の呼び出しなどを行い、単発の出力では終わらない。 <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
+<p>Agentic AI workflow
+は高い自律性を持たせることもできる。実行中に手順分解や使用する tool
+の選択、さらには自分で code
+を書いて完了することもある。一方、低自律にして、手順や使用 tool
+をあらかじめ固定し、文章や画像生成など一部のみを自律にする設計も可能。</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
+<p>Agentic AI の利点は次のとおり。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/34c938fb.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/c4b27adb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/c4b27adb.html" class="post-title-link" itemprop="url">Agentic AI Learning Note</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>I recently spent some time taking DeepLearning.AI’s <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
+course and earned the <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">certificate<i class="fa fa-external-link-alt"></i></span>.
+It took around six hours. The content focuses on core concepts and
+applications of Agentic AI; the course quality is high, but as an intro
+it stays fairly light and doesn’t dive much into math or implementation
+details.</p>
+<p>Thinking back, the last time I took an Andrew Ng course was in 2016
+or 2017—his Machine Learning on Coursera. Nearly nine years ago; time
+flies.</p>
+<p>Next I’ll summarize the core ideas from the course and answer one
+question: Why, as of Nov 2, 2025, is Claude Code the most successful
+agentic product?</p>
+<p>Note that the course uses <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI Suite<i class="fa fa-external-link-alt"></i></span> for hands-on
+implementation, which differs from commonly used stacks like LangGraph
+and OpenAI Agent SDK. So these notes won’t go deep into code
+implementation details.</p>
+<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
+Workflows</h1>
+<p>In this course, “Agentic AI” really means agentic AI workflows,
+defined as: An agentic AI workflow is a process where an LLM-based app
+executes multiple steps to complete a task. Compared with non-agentic
+workflows (a single call, no process), agentic workflows have process,
+memory, and feedback, and can adapt to more complex scenarios.</p>
+<p>For example, in writing an article, an agentic workflow will
+automatically decompose and plan, execute multi-step tasks, call other
+tools, etc., instead of just producing a one-shot output. <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
+<p>Agentic workflows can be highly autonomous—for instance, during
+execution they can decide how to break down the task, which tools to
+call, and even write code—or they can be low-autonomy, with predefined
+steps and tools, where only certain steps like text or image generation
+are somewhat autonomous.</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
+<p>Key advantages of Agentic AI:</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c4b27adb.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/c4b27adb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/c4b27adb.html" class="post-title-link" itemprop="url">Agentic AI Learning Note</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>21 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近花了一些时间学习DeepLearning.AI的<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic
+AI<i class="fa fa-external-link-alt"></i></span>，并且拿到了<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">证书<i class="fa fa-external-link-alt"></i></span>。一共花了六个小时左右。内容偏向于介绍Agentic
+AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。</p>
+<p>回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在
+Coursera 上学他的 Machine
+Learning。已经将近九年前的事了，时间飞逝啊。</p>
+<p>接下来我将总结这门课的核心内容，并回答一个问题：为什么截至 2025 年 11
+月 2 日，Claude Code 是最成功的 Agentic 类产品？</p>
+<p>注意到这门课使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span>来做具体的实现，这与现在大家使用较多的 LangGraph、OpenAI Agent
+SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。</p>
+<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
+Workflows</h1>
+<p>这门课里讲的Agentic AI，实际上讲的是Agentic AI workflows，定义为An
+agentic AI workflow is a process where an LLM-based app executes
+multiple steps to complete a task. 相比于Non-agentic
+workflow只需一次调用，不涉及流程。而Agentic
+workflow则是“有流程、有记忆、有反馈”的智能体系统，能适应更复杂的场景。</p>
+<p>比如以写文章为例子，Agentic AI
+workflow生成文章的流程包括自动分解、规划、执行多步任务，调用其他工具等等，而不是只做一次性输出。
+<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
+<p>Agentic AI
+workflow可以是高度自主的，比如在执行过程中自己来思考要把任务分为哪几步，调用什么工具，甚至是自行编写代码来完成任务，也可以是低自主的，预先规定好步骤和要调用的工具的，只有在类似于文本和图片生成的步骤才有一定的自主性。</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
+<p>Agentic AI 的优势主要有以下几点：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c4b27adb.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -938,317 +1320,6 @@ development work, and I want to share them with you.</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/5ffd7c75.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="周大侠">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/5ffd7c75.html" class="post-title-link" itemprop="url">Clean Code, Refactoring and Test-Driven Development</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-15 22:34:45" itemprop="dateCreated datePublished" datetime="2024-06-15T22:34:45+08:00">2024-06-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.4k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>I would like to summarize some of the basic principles and habits of
-coding that I learned while working at ThoughtWorks. These are some
-‘metaphysical’ guidelines, and later I plan to use Kotlin to write some
-design patterns to practice the ‘physical’ aspects.</p>
-<p>In a context where GPT can help us write most of the code, these
-principles become even more important.</p>
-<p>私はThoughtWorksでの勤務中に学んだコーディングの基本原則と習慣をまとめたいと思います。これらはいくつかの「形而上」のガイドラインで、後でKotlinを使用してデザインパターンを書き、その「形而下」の部分を実践する予定です。</p>
-<p>GPTがほとんどのコードを書く手助けをする状況では、これらの原則はさらに重要になります。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/5ffd7c75.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/6ef15720.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="周大侠">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/6ef15720.html" class="post-title-link" itemprop="url">新的春天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-03-03 18:34:45" itemprop="dateCreated datePublished" datetime="2024-03-03T18:34:45+08:00">2024-03-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A2%A6%E9%87%8C%E7%9C%9F%E7%9C%9F%E8%AF%AD%E7%9C%9F%E5%B9%BB/" itemprop="url" rel="index"><span itemprop="name">梦里真真语真幻</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>995</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>总感觉每一年的春天才是新的一年的开始。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/6ef15720.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/8c33e681.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="周大侠">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/8c33e681.html" class="post-title-link" itemprop="url">君の名は希望</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-09 16:36:49" itemprop="dateCreated datePublished" datetime="2024-02-09T16:36:49+08:00">2024-02-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%BA%BA%E7%94%9F%E5%BE%97%E6%84%8F%E9%A1%BB%E5%B0%BD%E6%AC%A2/" itemprop="url" rel="index"><span itemprop="name">人生得意须尽欢</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.6k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>6 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>谢谢大家！！！！</p>
-<p>今年是被特别特别多人记住的一年！！！</p>
-<p>以下排名不分先后！</p>
-<p>终于有人记住我了🥰🥰🥰🥰🥰🥰 以下引用的歌词全部来自<span class="exturl" data-url="aHR0cHM6Ly9tdXNpYy55b3V0dWJlLmNvbS93YXRjaD92PXl6Um5GQV9ZbC1FJnNpPWdiQXFNZFUydzdhMnR6ekQ=">＜君の名は希望ー乃木坂46&gt;<i class="fa fa-external-link-alt"></i></span></p>
-<p>欢迎大家去听一下原曲！
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/8c33e681.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1272,13 +1343,13 @@ principles become even more important.</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">275k</span>
+    <span title="Word count total">290k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">16:39</span>
+    <span title="Reading time total">17:33</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
