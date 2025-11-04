@@ -236,132 +236,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/34c938fb.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="周大侠">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/34c938fb.html" class="post-title-link" itemprop="url">Agentic AI 学習記録</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>5.7k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>21 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近、DeepLearning.AI の <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
-を学習し、<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">証明書<i class="fa fa-external-link-alt"></i></span>
-を取得した。学習時間は合計で約 6 時間。内容は Agentic AI
-の基本概念と応用の紹介が中心で、講座の質は高い。ただし入門向けなので、数学や実装コードは多くない。</p>
-<p>振り返ると、Andrew Ng の講座を前回受けたのは 2016〜2017 年、Coursera
-の Machine Learning だった。もう約 9 年前。時が経つのは早い。</p>
-<p>以下では本講座の要点をまとめ、次の問いに答える：2025 年 11 月 2
-日現在、なぜ Claude Code は最も成功した Agentic 系製品なのか。</p>
-<p>なお、講座の実装は <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
-Suite<i class="fa fa-external-link-alt"></i></span> を用いており、現在よく使われる LangGraph や OpenAI Agent SDK
-とは少し異なる。そのため本ノートでは実装の細部にはあまり踏み込まない。</p>
-<h1 id="agentic-workflows-の導入">1 Agentic Workflows の導入</h1>
-<p>ここでいう Agentic AI は、実際には Agentic AI workflow
-を指す。定義は「LLM
-を用いたアプリが、課題を完了するために複数の手順を実行する過程」。Non-agentic
-workflow が単発の呼び出しで流れを持たないのに対し、Agentic workflow
-は「流れ・記憶・feedback」を備え、より複雑な状況に適応できる。</p>
-<p>例えば文章作成なら、Agentic AI workflow
-は課題の自動分解・計画・複数手順の実行・他の tool
-の呼び出しなどを行い、単発の出力では終わらない。 <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
-<p>Agentic AI workflow
-は高い自律性を持たせることもできる。実行中に手順分解や使用する tool
-の選択、さらには自分で code
-を書いて完了することもある。一方、低自律にして、手順や使用 tool
-をあらかじめ固定し、文章や画像生成など一部のみを自律にする設計も可能。</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
-<p>Agentic AI の利点は次のとおり。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/34c938fb.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/c4b27adb.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -444,26 +318,119 @@ agentic product?</p>
 implementation, which differs from commonly used stacks like LangGraph
 and OpenAI Agent SDK. So these notes won’t go deep into code
 implementation details.</p>
-<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
-Workflows</h1>
-<p>In this course, “Agentic AI” really means agentic AI workflows,
-defined as: An agentic AI workflow is a process where an LLM-based app
-executes multiple steps to complete a task. Compared with non-agentic
-workflows (a single call, no process), agentic workflows have process,
-memory, and feedback, and can adapt to more complex scenarios.</p>
-<p>For example, in writing an article, an agentic workflow will
-automatically decompose and plan, execute multi-step tasks, call other
-tools, etc., instead of just producing a one-shot output. <img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
-<p>Agentic workflows can be highly autonomous—for instance, during
-execution they can decide how to break down the task, which tools to
-call, and even write code—or they can be low-autonomy, with predefined
-steps and tools, where only certain steps like text or image generation
-are somewhat autonomous.</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
-<p>Key advantages of Agentic AI:</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/c4b27adb.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/34c938fb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/34c938fb.html" class="post-title-link" itemprop="url">Agentic AI 学習記録</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>21 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近、DeepLearning.AI の <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic AI<i class="fa fa-external-link-alt"></i></span>
+を学習し、<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">証明書<i class="fa fa-external-link-alt"></i></span>
+を取得した。学習時間は合計で約 6 時間。内容は Agentic AI
+の基本概念と応用の紹介が中心で、講座の質は高い。ただし入門向けなので、数学や実装コードは多くない。</p>
+<p>振り返ると、Andrew Ng の講座を前回受けたのは 2016〜2017 年、Coursera
+の Machine Learning だった。もう約 9 年前。時が経つのは早い。</p>
+<p>以下では本講座の要点をまとめ、次の問いに答える：2025 年 11 月 2
+日現在、なぜ Claude Code は最も成功した Agentic 系製品なのか。</p>
+<p>なお、講座の実装は <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span> を用いており、現在よく使われる LangGraph や OpenAI Agent SDK
+とは少し異なる。そのため本ノートでは実装の細部にはあまり踏み込まない。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/34c938fb.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -571,20 +538,6 @@ Learning。已经将近九年前的事了，时间飞逝啊。</p>
 <p>注意到这门课使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
 Suite<i class="fa fa-external-link-alt"></i></span>来做具体的实现，这与现在大家使用较多的 LangGraph、OpenAI Agent
 SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。</p>
-<h1 id="introduction-to-agentic-workflows">1 Introduction to Agentic
-Workflows</h1>
-<p>这门课里讲的Agentic AI，实际上讲的是Agentic AI workflows，定义为An
-agentic AI workflow is a process where an LLM-based app executes
-multiple steps to complete a task. 相比于Non-agentic
-workflow只需一次调用，不涉及流程。而Agentic
-workflow则是“有流程、有记忆、有反馈”的智能体系统，能适应更复杂的场景。</p>
-<p>比如以写文章为例子，Agentic AI
-workflow生成文章的流程包括自动分解、规划、执行多步任务，调用其他工具等等，而不是只做一次性输出。
-<img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png"></p>
-<p>Agentic AI
-workflow可以是高度自主的，比如在执行过程中自己来思考要把任务分为哪几步，调用什么工具，甚至是自行编写代码来完成任务，也可以是低自主的，预先规定好步骤和要调用的工具的，只有在类似于文本和图片生成的步骤才有一定的自主性。</p>
-<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png"></p>
-<p>Agentic AI 的优势主要有以下几点：</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/c4b27adb.html#more" rel="contents">
