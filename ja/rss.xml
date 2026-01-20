@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/feeds/rss-style.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>乔克叔叔的床边故事</title>
+        <link>https://lifeodyssey.github.io/ja/</link>
+        <description></description>
+        <lastBuildDate>Tue, 20 Jan 2026 01:56:44 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Astro-Theme-Retypeset with Feed for Node.js</generator>
+        <language>ja</language>
+        <copyright>Copyright © 2026 周大侠</copyright>
+        <atom:link href="https://lifeodyssey.github.io/ja/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[エージェントコーディングの経験と未来]]></title>
+            <link>https://lifeodyssey.github.io/ja/posts/ad479b93/</link>
+            <guid isPermaLink="false">https://lifeodyssey.github.io/ja/posts/ad479b93/</guid>
+            <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[この記事は2025年6月28日に書かれました。AI時代の日進月歩により、一日経っただけでも、本記事に書かれた事実と私の態度が大きく変化する可...]]></description>
+            <content:encoded><![CDATA[<p>この記事は2025年6月28日に書かれました。AI時代の日進月歩により、一日経っただけでも、本記事に書かれた事実と私の態度が大きく変化する可能性があります。最新の状況を参考にしてください。</p>
+<h2>核心概念の定義</h2>
+<p>経験を共有する前に、本記事の核心概念を定義させてください（私自身の定義）：</p>
+<p><strong>エージェントコーディング（Agent Coding）</strong> は、AIプログラミングアシスタント（Coding Agent）を使用してソフトウェア開発を行い、このプロセスにおいて人間の積極的な介入や指示なしに、Coding Agentがタスクを完了することです。</p>
+<p><strong>バイブコーディング（Vibe Coding）</strong>：対話を通じて完全にコードを生成し、手動での修正やコードレビューを一切行わない</p>
+<p><strong>AI支援コーディング（AI-assisted Coding）</strong>：人間とAIの協力モード、AI生成と人間のレビューを組み合わせた、現在最も実用的な方法</p>
+<p><strong>コーディングエージェント（Coding Agent）</strong>：Cursor、Claude Code、Augmentなどの具体的なAIプログラミングアシスタントツール</p>
+<p>本記事は主にエージェントコーディング手法論の下での実践経験と未来展望を探討します。</p>
+<h2>日進月歩の反復速度</h2>
+<p>昨年<a href="https://lifeodyssey.github.io/posts/aec625cb.html">ChatGPT O1とClaude 3.5 Sonnetを比較</a>した時、それらはまだ簡単なスクリプトを書く手助けしかできず、せいぜい難しいアルゴリズム問題を処理できる程度でした。要するに、これらのツールが書ける良いコードは約500行規模でした。1年も経たないうちに、これらの大規模言語モデルは完全で比較的複雑なビジネスロジックや製品さえも書けるまでに進化しました。SNSでは毎日、プログラミング経験のない人々がv0、lovable、cursorを使って新しい製品をリリースしています。個人的な体感として、LLMと関連製品の反復速度は、2023年初頭から2024年中頃までの年単位から、現在は四半期や月単位にまで短縮されました。例えば、最初はGitHub Copilotが最も使いやすい製品でしたが、今年の3-4月にはCursorがAI支援コーディングの絶対王者で、Roo Code、Cline、Windsurfも一席を占めていました。Sonnet 4が登場した後、Claude Codeが直接トップに立ち、Cursorは積極的な機能低下と限られた呼び出し制限によりAugmentに追い抜かれ、GitHub Copilotは最近数ヶ月で完全に低価格APIの呼び出しプールになりました。バイブコーディング製品では、最初はv0だけでしたが、その後Lovableがより良い美術スタイル生成で地位を築き、後にGoogleもAI StudioとGoogle Stitchを発表しました...</p>
+<p>これらのツールの進化速度は、一日経っただけでも隔世の感があります。私はインターネットで高強度のサーフィンを続け、新製品がリリースされるたびに積極的に使用し、高強度使用後に使えない製品は解約しています（例えば、私のチャットボットは最初ChatGPTを購読し、次にClaude、そして安価なサードパーティAPIと<a href="https://github.com/CherryHQ/cherry-studio">Cherry Studio</a>のようなGUI、さらに会社のGeminiに変わりました；私のCoding AgentもCursorからAugmentに変更しました；毎月更新前に使用感をレビューして製品を解約しています）ので、世代格差は明らかではありません。しかし、最近まだGitHub Copilotを使っていた友人にCursorとAugmentの使用感を共有した時、彼は「清朝が滅亡した」「北京オリンピック招致成功」「天翼3Gは速い」という感覚を体験しました。</p>
+<p>これら以外にも、AIエージェント構築の工学実践も数回反復しました。最初のembeddingから、grep純粋全文検索の使用、データベースクエリの使用、そして「どんなに最適化しても大規模モデル会社がモデルを更新する方が良い」まで。一部の経験が沈殿する前に既に反復されてしまった感じです。昨日学んだばかりのprompt engineering、chain of thought、function callingが、今日はLangGraph、LangChain、MCPの議論になっています。</p>
+<h2>エージェントコーディングの核心実践</h2>
+<p>次に、エージェントコーディングを実践する際の経験と感想を共有します。</p>
+<p>まず、この伝統的な図を提示します：</p>
+<p><img src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/data1.jpg" alt="Data, information, knowledge, insight, wisdom" /></p>
+<p>インターネットサーフィンの専門家として、ChatGPTが登場した時からその能力に注目していました。当時の評価は大学卒業生レベルでした。その時点から、GPTは私の新しい知識学習プロセスを完全に変えました。dataとinformationの部分は、もはや一つ一つの文書を読んだり、本をめくったりする必要がなくなり、質問を持って直接学習し思考し、knowledgeから始めることができるようになりました。</p>
+<p>なぜこれを言うのでしょうか？下の表をご覧ください：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LLMが知っている</th>
+<th>LLMが知らない</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>あなたが知っている</strong></td>
+<td>あなたとLLM両方が知っている</td>
+<td>LLMはあなたが知っていると思っている</td>
+</tr>
+<tr>
+<td><strong>あなたが知らない</strong></td>
+<td>あなたはLLMが知っていると思っている</td>
+<td>LLMもあなたも知らない</td>
+</tr>
+</tbody>
+</table>
+<p>LLMを使用したりエージェントコーディングを行ったりする際、私たちの作業領域はこれら4つの象限に分けられることがわかりました：</p>
+<ul>
+<li>
+<p><strong>あなたとLLM両方が知っている</strong>：この部分の作業は、2023年と2024年上半期にLLMの影響が大きくないと思った主な理由の一つでした。私が知っていてLLMも知っていることについて、多くの場合LLMの書いたものが良くなく、効率も低い（エラー修正に数回の対話が必要）と感じていました。2024年のClaude 3.5とO1リリース後、より正確に言えば、thinkingができるようになった後、LLMはこの部分で私の作業効率を遥かに上回りました。わずか2-3回の対話でコードレビューを開始でき、細かい部分を少し修正するだけで直接使用できるようになりました。</p>
+</li>
+<li>
+<p><strong>あなたはLLMが知っていると思っている</strong>：この作業は一時期LLMが私にもたらした最大の困惑でした。典型的な例として、LLMの知識ベースが古く最新のAPIがない；LLMが作業時にクラスとオブジェクトの依存関係を理解せず、タスク間の順序も知らない；特定状況での文脈を理解していないなどがあります。しかし、一連のツールが登場した後、この部分は明らかに改善・強化され、解決の兆しが見えています。これらのツールについては後で説明します。</p>
+</li>
+<li>
+<p><strong>LLMはあなたが知っていると思っている</strong>：これは私の日常作業で最も多くのエラーが発生する場所です。典型的なシナリオは、私が慣れていない言語やライブラリでの作業です。これらの場所では、あなたとLLMの情報が対等ではありません。現在私が提供する唯一の解決法は多く質問することです。コードを行ごとにレビューし、各行のコードの意味を理解する必要があります；さらにテストを生成し、別のAIを開いて要求に基づいてテストシナリオとテストサンプルを構築してもらうこともできます。詳細は分からなくても、入力と出力が期待通りであることを確認する必要があります。</p>
+</li>
+<li>
+<p><strong>LLMもあなたも知らない</strong>：これは現在、LLMの助けを借りずにコードを書く唯一のシナリオです。現在、LLMがこの領域で書いてくれるコードはすべて💩です。</p>
+</li>
+</ul>
+<p>そのため、LLMを使用したりエージェントコーディングを行ったりする際、最も重要な核心はcontextだと考えています。Coding Agentとあなたが同じcontextを持ち、Coding Agentと私が同じことについて議論していることを確保する必要があります；私が知らない部分については、私の使用シナリオで生成されるコードの入力と出力が期待通りであることを確保する必要があります。</p>
+<h2>有用なヒント</h2>
+<ol>
+<li>
+<p><strong>コードレビューとリファクタリング</strong>：現在、私とCoding Agentの大部分はペアコーディングの態度で協力しています。ペアコーディングといえば、TWでの数年間の経験蓄積です。コードスメルの識別、テスト駆動、タスキングを意識的にCoding Agentとの協力に使用することで、品質を保証しながら速度を大幅に向上させることができます。さらに、最近Coding Agentがよく犯すエラーは冗長なコードを多く書くことです。拒否された後に削除されなかったものや、元のクラスやメソッドが非推奨になった後に削除されなかったものなど、これらすべてコードレビューが必要です。</p>
+</li>
+<li>
+<p><strong>計画と質問</strong>：要求、特にストーリーカードレベルの要求を受け取った時、Coding Agentに直接コードを書き始めさせてはいけません。askやplanモードを使用してタスクを分解し、mdファイルに書き、そのソリューションをレビューした後、新しい対話を開始してコードを書かせます。これによりトークンを大幅に節約し、APIコストを削減できます。</p>
+</li>
+<li>
+<p><strong>エージェントにRTFMさせる</strong>：高レベルやオープンな問題を解決する際、最新のソリューションを検索させることができます。例えば、ニーズを解決するためにライブラリを導入したい場合、PyPI、npm、Maven、GitHubで最も使用者数/スター数の多いライブラリを検索させ、少なくとも5つのソリューションを提供して深い研究を行わせることができます。私がよく行うプロセス：</p>
+<ul>
+<li>ドキュメントのリンクを貼り付けて、まずLLMに読ませる</li>
+<li>LLMに最新技術を調べさせる</li>
+<li>タスクツールを使用してLLMに特定のトピックについて深い研究を行わせる</li>
+</ul>
+</li>
+<li>
+<p><strong>MCPの使用</strong>：この一連のツールは「あなたはLLMが知っていると思っている」作業シナリオを大幅に改善できます。最近毎日使用しているものを列挙します：</p>
+<ul>
+<li><a href="https://github.com/upstash/context7">Context7</a>：これによりAIが最新ドキュメントを知らない問題の一部を解決できます</li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking">Sequential Thinking</a>：これによりCoding Agentの論理思考能力を改善し、AIに「何を先にして何を後にするか」を知らせることができます</li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory">Memory</a>：これによりCoding Agentが新しい対話のたびに以前の対話の文脈を保持でき、「さっき言ったのになぜ覚えていないの」という状況を減らせます。Cursor ruleとAugment memoryも同様の効果があります</li>
+<li><a href="https://github.com/cjo4m06/mcp-shrimp-task-manager">Shrimp task manager</a>：これによりCoding Agentが積極的にタスキングを行えます</li>
+<li><a href="https://github.com/Minidoracat/mcp-feedback-enhanced">Feedback Enhanced</a>：これによりフィードバック進度を加速できます。具体的には、Coding Agent協力プログラミング時に私たちはCoding Agentについて行けない（またはその速度についていけない）ため、修正されたファイルを一つ一つ見ることができず、時々期待と全く違うものに変更されていることがあります。これを使用すると、指示が半分完了した時点で停止してフィードバックを求め、完全に完了してからではなく、早期終了が可能です</li>
+<li><a href="https://github.com/microsoft/playwright-mcp">Playwright</a>：これによりLLMがWebフロントエンドページと相互作用し、スクリーンショットを撮ることができ、フロントエンドに役立つはずです。私の使用はまだ少ないです</li>
+</ul>
+<p>その他の有用なMCPは<a href="https://smithery.ai/">Smithery.ai</a>で見つけることができます。私は現在一部しか使用していません。</p>
+</li>
+<li>
+<p><strong>正確なプロンプト</strong>：これは依然として非常に重要です。プロンプトが明確で明示的であるほど、生成されるコードがより正確になります。さらに、LLMは多くの場合怠けています。そのような時は、どのMCPを使用するかを伝え、モデルに考えるよう、深く考え、超思考するよう伝えることで、多くの場合より良い結果を得ることができます。<a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/extended-thinking-tips">Extended thinking tips</a>を参考にしてください。</p>
+</li>
+<li>
+<p><strong>早期停止と中断、ワンショットを試みない</strong>：これらのLLMは長い対話で様々な問題を起こすことがよくあります。適時中断と調整が必要です。そして一回の対話では通常、大きな要求を完了できません。</p>
+</li>
+</ol>
+<h2>未来の可能性：行ごとのコードなし</h2>
+<p>Claude Codeを何度も試した後、未来には本当に人が行ごとにコードを書く必要がなくなる可能性があると考えています。CLIモードのCoding Agentは天然的に並列マルチタスクを実行できます（例えば、git worktreeを使用してClaude CodeにClaude Codeを使用させる）。費用は上昇し続けていますが（私の推算では、毎日Claude Codeをこのモードで開発に使用すると、月に少なくとも500ドルかかる可能性がありますが、速度を倍以上向上させることができます）。このCLIモードが天然的にもたらすマルチタスクと並列能力により、エージェントコーディングを行う際、もはやペアコーディングではなく、タスク分解やコード検収などの高レベルな作業のみを行っている感覚があります。タスク分解が良好な場合、いくつかのgit worktreeを開いて複数のタスクを並列実行し、互いに干渉しないようにできます。</p>
+<p><a href="http://spiess.dev/blog/how-i-use-claude-code">How I Use Claude Code</a>を読んだ後、最近実践・試行している<a href="https://github.com/lifeodyssey/req-to-code">プロジェクト</a>は、Gemini CLIを使用してmdファイルに基づいてGitHub Actions上で自動的にコードを生成し、PRを提出することです。<a href="https://github.com/lifeodyssey/req-to-code/pull/1/commits/7f5015e0b1138288720d37f959ad19a479276bcb">ここ</a>は成功例ですが、LeetCode 001 Two Sumしかやらせていません（経済能力の制限により、複雑なプロジェクトのためにAPIを購入するお金がありません）。</p>
+<p>全体のプロセスは大体：</p>
+<p><code>Requirement.md → GitHub Actions → Gemini CLI → Generated Code → Auto PR</code></p>
+<p>ここで最も核心的なステップは、これらの数行のコードだけで済みます：</p>
+<pre><code>
+      - name: Generate Code with Gemini CLI
+        id: generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          echo "🤖 Starting code generation with Gemini CLI..."
+
+          # Read requirement content
+          REQUIREMENT_CONTENT=$(cat "${{ steps.process.outputs.requirement_file }}")
+          FEATURE_NAME="${{ steps.process.outputs.feature_name }}"
+
+          echo "📝 Processing requirement: $FEATURE_NAME"
+          echo "📄 Requirement file: ${{ steps.process.outputs.requirement_file }}"
+
+          # Create output directory
+          mkdir -p generated
+
+          # Use Gemini CLI in non-interactive mode
+          echo "🤖 Generating code with Gemini CLI..."
+
+          # Create a more specific prompt for code generation
+          PROMPT="You are a code generation assistant. Based on the following requirement, you must create actual JavaScript files using the write_file tool.
+
+          REQUIREMENT:
+          $REQUIREMENT_CONTENT
+
+          INSTRUCTIONS:
+          1. Use the write_file tool to create a JavaScript file named '${FEATURE_NAME}.js'
+          2. Implement the solution with proper JSDoc comments
+          3. Export the function for use in other modules
+          4. Follow modern ES6+ syntax
+          5. Include comprehensive error handling
+          6. Add unit tests if appropriate
+
+          You MUST use the write_file tool to create actual files. Do not just provide code examples."
+          # ============================================
+          # 🔥CORE STEP: Using stdin with enhanced prompt and YOLO mode
+          # ============================================
+          # All the above is preparation work, the magic happens in this single line:
+          echo "$PROMPT" | gemini --yolo &gt; "generated/${FEATURE_NAME}_output.txt" 2&gt;&amp;1
+          # ☝️ That's it! One command to complete AI code generation
+
+          # Check if generation was successful
+          if [ $? -eq 0 ]; then
+            echo "✅ Code generation completed successfully"
+            echo "📄 Gemini CLI output:"
+            head -20 "generated/${FEATURE_NAME}_output.txt"
+          else
+            echo "❌ Code generation failed"
+            cat "generated/${FEATURE_NAME}_output.txt"
+            exit 1
+          fi
+
+          # Store output info for next steps
+          echo "output_file=generated/${FEATURE_NAME}_output.txt" &gt;&gt; $GITHUB_OUTPUT
+          echo "feature_name=$FEATURE_NAME" &gt;&gt; $GITHUB_OUTPUT
+</code></pre>
+<p>ここのrequirement.mdはJiraから新しいストーリーカードを読み取ることに置き換えることができ、GitHub Actionはバックエンドサービスに置き換えて対話の長さとワークフローを制御できます（前述のヒントのように、git worktreeとClaude CodeにClaude Codeを使用させる）。PR生成後は新しいactionでGemini CLIを呼び出してコードレビューを行い、コード生成プロセス中にバックエンドダッシュボードを追加してリアルタイムでフィードバックと調整を行うことができます。</p>
+<p>このワークフローの下では、要求とプロンプトを明確に書くだけで、お茶を飲みながらエージェントにコードを書かせることができます。</p>
+<h2>未来</h2>
+<p>エージェントコーディングがどこまで発展するかまだ想像できません。以前流行した低コードプラットフォームのように大きな話題になったが一部の問題しか解決できないかもしれませんし、本当に私が想像する「要求とプロンプトを明確に書くだけ」の時代が来るかもしれません。LLMの発展がボトルネックに遭遇して特定のステップまでしか完了できないかもしれませんが、未来のソフトウェア構築プロセスと方法が大きく異なることは否定できません。今年初めに<a href="http://vibemanifesto.org/">Vibe Coding Manifesto</a>を見ました。抜粋は以下の通りです：</p>
+<blockquote>
+<p>💜 Flow over friction – Ride the wave, don't fight it.</p>
+</blockquote>
+<blockquote>
+<p>💜 Iteration over perfection – Perfection is obsolete if you can always reroll.</p>
+</blockquote>
+<blockquote>
+<p>💜 Augmentation over automation – AI is a collaborator, not a replacement.</p>
+</blockquote>
+<blockquote>
+<p>💜 Product thinking over code crafting – What matters is what you build, not how you write it.</p>
+</blockquote>
+<blockquote>
+<p>💜 Rerolling over debugging – If fixing takes too long, regenerate.</p>
+</blockquote>
+<blockquote>
+<p>💜 Human taste over technical constraints – The best tech serves great taste, not the other way around.</p>
+</blockquote>
+<p>これは20年以上前のAgile Code Manifestoを思い出させます。現在私にできることは、この新世代の紡績機の使い方を素早く学ぶことだけです。</p>
+<p>最後に、thougtworksのAIFSDがClaude Codeを提供してくれたおかげで、最新のモデルを体験し、実験を行うことができました。感謝します。</p>
+<hr />
+<p><strong>言語版：</strong></p>
+<ul>
+<li><a href="https://lifeodyssey.github.io/posts/6d590b83.html">Chinese</a></li>
+<li><a href="https://lifeodyssey.github.io/posts/cb8288cd.html">English</a></li>
+</ul>
+]]></content:encoded>
+        </item>
+    </channel>
+</rss>
