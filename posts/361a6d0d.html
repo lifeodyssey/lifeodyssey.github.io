@@ -1,1 +1,503 @@
-<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta content="width=device-width" name=viewport><meta content=#222 name=theme-color media="(prefers-color-scheme: light)"><meta content=#222 name=theme-color media="(prefers-color-scheme: dark)"><meta content="Hexo 8.0.0" name=generator><link href=/images/apple-touch-icon-next.png rel=apple-touch-icon sizes=180x180><link href=/images/favicon-32x32-next.png rel=icon sizes=32x32 type=image/png><link href=/images/favicon-16x16-next.png rel=icon sizes=16x16 type=image/png><link href=/images/logo.svg rel=mask-icon color=#222><link href=/css/main.css rel=stylesheet><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css rel=stylesheet crossorigin=anonymous integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM="><link href=https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css rel=stylesheet crossorigin=anonymous integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE="><script class=next-config data-name=main type=application/json>{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.25.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"base16/tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src=/js/config.js defer=defer></script><meta content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。" name=description><meta content=article property=og:type><meta content=博客第三方插件和图片问题解决 property=og:title><meta content=https://lifeodyssey.github.io/posts/361a6d0d.html property=og:url><meta content=乔克叔叔的床边故事 property=og:site_name><meta content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。" property=og:description><meta content=en_US property=og:locale><meta content=2019-05-09T07:59:56.000Z property=article:published_time><meta content=2025-09-30T10:12:48.228Z property=article:modified_time><meta content=周大侠 property=article:author><meta content=博客搭建 property=article:tag><meta content=summary name=twitter:card><link href=https://lifeodyssey.github.io/posts/361a6d0d.html rel=canonical><script class=next-config data-name=page type=application/json>{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/361a6d0d.html","path":"posts/361a6d0d.html","title":"博客第三方插件和图片问题解决"}</script><script class=next-config data-name=calendar type=application/json>""</script><title>博客第三方插件和图片问题解决 | 乔克叔叔的床边故事</title><script src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1" async></script><script class=next-config data-name=google_analytics type=application/json>{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script><script src=/js/third-party/analytics/google-analytics.js defer=defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js defer=defer crossorigin=anonymous integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY="></script><script src=/js/utils.js defer=defer></script><script src=/js/motion.js defer=defer></script><script src=/js/sidebar.js defer=defer></script><script src=/js/next-boot.js defer=defer></script><script src=/js/bookmark.js defer=defer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js defer=defer crossorigin=anonymous integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg="></script><script src=/js/third-party/search/local-search.js defer=defer></script><script class=next-config data-name=pdf type=application/json>{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script><script src=/js/third-party/tags/pdf.js defer=defer></script><script class=next-config data-name=mermaid type=application/json>{"enable":true,"theme":"forest","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script><script src=/js/third-party/tags/mermaid.js defer=defer></script><script class=next-config data-name=enableMath type=application/json>false</script><script class=next-config data-name=mathjax type=application/json>{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script><script src=/js/third-party/math/mathjax.js defer=defer></script><noscript><link href=/css/noscript.css rel=stylesheet></noscript><link href=/atom.xml rel=alternate type=application/atom+xml title=乔克叔叔的床边故事></head><body class=use-motion itemscope itemtype=http://schema.org/WebPage><div class=headband></div><main class=main><div class=column><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=site-brand-container><div class=site-nav-toggle><div class=toggle role=button aria-label="Toggle navigation bar"><span class=toggle-line></span> <span class=toggle-line></span> <span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><p class=site-title>乔克叔叔的床边故事</p><i class=logo-line></i></a></div><div class=site-nav-right><div class="toggle popup-trigger" role=button aria-label=Search><i class="fa fa-fw fa-search fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ rel=section><i class="fa fa-fw fa-home"></i>Home</a></li><li class="menu-item menu-item-about"><a href=/about/ rel=section><i class="fa fa-fw fa-user"></i>About</a></li><li class="menu-item menu-item-tags"><a href=/tags/ rel=section><i class="fa fa-fw fa-tags"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href=/categories/ rel=section><i class="fa fa-fw fa-th"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href=/archives/ rel=section><i class="fa fa-fw fa-archive"></i>Archives</a></li><li class="menu-item menu-item-search"><a class=popup-trigger role=button><i class="fa fa-fw fa-search"></i>Search</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocapitalize=off autocomplete=off class=search-input maxlength=80 placeholder=Searching... spellcheck=false type=search></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class=search-result-container><div class=search-result-icon><i class="fa fa-5x fa-pulse fa-spinner"></i></div></div></div></div></header><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>Table of Contents</li><li class=sidebar-nav-overview>Overview</li></ul><div class=sidebar-panel-container><div class="sidebar-panel post-toc-wrap"><div class="animated post-toc"><ol class=nav><li class="nav-item nav-level-1"><a href=#%E8%AF%84%E8%AE%BA class=nav-link><span class=nav-number>1.</span> <span class=nav-text>评论</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a href=#%E6%B3%A8%E5%86%8C%E5%BA%94%E7%94%A8 class=nav-link><span class=nav-number>1.1.</span> <span class=nav-text>注册应用</span></a></li><li class="nav-item nav-level-2"><a href=#gitalk.swig class=nav-link><span class=nav-number>1.2.</span> <span class=nav-text>gitalk.swig</span></a></li><li class="nav-item nav-level-2"><a href=#comments.swig class=nav-link><span class=nav-number>1.3.</span> <span class=nav-text>comments.swig</span></a></li><li class="nav-item nav-level-2"><a href=#index.swig class=nav-link><span class=nav-number>1.4.</span> <span class=nav-text>index.swig</span></a></li><li class="nav-item nav-level-2"><a href=#gitalkt.styl class=nav-link><span class=nav-number>1.5.</span> <span class=nav-text>gitalkt.styl</span></a></li><li class="nav-item nav-level-2"><a href=#third-party-styl class=nav-link><span class=nav-number>1.6.</span> <span class=nav-text>third-party-styl</span></a></li><li class="nav-item nav-level-2"><a href=#config.yml class=nav-link><span class=nav-number>1.7.</span> <span class=nav-text>_config.yml</span></a></li></ol></li><li class="nav-item nav-level-1"><a href=#%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE class=nav-link><span class=nav-number>2.</span> <span class=nav-text>站点地图</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a href=#%E5%BC%80%E5%90%AFseo%E4%BC%98%E5%8C%96 class=nav-link><span class=nav-number>2.1.</span> <span class=nav-text>开启SEO优化</span></a></li><li class="nav-item nav-level-2"><a href=#%E7%94%9F%E6%88%90sitmap%E5%9C%B0%E5%9B%BE class=nav-link><span class=nav-number>2.2.</span> <span class=nav-text>生成sitmap地图</span></a></li><li class="nav-item nav-level-2"><a href=#%E6%8F%90%E4%BA%A4%E7%BB%99%E8%B0%B7%E6%AD%8C class=nav-link><span class=nav-number>2.3.</span> <span class=nav-text>提交给谷歌</span></a></li><li class="nav-item nav-level-2"><a href=#robots%E5%8D%8F%E8%AE%AE class=nav-link><span class=nav-number>2.4.</span> <span class=nav-text>Robots协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a href=#%E9%98%85%E8%AF%BB%E9%87%8F%E4%B8%8E%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1 class=nav-link><span class=nav-number>3.</span> <span class=nav-text>阅读量与字数统计</span></a></li><li class="nav-item nav-level-1"><a href=#%E5%88%86%E4%BA%AB class=nav-link><span class=nav-number>4.</span> <span class=nav-text>分享</span></a></li><li class="nav-item nav-level-1"><a href=#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98%E7%9A%84%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3 class=nav-link><span class=nav-number>5.</span> <span class=nav-text>图片问题的彻底解决</span></a></li></ol></div></div><!--/noindex--><div class="sidebar-panel site-overview-wrap"><div class="animated site-author" itemprop=author itemscope itemtype=http://schema.org/Person><p class=site-author-name itemprop=name>周大侠</p><div class=site-description itemprop=description></div></div><div class="animated site-state-wrap"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/ ><span class=site-state-item-count>165</span> <span class=site-state-item-name>posts</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/ ><span class=site-state-item-count>17</span> <span class=site-state-item-name>categories</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/ ><span class=site-state-item-count>97</span> <span class=site-state-item-name>tags</span></a></div></nav></div><div class="animated links-of-author"><span class=links-of-author-item><span class=exturl data-url=aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5 title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey"><i class="fa-fw fab fa-github"></i>GitHub</span> </span><span class=links-of-author-item><span class=exturl data-url="bWFpbHRvOnpoZW5qaWF6aG91MDEyN0BnbWFpbC5jb20=" title="E-Mail → mailto:zhenjiazhou0127@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span> </span><span class=links-of-author-item><span class=exturl data-url="aHR0cHM6Ly93d3cucmVzZWFyY2hnYXRlLm5ldC9wcm9maWxlL1poZW5qaWFfWmhvdQ==" title="Researchgate → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Zhenjia_Zhou"><i class="fa fa-fw fa-researchgate"></i>Researchgate</span> </span><span class=links-of-author-item><span class=exturl data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3poZW5qaWEtemhvdS8=" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhenjia-zhou&#x2F;"><i class="fa fa-fw fa-Linkedin"></i>Linkedin</span> </span><span class=links-of-author-item><a href=/atom.xml rel="noopener me" title="RSS → &#x2F;atom.xml"><i class="fa-fw rss"></i>RSS</a></span></div><div class="animated cc-license" itemprop=license><span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src=https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg alt="Creative Commons"></span></div></div></div></div></aside></div><div class="main-inner post posts-expand"><div class=post-block><article class=post-content itemscope itemtype=http://schema.org/Article lang=en><link href=https://lifeodyssey.github.io/posts/361a6d0d.html itemprop=mainEntityOfPage><span itemprop=author itemscope itemtype=http://schema.org/Person hidden><meta content=/images/avatar.gif itemprop=image><meta content=周大侠 itemprop=name></span><span itemprop=publisher itemscope itemtype=http://schema.org/Organization hidden><meta content=乔克叔叔的床边故事 itemprop=name><meta content="" itemprop=description></span><span itemprop=post itemscope itemtype=http://schema.org/CreativeWork hidden><meta content="博客第三方插件和图片问题解决 | 乔克叔叔的床边故事" itemprop=name><meta content="" itemprop=description></span><header class=post-header><h1 class=post-title itemprop="name headline">博客第三方插件和图片问题解决</h1><div class=post-meta-container><div class=post-meta><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i> </span><span class=post-meta-item-text>Posted on</span> <time datetime=2019-05-09T15:59:56+08:00 itemprop="dateCreated datePublished" title="Created: 2019-05-09 15:59:56">2019-05-09</time> </span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder"></i> </span><span class=post-meta-item-text>In</span> <span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E8%B5%84%E6%96%99%E8%B4%B4%E6%95%B4%E7%90%86/ rel=index itemprop=url><span itemprop=name>资料贴整理</span></a> </span></span><span class=post-meta-break></span> <span class=post-meta-item title="Word count in article"><span class=post-meta-item-icon><i class="far fa-file-word"></i> </span><span class=post-meta-item-text>Word count in article: </span><span>4.4k</span> </span><span class=post-meta-item title="Reading time"><span class=post-meta-item-icon><i class="far fa-clock"></i> </span><span class=post-meta-item-text>Reading time &asymp;</span> <span>16 mins.</span></span></div></div></header><div class=post-body itemprop=articleBody><p>啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。</p><p>这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。</p><span id=more></span><h1 id=评论>评论</h1><p>我采用的评论系统是gitalk，因为这个系统不用注册什么乱七八糟的网站，支持github登录，搞起来很方便。</p><p>gitalk详情参见<span class=exturl data-url="aHR0cHM6Ly9naXRhbGsuZ2l0aHViLmlvLw==">https://gitalk.github.io/<i class="fa fa-external-link-alt"></i></span></p><h2 id=注册应用>注册应用</h2><p>在GitHub上注册新应用，点击<span class=exturl data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2FwcGxpY2F0aW9ucy9uZXc=">这里<i class="fa fa-external-link-alt"></i></span>。</p><p><img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509163920.png /></p><p>网址就填你网站的母页面(像我的是lifeodyssey.github.io)，callback URL也是这个，剩余的随意即可。</p><p>点击注册之后页面跳转，其中Client ID和Client Secret在后面用到的时候复制粘贴即可。</p><h2 id=gitalk.swig>gitalk.swig</h2><p>新建<code>/layout/_third-party/comments/gitalk.swig</code>文件，并添加内容：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br></pre></td><td class=code><pre><span class=line>&#123;% <span class=keyword>if</span> page.comments &amp;&amp; theme.gitalk.enable %&#125;</span><br><span class=line>  &lt;<span class=built_in>link</span> rel=<span class=string>&quot;stylesheet&quot;</span> href=<span class=string>&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;</span>&gt;</span><br><span class=line>  &lt;script src=<span class=string>&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class=line>   &lt;script <span class=built_in>type</span>=<span class=string>&quot;text/javascript&quot;</span>&gt;</span><br><span class=line>        var gitalk = new Gitalk(&#123;</span><br><span class=line>          clientID: <span class=string>&#x27;&#123;&#123; theme.gitalk.ClientID &#125;&#125;&#x27;</span>,</span><br><span class=line>          clientSecret: <span class=string>&#x27;&#123;&#123; theme.gitalk.ClientSecret &#125;&#125;&#x27;</span>,</span><br><span class=line>          repo: <span class=string>&#x27;&#123;&#123; theme.gitalk.repo &#125;&#125;&#x27;</span>,</span><br><span class=line>          owner: <span class=string>&#x27;&#123;&#123; theme.gitalk.githubID &#125;&#125;&#x27;</span>,</span><br><span class=line>          admin: [<span class=string>&#x27;&#123;&#123; theme.gitalk.adminUser &#125;&#125;&#x27;</span>],</span><br><span class=line>          <span class=built_in>id</span>: location.pathname,</span><br><span class=line>          distractionFreeMode: <span class=string>&#x27;&#123;&#123; theme.gitalk.distractionFreeMode &#125;&#125;&#x27;</span></span><br><span class=line>        &#125;)</span><br><span class=line>        gitalk.render(<span class=string>&#x27;gitalk-container&#x27;</span>)           </span><br><span class=line>       &lt;/script&gt;</span><br><span class=line>&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><h2 id=comments.swig>comments.swig</h2><p>修改<code>/layout/_partials/comments.swig</code>，添加内容如下，与前面的<code>elseif</code>同一级别上：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br></pre></td><td class=code><pre><span class=line>&#123;% elseif theme.gitalk.enable %&#125;</span><br><span class=line> &lt;div <span class=built_in>id</span>=<span class=string>&quot;gitalk-container&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure><h2 id=index.swig>index.swig</h2><p>修改<code>layout/_third-party/comments/index.swig</code>，在最后一行添加内容：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre><span class=line>&#123;% include <span class=string>&#x27;gitalk.swig&#x27;</span> %&#125;</span><br></pre></td></tr></table></figure><h2 id=gitalkt.styl>gitalkt.styl</h2><p>新建<code>/source/css/_common/components/third-party/gitalk.styl</code>文件，添加内容：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br></pre></td><td class=code><pre><span class=line>.gt-header a, .gt-comments a, .gt-popup a</span><br><span class=line>  border-bottom: none;</span><br><span class=line>.gt-container .gt-popup .gt-action.is--active:before</span><br><span class=line>  top: 0.7em;</span><br></pre></td></tr></table></figure><h2 id=third-party-styl>third-party-styl</h2><p>修改<code>/source/css/_common/components/third-party/third-party.styl</code>，在最后一行上添加内容，引入样式：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre><span class=line>@import <span class=string>&quot;gitalk&quot;</span>;</span><br></pre></td></tr></table></figure><h2 id=config.yml>_config.yml</h2><p>在主题配置文件<code>next/_config.yml</code>中添加如下内容：</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br></pre></td><td class=code><pre><span class=line>gitalk:</span><br><span class=line>  <span class=built_in>enable</span>: <span class=literal>true</span></span><br><span class=line>  githubID: github帐号  <span class=comment># 例：asdfv1929   </span></span><br><span class=line>  repo: 仓库名称   <span class=comment># 例：asdfv1929.github.io</span></span><br><span class=line>  ClientID: Client ID</span><br><span class=line>  ClientSecret: Client Secret</span><br><span class=line>  adminUser: github帐号 <span class=comment>#指定可初始化评论账户</span></span><br><span class=line>  distractionFreeMode: <span class=literal>true</span></span><br></pre></td></tr></table></figure><p>参考<span class=exturl data-url="aHR0cHM6Ly9hc2RmdjE5MjkuZ2l0aHViLmlvLzIwMTgvMDEvMjAvZ2l0YWxrLw==">https://asdfv1929.github.io/2018/01/20/gitalk/<i class="fa fa-external-link-alt"></i></span>的教程。</p><h1 id=站点地图>站点地图</h1><p>俗话说得好，酒香害怕巷子深，自己做的宝贝当然是想让别人也看到的。站点地图提交到搜索引擎之后就可以被搜索引擎搜索到了。不过我这里只写了怎么提交谷歌搜索，百度站长所需要的个人信息资料太多太私密，让我不寒而栗，因此我自己不做提交，也不做讲解。</p><p>谷歌提交之后还可以通过analytics平台分析访客数据。</p><h2 id=开启seo优化>开启SEO优化</h2><p>打开主题配置文件，找到seo选项改为true</p><h2 id=生成sitmap地图>生成sitmap地图</h2><p>先，安装插件</p><figure class="highlight bash"><table><tr><td class=gutter><pre><span class=line>1</span><br></pre></td><td class=code><pre><span class=line>npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure><p>在博客配置文件中改url为你自己的地址</p><figure class="highlight yaml"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br></pre></td><td class=code><pre><span class=line><span class=comment># URL</span></span><br><span class=line><span class=comment>## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class=line><span class=attr>url:</span> <span class=string>https://lifeodyssey.github.io/</span></span><br><span class=line><span class=attr>root:</span> <span class=string>/</span></span><br><span class=line><span class=comment># permalink: :year/:month/:day/:title/</span></span><br><span class=line><span class=attr>permalink:</span> <span class=string>post/:abbrlink.html</span></span><br><span class=line><span class=attr>permalink_defaults:</span></span><br></pre></td></tr></table></figure><p>并添加</p><figure class="highlight yaml"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br></pre></td><td class=code><pre><span class=line><span class=attr>sitemap:</span></span><br><span class=line>  <span class=attr>path:</span> <span class=string>sitemap.xml</span></span><br></pre></td></tr></table></figure><p>之后hexo d -g，这时在public目录下会生成sitemap.xml。这个之后需要提交给谷歌</p><h2 id=提交给谷歌>提交给谷歌</h2><p><span class=exturl data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">点这里<i class="fa fa-external-link-alt"></i></span></p><p><img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509182929.png /></p><p>点击添加资源</p><p><img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183019.png /></p><p>选择网址前缀验证，里面选标签验证，在主题配置文件中修改</p><figure class="highlight plaintext"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br></pre></td><td class=code><pre><span class=line># Google Webmaster tools verification setting</span><br><span class=line># See: https://www.google.com/webmasters/</span><br><span class=line>google_site_verification: xxxxxxxxxxxxx # 此处改为google提供给你的HTML标签content后的内容</span><br></pre></td></tr></table></figure><p>这里也可以使用analytics验证，我自己用的是analytics，但是因为时间太久了我忘了怎么做了……没有特别麻烦总之。</p><p>回到search consle，点击左侧sitemap<img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183405.png /></p><p>输入站点地图的网址并提交，例如https://xxx.github.io/sitemap.xml，接下来就可以谷歌搜一下你自己的博客看看有没有被收录了。</p><p>参考：<span class=exturl data-url=aHR0cHM6Ly9sdWFuemh1eGlhbi5naXRodWIuaW8vcG9zdC84MmQ5MmFkNC5odG1s>https://luanzhuxian.github.io/post/82d92ad4.html<i class="fa fa-external-link-alt"></i></span></p><h2 id=robots协议>Robots协议</h2><p>为了防止自己的网站被恶意爬取，这一步是必须的。</p><p>在站点<code>source</code>文件夹下新建<code>robots.txt</code>文件，文件内容如下:</p><figure class="highlight plaintext"><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br></pre></td><td class=code><pre><span class=line>User-agent: *</span><br><span class=line>Allow: /</span><br><span class=line>Allow: /archives/</span><br><span class=line>Allow: /tags/</span><br><span class=line>Allow: /categories/</span><br><span class=line></span><br><span class=line>Disallow: /vendors/</span><br><span class=line>Disallow: /js/</span><br><span class=line>Disallow: /css/</span><br><span class=line>Disallow: /fonts/</span><br><span class=line>Disallow: /vendors/</span><br><span class=line>Disallow: /fancybox/</span><br><span class=line></span><br><span class=line>Sitemap: http://yoursite.com/sitemap.xml</span><br></pre></td></tr></table></figure><p><code>Allow</code>字段的值即为允许搜索引擎爬区的内容，<code>/</code>表示网站首页，<code>/categories/</code>为分类页面，如果菜单栏还有其他选项都可以按照格式自行添加。</p><h1 id=阅读量与字数统计>阅读量与字数统计</h1><p>阅读量统计我用的是leancloud。<span class=exturl data-url=aHR0cHM6Ly9sZndlbi5zaXRlLzIwMTYvMDUvMzEvYWRkLWNvdW50LWZvci1oZXhvLW5leHQv>https://lfwen.site/2016/05/31/add-count-for-hexo-next/<i class="fa fa-external-link-alt"></i></span>这篇文章讲的贼详细我就不再赘述了。</p><p>字数统计我用的https://github.com/theme-next/hexo-symbols-count-time，也是特别详细，没啥好讲的，需要注意的是这个可能需要一段时间才能显示出来效果。</p><h1 id=分享>分享</h1><p>同样是出于对隐私的担心和对国产厂商的不信任，没有采用ShareSDK和百度分享，用的AddThis，不知道啥时候会被屏蔽掉。可以直接关联到google。</p><p><img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509184840.png /></p><p>进去之后点share button，选一个你喜欢的样式，右上角可以切换PC和Phone显示，点continue可以选择平台，都选完了点Activate Tool,然后获取代码ID</p><p><img src=https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/1557399873308.png /></p><p>即public后面的，接着编辑主题配置文件，知道关键字add_this_id,添加即可</p><p>参考：<span class=exturl data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80ZWYzNTUyMWZlZTk=">https://www.jianshu.com/p/4ef35521fee9<i class="fa fa-external-link-alt"></i></span></p><p>以下更新于2019.5.11。</p><p>最后发现其实这个并没有那么好用，自己测试了一下如果是分享到微信的话，只会生成一个链接或者二维码。看了一下主题配置文件中有官方支持的三方插件，发现百度share的隐私要求没有那么严格，但是不支持https协议因此放弃。最后采用likely的方案，具体参见https://ilyabirman.net/projects/likely/。缺点就是不支持微信。不过也就这样吧，做这个博客并不是为了想要多少人看到，想要赚什么钱，只是想记录下自己成长的点点滴滴。</p><h1 id=图片问题的彻底解决>图片问题的彻底解决</h1><p>我上一篇一直没能把图片问题解决，本地插件一直不成功，然后想注册图床又因为隐私泄露的问题望而却步，突然想到github既然能作为评论系统的载体，能不能作为我图片系统的载体呢？网上一搜果然有人做过了。点击<span class=exturl data-url=aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv>这里<i class="fa fa-external-link-alt"></i></span>即可开启PicGo的丝滑体验。</p><p>下一篇：定制优化，包括版权页、右下角的猫、升级与备份、背景图片、代码复制、文章连接唯一化、语法优化，pdf。其他花里胡哨但是我没有放到博客里的内容会统一整理出链接放在下一篇里。</p></div><footer class=post-footer><div class=post-copyright><ul><li class=post-copyright-author><strong>Post author: </strong>周大侠</li><li class=post-copyright-link><strong>Post link: </strong><a href=https://lifeodyssey.github.io/posts/361a6d0d.html title=博客第三方插件和图片问题解决>https://lifeodyssey.github.io/posts/361a6d0d.html</a></li><li class=post-copyright-license><strong>Copyright Notice: </strong>All articles in this blog are licensed under <span class=exturl data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fa-fw fab fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li></ul></div><div class=post-tags><a href=/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/ rel=tag># 博客搭建</a></div><div class=post-nav><div class=post-nav-item><a href=/posts/4df973c2.html rel=prev title="Cousera机器学习基石第三周笔记 Machine Learning Foundation Week 3 Note in Cousera"><i class="fa fa-angle-left"></i> Cousera机器学习基石第三周笔记 Machine Learning Foundation Week 3 Note in Cousera</a></div><div class=post-nav-item><a href=/posts/da4d42a2.html rel=next title="Cousera机器学习基石第六周笔记 Machine Learning Foundation Week 6 Note in Cousera">Cousera机器学习基石第六周笔记 Machine Learning Foundation Week 6 Note in Cousera <i class="fa fa-angle-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div class=copyright>&copy; 2016 – <span itemprop=copyrightYear>2025</span> <span class=with-love><i class="fa fa-heart"></i> </span><span class=author itemprop=copyrightHolder>周大侠</span></div><div class=wordcount><span class=post-meta-item><span class=post-meta-item-icon><i class="fa fa-chart-line"></i> </span><span title="Word count total">794k</span> </span><span class=post-meta-item><span class=post-meta-item-icon><i class="fa fa-coffee"></i> </span><span title="Reading time total">48:07</span></span></div><div class=powered-by>Powered by <span class=exturl data-url=aHR0cHM6Ly9oZXhvLmlv>Hexo</span> & <span class=exturl data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span></div></div></footer><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span> <span class=toggle-line></span> <span class=toggle-line></span></div><div class=sidebar-dimmer></div><div class=back-to-top role=button aria-label="Back to top"><i class="fa fa-arrow-up fa-lg"></i> <span>0%</span></div><div class=reading-progress-bar></div><a class="book-mark-link book-mark-link-fixed" role=button></a> <span class="exturl github-corner" data-url=aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5 title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg aria-hidden=true height=80 viewBox="0 0 250 250" width=80><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" class=octo-arm fill=currentColor style="transform-origin:130px 106px"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" class=octo-body fill=currentColor></path></svg></span><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.25.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"base16/tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客第三方插件和图片问题解决">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/361a6d0d.html">
+<meta property="og:site_name" content="乔克叔叔的床边故事">
+<meta property="og:description" content="啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。 这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-09T07:59:56.000Z">
+<meta property="article:modified_time" content="2026-01-20T01:58:04.692Z">
+<meta property="article:author" content="周大侠">
+<meta property="article:tag" content="博客搭建">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/361a6d0d.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/361a6d0d.html","path":"posts/361a6d0d.html","title":"博客第三方插件和图片问题解决"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>博客第三方插件和图片问题解决 | 乔克叔叔的床边故事</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="乔克叔叔的床边故事" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">乔克叔叔的床边故事</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">评论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">注册应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalk.swig"><span class="nav-number">1.2.</span> <span class="nav-text">gitalk.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comments.swig"><span class="nav-number">1.3.</span> <span class="nav-text">comments.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index.swig"><span class="nav-number">1.4.</span> <span class="nav-text">index.swig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitalkt.styl"><span class="nav-number">1.5.</span> <span class="nav-text">gitalkt.styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#third-party-styl"><span class="nav-number">1.6.</span> <span class="nav-text">third-party-styl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config.yml"><span class="nav-number">1.7.</span> <span class="nav-text">_config.yml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">站点地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFseo%E4%BC%98%E5%8C%96"><span class="nav-number">2.1.</span> <span class="nav-text">开启SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90sitmap%E5%9C%B0%E5%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text">生成sitmap地图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E7%BB%99%E8%B0%B7%E6%AD%8C"><span class="nav-number">2.3.</span> <span class="nav-text">提交给谷歌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#robots%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.4.</span> <span class="nav-text">Robots协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E9%87%8F%E4%B8%8E%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">阅读量与字数统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E4%BA%AB"><span class="nav-number">4.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98%E7%9A%84%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3"><span class="nav-number">5.</span> <span class="nav-text">图片问题的彻底解决</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周大侠</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">171</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnpoZW5qaWF6aG91MDEyN0BnbWFpbC5jb20=" title="E-Mail → mailto:zhenjiazhou0127@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cucmVzZWFyY2hnYXRlLm5ldC9wcm9maWxlL1poZW5qaWFfWmhvdQ==" title="Researchgate → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Zhenjia_Zhou"><i class="fa fa-researchgate fa-fw"></i>Researchgate</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3poZW5qaWEtemhvdS8=" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhenjia-zhou&#x2F;"><i class="fa fa-Linkedin fa-fw"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/361a6d0d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="博客第三方插件和图片问题解决 | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客第三方插件和图片问题解决
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-09 15:59:56" itemprop="dateCreated datePublished" datetime="2019-05-09T15:59:56+08:00">2019-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B5%84%E6%96%99%E8%B4%B4%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">资料贴整理</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>啊四月份本咸鱼赏(da)樱(you)花(xi)和搞毕业论文去了，五月份滚回来更新。争取在没有你的五月（误）把机器学习基石的上更新完，然后把毕业论文的代码发到github。</p>
+<p>这一篇包括第三方功能（评论、站点地图、阅读量、统计分析、分享）和图片问题的彻底解决。</p>
+<span id="more"></span>
+<h1 id="评论">评论</h1>
+<p>我采用的评论系统是gitalk，因为这个系统不用注册什么乱七八糟的网站，支持github登录，搞起来很方便。</p>
+<p>gitalk详情参见<span class="exturl" data-url="aHR0cHM6Ly9naXRhbGsuZ2l0aHViLmlvLw==">https://gitalk.github.io/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="注册应用">注册应用</h2>
+<p>在GitHub上注册新应用，点击<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL2FwcGxpY2F0aW9ucy9uZXc=">这里<i class="fa fa-external-link-alt"></i></span>。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509163920.png" /></p>
+<p>网址就填你网站的母页面(像我的是lifeodyssey.github.io)，callback
+URL也是这个，剩余的随意即可。</p>
+<p>点击注册之后页面跳转，其中Client ID和Client
+Secret在后面用到的时候复制粘贴即可。</p>
+<h2 id="gitalk.swig">gitalk.swig</h2>
+<p>新建<code>/layout/_third-party/comments/gitalk.swig</code>文件，并添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> page.comments &amp;&amp; theme.gitalk.enable %&#125;</span><br><span class="line">  &lt;<span class="built_in">link</span> rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;</span>&gt;</span><br><span class="line">  &lt;script src=<span class="string">&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">   &lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">        var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: <span class="string">&#x27;&#123;&#123; theme.gitalk.ClientID &#125;&#125;&#x27;</span>,</span><br><span class="line">          clientSecret: <span class="string">&#x27;&#123;&#123; theme.gitalk.ClientSecret &#125;&#125;&#x27;</span>,</span><br><span class="line">          repo: <span class="string">&#x27;&#123;&#123; theme.gitalk.repo &#125;&#125;&#x27;</span>,</span><br><span class="line">          owner: <span class="string">&#x27;&#123;&#123; theme.gitalk.githubID &#125;&#125;&#x27;</span>,</span><br><span class="line">          admin: [<span class="string">&#x27;&#123;&#123; theme.gitalk.adminUser &#125;&#125;&#x27;</span>],</span><br><span class="line">          <span class="built_in">id</span>: location.pathname,</span><br><span class="line">          distractionFreeMode: <span class="string">&#x27;&#123;&#123; theme.gitalk.distractionFreeMode &#125;&#125;&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>)           </span><br><span class="line">       &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="comments.swig">comments.swig</h2>
+<p>修改<code>/layout/_partials/comments.swig</code>，添加内容如下，与前面的<code>elseif</code>同一级别上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elseif theme.gitalk.enable %&#125;</span><br><span class="line"> &lt;div <span class="built_in">id</span>=<span class="string">&quot;gitalk-container&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="index.swig">index.swig</h2>
+<p>修改<code>layout/_third-party/comments/index.swig</code>，在最后一行添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include <span class="string">&#x27;gitalk.swig&#x27;</span> %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="gitalkt.styl">gitalkt.styl</h2>
+<p>新建<code>/source/css/_common/components/third-party/gitalk.styl</code>文件，添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.gt-header a, .gt-comments a, .gt-popup a</span><br><span class="line">  border-bottom: none;</span><br><span class="line">.gt-container .gt-popup .gt-action.is--active:before</span><br><span class="line">  top: 0.7em;</span><br></pre></td></tr></table></figure>
+<h2 id="third-party-styl">third-party-styl</h2>
+<p>修改<code>/source/css/_common/components/third-party/third-party.styl</code>，在最后一行上添加内容，引入样式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import <span class="string">&quot;gitalk&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="config.yml">_config.yml</h2>
+<p>在主题配置文件<code>next/_config.yml</code>中添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  githubID: github帐号  <span class="comment"># 例：asdfv1929   </span></span><br><span class="line">  repo: 仓库名称   <span class="comment"># 例：asdfv1929.github.io</span></span><br><span class="line">  ClientID: Client ID</span><br><span class="line">  ClientSecret: Client Secret</span><br><span class="line">  adminUser: github帐号 <span class="comment">#指定可初始化评论账户</span></span><br><span class="line">  distractionFreeMode: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>参考<span class="exturl" data-url="aHR0cHM6Ly9hc2RmdjE5MjkuZ2l0aHViLmlvLzIwMTgvMDEvMjAvZ2l0YWxrLw==">https://asdfv1929.github.io/2018/01/20/gitalk/<i class="fa fa-external-link-alt"></i></span>的教程。</p>
+<h1 id="站点地图">站点地图</h1>
+<p>俗话说得好，酒香害怕巷子深，自己做的宝贝当然是想让别人也看到的。站点地图提交到搜索引擎之后就可以被搜索引擎搜索到了。不过我这里只写了怎么提交谷歌搜索，百度站长所需要的个人信息资料太多太私密，让我不寒而栗，因此我自己不做提交，也不做讲解。</p>
+<p>谷歌提交之后还可以通过analytics平台分析访客数据。</p>
+<h2 id="开启seo优化">开启SEO优化</h2>
+<p>打开主题配置文件，找到seo选项改为true</p>
+<h2 id="生成sitmap地图">生成sitmap地图</h2>
+<p>先，安装插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<p>在博客配置文件中改url为你自己的地址</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://lifeodyssey.github.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">post/:abbrlink.html</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br></pre></td></tr></table></figure>
+<p>并添加</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br></pre></td></tr></table></figure>
+<p>之后hexo d
+-g，这时在public目录下会生成sitemap.xml。这个之后需要提交给谷歌</p>
+<h2 id="提交给谷歌">提交给谷歌</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">点这里<i class="fa fa-external-link-alt"></i></span></p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509182929.png" /></p>
+<p>点击添加资源</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183019.png" /></p>
+<p>选择网址前缀验证，里面选标签验证，在主题配置文件中修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Google Webmaster tools verification setting</span><br><span class="line"># See: https://www.google.com/webmasters/</span><br><span class="line">google_site_verification: xxxxxxxxxxxxx # 此处改为google提供给你的HTML标签content后的内容</span><br></pre></td></tr></table></figure>
+<p>这里也可以使用analytics验证，我自己用的是analytics，但是因为时间太久了我忘了怎么做了……没有特别麻烦总之。</p>
+<p>回到search consle，点击左侧sitemap<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509183405.png" /></p>
+<p>输入站点地图的网址并提交，例如https://xxx.github.io/sitemap.xml，接下来就可以谷歌搜一下你自己的博客看看有没有被收录了。</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9sdWFuemh1eGlhbi5naXRodWIuaW8vcG9zdC84MmQ5MmFkNC5odG1s">https://luanzhuxian.github.io/post/82d92ad4.html<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="robots协议">Robots协议</h2>
+<p>为了防止自己的网站被恶意爬取，这一步是必须的。</p>
+<p>在站点<code>source</code>文件夹下新建<code>robots.txt</code>文件，文件内容如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Allow: /categories/</span><br><span class="line"></span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: http://yoursite.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+<p><code>Allow</code>字段的值即为允许搜索引擎爬区的内容，<code>/</code>表示网站首页，<code>/categories/</code>为分类页面，如果菜单栏还有其他选项都可以按照格式自行添加。</p>
+<h1 id="阅读量与字数统计">阅读量与字数统计</h1>
+<p>阅读量统计我用的是leancloud。<span class="exturl" data-url="aHR0cHM6Ly9sZndlbi5zaXRlLzIwMTYvMDUvMzEvYWRkLWNvdW50LWZvci1oZXhvLW5leHQv">https://lfwen.site/2016/05/31/add-count-for-hexo-next/<i class="fa fa-external-link-alt"></i></span>这篇文章讲的贼详细我就不再赘述了。</p>
+<p>字数统计我用的https://github.com/theme-next/hexo-symbols-count-time，也是特别详细，没啥好讲的，需要注意的是这个可能需要一段时间才能显示出来效果。</p>
+<h1 id="分享">分享</h1>
+<p>同样是出于对隐私的担心和对国产厂商的不信任，没有采用ShareSDK和百度分享，用的AddThis，不知道啥时候会被屏蔽掉。可以直接关联到google。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/20190509184840.png" /></p>
+<p>进去之后点share
+button，选一个你喜欢的样式，右上角可以切换PC和Phone显示，点continue可以选择平台，都选完了点Activate
+Tool,然后获取代码ID</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image/1557399873308.png" /></p>
+<p>即public后面的，接着编辑主题配置文件，知道关键字add_this_id,添加即可</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC80ZWYzNTUyMWZlZTk=">https://www.jianshu.com/p/4ef35521fee9<i class="fa fa-external-link-alt"></i></span></p>
+<p>以下更新于2019.5.11。</p>
+<p>最后发现其实这个并没有那么好用，自己测试了一下如果是分享到微信的话，只会生成一个链接或者二维码。看了一下主题配置文件中有官方支持的三方插件，发现百度share的隐私要求没有那么严格，但是不支持https协议因此放弃。最后采用likely的方案，具体参见https://ilyabirman.net/projects/likely/。缺点就是不支持微信。不过也就这样吧，做这个博客并不是为了想要多少人看到，想要赚什么钱，只是想记录下自己成长的点点滴滴。</p>
+<h1 id="图片问题的彻底解决">图片问题的彻底解决</h1>
+<p>我上一篇一直没能把图片问题解决，本地插件一直不成功，然后想注册图床又因为隐私泄露的问题望而却步，突然想到github既然能作为评论系统的载体，能不能作为我图片系统的载体呢？网上一搜果然有人做过了。点击<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">这里<i class="fa fa-external-link-alt"></i></span>即可开启PicGo的丝滑体验。</p>
+<p>下一篇：定制优化，包括版权页、右下角的猫、升级与备份、背景图片、代码复制、文章连接唯一化、语法优化，pdf。其他花里胡哨但是我没有放到博客里的内容会统一整理出链接放在下一篇里。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>周大侠
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://lifeodyssey.github.io/posts/361a6d0d.html" title="博客第三方插件和图片问题解决">https://lifeodyssey.github.io/posts/361a6d0d.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/4df973c2.html" rel="prev" title="Cousera机器学习基石第三周笔记 Machine Learning Foundation Week 3 Note in Cousera">
+                  <i class="fa fa-angle-left"></i> Cousera机器学习基石第三周笔记 Machine Learning Foundation Week 3 Note in Cousera
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/da4d42a2.html" rel="next" title="Cousera机器学习基石第六周笔记 Machine Learning Foundation Week 6 Note in Cousera">
+                  Cousera机器学习基石第六周笔记 Machine Learning Foundation Week 6 Note in Cousera <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">周大侠</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">301k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18:16</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

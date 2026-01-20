@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.25.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"base16/tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="最近花了一些时间学习DeepLearning.AI的Agentic AI，并且拿到了证书。一共花了六个小时左右。内容偏向于介绍Agentic AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。 回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在 Coursera 上学他的 Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agentic AI Lecture Note">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/4e596c51.html">
+<meta property="og:site_name" content="乔克叔叔的床边故事">
+<meta property="og:description" content="最近花了一些时间学习DeepLearning.AI的Agentic AI，并且拿到了证书。一共花了六个小时左右。内容偏向于介绍Agentic AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。 回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在 Coursera 上学他的 Machine Learning">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-02T11:22:56.000Z">
+<meta property="article:modified_time" content="2026-01-20T01:58:04.687Z">
+<meta property="article:author" content="周大侠">
+<meta property="article:tag" content="Agentic AI">
+<meta property="article:tag" content="Large Language Model">
+<meta property="article:tag" content="Software Engineering">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/4e596c51.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/4e596c51.html","path":"posts/4e596c51.html","title":"Agentic AI Lecture Note"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Agentic AI Lecture Note | 乔克叔叔的床边故事</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="乔克叔叔的床边故事" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">乔克叔叔的床边故事</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction-to-agentic-workflows"><span class="nav-number">1.</span> <span class="nav-text">Introduction to Agentic
+Workflows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reflection-design-pattern"><span class="nav-number">2.</span> <span class="nav-text">Reflection Design Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluating-the-impact-of-reflection"><span class="nav-number">2.1.</span> <span class="nav-text">Evaluating the impact of
+reflection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A7%82%E8%AF%84%E4%BC%B0%E5%9B%BE%E8%A1%A8%E7%94%9F%E6%88%90"><span class="nav-number">2.1.1.</span> <span class="nav-text">主观评估（图表生成）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E8%A7%82%E8%AF%84%E4%BC%B0sql-%E6%9F%A5%E8%AF%A2%E7%94%9F%E6%88%90"><span class="nav-number">2.1.2.</span> <span class="nav-text">客观评估（SQL 查询生成）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#reflection-with-external-feedback"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Reflection with external
+feedback</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tool-use"><span class="nav-number">3.</span> <span class="nav-text">Tool Use</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-are-tools"><span class="nav-number">3.1.</span> <span class="nav-text">What are tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tool-syntax"><span class="nav-number">3.2.</span> <span class="nav-text">Tool syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#code-execution"><span class="nav-number">3.2.1.</span> <span class="nav-text">Code execution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mcp"><span class="nav-number">3.2.2.</span> <span class="nav-text">MCP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#practical-tips-for-building-agentic-ai"><span class="nav-number">4.</span> <span class="nav-text">Practical Tips for
+Building Agentic AI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluations-evals"><span class="nav-number">4.1.</span> <span class="nav-text">Evaluations (evals)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error-analysis-and-prioritizing-next-steps"><span class="nav-number">4.2.</span> <span class="nav-text">Error Analysis and
+prioritizing next steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#component-level-evaluations"><span class="nav-number">4.3.</span> <span class="nav-text">Component-level evaluations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%BB%84%E4%BB%B6%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-number">4.4.</span> <span class="nav-text">优化组件的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latency-cost-optimization"><span class="nav-number">4.5.</span> <span class="nav-text">Latency, cost optimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#patterns-for-highly-autonomous-agents"><span class="nav-number">5.</span> <span class="nav-text">Patterns for highly
+autonomous agents</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#planning-workflows"><span class="nav-number">5.1.</span> <span class="nav-text">Planning workflows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#planning-with-code-execution"><span class="nav-number">5.2.</span> <span class="nav-text">Planning with code execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-agentic-workflows-communication-patterns-for-multi-agent-systems"><span class="nav-number">5.3.</span> <span class="nav-text">Multi-agentic
+workflows &amp; Communication patterns for multi-agent systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周大侠</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">171</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lifeodyssey"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnpoZW5qaWF6aG91MDEyN0BnbWFpbC5jb20=" title="E-Mail → mailto:zhenjiazhou0127@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cucmVzZWFyY2hnYXRlLm5ldC9wcm9maWxlL1poZW5qaWFfWmhvdQ==" title="Researchgate → https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Zhenjia_Zhou"><i class="fa fa-researchgate fa-fw"></i>Researchgate</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3poZW5qaWEtemhvdS8=" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;zhenjia-zhou&#x2F;"><i class="fa fa-Linkedin fa-fw"></i>Linkedin</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/4e596c51.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周大侠">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Agentic AI Lecture Note | 乔克叔叔的床边故事">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Agentic AI Lecture Note
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-02 19:22:56" itemprop="dateCreated datePublished" datetime="2025-11-02T19:22:56+08:00">2025-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Work-Note/" itemprop="url" rel="index"><span itemprop="name">Work Note</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>21 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近花了一些时间学习DeepLearning.AI的<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp">Agentic
+AI<i class="fa fa-external-link-alt"></i></span>，并且拿到了<span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY2VydGlmaWNhdGVzL2U2ZTg2OTYzLWQ2NjAtNDFlZi1iOTdmLWM5YzhjMzk4ZWIzZg==">证书<i class="fa fa-external-link-alt"></i></span>。一共花了六个小时左右。内容偏向于介绍Agentic
+AI的一些基本概念和应用，课程质量很高，但是由于是入门课程，所以内容比较浅显，没有涉及到太多的数学和代码实现。</p>
+<p>回想起来，上一次学 Andrew Ng 的课程还是在 2016 或 2017 年，在
+Coursera 上学他的 Machine
+Learning。已经将近九年前的事了，时间飞逝啊。</p>
+<p>接下来我将总结这门课的核心内容，并回答一个问题：为什么截至 2025 年 11
+月 2 日，Claude Code 是最成功的 Agentic 类产品？</p>
+<p>注意到这门课使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FuZHJld3luZy9haXN1aXRl">AI
+Suite<i class="fa fa-external-link-alt"></i></span>来做具体的实现，这与现在大家使用较多的 LangGraph、OpenAI Agent
+SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。</p>
+<span id="more"></span>
+<h1 id="introduction-to-agentic-workflows">Introduction to Agentic
+Workflows</h1>
+<p>这门课里讲的Agentic AI，实际上讲的是Agentic AI workflows，定义为An
+agentic AI workflow is a process where an LLM-based app executes
+multiple steps to complete a task. 相比于Non-agentic
+workflow只需一次调用，不涉及流程。而Agentic
+workflow则是“有流程、有记忆、有反馈”的智能体系统，能适应更复杂的场景。</p>
+<p>比如以写文章为例子，Agentic AI
+workflow生成文章的流程包括自动分解、规划、执行多步任务，调用其他工具等等，而不是只做一次性输出。
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031525768.png" /></p>
+<p>Agentic AI
+workflow可以是高度自主的，比如在执行过程中自己来思考要把任务分为哪几步，调用什么工具，甚至是自行编写代码来完成任务，也可以是低自主的，预先规定好步骤和要调用的工具的，只有在类似于文本和图片生成的步骤才有一定的自主性。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511031531702.png" /></p>
+<p>Agentic AI 的优势主要有以下几点：</p>
+<ul>
+<li>性能更好：在使用相同模型的情况下，由于能够使用工具，能够获得更好的性能表现，例如在写代码的时候可以使用代码检查工具和运行单元测试来提高代码质量，而不只是单纯的代码补全。</li>
+<li>并行执行：例如同时执行多个搜索工作。</li>
+<li>模块化：可以灵活替换工作流中的某一个步骤使用的工具或者模型。</li>
+</ul>
+<p>设计 Agentic AI 最关键的一步是对任务进行拆解，识别哪一步可以由
+Agentic AI 来完成。目前主要有两类：</p>
+<ol type="1">
+<li>AI 模型：例如文本生成、信息提取与总结、PDF
+转文本、语音生成、图像分析与生成。</li>
+<li>工具使用：例如网页搜索、数据库查询、RAG、计算与数据分析。</li>
+</ol>
+<p>Agentic AI
+的评估是开发过程中最重要的一部分，可以分为客观评价和主观评价。 -
+客观评价：例如通过代码检查与单元测试；再例如在搜索过程中，是否使用了重要的信息源（若是研究报告，好的报告一定会引用知名期刊）。
+- 主观评价：常见做法是
+LLM-as-a-Judge，但并非最佳实践，后续会详细展开。</p>
+<p>同时要通过检查 trace 来进行错误分析与评估。</p>
+<p>常用的设计模式有这几种</p>
+<ol type="1">
+<li>Reflection</li>
+<li>Tool use</li>
+<li>Planning</li>
+<li>Multi-agent collaboration</li>
+</ol>
+<p>这里面最重要的就是Reflection和 Tool use，接下来会详细展开。</p>
+<h1 id="reflection-design-pattern">Reflection Design Pattern</h1>
+<p>Reflection(反思)是指通过固定步骤对LLM的初次输出再次进行思考和分析的过程，拿人类写代码举例子，在写完代码之后运行单测可以得到代码的结果，然后根据这个代码可以去迭代这个结果。</p>
+<p>这个在代码里面来做并没有很难，这是课程上的代码例子 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_draft</span>(<span class="params">topic: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>: </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert academic writer. Write a well-structured essay draft on the following topic:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Topic: &quot;<span class="subst">&#123;topic&#125;</span>&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The essay should include:</span></span><br><span class="line"><span class="string">    - A clear introduction with a thesis statement.</span></span><br><span class="line"><span class="string">    - 2–3 body paragraphs that elaborate on the main ideas.</span></span><br><span class="line"><span class="string">    - A strong conclusion summarizing the main points.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The tone should be formal and academic, and the essay should be coherent, logically organized, and written in full sentences.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span> </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reflect_on_draft</span>(<span class="params">draft: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:o4-mini&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert writing instructor. Please carefully review the following essay draft:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;draft&#125;</span></span></span><br><span class="line"><span class="string">    ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Provide a detailed reflection on the essay, including:</span></span><br><span class="line"><span class="string">    1. The strengths of the essay (e.g., clarity, structure, argumentation, tone).</span></span><br><span class="line"><span class="string">    2. The weaknesses or areas for improvement (e.g., coherence, evidence, flow, grammar).</span></span><br><span class="line"><span class="string">    3. Specific and actionable suggestions to improve the essay in the next revision.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Be concise but insightful, and focus on helping the author improve their work.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">revise_draft</span>(<span class="params">original_draft: <span class="built_in">str</span>, reflection: <span class="built_in">str</span>, model: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4o&quot;</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Define your prompt here. A multi-line f-string is typically used for this.</span></span><br><span class="line">    prompt = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    You are an expert editor. Revise the following essay using the feedback provided.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Goals:</span></span><br><span class="line"><span class="string">    - Address every actionable point in the feedback.</span></span><br><span class="line"><span class="string">    - Improve clarity, coherence, argument strength, transitions, and overall flow.</span></span><br><span class="line"><span class="string">    - Preserve the author’s intent and key ideas; do not change the topic.</span></span><br><span class="line"><span class="string">    - Keep length roughly similar (±15%) unless feedback suggests otherwise.</span></span><br><span class="line"><span class="string">    - Do not invent facts or citations. If evidence is requested but unavailable, strengthen reasoning and clarify limits.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Output requirement:</span></span><br><span class="line"><span class="string">    - Return ONLY the final revised essay. No preface, bullets, or meta commentary.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;original_draft&#125;</span></span></span><br><span class="line"><span class="string">    --- END ORIGINAL DRAFT ---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    --- REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    <span class="subst">&#123;reflection&#125;</span></span></span><br><span class="line"><span class="string">    --- END REFLECTION FEEDBACK ---</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Get a response from the LLM by creating a chat with the client.</span></span><br><span class="line">    response = CLIENT.chat.completions.create(</span><br><span class="line">        model=model,</span><br><span class="line">        messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: prompt&#125;],</span><br><span class="line">        temperature=<span class="number">1.0</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line">essay_prompt = <span class="string">&quot;Should social media platforms be regulated by the government?&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 1 – Draft</span></span><br><span class="line">draft = generate_draft(essay_prompt)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;📝 Draft:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(draft)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 2 – Reflection</span></span><br><span class="line">feedback = reflect_on_draft(draft)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n🧠 Feedback:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(feedback)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Agent 3 – Revision</span></span><br><span class="line">revised = revise_draft(draft, feedback)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n✍️ Revised:\n&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(revised)  </span><br></pre></td></tr></table></figure>
+流程上，就是添加一个新的 agent 做 reflection，提供
+feedback，然后再写一次。 Reflection 在大多数任务上都能提升输出质量。对于
+reflection 带来的效果评估，这里给了两个例子：</p>
+<h2 id="evaluating-the-impact-of-reflection">Evaluating the impact of
+reflection</h2>
+<h3 id="主观评估图表生成">主观评估（图表生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032109283.png" />
+最简单的方案就是之前提到的
+LLM-as-a-Judge：使用一个模型生成画图代码之后，用另一个模型来评价生成的图。但这并不准确：一方面有点像“garbage
+in, garbage
+out”，拿模型来评价模型；另一方面有研究表明模型会更偏好第一个选项（position
+bias）。因此可以在 LLM-as-a-Judge 场景下加入 rubric-based
+grading（基于评分量表的评估）。例如在评价生成的图表时，提示词可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Assess the attached image against this</span><br><span class="line">quality rubric. Each item should receive a</span><br><span class="line">score for 1 (true) or 0 (false). Return the scores</span><br><span class="line">for each item as a json object</span><br><span class="line">1. Has clear title</span><br><span class="line">2. Axis labels present</span><br><span class="line">3. Appropriate chart type</span><br><span class="line">4. Axes use appropriate numerical range</span><br><span class="line">5. …</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="客观评估sql-查询生成">客观评估（SQL 查询生成）</h3>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032114633.png" />
+在这种情况下我们就可以根据真实数据来生成评价数据集了。因此可以Build a
+dataset of ground truth examples来作为评价。</p>
+<p>除此之外，能够用代码来评价的通常更容易。这就是接下来要讲的 Reflection
+with external feedback（结合外部反馈的反思）。</p>
+<h4 id="reflection-with-external-feedback">Reflection with external
+feedback</h4>
+<p>这一步通常在加入 reflection 之后做，它的效果曲线大致如下：</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032134411.png" />
+拿 SQL 生成来举例子，大概的流程代码长这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_sql_workflow</span>(<span class="params"></span></span><br><span class="line"><span class="params">    db_path: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    question: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">    model_generation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params">    model_evaluation: <span class="built_in">str</span> = <span class="string">&quot;openai:gpt-4.1&quot;</span>,</span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    End-to-end workflow to generate, execute, evaluate, and refine SQL queries.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Steps:</span></span><br><span class="line"><span class="string">      1) Extract database schema</span></span><br><span class="line"><span class="string">      2) Generate SQL (V1)</span></span><br><span class="line"><span class="string">      3) Execute V1 → show output</span></span><br><span class="line"><span class="string">      4) Reflect on V1 with execution feedback → propose refined SQL (V2)</span></span><br><span class="line"><span class="string">      5) Execute V2 → show final answer</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1) Schema</span></span><br><span class="line">    schema = utils.get_schema(db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        schema,</span><br><span class="line">        title=<span class="string">&quot;📘 Step 1 — Extract Database Schema&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2) Generate SQL (V1)</span></span><br><span class="line">    sql_v1 = generate_sql(question, schema, model_generation)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v1,</span><br><span class="line">        title=<span class="string">&quot;🧠 Step 2 — Generate SQL (V1)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3) Execute V1</span></span><br><span class="line">    df_v1 = utils.execute_sql(sql_v1, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v1,</span><br><span class="line">        title=<span class="string">&quot;🧪 Step 3 — Execute V1 (SQL Output)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4) Reflect on V1 with execution feedback → refine to V2</span></span><br><span class="line">    feedback, sql_v2 = refine_sql_external_feedback(</span><br><span class="line">        question=question,</span><br><span class="line">        sql_query=sql_v1,</span><br><span class="line">        df_feedback=df_v1,          <span class="comment"># external feedback: real output of V1</span></span><br><span class="line">        schema=schema,</span><br><span class="line">        model=model_evaluation,</span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        feedback,</span><br><span class="line">        title=<span class="string">&quot;🧭 Step 4 — Reflect on V1 (Feedback)&quot;</span></span><br><span class="line">    )</span><br><span class="line">    utils.print_html(</span><br><span class="line">        sql_v2,</span><br><span class="line">        title=<span class="string">&quot;🔁 Step 4 — Refined SQL (V2)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5) Execute V2</span></span><br><span class="line">    df_v2 = utils.execute_sql(sql_v2, db_path)</span><br><span class="line">    utils.print_html(</span><br><span class="line">        df_v2,</span><br><span class="line">        title=<span class="string">&quot;✅ Step 5 — Execute V2 (Final Answer)&quot;</span></span><br><span class="line">    )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="tool-use">Tool Use</h1>
+<p>这一部分是我认为今年 Agentic AI 爆发的原因之一。MCP
+的出现极大地降低了为模型适配工具的难度。</p>
+<h2 id="what-are-tools">What are tools</h2>
+<p>LLM
+本质上只是一个文本生成模型，它并不具备直接调用工具的能力；其“调用工具”的能力完全来自于它能够输出一段可被执行环境识别的代码或指令。</p>
+<p>比如如果问LLM现在是几点，在学习这门课之前我想象中的流程一直是</p>
+<p>LLM收到请求-&gt;启动一个新的线程来调用<code>datetime.now().strftime("%H:%M:%S")</code>得到结果-&gt;主线程收到结果返回给我</p>
+<p>实际上是</p>
+<p>后端收到请求并转发给 LLM → LLM 输出可执行的代码或标记（例如
+<code>""" FUNCTION def get_current_time(): """</code>）→
+后端检测到结果里带有
+<code>FUNCTION</code>，将生成的内容传递给对应工具执行 →
+后端得到工具的返回结果并发回 LLM → LLM 生成新的最终结果返回给我。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032147035.png" /></p>
+<p>这也就解释了为啥工具调用能力是最近一年很多新的模型的训练方向，本质上是模型你能够按照你给的prompt的标准给出对应的格式的回答的能力。</p>
+<p>例如 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You have access to a tool called</span><br><span class="line">get<span class="emphasis">_current_</span>time for a specific timezone.</span><br><span class="line">To use it, return the following exactly:</span><br><span class="line">FUNCTION:</span><br><span class="line">get<span class="emphasis">_current_</span>time(&quot;timezone&quot;)</span><br></pre></td></tr></table></figure> 模型的工具调用能力好坏完全取决于它能否精确地输出
+<code>FUNCTION:get_current_time("timezone")</code>
+这一行。也就是说，如果想让一个 Agentic AI
+有工具调用能力，模型必须具备以下两个方面的能力：</p>
+<ul>
+<li>Agentic AI 知道自己能够调用哪些工具：这与 Agentic AI
+的提示词（prompt）相关，必须在发送请求时明确告诉它有哪些工具可用。这也解释了我之前的两个疑惑：其一，为什么
+MCP 会占用 Claude Code 的 context
+window——因为这些工具说明必须包含在请求的上下文里；其二，为什么同样的模型在不同产品中的工具调用能力不同——为了降低成本，厂商最直接的办法是缩小
+context，一些工具相关的上下文可能会被丢弃。也因此，当我们明确告诉它使用某个工具时，它就更可能去调用，因为我们把该工具的描述显式放进了上下文。</li>
+<li>依样画葫芦的能力。这是模型本身的能力。这也与我的体感一致：去年很多模型（尤其是
+GPT）还无法完全按照提供的最新文档与编码规范来写代码，容易“胡编乱造”；而今年经过特调的模型在这方面有明显提升。这也解释了为什么
+Claude
+系列在写代码方面体验更好，这与模型的“智力”未必相关，而更多与其“听话程度”（遵循格式与指令的能力）相关。</li>
+</ul>
+<p>总结一下，要让模型知道他有这个工具，就必须得在prompt里面给他写出来。这就会有一些令人头痛的问题</p>
+<h2 id="tool-syntax">Tool syntax</h2>
+<p>就拿得到当前的时间来说，他实际的调用流程长这样 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_current_time</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Returns the current time as a string&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> datetime.now().strftime(<span class="string">&quot;%H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">client = ai.Client()</span><br><span class="line">response = client.chat.completions.create(</span><br><span class="line">    model=<span class="string">&quot;openai:gpt-4o&quot;</span>,</span><br><span class="line">    messages=messages,</span><br><span class="line">    tools=[get_current_time],</span><br><span class="line">    max_turns=<span class="number">5</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+假设我的工具还有参数，那么调用就会变成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tools = [&#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;function&quot;</span>,</span><br><span class="line">    <span class="string">&quot;function&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;get_current_time&quot;</span>,</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Returns current time for the given timezone.&quot;</span>,</span><br><span class="line">        <span class="string">&quot;parameters&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;timezone&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;type&quot;</span>: <span class="string">&quot;string&quot;</span>,</span><br><span class="line">                <span class="string">&quot;description&quot;</span>: <span class="string">&quot;The IANA time zone string, e.g., &#x27;America/New_York&#x27; or &#x27;Pacific/Auckland&#x27;.&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>如果参数越来越多、工具越来越多，那么这一段就会变得越来越长、越来越难以维护，因此大家用得比较多的有两个解决办法：</p>
+<h3 id="code-execution">Code execution</h3>
+<p>这是一个很有意思的办法，对于一些简单的工具，比如加减乘除，我们可以让LLM直接输出工具的代码，例如</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511032156263.png" /></p>
+<p>在做这个的时候要注意，这些代码一定要在 sandbox 里运行，例如独立的
+Docker 容器，否则风险很大。</p>
+<p>实际上，我的体感是去年的 ChatGPT
+就在做这件事：当问题稍微复杂一些时，通过“思考”过程可以看到它是通过写
+Python 代码来执行的。他们内部显然也非常认同这个方向。这也是 Codex
+最早的思路——一个运行在云端的应用，生成代码并执行测试来产出
+PR，整体都运行在一个 sandbox 里；后来才仿照 Claude Code 出了 CLI
+版本。</p>
+<p>去年很流行的“智商检测”问题：“strawberry 里面有几个
+r？”现在也有很多模型是通过生成（或执行）代码来完成的。</p>
+<h3 id="mcp">MCP</h3>
+<p>MCP
+的概念在这里就不再多讲了，这里主要说它是怎么解决之前提到的问题的。</p>
+<p>在没有 MCP 的情况下：</p>
+<ul>
+<li><p>每个 App（如 Slack、GDrive、GitHub）都需要自己去接入多个 LLM
+工具或代理。</p></li>
+<li><p>假设有 m 个应用和 n 个工具，就需要 m × n
+条独立的集成通道。这会导致大量重复开发和维护成本。</p></li>
+</ul>
+<p>MCP（Model Context Protocol） 的核心思想是：所有 App 和 Tools
+都通过一个 共享的 MCP Server 进行通信。 也就是说： - 每个 App 只需要与
+MCP Server 对接一次（m 条连接）； - 每个 Tool 也只需要注册到 MCP Server
+一次（n 条连接）；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">App1 ─┐</span><br><span class="line">App2 ─┼─&gt; Shared MCP Server &lt;─┬─ Tool1 (Slack)</span><br><span class="line">App3 ─┘                        ├─ Tool2 (GitHub)</span><br><span class="line">                               └─ Tool3 (GDrive)</span><br></pre></td></tr></table></figure>
+<p>MCP Server 负责： - 管理工具描述（JSON schema、metadata）； -
+接收来自不同 App 的请求； - 统一调度和调用相应的 Tool； -
+将结果返回给对应的 App 或 Agent。</p>
+<p>它的作用很像一个 Kong 这样的 API Gateway，或者 Backend for
+Frontend（BFF）。这显著减少了为 LLM 开发和适配工具所需的工作量。</p>
+<h1 id="practical-tips-for-building-agentic-ai">Practical Tips for
+Building Agentic AI</h1>
+<p>在开发Agentic
+AI的时候，不要陷入长时间的理论和架构讨论，最好的方法是</p>
+<ol type="1">
+<li>快速构建 MVP（quick and dirty to start）</li>
+<li>基于结果构建评估，构建一个小评估数据集，哪怕只有20个，根据评价结果来找出容易出错的环节来改进</li>
+<li>持续改进评估系统，随着Agent的迭代来优化</li>
+</ol>
+<h2 id="evaluations-evals">Evaluations (evals)</h2>
+<p>评价主要从两个维度来进行</p>
+<ul>
+<li>评估方法：使用代码来评估（Objective） vs LLM AS A
+Judge(Subjective)</li>
+<li>真实值可用性：有标准答案 vs 无标准答案</li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041254577.png" /></p>
+<ol type="1">
+<li>有真实值 +
+代码评估：最客观可靠。例如判断发票日期是否与预期一致，或者用正则表达式匹配格式和关键信息。</li>
+<li>有真实值 + LLM 评估：一般适用于 Deep Research 或总结类型（例如
+Notebook
+LLM）的任务。例如在生成研究综述时，好的研究报告就必须引用某些期刊与来源；在生成调研报告时，一般必须包含若干品牌；在生成学习笔记时，则必须包含几个关键字。</li>
+<li>无真实值+代码评估：通过简单的规则来进行基础校验，比如生成内容的长度。</li>
+<li>无真实值+LLM评估：非常主观灵活的评价标准，一般情况下不推荐作为best
+practice使用。</li>
+</ol>
+<h2 id="error-analysis-and-prioritizing-next-steps">Error Analysis and
+prioritizing next steps</h2>
+<p>在有了 eval
+之后，就可以通过分析执行的轨迹（trace），对比每一步的输出与预期结果，计算每一步的错误率，从而集中优化错误最多、影响最大的环节。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041331799.png" /></p>
+<p>例如，在一个客服系统中可能会有这三步</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041333477.png" /></p>
+<ol type="1">
+<li>生成 SQL 查询</li>
+<li>通过 SQL 去数据库查询数据</li>
+<li>将结果返回给顾客</li>
+</ol>
+<p>这时候就可以列一个表</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041334343.png" /></p>
+<p>运行一些例子，然后分析每一步的结果，来得出在哪一步出错最多。</p>
+<h2 id="component-level-evaluations">Component-level evaluations</h2>
+<p>除了端到端的整体评估，对单个组件进行评估同样很重要。这能让你更快速、精准地测试和优化特定模块，而无需从头到尾运行整个工作流。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041336067.png" /></p>
+<p>例如在一个research agent中，就可以单独对web
+research进行评估和优化。</p>
+<h2 id="优化组件的性能">优化组件的性能</h2>
+<p>一般来说，Agentic AI workflow 分为 LLM 组件和非 LLM 组件。</p>
+<p>当 LLM 组件是瓶颈时，可以从以下方面入手：</p>
+<ul>
+<li>Improve your prompts: Add more explicit instructions; add one or
+more concrete examples to the prompt (few-shot prompting)</li>
+<li>Try a new model: Try multiple LLMs and use evals to pick the
+best</li>
+<li>Split up the step: Decompose the task into smaller steps</li>
+<li>Fine-tune a model: Fine-tune on your internal data to improve
+performance</li>
+</ul>
+<p>当非 LLM 组件（例如 Web search、RAG
+的文本检索、代码执行、已训练的传统 ML
+模型等）是瓶颈时，可以从以下方面入手：</p>
+<ul>
+<li>Tune hyperparameters of component: Web search — number of results,
+date range; RAG — change similarity threshold, chunk size; ML models —
+detection threshold</li>
+<li>Replace the component: Try a different web search engine, RAG
+provider, etc.</li>
+</ul>
+<p>作为开发者，培养对模型的直觉很重要，需要了解每种模型适合什么任务，以及如何在性能、延迟和成本之间取得平衡。
+培养直觉的方法有：</p>
+<ul>
+<li>Play with models often
+<ul>
+<li>Having a personal set of evals might be helpful</li>
+<li>Read other people’s prompts for ideas of how to best use models</li>
+</ul></li>
+<li>Use different models in your agentic workflows
+<ul>
+<li>Which models work for which types of tasks?</li>
+<li>Use a framework/SDK or model provider that allows changing models
+easily.</li>
+</ul></li>
+</ul>
+<h2 id="latency-cost-optimization">Latency, cost optimization</h2>
+<p>延迟和成本固然重要，但是在初期不应该过度考虑，通常的策略是先提升准确率，确保Agent正常工作，再针对性优化延迟和成本。</p>
+<h1 id="patterns-for-highly-autonomous-agents">Patterns for highly
+autonomous agents</h1>
+<p>之前四节讲的是少量或半自主性的 Agentic AI，最后也简要讲了高自主性的
+Agentic AI 该如何设计。</p>
+<h2 id="planning-workflows">Planning workflows</h2>
+<p>在这种模式下，我们给 LLM 提供一系列可用的工具，并要求 LLM
+规划出完成任务的工具调用步骤，让系统按照这个计划进行。比如在之前提到的客服系统中。</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041400422.png" /></p>
+<p>就可以让 Planning Agent 生成 JSON 格式的执行计划</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;plan&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Find round sunglasses&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;get_item_descriptions&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;query&quot;</span><span class="punctuation">:</span> <span class="string">&quot;round sunglasses&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;step&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Check available stock&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tool&quot;</span><span class="punctuation">:</span> <span class="string">&quot;check_inventory&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;items&quot;</span><span class="punctuation">:</span> <span class="string">&quot;results from step 1&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    …</span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这样就方便我们后续把这个拆分作为每一步的Agent的输入。</p>
+<p>但是这样也会有问题，比如</p>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041424781.png" /></p>
+<p>我们提问：“Which month had the highest sales of hot
+chocolate?”（哪一个月的热巧克力销量最高？）</p>
+<p>Planning Workflow 将会是这样的： 1. 用 filter_rows
+工具筛选出一月的热巧克力数据。 2. 用 get_column_mean 求平均销量。 3.
+再筛选二月，再求平均；三月、四月……重复直到十二月。 4.
+最后比较这些平均值，找到最高的月份。</p>
+<p>这样就会有以下几个问题：</p>
+<ol type="1">
+<li><p>Brittle（脆弱）</p>
+<p>这种方法对输入结构依赖太强。如果 CSV 文件列名从 coffee_name 改成
+drink_name，或者日期格式稍有不同，整个流程就会出错。模型也可能忘记前几步的结果，比如「Step
+3 results」引用不到，稍有变化就会崩溃。</p></li>
+<li><p>Inefficient（低效）</p>
+<p>LLM 每执行一步都得重新生成下一步指令。要跑 12 个月，就得调用 12 次
+filter_rows + 12 次
+get_column_mean。每次调用之间还要等模型回应和上下文传递，速度很慢且算力浪费。</p></li>
+<li><p>Continuously dealing with edge cases（不断处理边缘情况）</p>
+<p>每次数据有点不同就得写补丁，开发者永远在修“特殊情况”，而不是改进算法：</p>
+<ul>
+<li>有的月份没有热巧克力 → 代码报错，要加判断。</li>
+<li>数据缺失或格式不对 → 要加异常处理。</li>
+<li>有时列顺序不一样、文件名不同 → 又得改逻辑。</li>
+</ul></li>
+</ol>
+<p>所以更好的方案是 Planning with code execution</p>
+<h2 id="planning-with-code-execution">Planning with code execution</h2>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041427014.png" /></p>
+<p>直接让系统生成代码，而不是JSON格式的步骤，相对来说就更加灵活</p>
+<h2
+id="multi-agentic-workflows-communication-patterns-for-multi-agent-systems">Multi-agentic
+workflows &amp; Communication patterns for multi-agent systems</h2>
+<p>最后这里课程只是简单的讲了一下，当任务过于复杂时，可以由多个专门的智能体一起完成，常见的模式有</p>
+<ol type="1">
+<li>串行智能体：像流水线一样工作，前一个 Agent 的输出是后一个 Agent
+的输入。</li>
+<li>分层智能体：一个主管智能体充当
+manager，负责分解与分配子任务，并进行结果汇总与整合。</li>
+</ol>
+<p><img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041434016.png" /></p>
+<h1 id="总结">总结</h1>
+<p>这门课可以作为一个很好的新手入门大纲，帮助了解 Agent
+开发。基本上只要稍微懂一些 Python 和 Jupyter
+Notebook，以及提示词工程，就可以理解并完成课程，不涉及太多代码。</p>
+<p>最有用的部分就是Reflection和Tool Use。</p>
+<p>接下来回答两个问题：</p>
+<ol type="1">
+<li>为什么Claude Code是目前最成功的Agentic类产品？</li>
+</ol>
+<ul>
+<li>产品只涉及代码生成，有明确且可量化的评价体系，例如测试和
+Lint。这也是我认为为什么现在 Agentic Coding 产品这么多的最大原因：eval
+是开发过程中最重要也最困难的部分，而“写代码”的评估相对其他场景（例如
+Deep Research）更容易做成客观评价。</li>
+<li>MCP。MCP 极大地增强了 Claude Code
+通过调用工具获取外部信息并获得外部反馈的能力。</li>
+<li>模型“听话”，依样画葫芦的能力很强。</li>
+<li>Context and Prompt Management：Claude Code
+的开发者显然意识到哪些内容对写代码最重要，因此在设计阶段就预先定义了固定的上下文。
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202511041443224.png" /></li>
+</ul>
+<ol start="2" type="1">
+<li>下一个最成功的Agentic类产品会是什么？</li>
+</ol>
+<p>我认为会是浏览器。ChatGPT Atlas
+目前已经发布，我的体验是它做得很成功。</p>
+<ul>
+<li>浏览器在执行操作时能够很好地避免很多安全问题，例如个人账号的登录，这些都可以由用户本人在本地完成与存储。这在此前各类产品的
+Agent 模式（例如 Manus 和
+ChatGPT）中是很大的痛点。之前它们的模式有点像“云原神”：在远端服务器上开启一个虚拟机，由你的语言指令让
+AI
+在虚拟机上操作浏览器与操作系统；这种情况下多窗口跳转等操作体验较差（亲身体验）。而多数用户真正需要的是让
+AI
+操作自己的浏览器和系统，由自己完成登录、付款等关键环节，把重复性操作交给
+Agent。这有点像最初的 Codex 与 Codex CLI/Claude Code 的区别。</li>
+<li>浏览器场景下的 Agentic
+产品，评价体系相对清晰。例如自动化表单填写、信息抽取、网页导航等任务，都可以通过结果准确率、完成效率等客观指标进行评估，便于持续优化和迭代。</li>
+<li>MCP 等协议的普及，尤其是 Playwright MCP 极大降低了 Agent
+与浏览器之间的集成门槛，让模型能够像调用 API
+一样灵活地操作网页、抓取数据、完成复杂任务。只要模型能够精确地输出调用指令，就能实现高度自动化的浏览体验。</li>
+<li>浏览器天然具备极强的工具属性，是信息获取、任务执行和外部世界交互的核心入口，并具备很强的可扩展性与生态潜力。一旦
+Agentic 浏览器产品成熟，就会像互联网时代的 Google
+一样，成为新的流量入口。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>周大侠
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://lifeodyssey.github.io/posts/4e596c51.html" title="Agentic AI Lecture Note">https://lifeodyssey.github.io/posts/4e596c51.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Software-Engineering/" rel="tag"># Software Engineering</a>
+              <a href="/tags/Agentic-AI/" rel="tag"># Agentic AI</a>
+              <a href="/tags/Large-Language-Model/" rel="tag"># Large Language Model</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d590b83.html" rel="prev" title="Agent coding experience and future">
+                  <i class="fa fa-angle-left"></i> Agent coding experience and future
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/34c938fb.html" rel="next" title="Agentic AI 学習記録">
+                  Agentic AI 学習記録 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">周大侠</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">301k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">18:16</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZmVvZHlzc2V5" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

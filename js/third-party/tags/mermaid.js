@@ -1,1 +1,31 @@
-document.addEventListener("page:loaded",(async()=>{const e=document.querySelectorAll("pre > .mermaid");e.length&&(await NexT.utils.getScript(CONFIG.mermaid.js,{condition:window.mermaid}),e.forEach((e=>{const t=document.createElement("div");t.className="code-container";const a=document.createElement("div");a.innerHTML=e.innerHTML,a.className="mermaid",t.appendChild(a),CONFIG.codeblock.copy_button.enable&&NexT.utils.registerCopyButton(t,t,e.textContent);const n=e.parentNode;n.parentNode.replaceChild(t,n)})),mermaid.initialize({theme:CONFIG.darkmode&&window.matchMedia("(prefers-color-scheme: dark)").matches?CONFIG.mermaid.theme.dark:CONFIG.mermaid.theme.light,logLevel:4,flowchart:{curve:"linear"},gantt:{axisFormat:"%m/%d/%Y"},sequence:{actorMargin:50}}),mermaid.run())}));
+/* global NexT, CONFIG, mermaid */
+
+document.addEventListener('page:loaded', async () => {
+  const mermaidElements = document.querySelectorAll('pre > .mermaid');
+  if (mermaidElements.length) {
+    await NexT.utils.getScript(CONFIG.mermaid.js, {
+      condition: window.mermaid
+    });
+    mermaidElements.forEach(element => {
+      const box = document.createElement('div');
+      box.className = 'code-container';
+      const newElement = document.createElement('div');
+      newElement.innerHTML = element.innerHTML;
+      newElement.className = 'mermaid';
+      box.appendChild(newElement);
+      if (CONFIG.codeblock.copy_button.enable) {
+        NexT.utils.registerCopyButton(box, box, element.textContent);
+      }
+      const parent = element.parentNode;
+      parent.parentNode.replaceChild(box, parent);
+    });
+    mermaid.initialize({
+      theme    : CONFIG.darkmode && window.matchMedia('(prefers-color-scheme: dark)').matches ? CONFIG.mermaid.theme.dark : CONFIG.mermaid.theme.light,
+      logLevel : 4,
+      flowchart: { curve: 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+    mermaid.run();
+  }
+});
