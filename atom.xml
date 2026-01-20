@@ -6,7 +6,7 @@
   <link href="https://lifeodyssey.github.io/atom.xml" rel="self"/>
   
   <link href="https://lifeodyssey.github.io/"/>
-  <updated>2026-01-20T01:58:04.688Z</updated>
+  <updated>2026-01-20T02:38:55.342Z</updated>
   <id>https://lifeodyssey.github.io/</id>
   
   <author>
@@ -17,17 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建</title>
-    <link href="https://lifeodyssey.github.io/posts/fe980c74.html"/>
-    <id>https://lifeodyssey.github.io/posts/fe980c74.html</id>
+    <title></title>
+    <link href="https://lifeodyssey.github.io/posts/0.html"/>
+    <id>https://lifeodyssey.github.io/posts/0.html</id>
+    <published>2026-01-20T02:38:55.342Z</published>
+    <updated>2026-01-20T02:38:55.342Z</updated>
+    
+    
+    <summary type="html">
+</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Claude Code の Skills と Plugins を理解する：彼らは一体何の問題を解決しているのか?</title>
+    <link href="https://lifeodyssey.github.io/posts/824291ea.html"/>
+    <id>https://lifeodyssey.github.io/posts/824291ea.html</id>
     <published>2026-01-18T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.688Z</updated>
+    <updated>2026-01-20T02:38:55.342Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文写于2026年1月19日。&lt;/p&gt;
-&lt;p&gt;最近在各种AI开发者社区里，Skills、Plugins、MCP这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？&lt;/p&gt;
-&lt;p&gt;在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。&lt;/p&gt;
-&lt;p&gt;这篇文章不讲定义，我想从&lt;strong&gt;工程痛点&lt;/strong&gt;出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;この記事は2026年1月19日に書かれました。&lt;/p&gt;
+&lt;p&gt;最近、AI開発者コミュニティで Skills、Plugins
+といった言葉が頻繁に見られるようになりました。最初は混乱していました—これらは全て「AIにツールを呼び出させる」ことではないのか？なぜこれほど多くの概念が必要なのか？&lt;/p&gt;
+&lt;p&gt;いくつかの Skill
+のコードを見た後、ようやくそれぞれが何の問題を解決しているのかを理解しました。&lt;/p&gt;
+&lt;p&gt;この記事は定義を語るのではなく、&lt;strong&gt;エンジニアリングの課題&lt;/strong&gt;から出発し、なぜこれらが必要なのかを段階的に導き出したいと思います。もしあなたもこれらの新しい用語に混乱しているなら、この記事が考えを整理する助けになれば幸いです。&lt;/p&gt;</summary>
     
     
     
@@ -43,15 +61,15 @@
   </entry>
   
   <entry>
-    <title>Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建</title>
-    <link href="https://lifeodyssey.github.io/posts/fe980c74.html"/>
-    <id>https://lifeodyssey.github.io/posts/fe980c74.html</id>
+    <title>一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？</title>
+    <link href="https://lifeodyssey.github.io/posts/76360465.html"/>
+    <id>https://lifeodyssey.github.io/posts/76360465.html</id>
     <published>2026-01-18T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.688Z</updated>
+    <updated>2026-01-20T02:38:55.342Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文写于2026年1月19日。&lt;/p&gt;
-&lt;p&gt;最近在各种AI开发者社区里，Skills、Plugins、MCP这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？&lt;/p&gt;
+&lt;p&gt;最近在各种AI开发者社区里，Skills、Plugins这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？&lt;/p&gt;
 &lt;p&gt;在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。&lt;/p&gt;
 &lt;p&gt;这篇文章不讲定义，我想从&lt;strong&gt;工程痛点&lt;/strong&gt;出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。&lt;/p&gt;</summary>
     
@@ -73,7 +91,7 @@
     <link href="https://lifeodyssey.github.io/posts/e7dbe30e.html"/>
     <id>https://lifeodyssey.github.io/posts/e7dbe30e.html</id>
     <published>2025-12-07T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.681Z</updated>
+    <updated>2026-01-20T02:38:55.335Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: I have only been using this approach for
@@ -97,7 +115,7 @@ over time.</summary>
     <link href="https://lifeodyssey.github.io/posts/72cf705.html"/>
     <id>https://lifeodyssey.github.io/posts/72cf705.html</id>
     <published>2025-11-02T12:22:56.000Z</published>
-    <updated>2026-01-20T01:58:04.687Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;I recently spent some time taking DeepLearning.AI’s &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic AI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
@@ -135,7 +153,7 @@ implementation details.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/34c938fb.html"/>
     <id>https://lifeodyssey.github.io/posts/34c938fb.html</id>
     <published>2025-11-02T11:22:56.000Z</published>
-    <updated>2026-01-20T01:58:04.687Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近、DeepLearning.AI の &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic AI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;
@@ -168,7 +186,7 @@ Suite&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 
     <link href="https://lifeodyssey.github.io/posts/4e596c51.html"/>
     <id>https://lifeodyssey.github.io/posts/4e596c51.html</id>
     <published>2025-11-02T11:22:56.000Z</published>
-    <updated>2026-01-20T01:58:04.687Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近花了一些时间学习DeepLearning.AI的&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9sZWFybi5kZWVwbGVhcm5pbmcuYWkvY291cnNlcy9hZ2VudGljLWFp&quot;&gt;Agentic
@@ -201,7 +219,7 @@ SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。&
     <link href="https://lifeodyssey.github.io/posts/6d590b83.html"/>
     <id>https://lifeodyssey.github.io/posts/6d590b83.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.686Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文写于2025年6月28日，AI时代的日新月异导致哪怕隔了一天，本文中所写的事实与我的态度都有可能发生极大的变化，请以最新情况为准。&lt;/p&gt;</summary>
@@ -220,7 +238,7 @@ SDK 等略有区别，所以笔记里不会涉及很多的代码实现细节。&
     <link href="https://lifeodyssey.github.io/posts/cb8288cd.html"/>
     <id>https://lifeodyssey.github.io/posts/cb8288cd.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.687Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;This article was written on June 28, 2025. Due to the rapid changes
@@ -242,7 +260,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/ad479b93.html"/>
     <id>https://lifeodyssey.github.io/posts/ad479b93.html</id>
     <published>2025-06-27T16:00:00.000Z</published>
-    <updated>2026-01-20T01:58:04.687Z</updated>
+    <updated>2026-01-20T02:38:55.341Z</updated>
     
     
     <summary type="html">&lt;p&gt;この記事は2025年6月28日に書かれました。AI時代の日進月歩により、一日経っただけでも、本記事に書かれた事実と私の態度が大きく変化する可能性があります。最新の状況を参考にしてください。&lt;/p&gt;</summary>
@@ -261,7 +279,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/ca51402d.html"/>
     <id>https://lifeodyssey.github.io/posts/ca51402d.html</id>
     <published>2025-03-13T11:22:56.000Z</published>
-    <updated>2026-01-20T01:58:04.549Z</updated>
+    <updated>2026-01-20T02:38:55.202Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在设置AWS Inspector的时候发现的一个神奇循环。&lt;/p&gt;
@@ -285,7 +303,7 @@ situation.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/aec625cb.html"/>
     <id>https://lifeodyssey.github.io/posts/aec625cb.html</id>
     <published>2024-09-14T11:22:56.000Z</published>
-    <updated>2026-01-20T01:58:04.676Z</updated>
+    <updated>2026-01-20T02:38:55.330Z</updated>
     
     
     <summary type="html">&lt;p&gt;Let’s compare in two way, Algorithm and system design.&lt;/p&gt;
@@ -307,7 +325,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/49e48baa.html"/>
     <id>https://lifeodyssey.github.io/posts/49e48baa.html</id>
     <published>2024-07-20T07:59:56.000Z</published>
-    <updated>2026-01-20T01:58:04.696Z</updated>
+    <updated>2026-01-20T02:38:55.349Z</updated>
     
     
     <summary type="html">&lt;p&gt;为了解决在国内使用claude的问题，进行了一番研究&lt;/p&gt;</summary>
@@ -326,7 +344,7 @@ continue using ChatGPT.&lt;/p&gt;</summary>
     <link href="https://lifeodyssey.github.io/posts/789fd60c.html"/>
     <id>https://lifeodyssey.github.io/posts/789fd60c.html</id>
     <published>2024-06-19T14:34:45.000Z</published>
-    <updated>2026-01-20T01:58:04.679Z</updated>
+    <updated>2026-01-20T02:38:55.333Z</updated>
     
     
     <summary type="html">&lt;p&gt;In the past, I found it quite hard to understand React code as a
@@ -350,7 +368,7 @@ development work, and I want to share them with you.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/5ffd7c75.html"/>
     <id>https://lifeodyssey.github.io/posts/5ffd7c75.html</id>
     <published>2024-06-15T14:34:45.000Z</published>
-    <updated>2026-01-20T01:58:04.669Z</updated>
+    <updated>2026-01-20T02:38:55.323Z</updated>
     
     
     <summary type="html">&lt;p&gt;I would like to summarize some of the basic principles and habits of
@@ -378,7 +396,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/6ef15720.html"/>
     <id>https://lifeodyssey.github.io/posts/6ef15720.html</id>
     <published>2024-03-03T10:34:45.000Z</published>
-    <updated>2026-01-20T01:58:04.696Z</updated>
+    <updated>2026-01-20T02:38:55.349Z</updated>
     
     
     <summary type="html">&lt;p&gt;总感觉每一年的春天才是新的一年的开始。&lt;/p&gt;</summary>
@@ -397,7 +415,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/8c33e681.html"/>
     <id>https://lifeodyssey.github.io/posts/8c33e681.html</id>
     <published>2024-02-09T08:36:49.000Z</published>
-    <updated>2026-01-20T01:58:04.693Z</updated>
+    <updated>2026-01-20T02:38:55.347Z</updated>
     
     
     <summary type="html">&lt;p&gt;谢谢大家！！！！&lt;/p&gt;
@@ -420,7 +438,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b30efee3.html"/>
     <id>https://lifeodyssey.github.io/posts/b30efee3.html</id>
     <published>2023-08-27T10:03:54.000Z</published>
-    <updated>2026-01-20T01:58:04.697Z</updated>
+    <updated>2026-01-20T02:38:55.350Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前总结的东西 放一下出来 一直记不住的东西之一&lt;/p&gt;</summary>
@@ -439,7 +457,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/a41520c0.html"/>
     <id>https://lifeodyssey.github.io/posts/a41520c0.html</id>
     <published>2023-08-20T17:37:35.000Z</published>
-    <updated>2026-01-20T01:58:04.692Z</updated>
+    <updated>2026-01-20T02:38:55.346Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -469,7 +487,7 @@ principles become even more important.&lt;/p&gt;
     <link href="https://lifeodyssey.github.io/posts/b25cb4c7.html"/>
     <id>https://lifeodyssey.github.io/posts/b25cb4c7.html</id>
     <published>2023-01-08T13:37:35.000Z</published>
-    <updated>2026-01-20T01:58:04.692Z</updated>
+    <updated>2026-01-20T02:38:55.346Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -488,25 +506,6 @@ principles become even more important.&lt;/p&gt;
     
     
     <category term="随便写写" scheme="https://lifeodyssey.github.io/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一个神奇的Kotlin+SpringBoot启动bug</title>
-    <link href="https://lifeodyssey.github.io/posts/8bf3d056.html"/>
-    <id>https://lifeodyssey.github.io/posts/8bf3d056.html</id>
-    <published>2022-12-03T13:37:35.000Z</published>
-    <updated>2026-01-20T01:58:04.692Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这个bug卡了我好久了</summary>
-    
-    
-    
-    <category term="学习笔记" scheme="https://lifeodyssey.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Software Engineering" scheme="https://lifeodyssey.github.io/tags/Software-Engineering/"/>
     
   </entry>
   

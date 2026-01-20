@@ -20,31 +20,24 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.25.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"base16/tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="本科毕设就没搞懂的两个r现在终于弄明白了 大部分内容来自于维基百科 主要讲Brewin 2015里面用到的metrics">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Correlation metrics">
-<meta property="og:url" content="https://lifeodyssey.github.io/posts/e45539ea.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="乔克叔叔的床边故事">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/0.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
-<meta property="og:description" content="本科毕设就没搞懂的两个r现在终于弄明白了 大部分内容来自于维基百科 主要讲Brewin 2015里面用到的metrics">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=y">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=y">
-<meta property="article:published_time" content="2020-12-03T06:51:44.000Z">
-<meta property="article:modified_time" content="2026-01-20T02:38:55.345Z">
+<meta property="article:published_time" content="2026-01-20T02:38:55.342Z">
+<meta property="article:modified_time" content="2026-01-20T02:38:55.342Z">
 <meta property="article:author" content="周大侠">
-<meta property="article:tag" content="Statistics">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=y">
 
 
-<link rel="canonical" href="https://lifeodyssey.github.io/posts/e45539ea.html">
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/0.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/e45539ea.html","path":"posts/e45539ea.html","title":"Correlation metrics"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://lifeodyssey.github.io/posts/0.html","path":"posts/0.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Correlation metrics | 乔克叔叔的床边故事</title>
+<title> | 乔克叔叔的床边故事</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -81,7 +74,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js" defer></script>
 
 
@@ -163,7 +156,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -176,7 +169,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pearsons-r"><span class="nav-number">1.</span> <span class="nav-text">Pearson’s r</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">数学特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">与相关系数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rmsebias-urmse"><span class="nav-number">2.</span> <span class="nav-text">RMSE,Bias, uRMSE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#slope-and-intercept"><span class="nav-number">3.</span> <span class="nav-text">Slope and Intercept</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#log-transfermation"><span class="nav-number">4.</span> <span class="nav-text">Log transfermation</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +239,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/e45539ea.html">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -260,12 +252,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Correlation metrics | 乔克叔叔的床边故事">
+      <meta itemprop="name" content=" | 乔克叔叔的床边故事">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Correlation metrics
+          
         </h1>
 
         <div class="post-meta-container">
@@ -276,16 +268,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-12-03 14:51:44" itemprop="dateCreated datePublished" datetime="2020-12-03T14:51:44+08:00">2020-12-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-        </span>
+      <time title="Created: 2026-01-20 10:38:55" itemprop="dateCreated datePublished" datetime="2026-01-20T10:38:55+08:00">2026-01-20</time>
     </span>
 
   
@@ -295,14 +278,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.4k</span>
+      <span>0</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>1 mins.</span>
     </span>
 </div>
 
@@ -312,124 +295,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>本科毕设就没搞懂的两个r现在终于弄明白了</p>
-<p>大部分内容来自于维基百科</p>
-<p>主要讲Brewin 2015里面用到的metrics</p>
-<span id="more"></span>
-<h1 id="pearsons-r">Pearson’s r</h1>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中，<strong>皮尔逊积矩相关系数</strong>（英语：Pearson
-product-moment correlation coefficient，又称作
-<strong>PPMCC</strong>或<strong>PCCs</strong>[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55qu5bCU6YCK56ev55+p55u45YWz57O75pWwI2NpdGVfbm90ZS0x">1]<i class="fa fa-external-link-alt"></i></span>,
-文章中常用r或Pearson’s r表示）用于度量两个变量X和Y之间的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz">相关<i class="fa fa-external-link-alt"></i></span>程度（线性相关），其值介于-1与1之间。</p>
-<h2 id="定义">定义</h2>
-<p>两个变量之间的皮尔逊相关系数定义为两个变量的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Y2P5pa55beu">协方差<i class="fa fa-external-link-alt"></i></span>除以它们<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5qCH5YeG5beu">标准差<i class="fa fa-external-link-alt"></i></span>的乘积： <span
-class="math display">$$
-\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_X\sigma_Y}=\frac{E[(X-\mu_x)(Y-\mu_Y)]}{\sigma_{X}\sigma{Y}}
-$$</span></p>
-<p>这个是总体相关系数，对于我们抽样的样本，我们可以得到样本相关系数
-<span class="math display">$$
-r=\frac{\sum_{i=1}^{n}(X_i-X)\sum_{i=1}^{n}(Y_i-Y)}{\sqrt{\sum_{n=1}^{n}}(X_i-\bar{X})^2\sqrt{\sum_{n=1}^{n}}(Y_i-\bar{Y})^2}
-$$</span></p>
-<p>其中<span class="math inline"><em>X̄</em></span>代表样本平均值</p>
-<h2 id="数学特性">数学特性</h2>
-<p>总体和样本皮尔逊系数的绝对值小于或等于1。如果样本数据点精确的落在直线上（计算样本皮尔逊系数的情况），或者双变量分布完全在直线上（计算总体皮尔逊系数的情况），则相关系数等于1或-1。皮尔逊系数是对称的：corr(X,Y)
-= corr(Y,X)。</p>
-<p>皮尔逊相关系数有一个重要的数学特性是，因两个变量的位置和尺度的变化并不会引起该系数的改变，即它该变化的<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5LiN5Y+Y6YeP">不变量<i class="fa fa-external-link-alt"></i></span>
-(由符号确定)。也就是说，我们如果把X移动到a + bX和把Y移动到c +
-dY，其中a、b、c和d是常数，并不会改变两个变量的相关系数（该结论在总体和样本皮尔逊相关系数中都成立）</p>
-<h2 id="与相关系数">与相关系数</h2>
-<p>这个是最容易混淆的，首先明确<span
-class="math inline"><em>R</em><sup>2</sup> ≠ <em>r</em><sup>2</sup></span>并不一直成立，最简单的可以从计算方式来看。</p>
-<p><strong>决定系数</strong>（英语：coefficient of
-determination，记为<em>R</em>2或<em>r</em>2）在<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5a2m">统计学<i class="fa fa-external-link-alt"></i></span>中用于度量因变量的变异中可由自变量解释部分所占的比例，以此来判断<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57uf6K6h5qih5Z6L">统计模型<i class="fa fa-external-link-alt"></i></span>的解释力。</p>
-<p>对于简单<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv57ea5oCn5Zue5q24">线性回归<i class="fa fa-external-link-alt"></i></span>而言，决定系数为样本<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv55u45YWz57O75pWw">相关系数<i class="fa fa-external-link-alt"></i></span>的平方。[<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kv5Yaz5a6a57O75pWwI2NpdGVfbm90ZS1EZXZvcmUtNA==">4]<i class="fa fa-external-link-alt"></i></span>当加入其他回归自变量后，决定系数相应地变为多重相关系数的平方。</p>
-<p>假设一数据集包括<span
-class="math inline"><em>y</em><sub>1</sub>, ..., <em>y</em><sub><em>n</em></sub></span><em>共</em>n<em>个观察值，相对应的模型预测值分别为</em><span
-class="math inline"><em>f</em><sub>1</sub>, ..., <em>f</em><sub><em>n</em></sub></span>。定义<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPeaui+W3riZhY3Rpb249ZWRpdCZyZWRsaW5rPTE=">残差<i class="fa fa-external-link-alt"></i></span><span
-class="math inline"><em>e</em><sub><em>i</em></sub> = <em>y</em><sub><em>i</em></sub> − <em>f</em><sub><em>i</em></sub></span>，平均观察值为
-<span class="math display">$$
-\bar{y}=\frac{1}{n}\sum_{i=1}^{n}y_i,
-$$</span> 于是可以得到总平方和 <span
-class="math display"><em>S</em><em>S</em><sub><em>t</em><em>o</em><em>t</em></sub> = ∑<sub><em>i</em></sub>(<em>y</em><sub><em>i</em></sub>−<em>ȳ</em>)<sup>2</sup>,</span>
-回归平方和 <span
-class="math display"><em>S</em><em>S</em><sub><em>r</em><em>e</em><em>g</em></sub> = ∑<sub><em>i</em></sub>(<em>f</em><sub><em>i</em></sub>−<em>ȳ</em>)<sup>2</sup>,</span>
-残差平方和 <span
-class="math display"><em>S</em><em>S</em><sub><em>r</em><em>e</em><em>s</em></sub> = ∑<sub><em>i</em></sub>(<em>y</em><sub><em>i</em></sub> − <em>f</em><sub><em>i</em></sub>)<sup>2</sup> = ∑<sub><em>i</em></sub><em>e</em><sub><em>i</em></sub><sup>2</sup>,</span>
-由此，决定系数可以定义为 <span class="math display">$$
-R^2=1-\frac{SS_{res}}{SS_{tot}}
-$$</span> 简单点说r计算是在xy之间，R^2计算是在y y_fit之间。</p>
-<p>所以R^2的理论范围是<span
-class="math inline">( − ∞, 1]</span>，并不是<span
-class="math inline">[0,1]</span></p>
-<p>只有对于线性回归的最小二乘拟合才有<span
-class="math inline">$\rho(x,y)=\pm\sqrt{R^2}$</span></p>
-<p>证明如下 <span class="math display">$$
-\rho(x,y)=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}
-$$</span></p>
-<p><span class="math display">$$
-\rho(\hat{y},y)=\frac{\sum_{i=1}^{n}(\hat{y}_i-\bar{y})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(\hat{y}_i-\bar{y})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=\frac{\beta_1\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\beta_1\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\beta_1\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=sgn(\beta_1)\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{n=1}^{n}}(x_i-\bar{x})^2\sqrt{\sum_{n=1}^{n}}(y_i-\bar{y})^2}\\
-=sgn(\beta_1)\rho(x,y)
-$$</span></p>
-<p>在特殊情况下，<strong>带有截距项的线性最小二乘多元回归中</strong>，<img
-src="https://www.zhihu.com/equation?tex=R%5E2"
-alt="[公式]" />等于实测值<img src="https://www.zhihu.com/equation?tex=y"
-alt="[公式]" />和拟合值<img
-src="https://www.zhihu.com/equation?tex=%5Chat%7By%7D"
-alt="[公式]" />的相关系数的平方。</p>
-<p>另一个特殊情况是，<strong>带有截距项的线性最小二乘简单回归中</strong>，<img
-src="https://www.zhihu.com/equation?tex=R%5E2"
-alt="[公式]" />等于自变量<img src="https://www.zhihu.com/equation?tex=x"
-alt="[公式]" />和因变量<img src="https://www.zhihu.com/equation?tex=y"
-alt="[公式]" />的相关系数的平方</p>
-<p>主要来自https://www.zhihu.com/question/32021302</p>
-<p>scikit-learn里的r2是R2</p>
-<h1 id="rmsebias-urmse">RMSE,Bias, uRMSE</h1>
-<p>这几个都是y和y_fit，很简单，直接上截图吧懒得写</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221344982.png"
-alt="image-00021216221344982" />
-<figcaption aria-hidden="true">image-00021216221344982</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221433256.png"
-alt="image-00021216221433256" />
-<figcaption aria-hidden="true">image-00021216221433256</figcaption>
-</figure>
-<p>Bias有时也用Relative bias或者MAPE</p>
-<h1 id="slope-and-intercept">Slope and Intercept</h1>
-<figure>
-<img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00021216221526273.png"
-alt="image-00021216221526273" />
-<figcaption aria-hidden="true">image-00021216221526273</figcaption>
-</figure>
-<p>Type-2用的是这个包https://github.com/OceanOptics/pylr2</p>
-<p>我觉得没啥问题 一看就很专业</p>
-<h1 id="log-transfermation">Log transfermation</h1>
-<p>主要是要搞明白这个</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/image-00030609133319132.png"
-alt="image-00030609133319132" />
-<figcaption aria-hidden="true">image-00030609133319132</figcaption>
-</figure>
-<p>图里两条虚线分别是Y=2X和Y=X/2。</p>
-<p>X轴每一个大tick代表的是log10(in situ Chla), Y轴代表的是log10(Chla
-OC3M)，标注的数字是in situ Chla和Chla OC3M</p>
-<p>这也是为啥 那条Regression line是Log(y)=a*log(x)+b。</p>
-<p>调换一下 就是 y=x10^a + 10^b。</p>
-<p>虽然X轴和Y轴标注的数字就是那个In situ
-Chla，但是实际上每一格对应的数字是1,2,3,4，标注的对应的是10^1, 10^2,
-10^3, 10^4，这也是那个Minor tick会先大间隔后小间隔的原因。</p>
-<p>但是y=2x和y=x/2这两条线代表的还是Chla OC3M=2 in situ
-Chla这种的情况</p>
-<p>但是在Linear的里面这仨不是平行线，在这里平行了</p>
-<p>是因为实质上 画的这两条线是log chla oc3m=log2 +login situ Chla</p>
-<p>log2大概是0.3，对应的就是10</p>
+    <div class="post-body" itemprop="articleBody">
 
     </div>
 
@@ -447,7 +313,7 @@ Chla这种的情况</p>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://lifeodyssey.github.io/posts/e45539ea.html" title="Correlation metrics">https://lifeodyssey.github.io/posts/e45539ea.html</a>
+      <a href="https://lifeodyssey.github.io/posts/0.html" title="">https://lifeodyssey.github.io/posts/0.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -455,22 +321,16 @@ Chla这种的情况</p>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/cd046c9b.html" rel="prev" title="Publishable plot using python&amp;R">
-                  <i class="fa fa-angle-left"></i> Publishable plot using python&R
+                <a href="/posts/824291ea.html" rel="prev" title="Claude Code の Skills と Plugins を理解する：彼らは一体何の問題を解決しているのか?">
+                  <i class="fa fa-angle-left"></i> Claude Code の Skills と Plugins を理解する：彼らは一体何の問題を解決しているのか?
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/94a46e7b.html" rel="next" title="2020">
-                  2020 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

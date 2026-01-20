@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"lifeodyssey.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.25.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"base16/tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"max"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="本文写于2026年1月19日。 最近在各种AI开发者社区里，Skills、Plugins、MCP这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？ 在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。 这篇文章不讲定义，我想从工程痛点出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。">
+    <meta name="description" content="本文写于2026年1月19日。 最近在各种AI开发者社区里，Skills、Plugins这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？ 在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。 这篇文章不讲定义，我想从工程痛点出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建">
-<meta property="og:url" content="https://lifeodyssey.github.io/posts/fe980c74.html">
+<meta property="og:title" content="一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？">
+<meta property="og:url" content="https://lifeodyssey.github.io/posts/76360465.html">
 <meta property="og:site_name" content="乔克叔叔的床边故事">
-<meta property="og:description" content="本文写于2026年1月19日。 最近在各种AI开发者社区里，Skills、Plugins、MCP这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？ 在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。 这篇文章不讲定义，我想从工程痛点出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。">
+<meta property="og:description" content="本文写于2026年1月19日。 最近在各种AI开发者社区里，Skills、Plugins这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？ 在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。 这篇文章不讲定义，我想从工程痛点出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2026-01-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-20T01:58:04.688Z">
+<meta property="article:modified_time" content="2026-01-20T02:38:55.342Z">
 <meta property="article:author" content="周大侠">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="Claude Code">
@@ -36,13 +36,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://lifeodyssey.github.io/posts/fe980c74.html">
+<link rel="canonical" href="https://lifeodyssey.github.io/posts/76360465.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh","comments":true,"permalink":"https://lifeodyssey.github.io/posts/fe980c74.html","path":"posts/fe980c74.html","title":"Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh","comments":true,"permalink":"https://lifeodyssey.github.io/posts/76360465.html","path":"posts/76360465.html","title":"一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建 | 乔克叔叔的床边故事</title>
+<title>一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？ | 乔克叔叔的床边故事</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135697820-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-135697820-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -198,7 +198,7 @@ Plugin的结构（打包多个Skills）</span></a></li><li class="nav-item nav-l
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">171</span>
+          <span class="site-state-item-count">172</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -256,7 +256,7 @@ Plugin的结构（打包多个Skills）</span></a></li><li class="nav-item nav-l
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh">
-    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/fe980c74.html">
+    <link itemprop="mainEntityOfPage" href="https://lifeodyssey.github.io/posts/76360465.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -269,12 +269,12 @@ Plugin的结构（打包多个Skills）</span></a></li><li class="nav-item nav-l
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建 | 乔克叔叔的床边故事">
+      <meta itemprop="name" content="一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？ | 乔克叔叔的床边故事">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建
+          一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？
         </h1>
 
         <div class="post-meta-container">
@@ -304,14 +304,14 @@ Plugin的结构（打包多个Skills）</span></a></li><li class="nav-item nav-l
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>5.1k</span>
+      <span>5.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>18 mins.</span>
+      <span>19 mins.</span>
     </span>
 </div>
 
@@ -322,12 +322,19 @@ Plugin的结构（打包多个Skills）</span></a></li><li class="nav-item nav-l
     
     
     <div class="post-body" itemprop="articleBody"><p>本文写于2026年1月19日。</p>
-<p>最近在各种AI开发者社区里，Skills、Plugins、MCP这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？</p>
+<p>最近在各种AI开发者社区里，Skills、Plugins这些词被刷屏了。我一开始也是一头雾水——这些东西不都是”让AI调用工具”吗？为什么要搞这么多概念？</p>
 <p>在看了好几个Skill的代码之后，我才理解它们各自在解决什么问题。</p>
 <p>这篇文章不讲定义，我想从<strong>工程痛点</strong>出发，一步步推导出为什么我们需要这些东西。如果你也被这些新词搞得晕头转向，希望这篇文章能帮你理清思路。</p>
 <span id="more"></span>
-<p><img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200907138.png" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200907138.png"
+alt="Context Window 管理策略总览：Multi-Agent（分治隔离）、Agentic Workflow（智能编排）、RAG（按需检索）和 Skills（懒加载）四种方案围绕有限的 Context Window 展开" />
+<figcaption aria-hidden="true">Context Window
+管理策略总览：Multi-Agent（分治隔离）、Agentic
+Workflow（智能编排）、RAG（按需检索）和
+Skills（懒加载）四种方案围绕有限的 Context Window 展开</figcaption>
+</figure>
 <h1 id="一切的源头context-是昂贵的">1. 一切的源头：Context 是昂贵的</h1>
 <p>所有人都知道 Function Calling (Tool Use) 是 Agent
 的基础。但很多人没意识到的是，<strong>让模型”知道”它有什么工具，本身就是极昂贵的</strong>。</p>
@@ -378,8 +385,14 @@ Solutions：解决上下文污染</h1>
 <li><code>Writer Agent</code>：只有 2 个 file tools。</li>
 </ul></li>
 </ul>
-<p><img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200908673.png" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200908673.png"
+alt="Multi-Agent 架构示意图：展示 God Mode Agent（单一全能代理）与 Team of Agents（专业化分工团队）的对比架构" />
+<figcaption aria-hidden="true">Multi-Agent 架构示意图：展示 God Mode
+Agent（单一全能代理）与 Team of
+Agents（专业化分工团队）的对比架构</figcaption>
+</figure>
 <p>在 Agent 框架的语境下，这被称为
 <strong>Sub-agents</strong>。区别在于： *
 <strong>Multi-Agent</strong>：通常指平级的、甚至可以互相聊天的 Agent
@@ -451,8 +464,14 @@ Much” Problem -&gt; Skills &amp; Plugins</h1>
 Workflow</strong>：智能编排。 * <strong>RAG</strong>：按需检索 agent 和
 MCP。</p>
 <p>看似完美了？不。还有两个问题没解决。</p>
-<p><img
-src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200910048.png" /></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/lifeodyssey/Figurebed/master/202601200910048.png"
+alt="Skills 解决的两大痛点：左侧展示”SOP 流程知识无处安放”的困境，右侧展示”运行时生成代码质量不可控”的问题，底部展示 Skills 作为经过验证、可复用、懒加载的解决方案" />
+<figcaption aria-hidden="true">Skills 解决的两大痛点：左侧展示”SOP
+流程知识无处安放”的困境，右侧展示”运行时生成代码质量不可控”的问题，底部展示
+Skills 作为经过验证、可复用、懒加载的解决方案</figcaption>
+</figure>
 <h3 id="问题一sop-无处安放">问题一：SOP 无处安放</h3>
 <p>我们有了<strong>数据</strong>（RAG），有了<strong>工具</strong>（MCP），但还缺一样东西：<strong>流程知识
 (Know-How)</strong>。</p>
@@ -855,7 +874,7 @@ Window 是有限的</strong>。</p>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://lifeodyssey.github.io/posts/fe980c74.html" title="Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建">https://lifeodyssey.github.io/posts/fe980c74.html</a>
+      <a href="https://lifeodyssey.github.io/posts/76360465.html" title="一文搞懂 Claude Code 的 Skills和Plugins：它们到底在解决什么问题？">https://lifeodyssey.github.io/posts/76360465.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9lbg=="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -878,8 +897,8 @@ Window 是有限的</strong>。</p>
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/fe980c74.html" rel="next" title="Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建">
-                  Claude Code Skills 与 Plugins 指南：从概念混淆到自己动手构建 <i class="fa fa-angle-right"></i>
+                <a href="/posts/824291ea.html" rel="next" title="Claude Code の Skills と Plugins を理解する：彼らは一体何の問題を解決しているのか?">
+                  Claude Code の Skills と Plugins を理解する：彼らは一体何の問題を解決しているのか? <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -911,13 +930,13 @@ Window 是有限的</strong>。</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">301k</span>
+    <span title="Word count total">303k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">18:16</span>
+    <span title="Reading time total">18:21</span>
   </span>
 </div>
   <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9taXN0Lw==">NexT.Mist</span>
